@@ -1,0 +1,9 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block subject %}
+    {{ subject }}
+{% endblock %}
+
+{% block body %}
+        {{ body | raw }}
+{% endblock %}

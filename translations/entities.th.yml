@@ -1,0 +1,703 @@
+user:
+  fullName: ชื่อผู้ใช้
+  email: อีเมล
+  role: บทบาท
+  lastLoggedAt: เข้าสู่ระบบล่าสุด
+  status: สถานะ
+  userGroups: กลุ่มผู้ใช้
+client:
+  name: ชื่อ บริษัท
+  status: สถานะ
+  plan: วางแผน
+  keyContact: ติดต่อกุญแจ
+  manager: ผู้จัดการ
+  usersCount: ผู้ใช้รวม
+  activeUsersCount: ผู้ใช้งาน
+  devicesCount: อุปกรณ์ทั้งหมด
+  activeDevicesCount: อุปกรณ์ที่ใช้งานอยู่
+  vehiclesCount: รวมยานพาหนะทั้งหมด
+  activeVehiclesCount: ยานพาหนะที่ใช้งานอยู่
+  createdAt: วันที่สร้าง
+vehicle:
+  id: หมายเลขยานพาหนะ
+  model: แบบอย่าง
+  type: พิมพ์
+  defaultLabel: ชื่อยานพาหนะ
+  year: ปีที่มีปัญหา
+  regDate: ปี
+  vin: วินิจ
+  regNo: ยานพาหนะ reg. ไม่.
+  status: สถานะ
+  driver: คนขับ
+  driverName: คนขับ
+  depot: คลังสินค้า
+  groups: กลุ่ม
+  fuelType: ประเภทเชื้อเพลิง
+  fuelTankCapacity: ความจุถังน้ำมันเชื้อเพลิง
+  averageDailyMileage: ไมล์สะสมเฉลี่ยต่อวัน
+  mileage: ระยะทาง
+  engineHours: ชั่วโมงเครื่องยนต์
+device:
+  id: รหัสอุปกรณ์
+  model: แบบอย่าง
+  sn: sn
+  port: ท่าเรือ
+  hw: ฮือ
+  sw: คน
+  imsi: IMSI
+  devEui: Deveui
+  protocol: มาตรการ
+  client: ลูกค้า
+  vendor: ผู้ขาย
+  status: สถานะ
+  imei: imei
+  phone: หมายเลขโทรศัพท์
+  installDate: วันที่ติดตั้ง
+  vehicle: ยานพาหนะ
+  lastActiveTime: เวลาที่ใช้งานล่าสุด
+  createdAt: วันที่สร้าง
+  updatedAt: อัปเดตวันที่
+  updatedBy: อัปเดตโดย
+  createdBy: สร้างโดย
+eventlog:
+  headers:
+    general:
+      id: id
+      formattedDate: วันที่
+      importance: ความสำคัญ
+      eventTeam: ทีม
+      eventType: ประเภทเหตุการณ์
+      triggeredDetails: ทริกเกอร์โดย (อินสแตนซ์)
+      eventSource: แหล่งที่มาของเหตุการณ์
+      eventSourceType: ประเภทแหล่งที่มาของเหตุการณ์
+      notificationGenerated: การแจ้งเตือนที่เกิดขึ้น?
+      notificationsList: การแจ้งเตือน
+      limit: ขีด จำกัด
+      oldValue: ค่าเก่า
+      newValue: ค่าใหม่
+    userCreated:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: ผู้ใช้ใหม่
+    userBlocked:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: ผู้ใช้ที่ถูกบล็อก
+    userDeleted:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: ผู้ใช้ที่ถูกลบ
+    userPwdResset:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: ผู้ใช้
+    userNameChanged:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: ผู้ใช้
+    loginAsUser:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: เข้าสู่ระบบเป็น
+    clientCreated:
+      triggeredDetails: โดยผู้ใช้
+    deviceInfo:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: imei
+    documentRecordInfo:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: แนบไปกับ
+      expiredDate: วันหมดอายุ
+      vehicleRegNo: ไม่มี
+      title: ชื่อ
+    documentInfo:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: ชื่อ
+      expiredDate: วันหมดอายุ
+      vehicleRegNo: ไม่มี
+    vehicleInfo:
+      triggeredDetails: โดยผู้ใช้
+      eventSource: ไม่มี
+    trackerInfo:
+      triggeredDetails: คนขับ
+      eventSource: ไม่มี
+      shortDetails: รายละเอียด
+      areas: พื้นที่
+      maxSpeed: ความเร็ว
+      duration: ระยะเวลา
+      distance: ระยะทาง
+      deviceVoltage: แรงดันไฟฟ้า
+      address: ที่อยู่
+      temperature: อุณหภูมิ
+      humidity: ความชื้น
+      batteryLevel: ระดับแบตเตอรี่
+      light: แสงสว่าง
+      status: สถานะ
+      sensorIOTypeId: ประเภท I / O ดิจิตอล
+      deviceBatteryPercentage: เปอร์เซ็นต์แบตเตอรี่
+    assetInfo:
+      createdBy: สร้างโดย
+      deletedBy: ลบโดย
+      eventSource: สินทรัพย์
+    digitalForm:
+      formNotCompleted:
+        eventSource: ไม่มี
+      eventSource: ชื่อ
+      user: โดยผู้ใช้
+      triggeredDetails: คนขับ
+      form: ชื่อรูปแบบ
+      vehicleRegNo: ไม่มี
+    sensor:
+      temperature: อุณหภูมิ
+      humidity: ความชื้น
+      light: แสงสว่าง
+      batteryLevel: ระดับแบตเตอรี่
+      triggeredDetails: โดยเซ็นเซอร์
+    data:
+      additionalParams:
+        timeDuration: เวลา
+        overSpeed: ความเร็ว
+        deviceVoltage: แรงดันไฟฟ้า
+    stripe:
+      triggeredDetails: โดยผู้ใช้
+    xero:
+      triggeredDetails: โดยผู้ใช้
+
+fuelcard:
+  id: id
+  model: แบบอย่าง
+  regNo: ชั้นล่าง
+  defaultLabel: ชื่อ
+  driver: คนขับ
+  groupsList: กลุ่ม
+  depotName: คลังสินค้า
+  fuelType: ประเภทเชื้อเพลิง
+  fuelCardNumber: หมายเลขบัตรเชื้อเพลิง
+  refueled: เติมน้ำมัน, L
+  total: รวม (AUD)
+  fuelPrice: ราคาน้ำมันเชื้อเพลิง
+  petrolStation: ปั๊มน้ำมัน
+  refueledFuelType: ประเภทเชื้อเพลิง
+  startDate: วันที่ทำธุรกรรม
+  transactionDate: วันที่ทำธุรกรรม
+  reg_no: ยานพาหนะ regno
+  depot: คลังสินค้า
+  groups: กลุ่ม
+  mileage: ระยะทาง
+  transactionTime: Transaction Time
+  cardAccountNumber: Card Account
+  vehicle: Vehicle Number
+  odometer: Odometer
+  cardAccountNo: Card account No
+  siteId: Site ID
+  productCode: Product Code
+  pumpPrice: Pump Price
+  stationAddress: ที่ตั้งไซต์
+  vehicleAddress: ตำแหน่งรถ
+  ifcsOdometer: IFCS Odometer
+  serviceStation: Service Station
+
+reminder:
+  id: id
+  vehicleRegNo: ยานพาหนะ regno
+  regNo: ยานพาหนะ regno
+  vehicleDefaultLabel: ชื่อยานพาหนะ
+  defaultLabel: ชื่อยานพาหนะ
+  regno: ยานพาหนะ regno
+  vehicleName: ชื่อยานพาหนะ
+  vehicleModel: แบบอย่าง
+  driver: คนขับ
+  vehicleGroups: กลุ่ม
+  vehicleDepot: คลังสินค้า
+  category: ประเภทการบำรุงรักษา
+  categoryName: หมวดหมู่
+  categoryId: ประเภทการบำรุงรักษา
+  title: ชื่อ
+  status: สถานะ
+  remainingDays: วันที่เหลือ
+  remainingMileage: ระยะทางที่เหลืออยู่
+  remainingHours: เวลาเครื่องยนต์ที่เหลืออยู่
+  date: วันหมดอายุ
+  mileage: ไมล์สะสม
+  hours: ชั่วโมงควบคุม
+  controlDate: วันหมดอายุ
+  controlMileage: ระยะควบคุม
+  controlHours: ควบคุมชั่วโมง
+  note: หมายเหตุ
+  notes: หมายเหตุ
+  updatedAt: แก้ไขล่าสุด
+  lastModified: แก้ไขล่าสุด
+  lastModifiedDate: วันที่แก้ไขล่าสุด
+  lastModifiedTime: เวลาที่แก้ไขล่าสุด
+  createdAt: สร้าง
+  createdAtDate: วันที่สร้าง
+  createdAtTime: เวลาที่สร้างขึ้น
+remindercategory:
+  name: ชื่อ
+  status: สถานะ
+route:
+  defaultlabel: ชื่อยานพาหนะ
+  defaultLabel: ชื่อยานพาหนะ
+  regno: หมายเลขทะเบียน
+  model: แบบอย่าง
+  started_at: วันที่จาก
+  finished_at: วันที่
+  started_at_date: เริ่มต้นวันที่
+  finished_at_date: เสร็จสิ้นวันที่
+  started_at_time: เริ่มต้นเวลา
+  finished_at_time: เสร็จสิ้นเวลา
+  driver_name: คนขับ
+  depot_name: คลังสินค้า
+  groups: กลุ่ม
+  address_from: ที่อยู่จาก
+  address_to: ที่อยู่ไป
+  distance: ระยะทาง (กม.)
+  start_odometer: เริ่มโตมิเตอร์
+  finish_odometer: ตัววัดระยะทางท้าย
+  driving_time: 'เวลาในการขับขี่ (HH: MM: SS)'
+  idling_time: 'เวลาที่ไม่ทำงาน (HH: MM: SS)'
+  avg_speed: ความเร็วเฉลี่ย
+  max_speed: ความเร็วสูงสุด
+  start_areas_name: goofence จาก
+  finish_areas_name: goofence ถึง
+  address: ที่อยู่
+  areas_name: GEOFENCE
+  parking_time: 'เวลาจอดรถ (HH: MM: SS)'
+  eco_drive_events: เหตุการณ์ eco ไดรฟ์
+  eco_drive_score: คะแนน eco ไดรฟ์
+  stops_count: หยุด
+  speeding_events_count: การเร่งกิจกรรม
+  work_distance: ระยะทางทำงาน (กม.)
+  work_duration: 'เวลาทำงาน (HH: MM: SS)'
+  private_distance: ระยะทางส่วนตัว (กม.)
+  private_duration: 'ระยะเวลาส่วนตัว (HH: MM: SS)'
+  total_distance: รวมระยะทาง (กม.)
+  total_duration: 'ระยะเวลาทั้งหมด (HH: MM: SS)'
+  scope: ประเภทการเดินทาง
+  comment: ความคิดเห็นการเดินทาง
+  used_vehicles: ยานพาหนะที่ใช้แล้ว
+  work_percentage: เปอร์เซ็นต์งาน
+  private_percentage: เปอร์เซ็นต์ส่วนตัว
+  unclassified_percentage: เปอร์เซ็นต์ที่ไม่จำแนกประเภท
+  unclassified_duration: ระยะเวลาที่ไม่จำแนกประเภท (HH:MM:SS)
+  unclassified_distance: ระยะทางที่ไม่จำแนกประเภท (กม.)
+  start_areas_group_name: เริ่มกลุ่มพื้นที่
+  finish_areas_group_name: เสร็จสิ้นกลุ่มพื้นที่
+  area_group_name: กลุ่มพื้นที่
+area:
+  geofenceId: รหัส Geofence
+  geofence: ชื่อ groogence
+  totalTime: 'เวลารวมใน Geofence (HH: MM: SS)'
+  numberOfVisits: จำนวนการเข้าชม
+  averageTime: 'เวลาเฉลี่ยใน GEOFENCE (HH: MM: SS)'
+  model: แบบอย่าง
+  regNo: ยานพาหนะ regno
+  defaultLabel: ยานพาหนะ
+  depot: คลังสินค้า
+  arrivedAt: มาถึง
+  arrivedAtDate: วันที่มาถึง
+  arrivedAtTime: เวลามาถึง
+  departedAt: ออกไป
+  departedAtDate: วันที่ออกเดินทาง
+  departedAtTime: เวลาที่ออกเดินทาง
+  groups: กลุ่ม
+  odometer: เครื่องวัดระยะทาง
+  driver: คนขับ
+  idlingTime: 'เวลาที่ไม่ทำงาน (HH: MM: SS)'
+  parkingTime: 'เวลาจอดรถ (HH: MM: SS)'
+speeding:
+  id: id เร่งความเร็ว
+  defaultLabel: ยานพาหนะ
+  regNo: ยานพาหนะ regno
+  model: แบบอย่าง
+  driver: คนขับ
+  groups: กลุ่ม
+  depot: คลังสินค้า
+  startedAt: เริ่มที่
+  startedAtDate: วันที่เริ่มต้น
+  startedAtTime: เวลาเริ่มต้น
+  finishedAt: เสร็จที่
+  finishedAtDate: วันที่เสร็จสิ้น
+  finishedAtTime: เวลาเสร็จ
+  distance: ระยะทาง (กม.)
+  avgSpeed: ความเร็วเฉลี่ย
+  maxSpeed: ความเร็วสูงสุด
+  postedLimit: โพสต์ขีด จำกัด
+vehicle_summary:
+  id: รหัสยานพาหนะ
+  model: แบบอย่าง
+  regNo: ยานพาหนะ regno
+  reg_no: ยานพาหนะ regno
+  regno: ยานพาหนะ regno
+  defaultLabel: ยานพาหนะ
+  defaultlabel: ยานพาหนะ
+  depot: คลังสินค้า
+  groups: กลุ่ม
+  privateDistance: ระยะทางส่วนตัว (กม.)
+  private_distance: ระยะทางส่วนตัว (กม.)
+  workDistance: ระยะทางทำงาน (กม.)
+  work_distance: ระยะทางทำงาน (กม.)
+  distance: ระยะทาง (กม.)
+  startOdometer: เริ่มต้นวัดระยะทาง
+  start_odometer: เริ่มต้นวัดระยะทาง
+  endOdometer: ปลายวัดระยะทาง
+  end_odometer: ปลายวัดระยะทาง
+  maxSpeed: ความเร็วสูงสุด
+  max_speed: ความเร็วสูงสุด
+  stops: หยุด
+  parkingTime: 'เวลาจอดรถ (HH:MM:SS)'
+  parking_time: 'เวลาจอดรถ (HH:MM:SS)'
+  drivingTime: 'เวลาในการขับขี่ (HH:MM:SS)'
+  driving_time: 'เวลาในการขับขี่ (HH:MM:SS)'
+  idlingTime: 'เวลาที่ไม่ทำงาน (HH:MM:SS)'
+  ecoDriveScores: คะแนน ECO ไดรฟ์
+  eco_drive_scores: คะแนน ECO ไดรฟ์
+  eco_speeding_events: กิจกรรม ECO ไดรฟ์
+  ecoSpeedingEvents: กิจกรรม ECO ไดรฟ์
+  speeding_events: การเร่งกิจกรรม
+  speedingEvents: การเร่งกิจกรรม
+  minEngineOnTime: เวลาสตาร์ทเครื่องยนต์
+  min_engine_on_time: เวลาสตาร์ทเครื่องยนต์
+  maxEngineOnTime: ชั่วโมงเครื่องยนต์สิ้นสุด
+  max_engine_on_time: ชั่วโมงเครื่องยนต์สิ้นสุด
+  engineOnTime: รวมชั่วโมงเครื่องยนต์
+  engine_on_time: รวมชั่วโมงเครื่องยนต์
+  date: วันที่
+vehicle_io:
+  id: รหัสยานพาหนะ
+  vehicleId: รหัสยานพาหนะ
+  deviceId: รหัสอุปกรณ์
+  model: แบบอย่าง
+  regno: ยานพาหนะ regno
+  defaultlabel: ยานพาหนะ
+  depotName: คลังสินค้า
+  depotId: ID คลังเก็บ
+  groups: กลุ่ม
+  driverName: คนขับ
+  inputType: ประเภทอินพุต
+  inputLabel: ป้ายโฆษณา
+  inputValueOn: ค่าอินพุตบน
+  tsOn: เปิด
+  positionOn: ที่อยู่
+  inputValueOff: ค่าอินพุตปิด
+  tsOff: ปิด
+  positionOff: ปิดที่อยู่
+  startAreasName: พื้นที่บน
+  finishAreasName: พื้นที่ปิด
+  duration: 'ระยะเวลา (HH: MM: SS)'
+  distance: ระยะทาง (กม.)
+  fuelConsumed: น้ำมันเชื้อเพลิงที่บริโภค
+  durationTotal: 'ระยะเวลาทั้งหมด (HH: MM: SS)'
+  distanceTotal: รวมระยะทาง (กม.)
+servicerecord:
+  defaultlabel: ชื่อยานพาหนะ
+  defaultLabel: ชื่อยานพาหนะ
+  regno: หมายเลขทะเบียน
+  model: แบบอย่าง
+  depot_name: คลังสินค้า
+  groups: กลุ่ม
+  sr_last_date: วันที่ให้บริการล่าสุด
+  sr_last_date_date: วันที่ให้บริการล่าสุด
+  sr_last_date_time: เวลาบริการล่าสุด
+  sr_count: รายการบริการ
+  sr_cost: จำนวนเงินทั้งหมด
+  sr_amount: จำนวน
+  sr_amount_total: จำนวน
+  sr_note: หมายเหตุ
+  sr_date: วันที่
+  sr_date_date: วันที่
+  sr_date_time: เวลา
+  r_category: ประเภทการบำรุงรักษา
+  date: วันที่
+  repairTitle: ชื่อ
+  repair_title: ชื่อ
+  repairCategory: หมวดหมู่
+  user: ผู้ใช้
+  cost: ค่าใช้จ่าย
+  note: บันทึก
+  title: ชื่อ
+  created_by_name: ผู้ใช้
+document:
+  regNo: ยานพาหนะ regno
+  title: ชื่อ
+  status: สถานะ
+  remainingDays: วันที่เหลือ
+  issueDate: วันที่ออก
+  expDate: วันหมดอายุ
+  driver: คนขับ
+  fullName: ชื่อคนขับ
+drivingbehavior:
+  harshAcceleration: การเร่งความเร็วที่รุนแรง
+  harshBraking: การเบรกที่รุนแรง
+  harshCornering: หน้าผากที่รุนแรง
+  harshAccelerationCount: การเร่งความเร็วที่รุนแรง
+  harshBrakingCount: การเบรกที่รุนแรงนับ
+  harshCorneringCount: นับการเข้าโค้งที่รุนแรง
+  harshAccelerationScore: คะแนนการเร่งความเร็วที่รุนแรง
+  harshBrakingScore: คะแนนเบรกที่รุนแรง
+  harshCorneringScore: คะแนนการเข้าโค้งที่รุนแรง
+  totalDistance: รวมระยะทาง (กม.)
+  idlingCount: นับไม่ทำงาน
+  excessiveIdling: ไม่ทำงานมากเกินไป
+  ecoSpeedEventCount: นับเหตุการณ์ Ecospeed
+  ecoSpeedTotalDistance: Ecospeed รวมระยะทาง (กม.)
+  speeding: การเร่งความเร็ว
+  ecoSpeed: ecospeed
+  idlingTotalTime: 'เวลาว่างที่ไม่ทำงาน (HH: MM: SS)'
+  drivingTotalTime: 'การขับขี่เวลาทั้งหมด (HH: MM: SS)'
+  totalAvgSpeed: ความเร็วเฉลี่ยทั้งหมด
+  totalScore: คะแนนรวม
+  driver: คนขับ
+  drivers: คนขับรถ
+  vehicle: ยานพาหนะ
+  vehicles: ยานพาหนะ
+  depot: คลังสินค้า
+  groups: กลุ่ม
+digitalformanswer:
+  date: วันที่
+  duration: ระยะเวลา
+  formTitle: แบบฟอร์มการตรวจสอบ
+  id: id
+  isPass: สถานะ
+  regNo: ชั้นล่าง
+  user: แสดงโดย
+  frequency: ความถี่
+devicesensor:
+  id: id
+  sensorId: รหัสเซ็นเซอร์
+  sensorBLEId: เซ็นเซอร์ BLE ID
+  label: ฉลากเซ็นเซอร์
+  lastPosition: ตำแหน่ง
+  vehicleId: รหัสยานพาหนะ
+  deviceId: รหัสอุปกรณ์
+  defaultlabel: ชื่อยานพาหนะ
+  regno: ยานพาหนะ regno
+  model: แบบอย่าง
+  depotName: คลังสินค้า
+  groups: กลุ่ม
+  position: ตำแหน่ง
+  type: ประเภทเซ็นเซอร์
+  createdAt: วันที่สร้าง
+  updatedAt: อัปเดตวันที่
+  updatedBy: อัปเดตโดย
+  createdBy: สร้างโดย
+trackerhistorysensor:
+  id: id
+  deviceSensorId: รหัสเซ็นเซอร์
+  deviceSensorLabel: ฉลาก
+  BLESensorId: เซ็นเซอร์ BLE ID
+  deviceSensorBleId: เซ็นเซอร์ BLE ID
+  occurredAt: วันที่
+  occurredAtDate: วันที่
+  occurredAtTime: เวลา
+  temperature: อุณหภูมิ (c)
+  humidity: ความชื้น (%)
+  value: ค่า
+  lastPosition: ตำแหน่ง
+  batteryVoltage: แรงดันแบตเตอรี่
+  batteryPercentage: เปอร์เซ็นต์แบตเตอรี่
+  vehicleId: รหัสยานพาหนะ
+  deviceId: รหัสอุปกรณ์
+  ambientLightValue: ค่าแสงโดยรอบ
+  ambientLightStatus: สถานะแสงโดยรอบ (I / O)
+  deviceSensorType: ประเภทเซ็นเซอร์
+  deviceSensorTypeLabel: ฉลากประเภทเซ็นเซอร์
+  defaultlabel: ยานพาหนะ
+  regno: ชั้นล่าง
+  model: แบบอย่าง
+  depotName: คลังสินค้า
+  groups: กลุ่ม
+  position: ตำแหน่ง
+  coordinates: พิกัด
+sensor:
+  id: id
+  sensorId: id ble
+  label: ฉลาก
+  lastPosition: ตำแหน่ง
+  vehicleId: รหัสยานพาหนะ
+  deviceId: รหัสอุปกรณ์
+  defaultlabel: ชื่อยานพาหนะ
+  regno: ยานพาหนะ regno
+  model: แบบอย่าง
+  depotName: คลังสินค้า
+  groups: กลุ่ม
+  position: ตำแหน่ง
+  type: พิมพ์
+  createdAt: วันที่สร้าง
+  updatedAt: อัปเดตวันที่
+  updatedBy: อัปเดตโดย
+  createdBy: สร้างโดย
+  lastDataValue: ค่าข้อมูลล่าสุด
+  lastDataReceived: ข้อมูลล่าสุดที่ได้รับ
+  client: ลูกค้า
+reseller:
+  companyName: ชื่อ บริษัท
+  keyContact: ติดต่อกุญแจ
+  legalName: ชื่อทางกฎหมาย
+  legalAddress: ที่อยู่ทางกฎหมาย
+  billingAddress: ที่อยู่เรียกเก็บเงิน
+  taxNr: รถแท็กซี่
+  manager: ผู้จัดการ
+  currency: สกุลเงิน
+  timezone: เขตเวลา
+  logo: โลโก้
+  domain: โดเมน
+  units: หน่วย
+  phone: โทรศัพท์
+  email: อีเมล
+  smsName: ชื่อ SMS
+  emailName: ชื่ออีเมล
+  team: ทีม
+  status: สถานะ
+  createdAt: สร้างขึ้นที่
+  updatedAt: อัปเดตที่
+  usersCount: ผู้ใช้รวม
+  activeUsersCount: ผู้ใช้งาน
+  devicesCount: อุปกรณ์ทั้งหมด
+  activeDevicesCount: อุปกรณ์ที่ใช้งานอยู่
+
+event:
+  VEHICLE_CREATED: เพิ่มพาหนะแล้ว
+  VEHICLE_DELETED: ยานพาหนะถูกลบ
+  VEHICLE_UNAVAILABLE: ยานพาหนะไม่พร้อมใช้งาน
+  VEHICLE_OFFLINE: เพิ่มพาหนะแบบออฟไลน์
+  VEHICLE_ONLINE: ยานพาหนะออนไลน์
+  VEHICLE_CHANGED_REGNO: เปลี่ยนหมายเลข rego ของยานพาหนะแล้ว
+  VEHICLE_CHANGED_MODEL: ยี่ห้อ/เปลี่ยนรุ่นของยานพาหนะ
+  VEHICLE_REASSIGNED: ผู้ขับขี่ใหม่ที่ได้รับมอบหมายให้ยานพาหนะ
+  SERVICE_REMINDER_SOON: ครบกําหนดให้บริการในเร็วๆ นี้
+  SERVICE_REMINDER_EXPIRED: บริการพ้นกําหนด
+  SERVICE_REMINDER_DONE: บริการเสร็จสมบูรณ์
+  SERVICE_REMINDER_DELETED: ลบการแจ้งเตือนการบริการแล้ว
+  DOCUMENT_EXPIRE_SOON: เอกสารกําลังจะหมดอายุเร็วๆ นี้
+  DOCUMENT_EXPIRED: เอกสารหมดอายุแล้ว
+  DOCUMENT_DELETED: เอกสารที่ถูกลบ
+  USER_CREATED: ผู้ใช้สร้างแล้ว
+  USER_CREATED_SYSTEM: ผู้ใช้สร้าง (ระบบ)
+  USER_BLOCKED: ผู้ใช้ถูกบล็อค
+  USER_DELETED: ผู้ใช้ที่ลบแล้ว
+  USER_PWD_RESET: การตั้งค่ารหัสผ่านผู้ใช้ใหม่
+  USER_CHANGED_NAME: ชื่อที่เปลี่ยนแปลงของผู้ใช้
+  USER_CHANGED_SURNAME: ผู้ใช้เปลี่ยนนามสกุล
+  ADMIN_USER_CREATED: ผู้ใช้สร้างแล้ว
+  ADMIN_USER_BLOCKED: ผู้ใช้ถูกบล็อค
+  ADMIN_USER_DELETED: ผู้ใช้ที่ลบแล้ว
+  ADMIN_USER_PWD_RESET: การตั้งค่ารหัสผ่านผู้ใช้ใหม่
+  ADMIN_USER_CHANGED_NAME: ชื่อที่เปลี่ยนแปลงของผู้ใช้
+  CLIENT_CREATED: สร้างไคลเอนต์แล้ว
+  CLIENT_DEMO_EXPIRED: การสาธิตไคลเอ็นต์หมดอายุแล้ว
+  CLIENT_BLOCKED: ไคลเอนต์ถูกบล็อค
+  DEVICE_UNKNOWN_DETECTED: ตรวจพบอุปกรณ์ที่ไม่รู้จัก
+  DEVICE_IN_STOCK: อุปกรณ์ในสต็อก
+  DEVICE_OFFLINE: อุปกรณ์ออฟไลน์
+  DEVICE_UNAVAILABLE: อุปกรณ์ไม่พร้อมใช้งาน
+  DEVICE_DELETED: อุปกรณ์ถูกลบแล้ว
+  LOGIN_AS_CLIENT: ล็อกอินเป็นไคลเอนต์
+  LOGIN_AS_USER: ล็อกอินในฐานะผู้ใช้
+  VEHICLE_GEOFENCE_ENTER: ยานพาหนะที่เข้าสู่พื้นที่
+  VEHICLE_GEOFENCE_LEAVE: พื้นที่ด้านซ้ายของยานพาหนะ
+  VEHICLE_OVERSPEEDING_INSIDE_GEOFENCE: ยานพาหนะที่โอเวอร์สปีดภายในพื้นที่
+  VEHICLE_OVERSPEEDING: โอเวอร์สปีด
+  VEHICLE_LONG_STANDING: ยาวกว่าที่กําหนดไว้
+  VEHICLE_LONG_DRIVING: ขับรถนานกว่าที่กําหนด
+  VEHICLE_MOVING: ยานพาหนะกําลังเคลื่อนที่
+  VEHICLE_EXCESSING_IDLING: การไม่ได้ใช้งานเกินไป
+  VEHICLE_TOWING_EVENT: ยานพาหนะกําลังถูกลากจูง
+  VEHICLE_DRIVING_WITHOUT_DRIVER: การขับขี่โดยไม่มีผู้ขับขี่ที่ได้รับมอบหมาย
+  DRIVER_ROUTE_UNDEFINED: ไม่ได้กําหนดเส้นทางโปรแกรมควบคุม
+  SERVICE_RECORD_ADDED: เพิ่มตัวเตือนการบริการแล้ว
+  SERVICE_REPAIR_ADDED: เพิ่มการซ่อมแซมแล้ว
+  DOCUMENT_RECORD_ADDED: เอกสารเพิ่มแล้ว
+  TRACKER_VOLTAGE: จ่ายแรงดันไฟฟ้า
+  PANIC_BUTTON: ปุ่ม SOS
+  ODOMETER_CORRECTED: แก้ไขเครื่องวัดระยะทางของยานพาหนะแล้ว
+  DIGITAL_FORM_WITH_FAIL: การตรวจสอบล้มเหลว
+  DIGITAL_FORM_IS_NOT_COMPLETED: ฟอร์มดิจิทัลไม่สมบูรณ์
+  SENSOR_TEMPERATURE: อุณหภูมิเซ็นเซอร์
+  SENSOR_HUMIDITY: ความชื้นของเซ็นเซอร์
+  SENSOR_LIGHT: แสงเซ็นเซอร์
+  SENSOR_BATTERY_LEVEL: ระดับแบตเตอรี่เซ็นเซอร์
+  SENSOR_STATUS: สถานะเซ็นเซอร์
+  DRIVER_DOCUMENT_EXPIRE_SOON: เอกสารกําลังจะหมดอายุเร็วๆ นี้
+  DRIVER_DOCUMENT_EXPIRED: เอกสารหมดอายุแล้ว
+  DRIVER_DOCUMENT_DELETED: เอกสารที่ถูกลบ
+  DRIVER_DOCUMENT_RECORD_ADDED: เอกสารที่เพิ่ม
+  SENSOR_IO_STATUS: ดิจิตอล I/O
+  ASSET_DOCUMENT_EXPIRE_SOON: เอกสารสินทรัพย์จะหมดอายุในเร็วๆ นี้
+  ASSET_DOCUMENT_EXPIRED: เอกสารสินทรัพย์หมดอายุแล้ว
+  ASSET_DOCUMENT_DELETED: ลบเอกสารสินทรัพย์แล้ว
+  ASSET_DOCUMENT_RECORD_ADDED: เพิ่มเรกคอร์ดเอกสารสินทรัพย์แล้ว
+  ASSET_CREATED: สินทรัพย์ที่สร้าง
+  ASSET_DELETED: ลบสินทรัพย์แล้ว
+  ASSET_MISSED: สินทรัพย์ที่ไม่ได้รับ
+  TRACKER_BATTERY_PERCENTAGE: เปอร์เซ็นต์แรงดันไฟฟ้าของแบตเตอรี่
+  TRACKER_JAMMER_STARTED_ALARM: Jammer เริ่มทำงาน
+  TRACKER_ACCIDENT_HAPPENED_ALARM: เกิดอุบัติเหตุ
+
+alertSubType:
+  Vehicle Activities: กิจกรรมยานพาหนะ
+  Vehicle Documents: เอกสารยานพาหนะ
+  Asset Documents: เอกสารสินทรัพย์
+  Asset Activities: กิจกรรมสินทรัพย์
+  Digital Forms: ฟอร์มดิจิทัล
+  Driver activities: กิจกรรมโปรแกรมควบคุม
+  Sensor Data: ข้อมูลเซนเซอร์
+  Driver Documents: เอกสารโปรแกรมควบคุม
+  Vehicle status: สถานะยานพาหนะ
+  Areas: พื้นที่
+  Service reminders: ตัวเตือนการบริการ
+  Vehicle data: ข้อมูลยานพาหนะ
+  User accounts: บัญชีผู้ใช้
+
+billing:
+  client_name: ลูกค้า
+  active_vehicle_trackers: ตัวติดตามยานพาหนะที่ใช้งานอยู่
+  deactivated_vehicle_trackers: ตัวติดตามยานพาหนะที่ปิดใช้งาน
+  active_personal_trackers: ตัวติดตามส่วนตัวที่ใช้งานอยู่
+  deactivated_personal_trackers: ตัวติดตามส่วนบุคคลที่ปิดใช้งาน
+  active_asset_trackers: เครื่องมือติดตามสินทรัพย์ที่ใช้งานอยู่
+  deactivated_asset_trackers: ตัวติดตามสินทรัพย์ที่ปิดใช้งาน
+  active_vehicles: รถใช้งานอยู่
+  virtual_vehicles: ยานพาหนะเสมือน
+  archived_vehicles: รถยนต์ที่เก็บถาวร
+  delete_vehicles: รถที่ถูกลบ
+  active_sensors: เซ็นเซอร์ที่ใช้งานอยู่
+  archived_sensors: เซ็นเซอร์ที่เก็บถาวร
+  delete_sensors: เซ็นเซอร์ที่ถูกลบ
+
+  active_vehicle_trackers_total: รวมทั้งหมด
+  deactivated_vehicle_trackers_total: รวมทั้งหมด
+  active_personal_trackers_total: ทั้งหมด
+  deactivated_personal_trackers_total: ทั้งหมด
+  active_asset_trackers_total: ทั้งหมด
+  deactivated_asset_trackers_total: ทั้งหมด
+  active_vehicles_total: รวมทั้งหมด
+  virtual_vehicles_total: รวมทั้งหมด
+  archived_vehicles_total: รวมทั้งหมด
+  ลบ_vehicles_total: ทั้งหมด
+  active_sensors_total: รวมทั้งหมด
+  archived_sensors_total: รวมทั้งหมด
+  delete_sensors_total: รวมทั้งหมด
+
+  active_vehicle_trackers_price: หน่วย
+  deactivated_vehicle_trackers_price: หน่วย
+  active_personal_trackers_price: หน่วย
+  deactivated_personal_trackers_price: หน่วย
+  active_asset_trackers_price: หน่วย
+  deactivated_asset_trackers_price: หน่วย
+  active_vehicles_price: หน่วย
+  virtual_vehicles_price: หน่วย
+  archived_vehicles_price: หน่วย
+  delete_vehicles_price: หน่วย
+  active_sensors_price: หน่วย
+  archived_sensors_price: หน่วย
+  delete_sensors_price: หน่วย
+
+  prepayment: การชำระเงินล่วงหน้า %month% %year%
+
+trackerhistory:
+  ts: วันที่ เวลา
+  createdAt: สร้างแล้ว
+  gps: Gps
+  speed: ความเร็ว
+  angle: ทิศทาง
+  io: IO
+  batteryVoltage: แรงดันแบตเตอรี่
+  batteryVoltagePercentage: เปอร์เซ็นต์แรงดันแบตเตอรี่
+  temperatureLevel: ระดับอุณหภูมิ
+  odometer: เครื่องวัดระยะทาง
+  externalVoltage: แรงดันไฟฟ้าภายนอก

@@ -1,0 +1,1438 @@
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_EMAIL:
+  subject: '提醒—创建的新用户'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3><p>User ${user_name} <b>${user_email}</b> 被创建.</p><br/><p><b>详细信息:</b></p><p>${event_time} - user ${user_name} <b>${user_email}</b> (team - ${team}) 被创建 by ${triggered_by}.</p><p>用户页面: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_SMS:
+  body: '用户创建: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_MOBILE:
+  subject: '新用户创建的'
+  body: '用户创建: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_WEB:
+  subject: '提醒-新用户创建'
+  body: '用户创建: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_EMAIL:
+  subject: '提醒-用户重置密码'
+  body: '<h3>来自 ${from_company} 系统的新通知:</h3><p>密码重置 triggered for user ${user_name} <b>${user_email}</b></p><br/><p><b>详细信息:</b></p><p>${event_time} - 密码重置 was triggered by ${triggered_by} for user ${user_name} <b>${user_email}</b> (team - ${team}).  </p> <p>用户页面: ${data_url} </p> <br/> <p> ${comment}</p> '
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_SMS:
+  body: '密码重置: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_MOBILE:
+  subject: '用户重置密码'
+  body: '密码重置: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_WEB:
+  subject: '提醒-用户重置密码'
+  body: '密码重置: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CREATED_SYSTEM_EMAIL:
+  subject: '提醒-新用户创建(系统)'
+  body: '<h3>来自 ${from_company} 系统的新通知:</h3><p>User ${user_name} <b>${user_email}</b> 被创建.</p><br/><p><b>详细信息:</b></p><p>${event_time} - 用户 ${user_name} <b>${user_email}</b> (team - ${team}) 是由 ${triggered_by}.</p><p>用户页面: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_EMAIL:
+  subject: '警告—用户被阻止'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3><p>User ${user_name} <b>${user_email}</b> 被锁定.</p><br/><p><b>详细信息:</b></p><p>${event_time} - ${triggered_by} have blocked user ${user_name} <b>${user_email}</b> [team: ${team}]</p><p>Blocking message: ${data_message}</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_SMS:
+  body: '用户被锁定: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_MOBILE:
+  subject: '用户被锁定'
+  body: '用户被锁定: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_WEB:
+  subject: '警告—用户被阻止'
+  body: '用户被锁定: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_EMAIL:
+  subject: '警告—用户被删除'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3><p>User ${user_name} <b>${user_email}</b> 设备被删除</p><br/><p><b>详细信息:</b></p><p>${event_time} - ${triggered_by}设备已删除user ${user_name} <b>${user_email}</b> [team: ${team}]</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_SMS:
+  body: '用户被删除: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_MOBILE:
+  subject: '用户被删除'
+  body: '用户被删除: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_WEB:
+  subject: '警告—用户被删除'
+  body: '用户被删除: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_MOBILE:
+  subject: '用户更改名称'
+  body: '用户更改名称: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_WEB:
+  subject: '警告- 用户更改名称'
+  body: '用户更改名称: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_SMS:
+  body: '用户更改名称: ${user_name} (${user_email}). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_EMAIL:
+  subject: '警告- 用户更改名称'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3><p>用户名称更改  <b>${user_name} (${user_email})</b></p><br/><p><b>详细信息:</b></p><p>${event_time} - ${triggered_by} have renamed user from "${old_value}" to "${user_name}".</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_MOBILE:
+  subject: '用户重新起名'
+  body: '用户重新起名: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_WEB:
+  subject: '警告- 用户重新起名'
+  body: '用户重新起名: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_SMS:
+  body: '用户重新起名: ${user_name} (${user_email). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_EMAIL:
+  subject: '警告- 用户_重新起名'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3><p>用户重新起名: <b>${user_name} (${user_email)</b></p><br/><p><b>详细信息:</b></p><p>${event_time} - user ${user_name} 被重命名 ${triggered_by}.</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_EMAIL:
+  subject: '警告- New 客户已创建'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3><p>客户 <b>${client_name}</b> 被创建.</p><br/><p><b>详细信息:</b></p><p>${event_time} - client ${client_name} 被创建 by ${triggered_by}.</p><p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_SMS:
+  body: '客户已创建: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_MOBILE:
+  subject: 'New 客户已创建'
+  body: '客户已创建: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_WEB:
+  subject: '警告- New 客户已创建'
+  body: '客户已创建: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_EMAIL:
+  subject: '警告—客户被锁定'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3><p>用户 <b>${client_name}</b> 被锁定.</p><br/><p><b>详细信息:</b></p><p>${event_time} - client ${client_name} from ${team} 被锁定 by ${triggered_by}.</p><p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_SMS:
+  body: '客户被锁定: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_MOBILE:
+  subject: '客户被锁定'
+  body: '客户被锁定: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_WEB:
+  subject: '客户被锁定'
+  body: '客户被锁定: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_EMAIL:
+  subject: '警告- 客户演示过期'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>客户已经过演示周期 <b>${client_name}</b>.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 客户 ${client_name} 演示时间过期</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_SMS:
+  body: '客户演示过期: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_MOBILE:
+  subject: '客户演示过期'
+  body: '客户演示过期: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_WEB:
+  subject: '警告- 客户演示过期'
+  body: '客户演示过期: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_EMAIL:
+  subject: '警告- 车辆_已创建'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>New 车辆_已创建 - ${reg_no_with_model}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 已经创建车辆 ${reg_no_with_model} [team: ${team}]</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_SMS:
+  body: '车辆_已创建: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_MOBILE:
+  subject: '车辆_已创建'
+  body: '车辆_已创建: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_WEB:
+  subject: '警告- 车辆_已创建'
+  body: '车辆_已创建: ${reg_no}. ${comment}'
+
+
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_EMAIL:
+  subject: '警告- 车辆被删除'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆 ${reg_no_with_model} 被删除.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 已经删除车辆 ${reg_no_with_model}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_SMS:
+  body: '车辆被删除: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_MOBILE:
+  subject: '车辆被删除'
+  body: '车辆被删除: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_WEB:
+  subject: '警告- 车辆被删除'
+  body: '车辆被删除: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_EMAIL:
+  subject: '警告- 车辆车牌号被变更'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆车牌号被变更 ${reg_no_with_model}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 已经从...变更车辆车牌号 "${old_value}" 到 "${reg_no}".</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_SMS:
+  body: '车辆车牌号被变更: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_MOBILE:
+  subject: '车辆车牌号被变更'
+  body: '车辆车牌号被变更: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_WEB:
+  subject: '警告- 车辆车牌号被变更'
+  body: '车辆车牌号被变更: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_EMAIL:
+  subject: '警告- 车辆型号已更改'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆model变更为 ${reg_no}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 已将车辆型号从 "${old_value}" to "${model}".</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_SMS:
+  body: '车辆型号已更改: ${model}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_MOBILE:
+  subject: '车辆型号已更改'
+  body: '车辆型号已更改: ${model}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_WEB:
+  subject: '警告- 车辆型号已更改'
+  body: '车辆型号已更改: ${model}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_EMAIL:
+  subject: '警告- 车辆状态变更：不可用'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆${reg_no_with_model} 状态变更为 "${status}".</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 车辆状态已经变更 ${reg_no_with_model} 与驾驶员 ${driver} to "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_WEB:
+  subject: '警告- 车辆状态变更：不可用'
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_SMS:
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_MOBILE:
+  subject: '车辆状态变更：不可用'
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_EMAIL:
+  subject: '警告- 车辆状态变更为：离线'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆 ${reg_no_with_model} 状态变更为 "${status}".</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 状态变更为 "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_WEB:
+  subject: '警告- 车辆状态变更为：离线'
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_SMS:
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_MOBILE:
+  subject: '车辆状态变更为：离线'
+  body: '车辆 ${reg_no} 已经变更状态为：${status} ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_WEB:
+  subject: '警告- 车辆_重新分配_'
+  body: '车辆 ${reg_no} 已经重新分配给司机 ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_MOBILE:
+  subject: '车辆_重新分配_'
+  body: '车辆 ${reg_no} 已经重新分配给司机 ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_SMS:
+  body: '车辆 ${reg_no} 已经重新分配给司机 ${driver}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_EMAIL:
+  subject: '警告- 车辆_重新分配_'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆${reg_no} 已经重新分配给司机${driver}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆${reg_no} 重新分配 ${old_value} 为 "${driver}".</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_WEB:
+  subject: '警告- 超速'
+  body: '车辆 ${reg_no} 驾驶的次数超过 ${avg_speed}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_SMS:
+  body: '车辆 ${reg_no} 驾驶的次数超过 ${avg_speed}km/h. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_MOBILE:
+  subject: '超速'
+  body: '车辆 ${reg_no} 驾驶的次数超过 ${avg_speed}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_EMAIL:
+  subject: '警告- 超速'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆${reg_no} 驾驶中 >${avg_speed}km/h.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 开车多 ${avg_speed}km/h, 限速设置为 ${overSpeed}km/h</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_WEB:
+  subject: '警告- 超速行驶区域内'
+  body: '车辆 ${reg_no}驾驶的次数超过 ${avg_speed}km/h 对区域: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_SMS:
+  body: '车辆 ${reg_no}驾驶的次数超过 ${avg_speed}km/h 对区域: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_MOBILE:
+  subject: '超速行驶区域内'
+  body: '车辆 ${reg_no}驾驶的次数超过 ${avg_speed}km/h 对区域: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_EMAIL:
+  subject: '警告- 超速行驶区域内'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆 ${reg_no} driving >${avg_speed}km/h 在区域里 "${area}"</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 开车多 ${avg_speed}km/h 在区域里 "${area}", 限速设置为 ${overSpeed}km/h</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_WEB:
+  subject: '警告- 汽车警报区域'
+  body: '车辆 ${reg_no} 进入区域: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_SMS:
+  body: '车辆 ${reg_no} 进入区域: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_MOBILE:
+  subject: '汽车警报区域'
+  body: '车辆 ${reg_no} 进入区域: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_EMAIL:
+  subject: '警告- 汽车警报区域'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆 ${reg_no} entered 对区域: ${area}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 进入区域 "${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_WEB:
+  subject: '警告- 汽车警报区域'
+  body: '车辆 ${reg_no} 离开区域: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_SMS:
+  body: '车辆 ${reg_no} 离开区域: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_MOBILE:
+  subject: '汽车警报区域'
+  body: '车辆 ${reg_no} 离开区域: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_EMAIL:
+  subject: '警告- 汽车警报区域'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆${reg_no} 离开区域: ${area}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 离开该地区"${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_WEB:
+  subject: '警告- 车辆驾驶'
+  body: '车辆在没有司机的情况下行驶: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_SMS:
+  body: '车辆在没有司机的情况下行驶: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_MOBILE:
+  subject: '车辆驾驶'
+  body: '车辆在没有司机的情况下行驶: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_EMAIL:
+  subject: '警告- 车辆驾驶'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆 ${reg_no} 没有司机的驾驶.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 没有司机的驾驶.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_WEB:
+  subject: '警告- 车辆拖曳事件'
+  body: '车辆关闭了引擎，但实际上是在移动  : ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_SMS:
+  body: '车辆关闭了引擎，但实际上是在移动  : ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_MOBILE:
+  subject: '车辆拖曳事件'
+  body: '车辆关闭了引擎，但实际上是在移动  : ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_EMAIL:
+  subject: '警告- 车辆拖曳事件'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆关闭了引擎，但实际上是在移动  : ${reg_no}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_WEB:
+  subject: '警告- 车辆长时间站'
+  body: '车辆停止超过 ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_SMS:
+  body: '车辆停止超过 ${duration}: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_MOBILE:
+  subject: '车辆长时间站'
+  body: '车辆停止超过 ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_EMAIL:
+  subject: '警告- 车辆长时间站'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆${reg_no} 被阻止 >${duration}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model}与驾驶员 ${driver} 被阻止 >${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_WEB:
+  subject: '警告- 车辆长时间驾驶'
+  body: '车辆驾驶超过 ${duration} 不断地和已驱超过 ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_SMS:
+  body: '车辆驾驶超过 ${duration} 持续: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_MOBILE:
+  subject: '车辆长时间驾驶'
+  body: '车辆驾驶超过 ${duration} 不断地和已驱超过 ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_EMAIL:
+  subject: '警告- 车辆长时间驾驶'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆${reg_no} 连续驾驶 >${duration}</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 连续驾驶 >${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_WEB:
+  subject: '警告- 车辆移动'
+  body: '车辆开始移动: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_SMS:
+  body: '车辆开始移动: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_MOBILE:
+  subject: '车辆移动'
+  body: '车辆开始移动: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_EMAIL:
+  subject: '警告- 车辆移动'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆${reg_no}与驾驶员 ${driver} 开始移动.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 开始移动</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_WEB:
+  subject: '警告- 车辆过多的闲置的'
+  body: '${reg_no_or_device} 空转超过 ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_SMS:
+  body: '${reg_no_or_device} 空转超过 ${duration}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_MOBILE:
+  subject: '车辆过多的闲置的'
+  body: '${reg_no_or_device} 空转超过 ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_EMAIL:
+  subject: '警告- 车辆过多的闲置的'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>${reg_no_or_device} 空转超过 ${duration}.</p>
+  <p>${event_time} - ${reg_no_with_model_or_device} ${driver} 空转超过 ${duration}</p>
+  <p 风格="颜色: 红色;">${note}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_WEB:
+  subject: '警告- 车辆改变状态:在线'
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_SMS:
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_MOBILE:
+  subject: '车辆改变状态:在线'
+  body: '车辆 ${reg_no} 已经变更状态为：${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_EMAIL:
+  subject: '警告- 车辆改变状态:在线'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>车辆 ${reg_no_with_model} 状态变更为 "${status}".</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 车辆 ${reg_no_with_model} 与驾驶员 ${driver} 状态变更为 "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_WEB:
+  subject: '警告- 文件过期'
+  body: '文件过期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_SMS:
+  body: '文件过期: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: '文件过期'
+  body: '文件过期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: '警告- 文件过期'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件过期 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${exp_date} - 文件过期 "${title}" 过期 ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: '警告- 文档很快到期'
+  body: '文件即将到期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: '文件即将到期: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: '文档很快到期'
+  body: '文件即将到期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: '警告- 文档很快到期'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件即将到期 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 文件 "${title}" ${data_by_type} 将要过期 ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_WEB:
+  subject: '警告- 文件被删除'
+  body: '文件被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_SMS:
+  body: '文件被删除: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_MOBILE:
+  subject: '文件被删除'
+  body: '文件被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_EMAIL:
+  subject: '警告- 文件被删除'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件被删除 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 文件已被删除 "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: '警告- 文档记录添加'
+  body: '文档记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: '文档记录添加: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: '文档记录添加'
+  body: '文档记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: '警告- 文档记录添加'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文档记录添加 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 在文件中添加了新记录 "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_WEB:
+  subject: '警告- 设备_在_库存_'
+  body: '设备_在_库存_: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_SMS:
+  body: '设备_在_库存_: ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_MOBILE:
+  subject: '设备_在_库存_'
+  body: '设备_在_库存_: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_EMAIL:
+  subject: '警告- 设备_在_库存_'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>设备_在_库存_: ${device_imei}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 设备 ${device_imei} 状态变更为"在库"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_WEB:
+  subject: '警告- 设备改变状态:离线'
+  body: '设备 ${device_imei} 已经变更状态为：离线. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_SMS:
+  body: '设备 ${device_imei} 已经变更状态为：离线. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_MOBILE:
+  subject: '设备改变状态:离线'
+  body: '设备 ${device_imei} 已经变更状态为：离线. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_EMAIL:
+  subject: '警告- 设备改变状态:离线'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>设备 ${device_imei} 状态变更为 "离线"</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 设备 ${device_imei} 状态变更为"离线"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_WEB:
+  subject: '警告- 设备更改状态:不可用'
+  body: '设备 ${device_imei} 已经变更状态为：不可用. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_SMS:
+  body: '设备 ${device_imei} 已经变更状态为：不可用. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_MOBILE:
+  subject: '设备状态改变：不可用'
+  body: '设备 ${device_imei} 已经变更状态为：不可用. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_EMAIL:
+  subject: '警告- 设备更改状态:不可用'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>设备 ${device_imei} 状态变更为 "不可用"</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 设备 ${device_imei} 状态变更为 "不可用"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_WEB:
+  subject: '警告- 设备被删除'
+  body: '设备 被删除:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_SMS:
+  body: '设备 被删除:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_MOBILE:
+  subject: '设备 被删除'
+  body: '设备 被删除:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_EMAIL:
+  subject: '警告- 设备被删除'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>设备 ${device_imei} 设备被删除</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 设备已删除设备 ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_WEB:
+  subject: '警告 - 设备删除未知'
+  body: '设备 删除未知:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_SMS:
+  body: '设备 删除未知:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_MOBILE:
+  subject: '设备 删除未知'
+  body: '设备 删除未知:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_EMAIL:
+  subject: '警告 - 设备删除未知'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>Device 删除未知: ${device_imei}</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_WEB:
+  subject: '警告-服务快速提醒'
+  body: '服务快速提醒: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_SMS:
+  body: '服务快速提醒: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_MOBILE:
+  subject: '服务快速提醒'
+  body: '服务快速提醒: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_EMAIL:
+  subject: '警告-服务快速提醒'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>很快服务提醒 (${entity}).</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 服务提醒 "${title}" (${entity})将要过期 ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_WEB:
+  subject: '警告- 服务到期提醒'
+  body: '服务到期提醒: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_SMS:
+  body: '服务到期提醒: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_MOBILE:
+  subject: '服务到期提醒'
+  body: '服务到期提醒: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_EMAIL:
+  subject: '警告- 服务到期提醒'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>服务到期提醒 (${title}).</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 服务提醒 "${title}" (${entity}) 过期.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_WEB:
+  subject: '警告 - 服务提醒完成'
+  body: '服务提醒 完成: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_SMS:
+  body: '服务提醒 完成: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_MOBILE:
+  subject: '服务提醒 完成'
+  body: '服务提醒 完成: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_EMAIL:
+  subject: '警告 - 服务提醒完成'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>服务提醒完成 (${title}).</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 已完成服务提醒 "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_WEB:
+  subject: '警告- 服务提醒删除'
+  body: '服务提醒 被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_SMS:
+  body: '服务提醒 被删除: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_MOBILE:
+  subject: '服务提醒被删除'
+  body: '服务提醒 被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_EMAIL:
+  subject: '警告- 服务提醒删除'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>服务提醒被删除 (${entity}).</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 服务提醒被删除 "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_WEB:
+  subject: '警告- 服务记录添加'
+  body: '服务记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_SMS:
+  body: '服务记录添加: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_MOBILE:
+  subject: '服务记录添加'
+  body: '服务记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_EMAIL:
+  subject: '警告- 服务记录添加'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>服务记录添加 (${entity}).</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 添加了新的服务记录 "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_WEB:
+  subject: '警告- 服务修复被添加'
+  body: '服务修复被添加： ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_SMS:
+  body: '服务修复被添加： ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_MOBILE:
+  subject: '服务修复被添加'
+  body: '服务修复被添加： ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_EMAIL:
+  subject: '警告- 服务修复被添加'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>服务修复添加 (${entity}).</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 增加了新的服务修复 "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_WEB:
+  subject: '警告- 电压'
+  body: '跟踪器的供电电压是 ${battery_voltage}V 在车上： ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_SMS:
+  body: '跟踪器的供电电压是 ${battery_voltage}V 在车上： ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_MOBILE:
+  subject: '电压'
+  body: '跟踪器的供电电压是 ${battery_voltage}V 在车上： ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_EMAIL:
+  subject: '警告- 电压'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>供电电压为 ${battery_voltage}V in the 车辆 ${vehicle}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} -跟踪器供电电压在车辆${reg_no_with_model} 与驾驶员 ${driver} 是 ${battery_voltage}V, 电压限制设置为 ${deviceVoltage}</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_EMAIL:
+  subject: '警告- ${from_company} SOS 按钮 - ${reg_no_or_device}'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>SOS按钮按压 ${reg_no_or_device}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - SOS 按钮 被驾驶员按压: ${driver} on ${reg_no_with_model_or_device}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+   <p>${google_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_SMS:
+  body: 'SOS 按钮被驾驶员按压r: ${driver} on ${reg_no_or_device}. ${event_time} ${google_url} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_MOBILE:
+  subject: 'SOS 按钮 - ${reg_no_or_device}'
+  body: 'SOS 按钮被驾驶员按压r: ${driver} on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_WEB:
+  subject: '警告- SOS 按钮 - ${reg_no_or_device}'
+  body: 'SOS 按钮被驾驶员按压r: ${driver} on ${reg_no_or_device}. ${comment}'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_WEB:
+  subject: '警告- 用户活跃'
+  body: '登录客户端: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_SMS:
+  body: '登录客户端: ${client_email} ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_MOBILE:
+  subject: '用户活跃'
+  body: '登录客户端: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_EMAIL:
+  subject: '警告- 用户活跃'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p客户登录: ${client_email} ${client_name}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_WEB:
+  subject: '警告- 用户活跃'
+  body: '用户登录: ${user_email} ${user_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_EMAIL:
+  subject: '警告- 用户活跃'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>用户登录: ${user_email} ${user_name}</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_SMS:
+  body: '用户登录: ${user_email} ${user_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_MOBILE:
+  subject: '用户活跃'
+  body: '用户登录: ${user_email} ${user_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_EMAIL:
+  subject: '警告- 里程表纠正'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>里程表设置为 ${new_value} 为 ${reg_no}</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${user_name} 纠正的里程表 ${reg_no}; old_value - ${old_value}, 新价值 - ${new_value}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_SMS:
+  body:  '里程表设置为 ${new_value} 为 ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_MOBILE:
+  subject: '里程表纠正'
+  body: '里程表设置为 ${new_value} 为 ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_WEB:
+  subject: '警告- 里程表纠正'
+  body: '里程表设置为 ${new_value} 为 ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_EMAIL:
+  subject: '警告- 填写表格但未通过'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>表单被驱动程序以失败的方式完成: ${driver} 车辆: ${reg_no}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - Form: ${form_title} 由驱动程序以失败完成: ${driver} 车辆: ${reg_no}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_SMS:
+  body: '表单被驱动程序以失败的方式完成: ${driver} 车辆: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_MOBILE:
+  subject: '填写表格但未通过'
+  body: '表单被驱动程序以失败的方式完成: ${driver} 车辆: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_WEB:
+  subject: '警告- 填写表格但未通过'
+  body: '表单被驱动程序以失败的方式完成: ${driver} 车辆: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_EMAIL:
+  subject: '警告- 表格未填妥'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>司机未填写表格: ${driver} 车辆: ${reg_no}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 司机未填写表格: ${driver} 车辆: ${reg_no}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_SMS:
+  body: '司机未填写表格: ${driver} 车辆: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_MOBILE:
+  subject: '表格未填妥'
+  body: '司机未填写表格: ${driver} 车辆: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_WEB:
+  subject: '警告- 表格未填妥'
+  body: '司机未填写表格: ${driver} 车辆: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_WEB:
+  subject: '警告- 表格未填妥'
+  body: '你需要填写一份检查表车辆 ${reg_no}.'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_MOBILE:
+  subject: '表格未填妥'
+  body: '你需要填写一份检查表车辆 ${reg_no}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_EMAIL:
+  subject: '警告- 温度传感器'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>传感器 ${sensor_id}${label} 临时发现价值 ${temperature}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 传感器 ${sensor_id}${label}, 安装 ${reg_no}, 检测温度的值 ${sensor_temperature}${temperature}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_SMS:
+  body: '传感器 ${label} 临时发现价值 ${sensor_temperature}${temperature}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_MOBILE:
+  subject: '温度传感器 - ${reg_no}'
+  body: '传感器 ${label} 临时发现价值 ${sensor_temperature}${temperature}.'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_WEB:
+  subject: '警告- 温度传感器'
+  body: '传感器 ${label} 临时发现价值 ${sensor_temperature}${temperature}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_EMAIL:
+  subject: '警告- 温度传感器'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>传感器 ${sensor_id}${label} 检测到价值 ${sensor_humidity}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 传感器 ${sensor_id}${label}, 已安装 ${reg_no}, 检测到的湿度值 ${sensor_humidity}${humidity}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_SMS:
+  body: '传感器 ${label} 检测到的湿度值 ${sensor_humidity}${humidity}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_MOBILE:
+  subject: 'Sensor Humidity - ${reg_no}'
+  body: '传感器 ${label} 检测到的数值 ${sensor_humidity}${humidity}.'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_WEB:
+  subject: '警告 - 温度传感器'
+  body: '传感器 ${label} 检测到价值 ${sensor_humidity}${humidity}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_EMAIL:
+  subject: '警告- 传感器'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>传感器 ${sensor_id}${label} 检测到光状态 ${sensor_light_status}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 传感器 ${sensor_id}${label}, 已安装 ${reg_no}, 直射光 状态变更为 ${sensor_light_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_SMS:
+  body: '传感器 ${label} 直射光 状态变更为 ${sensor_light_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_MOBILE:
+  subject: 'Sensor light - ${reg_no}'
+  body: '传感器 ${label} 直射光 状态变更为 ${sensor_light_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_WEB:
+  subject: '警告- 传感器'
+  body: '传感器 ${label} 直射光 状态变更为 ${sensor_light_status}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_EMAIL:
+  subject: '警告- 传感器电池级'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>传感器 ${sensor_id}${label} 被删除的传感器电池级 ${sensor_battery_level}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 传感器 ${sensor_id}${label}, 已安装 ${reg_no}, 被删除的传感器电池级 ${sensor_battery_level} ${batteryLevel}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_SMS:
+  body: '传感器 ${label} 被删除的传感器电池级 ${sensor_battery_level} ${batteryLevel}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_MOBILE:
+  subject:  '传感器电池级 - ${reg_no}'
+  body: '传感器 ${label} 被删除的传感器电池级 ${sensor_battery_level} ${batteryLevel}.'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_WEB:
+  subject: '警告- 传感器电池级'
+  body: '传感器 ${label} 被删除的传感器电池级 ${sensor_battery_level} ${batteryLevel}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_EMAIL:
+  subject: '警告- 传感器状态'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>传感器 ${sensor_id}${label} 现在 ${sensor_status}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 传感器 ${sensor_id}${label}, 已安装 ${reg_no}, 状态变更为 ${sensor_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_SMS:
+  body: '传感器 ${label} 状态变更为 ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_MOBILE:
+  subject: 'Sensor status - ${reg_no}'
+  body: '传感器 ${label} 状态变更为 ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_WEB:
+  subject: '警告- 传感器状态'
+  body: '传感器 ${label} 状态变更为 ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: '警告- 文档很快到期'
+  body: '文件即将到期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: '文件即将到期: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: '文档很快到期'
+  body: '文件即将到期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: '警告- 文档很快到期'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件即将到期 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 文件 "${title}" ${data_by_type} 将过期 ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_WEB:
+  subject: '警告- 文件过期'
+  body: '文件过期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_SMS:
+  body: '文件过期: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: '文件过期'
+  body: '文件过期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: '警告- 文件过期'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件过期 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${exp_date} - 文件过期 "${title}" 已过期 ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_WEB:
+  subject: '警告- 文件被删除'
+  body: '文件被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_SMS:
+  body: '文件被删除: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_MOBILE:
+  subject: '文件被删除'
+  body: '文件被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_EMAIL:
+  subject: '警告- 文件被删除'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件被删除 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 文件已被删除 "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: '警告- 文档记录添加'
+  body: '文档记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: '文档记录添加: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: '文档记录添加'
+  body: '文档记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: '警告- 文档记录添加'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文档记录添加 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 在文件中添加了新记录 "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: '警告- 文档很快到期'
+  body: '文件即将到期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: '文件即将到期: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: '文档很快到期'
+  body: '文件即将到期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: '警告- 文档很快到期'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件即将到期 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 文件 "${title}" ${data_by_type} 将要过期 ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_WEB:
+  subject: '警告- 文件过期'
+  body: '文件过期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_SMS:
+  body: '文件过期: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: '文件过期'
+  body: '文件过期: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: '警告- 文件过期'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件过期 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${exp_date} - 文件过期 "${title}" 已过期 ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_WEB:
+  subject: '警告- 文件被删除'
+  body: '文件被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_SMS:
+  body: '文件被删除: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_MOBILE:
+  subject: '文件被删除'
+  body: '文件被删除: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_EMAIL:
+  subject: '警告- 文件被删除'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文件被删除 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 文件已被删除 "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: '警告- 文档记录添加'
+  body: '文档记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: '文档记录添加: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: '文档记录添加'
+  body: '文档记录添加: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: '警告- 文档记录添加'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>文档记录添加 ${data_by_type}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 在文件中添加了新记录 "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_EMAIL:
+  subject: '警告-数字 I/O status - ${sensor_status}'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>数字 I/O ${sensor_io_type} 在 ${regno_or_imei} 状态变更为 ${sensor_status}.</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 数字 I/O ${sensor_io_type} 在 ${regno_or_imei}, 状态变更为 ${sensor_status}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_SMS:
+  body: '数字 I/O ${sensor_io_type} 在 ${regno_or_imei} 状态变更为 ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_MOBILE:
+  subject: '数字 I/O status - ${sensor_status}'
+  body: '数字 I/O ${sensor_io_type} 在 ${regno_or_imei} 状态变更为 ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_WEB:
+  subject: '警告-数字 I/O status - ${sensor_status}'
+  body: '数字 I/O ${sensor_io_type} 在${regno_or_imei} 状态变更为 ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_EMAIL:
+  subject: '警告- 资产已创建'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>资产创建： ${asset_name}</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 已创建资产 ${asset_name} [team: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_SMS:
+  body: '资产创建： ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_MOBILE:
+  subject: '资产创建： ${asset_name}'
+  body: '${event_time} - ${triggered_by} 已创建资产 ${asset_name} [team: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_WEB:
+  subject: '警告- 资产创建： ${asset_name}'
+  body: '${event_time} - ${triggered_by} 已创建资产 ${asset_name} [team: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_EMAIL:
+  subject: '警告- 资产被删除: ${asset_name}'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>资产被删除: ${asset_name}</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - ${triggered_by} 资产设备已删除 ${asset_name} [团队: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_SMS:
+  body: '资产被删除: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_MOBILE:
+  subject: '资产被删除: ${asset_name}'
+  body: '${event_time} - ${triggered_by} 资产设备已删除 ${asset_name} [团队: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_WEB:
+  subject: '警告- 资产被删除: ${asset_name}'
+  body: '${event_time} - ${triggered_by} 资产设备已删除 ${asset_name} [团队: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_EMAIL:
+  subject: '警告- 资产遗失： ${asset_name}'
+  body: '<h3>从...的新通知 ${from_company} 系统:</h3>
+  <p>资产遗失： ${asset_name}</p>
+  <br/><p><b>详细信息:</b></p>
+  <p>${event_time} - 资产遗失： ${asset_name}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_SMS:
+  body: '资产被删除: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_MOBILE:
+  subject: '资产遗失： ${asset_name}'
+  body: '${event_time} - 资产遗失： ${asset_name}.'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_WEB:
+  subject: '警告- 警告- 资产遗失： ${asset_name}'
+  body: '${event_time} - 资产遗失： ${asset_name}.'
+
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_EMAIL:
+  subject: '警报 - 内部电池电压'
+  body: '<h3>来自 ${from_company} 系统的新通知：</h3>
+   <p>在车辆 ${vehicle} 中，跟踪器的内部电池电压百分比为 ${battery_percentage}%.</p>
+   <br/><p><b>详细信息：</b></p>
+   <p>${event_time} - 带有驱动程序 ${driver} 的车辆 ${reg_no_with_model} 的内部电池电压百分比为 ${battery_percentage}%，限制设置为 ${deviceBatteryPercentage}</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_SMS:
+  body: '跟踪器的内部电池电压百分比为车辆上的 ${battery_percentage}%：${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_MOBILE:
+  subject: '内部电池电压警报'
+  body: '跟踪器的内部电池电压百分比为车辆上的 ${battery_percentage}%：${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_WEB:
+  subject: '警报 - 内部电池电压'
+  body: '跟踪器的内部电池电压百分比为车辆上的 ${battery_percentage}%：${vehicle}. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_EMAIL:
+  subject: '警报 - 条纹错误'
+  body: '<h3>来自 ${from_company} 系统的新通知：</h3>
+  <p>上一次使用 Stripe 操作时出错！</p>
+  <br/><p><b>详细资料：</b></p>
+  <p>${event_time} - [团队： ${team}], 按用户： ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_SMS:
+  body: '上一次使用 Stripe 操作时出错！ [团队： ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_MOBILE:
+  subject: '警报 - 条纹错误'
+  body: '上一次使用 Stripe 操作时出错！ [团队： ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_WEB:
+  subject: '警报 - 条纹错误'
+  body: '上一次使用 Stripe 操作时出错！ [团队： ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Alerts - 条纹支付失败'
+  body: '<h3>来自 ${from_company} 系统的新通知：</h3>
+  <p>条纹支付失败！</p>
+  <br/><p><b>详细资料：</b></p>
+  <p>${event_time} - [团队： ${team}], 按用户： ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_SMS:
+  body: '条纹支付失败！ [团队： ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Alerts - 条纹支付失败'
+  body: '条纹支付失败！ [团队： ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_WEB:
+  subject: 'Alerts - 条纹支付失败'
+  body: '条纹支付失败！ [团队： ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Stripe payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Stripe payment successful!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Stripe payment successful! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred during the last operation with Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_SMS:
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero invoice creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while creating an invoice: ${invoice} in Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero invoice created: ${invoice}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_SMS:
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero payment creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while Xero payment creation by invoice: ${invoice}!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero payment created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero payment created by invoice: ${invoice}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_SMS:
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_WEB:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - New invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New invoice created.</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - New invoice ${invoice_id} created.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_SMS:
+  body: 'New invoice ${invoice_id} created. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Alerts - Invoice payment failed'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice payment failed!</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} payment failed, reason - ${message}</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_SMS:
+  body: 'Invoice ${invoice_id} payment failed. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Alerts - Invoice payment failed'
+  body: 'Invoice ${invoice_id} payment failed. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_WEB:
+  subject: 'Alerts - Invoice payment failed'
+  body: 'Invoice ${invoice_id} payment failed. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Invoice payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice payment successful!</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} paid successfully.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_SMS:
+  body: 'Invoice ${invoice_id} overdue. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_WEB:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue - account partially blocked.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_SMS:
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_WEB:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue - account blocked.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_SMS:
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_WEB:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_EMAIL:
+  subject: 'Device contract expired'
+  body: '<p>Contract expired for ${count} devices: ${imei_array}.</p>'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_SMS:
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_MOBILE:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_WEB:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_WEB:
+  subject: 'Alerts - Jammer'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_SMS:
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_MOBILE:
+  subject: 'Jammer started - ${reg_no_or_device}'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_EMAIL:
+  subject: 'Alerts - Jammer'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Jammer started ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Jammer started on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_WEB:
+  subject: 'Alerts - Accident'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_SMS:
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_MOBILE:
+  subject: 'Accident happened - ${reg_no_or_device}'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_EMAIL:
+  subject: 'Alerts - Accident'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Accident happened ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Accident happened on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_WEB:
+  subject: 'Alerts - Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_SMS:
+  body: 'Device replaced:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_MOBILE:
+  subject: 'Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_EMAIL:
+  subject: 'Alerts - Device replaced'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device ${device_imei} was replaced.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have replaced device ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+set_as_limit: '设置为限制' #示例:温度> 10设置为限制
+outside_range: '超出了指定的范围' #例子: 温度，超出了指定的范围(10,20)
+device: '设备'
+Device: '设备'
+vehicle: '车辆'
+Vehicle: '车辆'
+with_driver: '与驾驶员'
+without_driver: '没有驾驶员'
+vehicle_page: '车辆页面'
+driver_page: '驾驶员页面'
+client_page: '客户页面'
+form_page: '表单页面'
+document_page: '文件页面'
+asset: '资产'
+driver: '司机'
+note_device_not_installed: '注意: 该设备没有配备驾驶员'
+reminder_page: '服务提醒 页面'
+repair_page: '服务修复页面'
+on: '开'
+off: '关'
+installed_in: '已安装'
+from_driver: '从驾驶员'
+inside_areas: '内部区域'
+outside_areas: '外部区域'

@@ -1,0 +1,44 @@
+old_sound_rabbit_mq:
+  connections:
+    default:
+      host:     '%env(RABBITMQ_SERVER_TEST)%'
+  producers:
+    events:
+      queue_options: { name: 'notification.events' }
+    sms:
+      queue_options: { name: 'notification.sms' }
+    email:
+      queue_options: { name: 'notification.email' }
+    webapp:
+      queue_options: { name: 'notification.webapp' }
+    mobileapp:
+      queue_options: { name: 'notification.mobileapp' }
+    routes:
+      queue_options: { name: 'routes.calculate' }
+    routes_post_handle:
+      queue_options: { name: 'routes.post_handle' }
+    areas:
+      queue_options: { name: 'areas.check' }
+    update_driver_in_related_entries:
+      queue_options: { name: 'update_driver_in_related_entries' }
+    tracker_voltage:
+      queue_options: { name: 'tracker.voltage' }
+    tracker_towing:
+      queue_options: { name: 'tracker.towing' }
+    tracker_panic_button:
+      queue_options: { name: 'tracker.panic_button' }
+    tracker_overspeeding:
+      queue_options: { name: 'tracker.overspeeding' }
+    tracker_engine_on_time:
+      queue_options: { name: 'tracker.engine_on_time' }
+    tracker_sensor_event:
+      queue_options: { name: 'tracker.sensor_event'}
+    tracker_moving_without_driver:
+      queue_options: { name: 'tracker.moving_without_driver' }
+    tracker_long_standing:
+      queue_options: { name: 'tracker.long_standing' }
+    tracker_long_driving:
+      queue_options: { name: 'tracker.long_driving' }
+    tracker_moving:
+      queue_options: { name: 'tracker.moving' }
+

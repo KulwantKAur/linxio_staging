@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>{{ app_name }} - {% block subject %}{% endblock %}</title>
+    <style type="text/css">
+        #report-name {
+            font-size: 20px;
+            margin-top: 15px;
+            margin-right: 300px;
+            font-family: "DejaVu Sans", sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff;
+            color: #123e68;
+        }
+
+        .header {
+            color: #123e68;
+            margin-bottom: 25px;
+        }
+
+        .header_title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .header_text {
+            font-size: 13px;
+        }
+
+        .detailed-information {
+            background-color: #ffffff;
+            margin-bottom: 25px;
+        }
+
+        .detailed-information_title {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .detailed-information_text {
+            font-size: 13px;
+        }
+
+        .descriptions {
+            font-size: 13px;
+        }
+
+        .alert-block {
+            background-color: #000000;
+        }
+
+        body {
+            background-color: #f6f6f6;
+            font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+        }
+        .timezone {
+            font-size: 12px;
+        }
+    </style>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<center style="width: 100%; background-color: #f6f6f6;">
+    <div style="margin: 0 auto; padding-bottom: 50px; padding-top:50px;" class="email-container">
+        <table align="center" border="0" width="600" style="margin: auto;">
+            <tr>
+                <td style="margin: 0 auto; text-align: center;">
+                    <img width="200" style="display: inline-block;"
+                         src="{{ api_url }}{{ logoPath|default('/uploads/linxio-logo.png') }}"/>
+                    <br/><br/>
+                </td>
+            </tr>
+            <tr style="width: 550px;" class="container">
+                <td style="padding: 20px;">
+                    {% block body %}{% endblock %}
+                    <div class="descriptions">
+                        <strong>{% block footer %}
+                                {{ 'best_regards'|trans({}, 'email') }}, <br>
+                                {{ emailName|default(app_name) }} {{ 'team'|trans({}, 'email') }}
+                            {% endblock %}
+                        </strong>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</center>
+</body>
+</html>

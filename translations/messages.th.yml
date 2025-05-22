@@ -1,0 +1,309 @@
+validation:
+  errors:
+    password:
+      min_length: รหัสผ่านต้องมีอักขระอย่างน้อย 8 ตัว
+      uppercase: รหัสผ่านต้องมีตัวอักษรตัวพิมพ์ใหญ่
+      lowercase: รหัสผ่านต้องมีตัวอักษรตัวพิมพ์เล็ก
+      symbols: รหัสผ่านต้องมีสัญลักษณ์
+      digits: รหัสผ่านจะต้องมีตัวเลข
+      weak: รหัสผ่านอ่อนแอ
+    image:
+      empty_data: ข้อมูลภาพที่ว่างเปล่า
+      is_not_base64: สตริงรูปภาพนี้ไม่ได้เป็น sintaxed เป็น base64
+      type_is_not_allowed: ไม่อนุญาตประเภทภาพ
+    field:
+      required: ฟิลด์ที่จำเป็น
+      wrong_format: รูปแบบผิด
+      wrong_value: ค่าผิด
+      wrong_value_for_name: ค่าผิดสำหรับ '%name%'
+      email_exist: อีเมลมีอยู่แล้ว
+      should_be_less_than: ค่าผิด ควรจะน้อยกว่า %value%
+      should_be_greater_than: ค่าที่ไม่ถูกต้อง ควรมากกว่า %value%
+      unique: ฟิลด์ควรมีเอกลักษณ์
+      should_be_numeric: ควรประกอบด้วยตัวเลข
+      should_be_empty: ควรว่างเปล่า
+      only_one_every_time_form: คุณสามารถสร้างได้เพียง 1 แบบทุกครั้ง
+      last_every_time_form: คุณไม่สามารถลบแบบฟอร์มได้ทุกครั้งล่าสุด
+      only_one_active_every_time_form: เพียง 1 แบบทุกครั้งที่สามารถใช้งานได้
+      wrong_email_format: รูปแบบอีเมลที่ไม่ถูกต้อง
+      wrong_phone_format: รูปแบบโทรศัพท์ผิด
+    import:
+      fuel_type_mismatch: ประเภทเชื้อเพลิงไม่ตรงกัน!
+      capacity_mismatch: ความจุไม่ตรงกัน!
+      unknown_vehicle: ยานพาหนะที่ไม่รู้จัก!
+      date_in_future: วันที่ในอนาคต!
+      fields_not_recognized: ฟิลด์สำหรับการนำเข้าไม่ได้รับการยอมรับ!
+      error_parsing_file:
+        เกิดข้อผิดพลาดขณะแยกวิเคราะห์ไฟล์นี้
+        คุณสามารถส่งตั๋วสนับสนุนและแนบไฟล์นี้ได้ -
+        ทีมงานของเราจะวิเคราะห์ปัญหา
+  warning:
+    import:
+      unknown_fuel_type: ชนิดเชื้อเพลิงที่ไม่รู้จัก!
+      duplicate_record: ทำซ้ำ?
+auth:
+  invalid_credentials: อีเมลหรือรหัสผ่านไม่ถูกต้อง
+  user:
+    not_found: ไม่พบผู้ใช้
+    not_found_with_phone: ไม่พบผู้ใช้ที่มีหมายเลขโทรศัพท์นี้
+    not_found_with_verify_token: ผู้ใช้ที่มีการตรวจสอบโทเค็นนี้ไม่พบ
+    deleted: ผู้ใช้ลบ
+    loginWithId: ผู้ใช้ไม่สามารถเข้าสู่ระบบด้วย ID
+    more_then_one: พบผู้ใช้หนึ่งรายเพิ่มเติม
+    login_restricted: เข้าสู่ระบบถูก จำกัด ในบัญชีนี้
+    blocked_account_access: การเข้าถึงบัญชีถูกบล็อก โปรดติดต่อบัญชีที่ (02)79085450 - ข้อมูลการติดตามจะหยุดให้บริการในวันที่ 1 ตุลาคม.
+  mobileDevice:
+    not_found: ไม่พบอุปกรณ์
+    not_allowed: ไม่อนุญาตให้เข้าสู่ระบบด้วยอุปกรณ์นี้
+  otp:
+    not_found_for_phone: ไม่พบรหัสผ่านครั้งเดียวสำหรับหมายเลขโทรศัพท์นี้
+    not_found_for_email: รหัสผ่านครั้งเดียวสำหรับอีเมลนี้ไม่พบ
+    code_is_wrong: รหัสยืนยันที่คุณป้อนผิดโปรดตรวจสอบหมายเลขโทรศัพท์ของคุณและขอรหัสใหม่
+    your_code_is: 'รหัสของคุณคือ: %code%'
+    expired: รหัสผ่านครั้งเดียวหมดอายุแล้ว โปรดลองขอใหม่
+  reset_password:
+    not_found: ไม่พบคำขอรหัสผ่านสำหรับโทเค็นนี้
+    already_requested: รีเซ็ตรหัสผ่านที่ร้องขอแล้ว กรุณาตรวจสอบจดหมายของคุณ
+    expired: ลิงก์ชั่วคราวสำหรับรหัสผ่านรีเซ็ตหมดอายุแล้ว โปรดลองขอใหม่
+    the_same: รหัสผ่านใหม่เป็นรหัสผ่านเดียวกันกับที่คุณมี กรุณาป้อนรหัสผ่านใหม่
+services:
+  sms:
+    plivo:
+      parameters_cannot_be_null: พารามิเตอร์บังคับไม่สามารถเป็นโมฆะได้
+      specify_powerpack_uuid: ระบุ powerpack_uuid หรือ src ในการขอพารามิเตอร์เพื่อส่งข้อความ
+      specify_parameters:
+        ทั้ง PowerPack_UUID และ SRC ไม่สามารถระบุได้ ระบุ powerpack_uuid หรือ
+        src ในการขอพารามิเตอร์เพื่อส่งข้อความ
+      unexpected_response: การตอบสนองที่ไม่คาดคิดจาก Plivo API
+  tracker:
+    device_not_found: ไม่พบอุปกรณ์
+entities:
+  already_exist: เอนทิตีมีอยู่แล้ว
+  reminder:
+    has_service_records: การแจ้งเตือนมีบันทึกการบริการ
+  client:
+    not_found: ไม่พบลูกค้า
+    need_client_manager: ลูกค้าต้องการผู้จัดการลูกค้า
+    unknownClientId: รหัสลูกค้าที่ไม่รู้จัก
+    blocked:
+      บัญชีของคุณถูกบล็อกกรุณาติดต่อทีมสนับสนุน Linxio โดยส่งอีเมล
+      support@linxio.com
+  user:
+    is_key_contact: ผู้ใช้เป็นผู้ติดต่อที่สำคัญ
+    delete_yourself: คุณไม่สามารถลบตัวเองได้
+    team_not_found: ไม่พบทีม
+  vehicle:
+    driver_set: ไดร์เวอร์ที่ตั้งไว้แล้ว
+    vehicle_installed: ยานพาหนะได้ติดตั้งอุปกรณ์แล้ว
+    device_not_installed: ยานพาหนะยังไม่ได้ติดตั้งอุปกรณ์
+    regNo: ยานพาหนะที่มีหมายเลขแผ่นนี้มีอยู่แล้ว
+    vin: ยานพาหนะที่มี vin นี้มีอยู่แล้ว
+    type: ประเภทยานพาหนะที่ไม่รู้จัก
+    regNoWithouDetails: รถที่ไม่รู้จัก Regno แต่ไม่มีรายละเอียดยานพาหนะให้
+    belongsAnotherClient: ยานพาหนะเป็นของลูกค้ารายอื่นแล้ว
+    not_found: ไม่พบยานพาหนะ
+    vehicle_permission: โปรดขอให้ผู้ดูแลระบบตรวจสอบสิทธิ์สำหรับยานพาหนะนี้
+    id_does_not_exist: ยานพาหนะที่มี ID '%id%' ไม่มีอยู่
+    you_were_unassigned_from_the_vehicle: คุณไม่ได้รับมอบหมายจากรถ '%regno%'
+  device:
+    device_installed: ติดตั้งอุปกรณ์แล้ว
+    installed_different_vehicle: อุปกรณ์ติดตั้งอยู่แล้วในยานพาหนะที่แตกต่างกันแล้ว
+    device_imei: อุปกรณ์ที่มี IMEI นี้มีอยู่แล้ว
+    vendor: ผู้ขายอุปกรณ์ที่ไม่รู้จัก
+    model: รุ่นอุปกรณ์ที่ไม่รู้จัก
+    device_was_replaced_by: อุปกรณ์ถูกแทนที่ด้วย '%imei%'
+    device_replaced: เปลี่ยนอุปกรณ์แล้ว '%imei%'
+    replacement_not_found: ไม่พบการเปลี่ยนอุปกรณ์
+    can_not_wakeup_device: ไม่สามารถปลุกอุปกรณ์ได้เนื่องจากข้อผิดพลาดของบริการของบุคคลที่สาม
+  reminder_category:
+    name: หมวดหมู่ที่มีชื่อเดียวกันอยู่แล้ว
+  reseller:
+    noKeyContact: ผู้ค้าปลีกไม่มีผู้ติดต่อที่สำคัญสำหรับการเข้าสู่ระบบ
+    unknownResellerId: รหัสผู้ค้าปลีกที่ไม่รู้จัก
+  vehicles_drivers:
+    only_for_drivers: คุณสามารถเพิ่มยานพาหนะสำหรับไดรเวอร์เท่านั้น
+    vehicle_ids_required: พารามิเตอร์ 'VeSualIDs' จำเป็นต้องใช้
+  device_sensor:
+    id_does_not_exist: เซ็นเซอร์อุปกรณ์ที่มี ID เซ็นเซอร์ '%id%' ไม่มีอยู่จริง
+    sensors_required: พารามิเตอร์ 'เซ็นเซอร์' เป็นสิ่งจำเป็น
+    vehicle_is_moving: ยานพาหนะกำลังเคลื่อนที่
+    required_device_id: พารามิเตอร์ 'DeviceID' เป็นสิ่งจำเป็น
+    sensor_has_device_from_another_team: เซ็นเซอร์ที่ติดตั้งบนอุปกรณ์จากทีมอื่นโปรดล้างอุปกรณ์ก่อนและลองอีกครั้ง
+  device_sensor_type:
+    id_does_not_exist: ประเภทเซ็นเซอร์อุปกรณ์ที่มี ID '%id%' ไม่มีอยู่
+    required_sensor_type: พารามิเตอร์ 'Senstortype' จำเป็นต้องใช้
+    sensor_id_is_denied_to_change: '''SensorID'' ถูกปฏิเสธที่จะเปลี่ยนสำหรับประเภทนี้'
+  sensor:
+    id_does_not_exist: เซ็นเซอร์ที่มีรหัสเซ็นเซอร์ '%id%' ไม่มีอยู่
+    sensors_required: พารามิเตอร์ 'เซ็นเซอร์' เป็นสิ่งจำเป็น
+    sensor_id_required: พารามิเตอร์ 'เซ็นเซอร์' เป็นสิ่งจำเป็น
+    vehicle_is_moving: ยานพาหนะกำลังเคลื่อนที่
+    team_id_does_not_exist: ทีมที่มี ID '%id%' ไม่มีอยู่
+    deny_to_change_team: คุณไม่มีสิทธิ์เข้าถึงทีมแก้ไข
+  driverHistory:
+    driver_history_already_exists:
+      ไม่สามารถกำหนดไดรเวอร์ให้กับยานพาหนะนี้ได้ -
+      มีบันทึกการขับขี่บางอย่างหลังจากวันที่ / เวลานี้
+  asset:
+    id_does_not_exist: สินทรัพย์ที่มี ID '%id%' ไม่มีอยู่
+    asset_cannot_be_paired_with_type: สินทรัพย์ไม่สามารถจับคู่กับเซ็นเซอร์ประเภท '%type%'
+    sensor_is_wrong: สินทรัพย์ไม่ได้จับคู่กับเซ็นเซอร์นี้
+  chat:
+    id_does_not_exist: ไม่มีแชทกับ id '%id%'
+    only_chat_members_can_edit_other: เฉพาะสมาชิกแชทเท่านั้นที่สามารถแก้ไขคนอื่นได้
+    chat_has_been_renamed: แชทถูกเปลี่ยนชื่อเป็น %name%
+    user_has_been_added: '%user% เข้าร่วมแชท'
+    user_has_been_deleted: '%user% ออกจากแชท'
+    message_deleted: ข้อความจาก %user% ถูกลบ
+    user_was_removed_by_current_user: '%user% ถูกลบโดย %currentUser%'
+    current_user_removed_message: '%currentUser% ได้ลบข้อความนี้'
+  chat_history:
+    id_does_not_exist: ไม่มีข้อความแชทที่มีรหัส '%id%' อยู่
+    file_id_does_not_exist: ไฟล์ที่มี id '%id%' ไม่มีอยู่
+    attach_does_not_exist: ข้อความแชทที่มี id '%id%' ไม่มีไฟล์แนบ
+    attach_does_not_equal_to_file: ข้อความแชทที่มี id '%id%' มีไฟล์แนบกับ id อื่น
+    attach_already_exists: ข้อความแชทที่มี id '%id%' มีไฟล์แนบอยู่แล้ว
+
+notes:
+  type:
+    not_found: ไม่พบสถานะ
+general:
+  access_denied: ปฏิเสธการเข้าใช้
+import:
+  bpInvoice:
+    vehicle: หมายเลขทะเบียนยานพาหนะ
+    transactionDate: วันที่ทำธุรกรรมที่มีผลบังคับใช้
+    transactionTime: การทำธุรกรรมเวลาที่มีประสิทธิภาพ
+    refueled: ลิตร
+    total: มูลค่าลูกค้า (EXC GST)
+    petrolStation: ชื่อตำแหน่ง
+  fleetCard:
+    vehicle: ยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่
+    refueled: เชื้อเพลิง
+    total: ทั้งหมด
+    petrolStation: ผู้ผลิต
+    refueledFuelType: ค่าธรรมเนียม / อากรตราประทับเป็นระยะ
+  transaction:
+    vehicle: ทะเบียนเลขที่
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่ทำธุรกรรม
+    transactionTime: เวลาการทำธุรกรรม
+    refueled: ปริมาณ
+    total: ทั้งหมด
+    petrolStation: ชื่อเว็บไซต์ร้านค้า
+    refueledFuelType: รายละเอียดสินค้า
+  motorpass:
+    vehicle: ยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่
+    refueled: ลิตร
+    total: ทั้งหมด
+    petrolStation: ผู้ผลิต
+    refueledFuelType: ผลิตภัณฑ์
+  mpData:
+    vehicle: ยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่
+    refueled: ลิตร
+    total: ทั้งหมด
+    petrolStation: ผู้ผลิต
+    refueledFuelType: ผลิตภัณฑ์
+  caltex:
+    vehicle: การควบคุม
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่
+    refueled: ปริมาณ
+    total: ทั้งหมด
+    petrolStation: 'รายละเอียดบัตร,'
+    refueledFuelType: ผลิตภัณฑ์
+  caltexTSDetail:
+    vehicle: การลงทะเบียน
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วาง
+    transactionTime: ระยะเวลาการทำรายการ (hhmmss)
+    refueled: ปริมาณ / ลิตร
+    total: ราคาต่อหน่วย
+    petrolStation: ตำแหน่งที่ตั้งชื่อ
+    refueledFuelType: ผลิตภัณฑ์
+  shell:
+    vehicle: หมายเลขทะเบียน
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่ทำธุรกรรม / เวลา
+    refueled: ปริมาณ
+    total: จำนวนเงินเด็คเก็ต (รวม GST)
+    petrolStation: ที่ตั้ง
+    refueledFuelType: ผลิตภัณฑ์
+  transactionV2:
+    vehicle: หมายเลขทะเบียนยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่ทำธุรกรรมที่มีผลบังคับใช้
+    transactionTime: การทำธุรกรรมเวลาที่มีประสิทธิภาพ
+    refueled: ลิตร
+    total: มูลค่าลูกค้า ($)
+    petrolStation: ชื่อตำแหน่ง
+    refueledFuelType: ผลิตภัณฑ์
+  devicesVehicles:
+    deviceVendor: dev_vendor
+    deviceModel: dev_model
+    deviceImei: dev_imei
+    deviceImsi: dev_imsi
+    devicePhone: dev_phone
+    clientId: client_id
+    resellerId: reseller_id
+    vehicleTitle: veh_title
+    vehicleRegNo: veh_regno
+    vehicleModel: veh_model
+    vehicleType: veh_type
+digitalForm:
+  emptyInspectionForm: ไม่มีรูปแบบดิจิตอลที่ถูกต้องใด ๆ
+  entityDigitalFormNotFound: 'แบบฟอร์มดิจิตอลที่มี ID: `%id%` ไม่พบ'
+  entityDigitalFormAnswerNotFound: 'คำตอบฟอร์มดิจิตอลพร้อม ID: `%id%` ไม่พบ'
+  entityDigitalFormScheduleNotFound: 'กำหนดการแบบฟอร์มดิจิตอลด้วย ID: `%id%` ไม่พบ'
+  answerValidator:
+    notPresent: คำตอบนี้ไม่ปรากฏในคำถามแบบฟอร์ม
+    nonValid: ค่าคำตอบที่ไม่ถูกต้อง
+  answerFactory:
+    stepObjectInvalidType: 'ไม่สามารถสร้างวัตถุขั้นตอน ไม่ถูกต้อง `type` value: %type%'
+    stepValidatorInvalidType: 'ไม่สามารถสร้างขั้นตอนการตรวจสอบ ไม่ถูกต้อง `type` value: %type%'
+reseller:
+  wrongStatus: ค่าสถานะที่ไม่ถูกต้อง
+
+report:
+  totalBySelectedVehicles: รวมตามพาหนะที่เลือก
+  parkingTime: เวลาจอดรถ
+  distance: ระยะทาง
+  drivingTime: เวลาขับรถ
+  idlingTime: เวลารถนิ่ง
+
+calendar:
+  months:
+    month_1: มกราคม
+    month_2: กุมภาพันธ์
+    month_3: มีนาคม
+    month_4: เมษายน
+    month_5: อาจ
+    month_6: มิถุนายน
+    month_7: กรกฎาคม
+    month_8: สิงหาคม
+    month_9: กันยายน
+    month_10: ตุลาคม
+    month_11: พฤศจิกายน
+    month_12: ธันวาคม
+
+billing:
+  accountStatus:
+    haveNotPaidInvoices: คุณมีใบแจ้งหนี้ที่ยังไม่ได้ชำระ
+    paymentError: "ข้อผิดพลาดในการชำระเงิน: %error%"
+    haveOverdueInvoices: คุณมีใบแจ้งหนี้ที่ค้างชำระ
+    noPendingInvoices: ไม่มีใบแจ้งหนี้ที่รอดำเนินการ
+    checkPaymentMethod: โปรดตรวจสอบวิธีการชำระเงินของคุณ
+
+camera_type:
+  outward: ภายนอก
+  dms: คนขับ
+  ext1: ภายนอก1
+  ext2: ภายนอก2
+  ext3: ภายนอก3
+  ext4: ภายนอก4

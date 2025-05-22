@@ -1,0 +1,19 @@
+password_reset_request: 密码重置请求
+dear: 亲爱的
+detailed_information: 细节信息
+requested_reset_password: 您(或您团队中的某个人)请求重置密码。
+visit_link_new_password: 请访问该链接指定新密码
+reset_password: 重置密码
+copy_url: 如果你对上面的按钮有困难，复制并粘贴URL   进入你的网页浏览器.
+best_regards: '诚挚的问候, %emailName% 团队'
+linxio_cred: Linxio凭证
+hello_username: '你好 %user.fullName%'
+new_user_verify_phone: '您已经被添加为Linxio的用户 %company% 账户,请点击下面的链接设置密码.'
+new_user_set_password: '您已经被添加为Linxio的用户   %company% 账户, 请点击下面的链接设置密码.'
+client_sharing_link:  '%client% 和你分享车辆的位置吗.'
+client_sharing_location:  '%client% 和你分享车辆的位置吗.'
+drivers_name: 司机的名字
+vehicle_regno: 车牌号
+message: 信息
+tracking_link: 跟踪链接
+tracking_technology: 跟踪技术由Linxio支持

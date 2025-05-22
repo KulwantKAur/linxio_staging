@@ -1,0 +1,5 @@
+imports:
+    - { resource: rabbitmq_prod.yaml }
+
+services:
+    App\Service\File\FileServiceInterface: "@app.aws_s3_file_service"

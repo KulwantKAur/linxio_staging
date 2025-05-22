@@ -1,0 +1,70 @@
+
+MOTORPASS CARD
+VEHICLE REPORT AND STATEMENT COPY
+
+
+In accordance with tax ruling F2008L03345, your business will not need to retain original Tax
+Invoices to claim input tax credits for the GST expenditure shown on this Purchases by Cardholder
+report. To comply with this ruling the card must show a driver name and/or vehicle registration,
+and your business must maintain a regulated policy for making adjustments for expenditure that is
+of a private or domestic nature. Please retain this document to substantiate your taxation claims.
+This document is issued by Wright Express Australia Pty Ltd, A.B.N. 68 005 970 570, Level 3, 293 Camberwell Road, Camberwell VIC 3124.
+
+ACCOUNT No.    137 934 980 - 4	CUSTOMER SINCE: MARCH 2010    
+
+NADO INC
+PO BOX 511
+ST MARYS NSW 1790
+
+
+	ISSUED BY WRIGHT EXPRESS AUSTRALIA PTY LTD
+	ABN: 68 005 970 570
+VEHICLE REPORT AND STATEMENT TO 01 JUL 18
+$14,000.00
+
+
+Date/Vehicle	Card No./Reference										Nett	GST	Gross
+	BALANCE OF LAST STATEMENT										8478.38		8478.38
+15/06/2018	PAYMENT  -  THANK YOU										-8478.38		-8478.38
+
+BQ78AB YARIS	1630 2415										118.71	11.87	130.58
+AT03QX HIACE	1667 4474										215.16	21.52	236.68
+AP86BN TOYOTA	1750 5446										401.38	40.12	441.50
+BW60RR TARAGO	1825 7021										308.28	30.82	339.10
+BU00CD 	1840 1165										411.50	41.16	452.66
+BK47FR HIACE	1917 5933										348.67	34.87	383.54
+BD60RM HIACE	1923 0522										238.03	23.79	261.82
+BB18NL HIACE	2183 6761										485.03	48.49	533.52
+BP25VC HIACE	2634 3821										384.55	38.46	423.01
+CA46SK TOYOTA	2639 5151										274.91	27.50	302.41
+CG94XS CAMRY	2666 0430										261.73	26.16	287.89
+BW40GO HIACE	2741 4498										468.97	46.91	515.88
+AQ10QF HIACE	2851 4783										316.50	31.65	348.15
+AU72NU HIACE	2919 6499										191.16	19.11	210.27
+BP61QY CAMRY	2919 9352										137.92	13.79	151.71
+DPD19R HIACE	5213 0613										544.04	54.41	598.45
+CN80RH COMMUTER	5601 1942										497.17	49.72	546.89
+DJU45M HIACE	5857 6264										292.34	29.23	321.57
+CP75NQ HIACE	5912 1334										422.43	42.25	464.68
+NDH213 CIVIC	6211 9432										201.54	20.15	221.69
+BK47BG HIACE	6325 9708										147.43	14.74	162.17
+CJ18RW HIACE	6438 2095										325.59	32.54	358.13
+CL80UE RUKUS	6487 3218										219.07	21.91	240.98
+
+	BALANCE DUE										7212.11	721.17	7933.28
+
+Vehicle	Card No.	eGrant	Date	Supplier	ABN	Our Ref	Cust Ref	Odometer	Product	Litres	Nett	GST	Gross
+
+221SVP	1630 2415
+			06/06/2018	BP CONNECT ST MARYS	29006639087	6473	BQ78AB	116615	PREMIUM	26.89	39.09	3.91	43.00
+			20/06/2122	7-ELEVEN MINCHINBURY	48005299427	9576	BQ78AB	116958	E10 ULP	28.02	40.18	4.02	44.20
+ Approx. fuel consumption: 8.2 Lt/100Km
+	CARD TOTAL										118.71	11.87	130.58
+
+AT03QX HIACE	1667 4474
+			01/06/2018	BP CONNECT ST MARYS	29006639087	6326	AT03QX	165632	ULP ETHANOL	41.20	57.28	5.73	63.01
+			15/06/2018	7-ELEVEN COLYTON	48005299427	4358	AT03QX	165925	E10 ULP	39.25	47.43	4.74	52.17
+ Approx. fuel consumption: 13.2 Lt/100Km
+	CARD TOTAL										215.16	21.52	236.68
+
+The WEX Motorpass card is a service provided by Wright Express Australia Pty Ltd  ABN: 68 005 970 570.

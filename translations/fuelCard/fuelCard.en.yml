@@ -1,0 +1,179 @@
+import:
+  bpInvoice:
+    vehicle: Vehicle Registration Number
+    transactionDate: Transaction Effective Date
+    transactionTime: Transaction Effective Time
+    refueled: Litres
+    total: Customer Value (EXC GST)
+    petrolStation: Location Name
+  fleetCard:
+    vehicle: Vehicle
+    fuelCardNumber: Card No.
+    transactionDate: Date
+    refueled: Fuel
+    total: Gross
+    petrolStation: Supplier
+    refueledFuelType: Periodic Fee/Stamp Duty
+  transaction:
+    vehicle: Registration Number
+    fuelCardNumber: Card No.
+    transactionDate: Transaction Date
+    transactionTime: Transaction Time
+    refueled: Quantity
+    total: Total
+    petrolStation: Merchant Site Name
+    refueledFuelType: Product Description
+  transactionNorthernBeaches:
+    vehicle: Registration Number
+    fuelCardNumber: Card Number
+    transactionDate: Transaction Date
+    transactionTime: Transaction Time
+    refueled: Quantity (Litres)
+    total: Total Including GST
+    petrolStation: Merchant
+    refueledFuelType: Product Name
+  motorpass:
+    vehicle: Vehicle
+    fuelCardNumber: Card No.
+    transactionDate: Date
+    refueled: Litres
+    total: Gross
+    petrolStation: Supplier
+    refueledFuelType: Product
+  motorpassV2:
+    vehicle: Rego
+    transactionDate: Date
+    refueled: Quantity
+    total: Amount Inc
+    petrolStation: Description
+    searchEndPosition: Subtotal For
+  mpData:
+    vehicle: Vehicle
+    fuelCardNumber: Card No.
+    transactionDate: Date
+    refueled: Litres
+    total: Gross
+    petrolStation: Supplier
+    refueledFuelType: Product
+  caltex:
+    vehicle: Rego
+    fuelCardNumber: Card no
+    transactionDate: Date
+    refueled: Quantity
+    total: Total inc
+    petrolStation: Card details,
+    refueledFuelType: Product
+  caltexTSDetail:
+    vehicle: Registration
+    fuelCardNumber: CardNumber
+    transactionDate: TranDate
+    transactionTime: TranTime (hhmmss)
+    refueled: Quantity/Litres
+    total: $TotalIncGST
+    petrolStation: LocationName
+    refueledFuelType: Product
+  caltexTSDetailCsv:
+    vehicle: REGISTRATION
+    fuelCardNumber: CARD_NUMBER
+    transactionDate: TRAN_DATE
+    transactionTime: TRAN_TIME
+    refueled: QUANTITY_PER_LITRES
+    total: TOTAL_AMT_INC_GST
+    petrolStation: LOCATION_NAME
+    refueledFuelType: PRODUCT
+  shell:
+    vehicle: Reg Number
+    fuelCardNumber: Card Number
+    transactionDate: Transaction Date/Time
+    refueled: Quantity
+    total: Docket Amount (Incl GST)
+    petrolStation: Location
+    refueledFuelType: Product
+  shellCard:
+    vehicle: vehicleRegistration
+    fuelCardNumber: cardNumber
+    transactionDate: transactionDate
+    refueled: quantity
+    total: docketAmount
+    petrolStation: transactionOutlet
+    refueledFuelType: product
+  shellV2:
+    vehicle: Vehicle Registration Number
+    fuelCardNumber: Card Number
+    transactionDate: Transaction Date/Time
+    refueled: Quantity
+    total: Total Amount (Incl GST)
+    petrolStation: Location
+    refueledFuelType: Product
+  transactionV2:
+    vehicle: Vehicle Registration Number
+    fuelCardNumber: Card Number
+    transactionDate: Transaction Effective Date
+    transactionTime: Transaction Effective Time
+    refueled: Litres
+    total: Customer Value ($)
+    petrolStation: Location Name
+    refueledFuelType: Product
+  transactionV3:
+    vehicle: Registration
+    fuelCardNumber: Card Number
+    transactionDate: Transaction Date
+    refueled: Total Quantity
+    total: Total Gross Value
+    petrolStation: Store Name
+    refueledFuelType: RetailProductName
+  transactionV4:
+    vehicle: Vehicle Registration
+    fuelCardNumber: Card
+    transactionDate: Date
+    transactionTime: Time
+    refueled: Volume
+    total: Amount
+    petrolStation: Site Name
+    refueledFuelType: Product
+#    driverName: Driver Name
+#    siteId: Site Id
+  fuelTransaction:
+    vehicle: Registration
+    fuelCardNumber: Fuel Card Number
+    transactionDate: Fuel Issue Date
+    transactionTime: Fuel Issue Time
+    refueled: Fuel Qty
+    total: Fuel Cost Total
+    petrolStation: Supplier
+    refueledFuelType: Fuel Type
+  fuelCardV2:
+    vehicle: Vehicle Rego
+    fuelCardNumber: Card No
+    transactionDate: Transaction Date
+    transactionTime: Transaction Time
+    refueled: Litres
+    total: Amount
+    petrolStation: Merchant Name
+    refueledFuelType: Product Name
+  chevron:
+    onlyReadFields:
+      transactionType: Transaction Type
+      customerName: Customer name
+    transactionDate: Transaction Date
+    transactionTime: Transaction Time
+    fuelCardNumber: Card Number
+    vehicle: Vehicle Number
+    odometer: Odometer
+    cardAccountNo: Card account No
+    siteId: Site ID
+    refueledFuelType: Product Name
+    productCode: Product Code
+    refueled: Quantity
+    total: Amount $ Incl. GST/ Amount / Issuer Invoice Amount
+    petrolStation: Location Name
+    pumpPrice: Pump Price
+  nsw:
+    vehicle: Registration
+    fuelCardNumber: Fuel Card Number
+    transactionDate: Fuel Issue Date
+    transactionTime: Fuel Issue Time
+    refueled: Fuel Qty
+    total: Fuel Cost Total
+    refueledFuelType: Fuel Type
+    odometer: Odo Reading

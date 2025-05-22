@@ -1,0 +1,245 @@
+validation:
+  errors:
+    password:
+      min_length: Kata laluan mestilah sekurang-kurangnya 8 aksara
+      uppercase: Kata laluan mesti mengandungi huruf besar
+      lowercase: Kata laluan mesti mengandungi huruf kecil
+      symbols: Kata laluan mesti mengandungi simbol
+      digit: Kata laluan mesti mengandungi digit
+      weak: Kata laluan lemah
+    image:
+      empty_data: Data imej kosong
+      is_not_base64: Rentetan imej ini tidak disintakskan sebagai base64
+      type_is_not_allowed: Jenis fail tidak dibenarkan
+    field:
+      required: Medan yang diperlukan
+      format_salah: Format salah
+      wrong_value: Nilai salah
+      wrong_value_for_name: Nilai salah untuk '%name%'
+      email_exist: E-mel sudah wujud
+      should_be_less_than: Nilai salah. Harus kurang daripada %value%
+      should_be_greater_than: Nilai salah. Harus lebih besar daripada %value%
+      unique: Medan mestilah unik
+      should_be_numeric: Harus terdiri daripada digit
+      should_be_empty: Harus kosong
+      only_one_every_time_form: Anda boleh membuat hanya 1 Everytime Form
+      last_every_time_form: Anda tidak boleh memadam Borang EveryTime terakhir
+      only_one_active_every_time_form: Hanya 1 EveryTime Borang boleh aktif
+      wrong_email_format: Format e-mel salah
+      wrong_phone_format: Format telefon salah
+    import:
+      fuel_type_mismatch: Jenis bahan api tidak padan!
+      capacity_mismatch: Kapasiti tidak padan!
+      unknown_vehicle: Kenderaan tidak dikenali!
+      date_in_future: Tarikh di masa hadapan!
+      fields_not_recognized: Medan untuk import tidak dikenali!
+      error_parsing_file: Ralat semasa menghuraikan fail ini. Anda boleh menyerahkan tiket sokongan dan melampirkan fail ini - pasukan kami akan menganalisis masalah tersebut.
+      error_upload_file: Ralat telah berlaku semasa memuat naik fail ini.
+  warning:
+    import:
+      unknown_fuel_type: Jenis bahan api tidak diketahui!
+      duplicate_record: Pendua?
+
+auth:
+  invalid_credentials: E-mel atau kata laluan tidak sah
+  user:
+    not_found: Pengguna tidak ditemui
+    not_found_with_phone: Pengguna dengan nombor telefon ini tidak ditemui
+    not_found_with_verify_token: Pengguna dengan token pengesahan ini tidak ditemui
+    deleted: Pengguna dipadamkan
+    loginWithId: Pengguna tidak boleh log masuk dengan ID
+    more_then_one: Lebih daripada seorang pengguna ditemui
+    login_restricted: Log masuk telah dihadkan pada akaun ini
+    blocked_account_access: Akses Akaun telah disekat. Sila hubungi Akaun di (02)79085450 - data penjejakan akan dihentikan pada 1 Oktober.
+  mobileDevice:
+    not_found: Peranti tidak ditemui
+    not_allowed: Log masuk dengan peranti ini tidak dibenarkan
+  otp:
+    not_found_for_phone: Satu kali kata laluan untuk nombor telefon ini tidak ditemui
+    not_found_for_email: Satu kali kata laluan untuk e-mel ini tidak ditemui
+    code_is_wrong: Kod pengesahan yang anda masukkan salah, sila semak nombor telefon anda dan minta kod baharu.
+    your_code_is: 'Kod anda ialah: %code%'
+    expired: Kata laluan satu kali telah tamat tempoh. Sila, cuba minta yang baharu
+  reset_password:
+    not_found: Permintaan untuk kata laluan untuk token ini tidak ditemui
+    already_requested: Tetapkan semula kata laluan yang telah diminta. Sila semak mel anda
+    expired: Pautan sementara untuk menetapkan semula kata laluan telah tamat tempoh. Sila, cuba minta yang baharu
+    the_same: Kata laluan baharu ialah kata laluan yang sama seperti yang anda miliki. Sila masukkan kata laluan baharu
+
+services:
+  sms:
+    plivo:
+      parameters_cannot_be_null: Parameter mandatori tidak boleh batal
+      specify_powerpack_uuid: Tentukan sama ada powerpack_uuid atau src dalam permintaan params untuk menghantar mesej.
+      specify_parameters: Kedua-dua powerpack_uuid dan src tidak boleh ditentukan. Tentukan sama ada powerpack_uuid atau src dalam permintaan params untuk menghantar mesej.
+      unexpected_response: Respons tidak dijangka daripada Plivo API
+  tracker:
+    device_not_found: Peranti tidak ditemui
+
+entities:
+  already_exist: Entiti sudah wujud
+  reminder:
+    has_service_records: Peringatan mempunyai rekod perkhidmatan
+  client:
+    not_found: Pelanggan tidak ditemui
+    need_client_manager: Pelanggan memerlukan pengurus klien
+    unknownClientId: ID Pelanggan Tidak Diketahui
+    blocked: Akaun anda telah disekat, sila hubungi pasukan sokongan Linxio dengan menghantar e-mel kepada support@linxio.com
+  user:
+    is_key_contact: Pengguna ialah kenalan utama
+    delete_yourself: Anda tidak boleh memadamkan diri sendiri
+    team_not_found: Pasukan tidak ditemui
+    not_found_with_id: 'Pengguna dengan %id% tidak ditemui'
+  vehicle:
+    driver_set: Pemandu sudah ditetapkan
+    vehicle_installed: Kenderaan sudah memasang peranti
+    device_not_installed: Kenderaan belum memasang peranti
+    regNo: Kenderaan dengan Nombor Plat ini sudah wujud
+    vin: Kenderaan dengan VIN ini sudah wujud
+    type: Jenis kenderaan tidak diketahui
+    regNoWithouDetails: RegNo kenderaan tidak diketahui tetapi tiada butiran kenderaan diberikan
+    belongsAnotherClient: Kenderaan sudah menjadi milik pelanggan lain
+    not_found: Kenderaan tidak ditemui
+    vehicle_permission: Sila minta admin menyemak kebenaran untuk kenderaan ini
+    id_does_not_exist: Kenderaan dengan id '%id%' tidak wujud
+    you_were_unassigned_from_the_vehicle: Anda telah dinyahtugaskan daripada kenderaan '%regno%'
+  device:
+    device_installed: Peranti sudah dipasang
+    installation_different_vehicle: Peranti telah dipasang pada kenderaan lain
+    device_imei: Peranti dengan IMEI ini sudah wujud
+    vendor: Vendor peranti tidak diketahui
+    model: Model peranti tidak diketahui
+    not_found: Peranti tidak ditemui
+    contract: Peranti mempunyai kontrak aktif
+    device_was_replaced_by: Peranti telah digantikan dengan '%imei%'
+    device_replaced: Peranti digantikan '%imei%'
+    replacement_not_found: Penggantian peranti tidak ditemui
+    can_not_wakeup_device: Tidak dapat menghidupkan peranti kerana ralat perkhidmatan pihak ketiga
+  reminder_category:
+    name: Kategori dengan nama yang sama sudah wujud
+  reseller:
+    noKeyContact: Penjual semula tidak mempunyai pengguna kenalan utama untuk log masuk
+    unknownResellerId: ID Reseller Tidak Diketahui
+  vehicles_drivers:
+    only_for_drivers: Anda boleh menambah kenderaan hanya untuk pemandu
+    vehicle_ids_required: "'vehicleIds' diperlukan parameter"
+  device_sensor:
+    id_does_not_exist: Penderia peranti dengan id penderia '%id%' tidak wujud
+    sensors_required: "'sensor' diperlukan parameter"
+    vehicle_is_moving: Kenderaan sedang bergerak
+    required_device_id: "'deviceId' ialah parameter yang diperlukan"
+    sensor_has_device_from_another_team: Sensor dipasang pada peranti daripada pasukan lain, sila kosongkan peranti dahulu dan cuba semula
+  device_sensor_type:
+    id_does_not_exist: Jenis penderia peranti dengan id '%id%' tidak wujud
+    required_sensor_type: "'sensorType' adalah parameter yang diperlukan"
+    sensor_id_is_denied_to_change: "'sensorId' dinafikan untuk menukar untuk jenis ini"
+  sensor:
+    id_does_not_exist: Penderia dengan id penderia '%id%' tidak wujud
+    sensors_required: "'sensor' diperlukan parameter"
+    sensor_id_required: "'sensorId' diperlukan parameter"
+    vehicle_is_moving: Kenderaan sedang bergerak
+    team_id_does_not_exist: Pasukan dengan id '%id%' tidak wujud
+    deny_to_change_team: Anda tidak mempunyai akses untuk mengedit pasukan
+  driverHistory:
+    driver_history_already_exists: Tidak dapat menetapkan pemandu untuk kenderaan ini - sudah ada beberapa rekod pemanduan selepas tarikh/masa ini.
+  asset:
+    id_does_not_exist: Aset dengan id '%id%' tidak wujud
+    asset_not_be_paired_with_type: Aset tidak boleh dipasangkan dengan jenis sensor '%type%'
+    sensor_is_wrong: Aset tidak dipasangkan dengan sensor ini
+  chat:
+    id_does_not_exist: Sembang dengan id '%id%' tidak wujud
+    only_chat_members_can_edit_other: Hanya ahli sembang boleh mengedit orang lain
+    chat_has_been_renamed: Sembang telah dinamakan semula kepada %name%
+    user_has_been_added: '%user% menyertai sembang'
+    user_has_been_deleted: '%user% meninggalkan sembang'
+    message_deleted: Mesej daripada %user% dipadamkan
+    user_was_removed_by_current_user: '%user% telah dialih keluar oleh %currentUser%'
+    current_user_removed_message: '%currentUser% telah mengalih keluar mesej ini'
+  chat_history:
+    id_does_not_exist: Mesej sembang dengan id '%id%' tidak wujud
+    file_id_does_not_exist: Fail dengan id '%id%' tidak wujud
+    attachment_does_not_exist: Mesej sembang dengan id '%id%' tidak mempunyai lampiran
+    attachment_does_not_equal_to_file: Mesej sembang dengan id '%id%' mempunyai lampiran dengan id lain
+    attachment_already_exists: Mesej sembang dengan id '%id%' sudah mempunyai lampiran
+  invoice:
+    not_found: Invois tidak ditemui
+    xero:
+      not_paid: Invois tidak dibayar. Hanya invois berbayar boleh diimport ke Xero
+
+nota:
+  type:
+    not_found: Status tidak dijumpai
+
+general:
+  access_denied: Akses Ditolak
+
+import:
+  devicesVehicles:
+    deviceVendor: Dev_Vendor
+    deviceModel: Dev_Model
+    deviceImei: Dev_IMEI
+    deviceImsi: Dev_IMSI
+    devicePhone: Dev_Phone
+    clientId: Client_ID
+    resellerId: Reseller_ID
+    kenderaanTajuk: Veh_Title
+    kenderaanRegNo: Veh_RegNo
+    kenderaanModel: Veh_Model
+    vehicleMake: Veh_Make
+    vehicleType: Veh_Type
+    kenderaanYear: Veh_Year
+    expDate: Exp_Date
+    contractId: Contract_ID
+
+digitalForm:
+  emptyInspectionForm: "Tiada sebarang borang Digital yang sah"
+  entityDigitalFormNotFound: "Borang digital dengan id: `%id%` tidak ditemui"
+  entityDigitalFormAnswerNotFound: "Jawapan borang digital dengan id: `%id%` tidak ditemui"
+  entityDigitalFormScheduleNotFound: "Jadual borang digital dengan id: `%id%` tidak ditemui"
+  answerValidator:
+    notPresent: Jawapan ini tidak terdapat dalam soalan borang
+    nonValid: Nilai jawapan tidak sah
+  answerFactory:
+    stepObjectInvalidType: "Tidak boleh membuat objek langkah. Nilai `type` tidak sah: %type%"
+    stepValidatorInvalidType: "Tidak boleh membuat pengesah langkah. Nilai `type` tidak sah: %type%"
+
+reseller:
+  wrongStatus: "Nilai status salah"
+
+report:
+  totalBySelectedVehicles: Jumlah mengikut kenderaan terpilih
+  parkingTime: Masa letak kereta
+  distance: Jarak
+  drivingTime: Masa memandu
+  idlingTime: Masa melahu
+
+calendar:
+  months:
+    month_1: Januari
+    month_2: Februari
+    month_3: Mac
+    month_4: April
+    month_5: Mei
+    month_6: Jun
+    month_7: Julai
+    month_8: Ogos
+    month_9: September
+    month_10: Oktober
+    month_11: November
+    month_12: Disember
+
+billing:
+  accountStatus:
+    haveNotPaidInvois: Anda mempunyai invois yang belum dibayar
+    paymentError: "Ralat pembayaran: %error%"
+    haveOverdueInvoices: Anda mempunyai invois tertunggak
+    noPendingInvoices: Tiada invois belum selesai
+    checkPaymentMethod: Sila semak kaedah pembayaran anda
+
+camera_type:
+  outward: Luaran
+  dms: Pemandu
+  ext1: Luaran1
+  ext2: Luaran2
+  ext3: Luaran3
+  ext4: Luaran4

@@ -1,0 +1,22 @@
+發票:
+  invoice: 發票
+  paid: 已付
+  notPaid: 未支付
+  invoiceDate: 發票日期
+  invoiceDueDate: 發票到期日
+  issuer: 發行人
+  abn: ABN
+  phone: Ph
+  email: 電子郵件
+  address: 地址
+  billedTo: 收款人
+  customerId: 客戶編號
+  qty: 數量
+  desc: 描述
+  unitPrice: 單價
+  lineTotal: 行總計
+  prepayment: 預付款
+  subTotal: 小計
+  total: 總計
+  tax: 稅
+  thx: 謝謝您的惠顧！

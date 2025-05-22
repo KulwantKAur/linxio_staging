@@ -1,0 +1,33 @@
+{% extends "reports/default.html.twig" %}
+
+{% block subject %}
+    {{ subject }}
+{% endblock %}
+
+{% block body %}
+    <div class="detailed-information">
+        <p class="detailed-information_title">{{ 'detailed_information' | trans }}</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if data|length > 0 %}
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Status</td>
+            </tr>
+            {% for item in data %}
+                <tr>
+                    {% for key, item in item %}
+                        {% if key not in ['fullRemotePath', 'localPath'] %}
+                            <td class="{{ key | cssClass }}">{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+
+

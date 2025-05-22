@@ -1,0 +1,34 @@
+{% extends 'emails/base.html.twig' %}
+{% trans_default_domain 'email' %}
+{% block subject %}
+    {{ 'client_sharing_link'|trans({'%client%': client}) }}
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        {#        <span class="header_title">Password reset request</span>#}
+        <p class="header_text">{{ 'client_sharing_location'|trans({'%client%': client}) }}</p>
+    </div>
+
+    <div class="detailed-information">
+        <p class="detailed-information_title">{{ 'detailed_information' | trans }}</p>
+        <p class="detailed-information_text">
+            {% if driver is not null %}
+                <span><b>{{ 'drivers_name' | trans }}:</b> {{ driver }} </span>
+            {% endif %}
+            {% if regno is not null %}
+                <br/><br/>
+                <span><b>{{ 'vehicle_regno' | trans }}:</b> {{ regno }}</span>
+            {% endif %}
+            {% if message is not null %}
+            <br/><br/>
+            <span><b>{{ 'message' | trans }}:</b></span>
+        <pre>{{ message }}</pre>
+        {% endif %}
+        <span><b>{{ 'tracking_link' | trans }}:</b> {{ link }}</span>
+        <br><br/>
+        <span> — </span>
+        <span>{{ 'tracking_technology' | trans }}</span><br/>
+        </p>
+    </div>
+{% endblock %}

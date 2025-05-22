@@ -1,0 +1,20 @@
+password_reset_request: Permintaan tetapan semula kata laluan
+dear: sayang
+detailed_information: Maklumat terperinci
+requested_reset_password: Anda (atau seseorang daripada pasukan anda) meminta tetapan semula untuk kata laluan anda.
+visit_link_new_password: Sila lawati pautan untuk menentukan kata laluan baharu
+reset_password: Tetapkan Semula Kata Laluan
+copy_url: Jika anda menghadapi masalah dengan butang di atas, salin dan tampal URL di bawah ke dalam pelayar web anda.
+best_regards: 'Salam Hormat'
+team: 'pasukan'
+linxio_cred: Bukti kelayakan Linxio
+hello_username: 'Hello %user.fullName%'
+new_user_verify_phone: 'Anda telah ditambahkan sebagai pengguna ke Linxio pada akaun %company%, sila klik pautan di bawah untuk mengesahkan nombor telefon mudah alih anda dan tetapkan kata laluan.'
+new_user_set_password: 'Anda telah ditambahkan sebagai pengguna kepada Linxio pada akaun %company%, sila klik pautan di bawah untuk menetapkan kata laluan.'
+client_sharing_link: '%client% berkongsi lokasi kenderaan dengan anda.'
+client_sharing_location: '%client% berkongsi lokasi kenderaan dengan anda.'
+drivers_name: Nama pemandu
+vehicle_regno: Regno kenderaan
+message: Mesej
+tracking_link: Pautan penjejakan
+tracking_technology: Teknologi penjejakan oleh Linxio

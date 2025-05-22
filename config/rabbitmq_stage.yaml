@@ -1,0 +1,277 @@
+old_sound_rabbit_mq:
+  connections:
+    default:
+      ssl_context:
+        verify_peer: false
+
+      use_socket: false
+  consumers:
+    events:
+      connection: default
+      exchange_options: { name: 'notification.events', type: direct }
+      queue_options: { name: 'notification.events' }
+      callback: app.notification.event_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 300 }
+    sms:
+      connection: default
+      exchange_options: { name: 'notification.sms', type: direct }
+      queue_options: { name: 'notification.sms' }
+      callback: app.notification.sms_transport_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 1, global: false }
+      graceful_max_execution: { timeout: 300 }
+    email:
+      connection: default
+      exchange_options: { name: 'notification.email', type: direct }
+      queue_options: { name: 'notification.email' }
+      callback: app.notification.email_transport_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 1, global: false }
+      graceful_max_execution: { timeout: 300 }
+    webapp:
+      connection: default
+      exchange_options: { name: 'notification.webapp', type: direct }
+      queue_options: { name: 'notification.webapp' }
+      callback: app.notification.webapp_transport_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 300 }
+    mobileapp:
+      connection: default
+      exchange_options: { name: 'notification.mobileapp', type: direct }
+      queue_options: { name: 'notification.mobileapp' }
+      callback: app.notification.mobileapp_transport_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 300 }
+    areas_1:
+      connection: default
+      exchange_options: { name: 'areas.check', type: direct }
+      queue_options:
+        name: 'areas.check_1'
+        routing_keys:
+          - areas_check_device_1
+          - areas_check_device_2
+          - areas_check_device_3
+          - areas_check_device_4
+      callback: app.route.check_area
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    update_driver_in_related_entries:
+      connection: default
+      exchange_options: { name: 'update_driver_in_related_entries', type: direct }
+      queue_options: { name: 'update_driver_in_related_entries' }
+      callback: App\Service\Route\SetDriverInRelatedEntriesConsumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 3600 }
+    tracker_voltage_1:
+      connection: default
+      exchange_options: { name: 'tracker.voltage', type: direct }
+      queue_options:
+        name: 'tracker.voltage_1'
+        routing_keys:
+          - voltage_device_1
+          - voltage_device_2
+          - voltage_device_3
+      callback: app.tracker.voltage
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_battery_1:
+      connection: default
+      exchange_options: { name: 'tracker.battery', type: direct }
+      queue_options:
+        name: 'tracker.battery_1'
+        routing_keys:
+          - battery_device_1
+          - battery_device_2
+      callback: app.tracker.battery
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_towing_1:
+      connection: default
+      exchange_options: { name: 'tracker.towing', type: direct }
+      queue_options:
+        name: 'tracker.towing_1'
+        routing_keys:
+          - towing_device_1
+          - towing_device_2
+      callback: app.tracker.towing
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 21600 }
+    tracker_panic_button:
+      connection: default
+      exchange_options: { name: 'tracker.panic_button', type: direct }
+      queue_options: { name: 'tracker.panic_button' }
+      callback: app.tracker.panic_button
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 300 }
+    tracker_overspeeding_1:
+      connection: default
+      exchange_options: { name: 'tracker.overspeeding', type: direct }
+      queue_options:
+        name: 'tracker.overspeeding_1'
+        routing_keys:
+          - overspeeding_device_1
+          - overspeeding_device_2
+          - overspeeding_device_3
+      callback: app.tracker.overspeeding
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_engine_on_time_1:
+      connection: default
+      exchange_options: { name: 'tracker.engine_on_time', type: direct }
+      queue_options:
+        name: 'tracker.engine_on_time_1'
+        routing_keys:
+          - engine_on_time_device_1
+          - engine_on_time_device_2
+      callback: app.tracker.engine_on_time
+      qos_options: { prefetch_size: 0, prefetch_count: 50, global: false }
+      graceful_max_execution: { timeout: 3600 }
+    tracker_sensor_event:
+      connection: default
+      exchange_options: { name: 'tracker.sensor_event', type: direct }
+      queue_options: { name: 'tracker.sensor_event' }
+      callback: app.tracker.sensor_event
+      qos_options: { prefetch_size: 0, prefetch_count: 5, global: false }
+      graceful_max_execution: { timeout: 3600 }
+    tracker_io_1:
+      connection: default
+      exchange_options: { name: 'tracker.io', type: direct }
+      queue_options:
+        name: 'tracker.io_1'
+        routing_keys:
+          - io_device_1
+          - io_device_2
+          - io_device_3
+          - io_device_4
+          - io_device_5
+          - io_device_6
+      callback: app.tracker.io
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    routes_post_handle_1:
+      connection: default
+      exchange_options: { name: 'routes.post_handle', type: direct }
+      queue_options:
+        name: 'routes.post_handle_1'
+        routing_keys:
+          - routes_post_handle_device_1
+          - routes_post_handle_device_2
+          - routes_post_handle_device_3
+          - routes_post_handle_device_4
+          - routes_post_handle_device_5
+          - routes_post_handle_device_6
+      callback: app.routes.post_handle
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_moving_without_driver_1:
+      connection: default
+      exchange_options: { name: 'tracker.moving_without_driver', type: direct }
+      queue_options:
+        name: 'tracker.moving_without_driver_1'
+        routing_keys:
+          - moving_wth_driver_device_1
+          - moving_wth_driver_device_2
+      callback: app.tracker.moving_without_drive
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_long_driving_1:
+      connection: default
+      exchange_options: { name: 'tracker.long_driving', type: direct }
+      queue_options:
+        name: 'tracker.long_driving_1'
+        routing_keys:
+          - long_driving_device_1
+          - long_driving_device_2
+      callback: app.tracker.long_driving
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_long_standing_1:
+      connection: default
+      exchange_options: { name: 'tracker.long_standing', type: direct }
+      queue_options:
+        name: 'tracker.long_standing_1'
+        routing_keys:
+          - long_standing_device_1
+          - long_standing_device_2
+      callback: app.tracker.long_standing
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_moving_1:
+      connection: default
+      exchange_options: { name: 'tracker.moving', type: direct }
+      queue_options:
+        name: 'tracker.moving_1'
+        routing_keys:
+          - moving_device_1
+          - moving_device_2
+      callback: app.tracker.moving
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_today_data_1:
+      connection: default
+      exchange_options: { name: 'tracker.today_data', type: direct }
+      queue_options:
+        name: 'tracker.today_data_1'
+        routing_keys:
+          - today_data_device_1
+          - today_data_device_2
+          - today_data_device_3
+      callback: app.tracker.today_data
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_engine_history_1:
+      connection: default
+      exchange_options: { name: 'tracker.engine_history', type: direct }
+      queue_options:
+        name: 'tracker.engine_history_1'
+        routing_keys:
+          - tracker_engine_history_1
+          - tracker_engine_history_2
+          - tracker_engine_history_3
+      callback: app.tracker.engine_history
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    tracker_streamax:
+      connection: default
+      exchange_options: { name: 'tracker.streamax', type: direct }
+      queue_options:    { name: 'tracker.streamax' }
+      callback: app.tracker.streamax_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 3600 }
+    tracker_streamax_postponed:
+      connection: default
+      exchange_options: { name: 'tracker.streamax_postponed', type: direct }
+      queue_options:    { name: 'tracker.streamax_postponed' }
+      callback: app.tracker.streamax_postponed_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 3600 }
+    tracker_streamax_proxy:
+      connection: default
+      exchange_options: { name: 'tracker.streamax_proxy', type: direct }
+      queue_options:    { name: 'tracker.streamax_proxy' }
+      callback: app.tracker.streamax_proxy_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 3600 }
+    tracker_exceeding_speed_limit_1:
+      connection: default
+      exchange_options: { name: 'tracker.exceeding_speed_limit', type: direct }
+      queue_options:
+        name: 'tracker.exceeding_speed_limit_1'
+        routing_keys:
+          - exceeding_speed_limit_device_1
+          - exceeding_speed_limit_device_2
+          - exceeding_speed_limit_device_3
+      callback: app.tracker.exceeding_speed_limit
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 900 }
+    route_area_1:
+      connection: default
+      exchange_options: { name: 'route.area', type: direct }
+      queue_options:
+        name: 'route.area_1'
+        routing_keys:
+          - route_area_1
+          - route_area_2
+          - route_area_3
+      callback: app.route.area_consumer
+      qos_options: { prefetch_size: 0, prefetch_count: 10, global: false }
+      graceful_max_execution: { timeout: 3600 }

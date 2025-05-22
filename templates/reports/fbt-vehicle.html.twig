@@ -1,0 +1,69 @@
+{% extends "reports/default.html.twig" %}
+{% block content %}
+    {% if data|length > 0 %}
+        <table>
+            {% for item in data %}
+                <tr>
+                    {% for key, item in item %}
+                        {% if key not in [
+                            'route.all_total_distance',
+                            'route.all_total_duration',
+                            'route.all_total_work_distance',
+                            'route.all_total_work_duration',
+                            'route.all_total_work_percentage',
+                            'route.all_total_private_distance',
+                            'route.all_total_private_duration',
+                            'route.all_total_private_percentage',
+                            'route.all_total_unclassified_distance',
+                            'route.all_total_unclassified_duration',
+                            'route.all_total_unclassified_percentage'] %}
+                            <td class="{{ key | cssClass }}">{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            <tr class="totalRow">
+                {% for key, value in data[1] %}
+                    {% if key not in [
+                        'route.all_total_distance',
+                        'route.all_total_duration',
+                        'route.all_total_work_distance',
+                        'route.all_total_work_duration',
+                        'route.all_total_work_percentage',
+                        'route.all_total_private_distance',
+                        'route.all_total_private_duration',
+                        'route.all_total_private_percentage',
+                        'route.all_total_unclassified_distance',
+                        'route.all_total_unclassified_duration',
+                        'route.all_total_unclassified_percentage'] %}
+                        {% if key == 'route.total_distance' %}
+                            <td class="{{ key | cssClass }}"> {{ data[1]['route.all_total_distance'] ?? 0 }}</td>
+                        {% elseif key == 'route.total_duration' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_duration'] ?? 0 }}</td>
+                        {% elseif key == 'route.work_distance' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_work_distance'] ?? 0 }}</td>
+                        {% elseif key == 'route.work_duration' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_work_duration'] ?? 0 }}</td>
+                        {% elseif key == 'route.work_percentage' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_work_percentage'] ?? 0 }}</td>
+                        {% elseif key == 'route.private_distance' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_private_distance'] ?? 0 }}</td>
+                        {% elseif key == 'route.private_duration' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_private_duration'] ?? 0 }}</td>
+                        {% elseif key == 'route.private_percentage' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_private_percentage'] ?? 0 }}</td>
+                        {% elseif key == 'route.unclassified_distance' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_unclassified_distance'] ?? 0 }}</td>
+                        {% elseif key == 'route.unclassified_duration' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_unclassified_duration'] ?? 0 }}</td>
+                        {% elseif key == 'route.unclassified_percentage' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['route.all_total_unclassified_percentage'] ?? 0 }}</td>
+                        {% else %}
+                            <td class="{{ key | cssClass }}"></td>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

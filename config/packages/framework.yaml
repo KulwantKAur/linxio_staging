@@ -1,0 +1,25 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+  secret: '%env(SYMFONY__APP__SECRET)%'
+#  router:
+#    resource: '%kernel.project_dir%/app/config/routing.yml'
+#    strict_requirements: ~
+  form: ~
+  csrf_protection: ~
+  validation: { enable_attributes: true }
+  serializer:
+    enabled: true
+#    enable_attributes: true
+  default_locale: en
+  trusted_hosts: ~
+  session:
+    # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+    handler_id: session.handler.native_file
+    save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+  fragments: ~
+  http_method_override: true
+  assets: ~
+  php_errors:
+    log: true
+#  annotations:
+#    enabled: false

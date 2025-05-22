@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 1rem;
+        }
+
+        .invoice {
+            min-width: 500px;
+            background: #fff;
+            border: 1px solid #000;
+            padding: 64px 60px 40px;
+        }
+
+        header {
+            /*display: grid;*/
+            grid-template-columns: 4fr 3fr;
+            grid-column-gap: 35px;
+            -moz-column-gap: 35px;
+            column-gap: 35px;
+            grid-row-gap: 50px;
+            row-gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        header .title {
+            float: left;
+            width: 57%;
+            padding-right: 3%;
+            margin-bottom: 80px;
+        }
+
+        header .logo {
+            float: left;
+            width: 40%;
+        }
+
+        header .contact {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title .invoice-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 7px;
+        }
+
+        .title .h2 {
+            font-size: 1.7rem;
+        }
+
+        .title .not-paid {
+            color: red;
+            border: 2px solid #ff0000;
+        }
+
+        .title .paid {
+            color: #00cd69;
+            border: 2px solid #00cd69;
+        }
+
+        .title .invoice-status {
+            border-radius: 5px;
+            padding: 8px 20px;
+            line-height: normal;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+
+        .logo img {
+            height: 42px;
+            float: right;
+        }
+
+        .contact {
+            float: left;
+            width: 40%;
+            margin-bottom: 50px;
+        }
+
+        .contact.first {
+            padding-right: 3%;
+            width: 57%;
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ced4db;
+        }
+
+        .contact .name {
+            display: block;
+            margin: 14px 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            line-height: normal;
+            margin-bottom: 80px;
+        }
+
+        table thead tr {
+            background: #000;
+            color: #fff;
+        }
+
+        table tbody tr {
+            border-bottom: 1px solid #ced4db;
+        }
+
+        table tbody tr td {
+            padding: 16px 0;
+        }
+
+        table tr td:first-child {
+            padding-left: 24px !important;
+        }
+
+        table tr td:last-child {
+            padding-right: 24px !important;
+        }
+
+        table tbody .subtotal, table tbody .total {
+            border: none;
+        }
+
+        table tbody .subtotal td, table tbody .total td {
+            padding: 20px 0;
+        }
+
+        table tbody .subtotal td:nth-child(1n+3) {
+            border-bottom: 1px solid #000;
+        }
+
+        table tr td:nth-child(1n+3) {
+            text-align: right;
+        }
+
+        table thead tr td {
+            padding: 7px 0;
+        }
+
+        table .total {
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer .footer-text {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        h2, .h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -.26px;
+        }
+    </style>
+</head>
+<body>
+<div class="invoice">
+    <header>
+        <div class="title">
+            <div class="invoice-info"><span
+                        class="h2">{{ 'invoice.invoice'|trans({}, 'invoice') }} #{{ invoice.getInternalInvoiceId() }}</span>
+                {% if invoice.getStatus() is same as ('paid') %}
+                    <div class="invoice-status paid">{{ 'invoice.paid'|trans({}, 'invoice') }}</div>
+                {% else %}
+                    <div class="invoice-status not-paid">{{ 'invoice.notPaid'|trans({}, 'invoice') }}</div>
+                {% endif %}
+            </div>
+            <span>{{ 'invoice.invoiceDate'|trans({}, 'invoice') }}: {{ invoice.getCreatedAt()|date("Y/m/d", invoice.getClient().getTimeZoneName()) }}</span>
+            <br/>
+            <span>{{ 'invoice.invoiceDueDate'|trans({}, 'invoice') }}: {{ invoice.getDueAt()|date("Y/m/d", invoice.getClient().getTimeZoneName()) }}</span>
+        </div>
+        <div class="logo">
+            <img alt="logo" class="logo-icon" src="{{ api_url }}{{ logoPath|default('/uploads/linxio-logo.png') }}">
+        </div>
+        <div class="contact first">
+            <div class="contact-header"><span class="h2">{{ 'invoice.issuer'|trans({}, 'invoice') }}:</span>
+            </div>
+            <div class="name">Ready Track Pty Ltd Trading as {{ adminTeamInfo.getLegalName() }}</div>
+            <span>{{ 'invoice.abn'|trans({}, 'invoice') }}: {{ adminTeamInfo.getAbn() }} </span>
+            {% if platformSetting is defined and platformSetting is not null %}
+                <span>{{ 'invoice.phone'|trans({}, 'invoice') }}: {{ platformSetting.getSupportPhone() }}</span>
+                <span>{{ 'invoice.email'|trans({}, 'invoice') }}: {{ platformSetting.getAccountingEmail() }}</span>
+            {% endif %}
+            <span class="address">{{ 'invoice.address'|trans({}, 'invoice') }}: {{ adminTeamInfo.getBillingAddress() }}</span>
+        </div>
+        <div class="contact">
+            <div class="contact-header"><span class="h2">{{ 'invoice.billedTo'|trans({}, 'invoice') }}:</span>
+                <span>{{ 'invoice.customerId'|trans({}, 'invoice') }}: {{ invoice.getClient().getId() }}</span></div>
+            <div class="name">{{ invoice.getClient().getName() }}</div>
+            <span>{{ invoice.getClient().getKeyContact().getFullName() }}</span>
+            <span>{{ invoice.getClient().getLegalAddress() }}</span>
+        </div>
+    </header>
+    <table>
+        <thead>
+        <tr>
+            <td>{{ 'invoice.qty'|trans({}, 'invoice') }}</td>
+            <td>{{ 'invoice.desc'|trans({}, 'invoice') }}</td>
+            <td>{{ 'invoice.unitPrice'|trans({}, 'invoice') }}</td>
+            <td>{{ 'invoice.lineTotal'|trans({}, 'invoice') }}</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if invoice.getDetailsData()['active_vehicle_trackers'] is defined and invoice.getDetailsData()['active_vehicle_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['active_vehicle_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.active_vehicle_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_vehicle_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_vehicle_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['deactivated_vehicle_trackers'] is defined and invoice.getDetailsData()['deactivated_vehicle_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['deactivated_vehicle_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.deactivated_vehicle_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_vehicle_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_vehicle_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['active_personal_trackers'] is defined and invoice.getDetailsData()['active_personal_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['active_personal_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.active_personal_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_personal_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_personal_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['deactivated_personal_trackers'] is defined and invoice.getDetailsData()['deactivated_personal_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['deactivated_personal_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.deactivated_personal_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_personal_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_personal_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['active_asset_trackers'] is defined and invoice.getDetailsData()['active_asset_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['active_asset_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.active_asset_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_asset_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_asset_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['deactivated_asset_trackers'] is defined and invoice.getDetailsData()['deactivated_asset_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['deactivated_asset_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.deactivated_asset_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_asset_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_asset_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['active_satellite_trackers'] is defined and invoice.getDetailsData()['active_satellite_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['active_satellite_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.active_satellite_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_satellite_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['active_satellite_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['deactivated_satellite_trackers'] is defined and invoice.getDetailsData()['deactivated_satellite_trackers']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['deactivated_satellite_trackers']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.deactivated_satellite_trackers'|trans({}, 'entities') }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_satellite_trackers']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['deactivated_satellite_trackers']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['active_vehicles'] is defined and invoice.getDetailsData()['active_vehicles']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['active_vehicles']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.active_vehicles'|trans({}, 'entities') }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['active_vehicles']['price']|number_format(2) }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['active_vehicles']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['virtual_vehicles'] is defined and invoice.getDetailsData()['virtual_vehicles']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['virtual_vehicles']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.virtual_vehicles'|trans({}, 'entities') }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['virtual_vehicles']['price']|number_format(2) }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['virtual_vehicles']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['archived_vehicles'] is defined and invoice.getDetailsData()['archived_vehicles']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['archived_vehicles']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.archived_vehicles'|trans({}, 'entities') }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['archived_vehicles']['price']|number_format(2) }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['archived_vehicles']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {#        {% if invoice.getDetailsData()['deleted_vehicles']['total'] > 0 %} #}
+        {#        <tr > #}
+        {#            <td>{{ invoice.getDetailsData()['deleted_vehicles']['quantity'] }}</td> #}
+        {#            <td>{{ 'billing.deleted_vehicles'|trans({}, 'entities') }}</td> #}
+        {#            <td class="currency">${{ invoice.getDetailsData()['deleted_vehicles']['price']|number_format(2) }}</td> #}
+        {#            <td class="currency">${{ invoice.getDetailsData()['deleted_vehicles']['total']|number_format(2) }}</td> #}
+        {#        </tr> #}
+        {#        {% endif %} #}
+        {% if invoice.getDetailsData()['active_sensors'] is defined and invoice.getDetailsData()['active_sensors']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['active_sensors']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.active_sensors'|trans({}, 'entities') }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['active_sensors']['price']|number_format(2) }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['active_sensors']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {% if invoice.getDetailsData()['archived_sensors'] is defined and invoice.getDetailsData()['archived_sensors']['total'] > 0 %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['archived_sensors']['quantity'] }}</td>
+                <td>{% if invoice.isFirstInvoice() %} {{ 'invoice.prepayment'|trans({}, 'invoice') }} - {% endif %} {{ 'billing.archived_sensors'|trans({}, 'entities') }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['archived_sensors']['price']|number_format(2) }}</td>
+                <td class="currency">${{ invoice.getDetailsData()['archived_sensors']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        {#        {% if invoice.getDetailsData()['deleted_sensors']['total'] > 0 %} #}
+        {#            <tr > #}
+        {#                <td>{{ invoice.getDetailsData()['deleted_sensors']['quantity'] }}</td> #}
+        {#                <td>{{ 'billing.deleted_sensors'|trans({}, 'entities') }}</td> #}
+        {#                <td class="currency">${{ invoice.getDetailsData()['deleted_sensors']['price']|number_format(2) }}</td> #}
+        {#                <td class="currency">${{ invoice.getDetailsData()['deleted_sensors']['total']|number_format(2) }}</td> #}
+        {#            </tr> #}
+        {#        {% endif %} #}
+
+        {% if invoice.getDetailsData()['prepaymentData']['previousPrepayment'] is defined %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['prepaymentData']['previousPrepayment']['quantity'] }}</td>
+                <td>
+                    {{ 'invoice.prepayment'|trans({}, 'invoice') }} {{ invoice.getPeriodStart()|date_modify("+1 day")|date("F", invoice.getClient().getTimeZoneName()) }} {{ invoice.getPeriodEnd()|date("Y") }}</td>
+                <td class="currency">
+                    (${{ invoice.getDetailsData()['prepaymentData']['previousPrepayment']['price']
+                    |abs|number_format(2) }})
+                </td>
+                <td class="currency">
+                    (${{ invoice.getDetailsData()['prepaymentData']['previousPrepayment']['total']
+                    |abs|number_format(2) }})
+                </td>
+            </tr>
+        {% endif %}
+
+        {% if invoice.getDetailsData()['prepaymentData']['prepayment'] is defined %}
+            <tr>
+                <td>{{ invoice.getDetailsData()['prepaymentData']['prepayment']['quantity'] }}</td>
+                <td>
+                    {{ 'invoice.prepayment'|trans({}, 'invoice') }} {{ invoice.getPeriodEnd()|date_modify("+1 day")|date("F", invoice.getClient().getTimeZoneName()) }} {{ invoice.getPeriodEnd()|date("Y") }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['prepaymentData']['prepayment']['price']|number_format(2) }}</td>
+                <td class="currency">
+                    ${{ invoice.getDetailsData()['prepaymentData']['prepayment']['total']|number_format(2) }}</td>
+            </tr>
+        {% endif %}
+        <tr class="subtotal">
+            <td></td>
+            <td></td>
+            <td><p>{{ 'invoice.subTotal'|trans({}, 'invoice') }}:</p>
+                <p>{{ 'invoice.tax'|trans({}, 'invoice') }}:</p></td>
+            <td><p>${{ invoice.getAmountWithPrepayment()|number_format(2) }}</p>
+                <p>${{ invoice.getTotalTaxWithPrepayment()|number_format(2) }}</p></td>
+        </tr>
+        <tr class="total">
+            <td></td>
+            <td></td>
+            <td><b>{{ 'invoice.total'|trans({}, 'invoice') }}:</b></td>
+            <td><b>${{ invoice.getTotalWithPrepayment()|number_format(2) }}</b></td>
+        </tr>
+        </tbody>
+    </table>
+    <footer>
+        <span class="footer-text">{{ 'invoice.thx'|trans({}, 'invoice') }}</span>
+        {% if platformSetting is defined and platformSetting is not null %}
+            <span>{{ platformSetting.getAccountingEmail() }}</span>
+        {% endif %}
+    </footer>
+</div>
+</body>
+</html>

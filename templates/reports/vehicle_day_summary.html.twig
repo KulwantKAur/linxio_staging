@@ -1,0 +1,45 @@
+{% extends "reports/default.html.twig" %}
+{% block content %}
+    {% if data|length > 0 %}
+        {% for vehicle in data %}
+            <div>
+                <h3>{{ vehicle[1]['vehicle_summary.regno'] ?? null}}</h3>
+            </div>
+            <table>
+                {% for row in vehicle %}
+                    <tr>
+                        {% for key, value in row %}
+                            {% if key not in ['total'] %}
+                                <td class="{{ key | cssClass }}">{{ value }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                <tr class="totalRow">
+                    {% for key, value in vehicle[1] %}
+                        {% if key not in ['total'] %}
+                            {% if key == 'vehicle_summary.work_distance' %}
+                                <td class="{{ key | cssClass }}">{{ vehicle[1]['total']['total_work_distance'] ?? 0 }}</td>
+                            {% elseif key == 'vehicle_summary.private_distance' %}
+                                <td class="{{ key | cssClass }}">{{ vehicle[1]['total']['total_private_distance'] ?? 0 }}</td>
+                            {% elseif key == 'vehicle_summary.distance' %}
+                                <td class="{{ key | cssClass }}">{{ vehicle[1]['total']['total_distance'] ?? 0 }}</td>
+                            {% elseif key == 'vehicle_summary.engine_on_time' %}
+                                <td class="{{ key | cssClass }}">{{ vehicle[1]['total']['total_engine_on_time'] ?? 0 }}</td>
+                            {% elseif key == 'vehicle_summary.driving_time' %}
+                                <td class="{{ key | cssClass }}">{{ vehicle[1]['total']['total_driving_time'] ?? 0 }}</td>
+                            {% elseif key == 'vehicle_summary.parking_time' %}
+                                <td class="{{ key | cssClass }}">{{ vehicle[1]['total']['total_parking_time'] ?? 0 }}</td>
+                            {% elseif key == 'vehicle_summary.stops' %}
+                                <td class="{{ key | cssClass }}">{{ vehicle[1]['total']['total_stops'] ?? 0 }}</td>
+                            {% else %}
+                                <td class="{{ key | cssClass }}"></td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </table>
+            {#                        {% endif %} #}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Tests\Behat\:
+        resource: '../tests/Behat/*'
+
+    App\EventListener\Area\AreaListener:
+        class: App\EventListener\Area\AreaListener
+        public: true
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+          ["@doctrine.orm.entity_manager", "@app.entity_history_service", "@old_sound_rabbit_mq.areas_producer",
+           "@App\\Service\\Notification\\EventDispatcher"]
+
+
+    App\Service\Notification\EntityPlaceholderService:
+        autowire: true
+        arguments:
+            - '%env(APP_FRONT_URL)%'
+            - '@placeholder.placeholder_factory'
+            - '@placeholder.event_entity_handler_factory'
+
+    App\Service\Notification\NotificationCollectorService:
+        public: true
+        autowire: true
+
+    App\Service\Route\RoutePostHandle\RoutePostHandleProducer: '@old_sound_rabbit_mq.routes_post_handle_producer'
+
+    app.route_service:
+        class: App\Service\Route\RouteService
+        lazy: true
+        autowire: true
+        public: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+            $deviceService: "@App\\Service\\Device\\DeviceService"
+            $validator: "@validator"
+            $settingService: "@App\\Service\\Setting\\SettingService"
+            $mapServiceResolver: "@app.map_resolver"
+            $vehicleService: "@App\\Service\\Vehicle\\VehicleService"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $routePostHandleProducer: '@old_sound_rabbit_mq.routes_post_handle_producer'

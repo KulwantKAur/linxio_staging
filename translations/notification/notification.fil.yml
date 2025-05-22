@@ -1,0 +1,1459 @@
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_EMAIL:
+  subject: 'Babala-Bagong user ay ginawa'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>User ${user_name} <b>${user_email}</b> ay ginawa.</p><br/>
+  <p><b>Detalyadong impormasyon:</b></p><p>${event_time} -  ${user_name} <b>${user_email}</b> 
+  (team - ${team}) was created by ${triggered_by}.</p><p>User page: ${data_url}</p><br/>
+  <p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_SMS:
+  body: 'User ay ginagawa: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_MOBILE:
+  subject: 'Bagong user ay ginawa'
+  body: 'User ay ginawa: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_WEB:
+  subject: 'Babala-Bagong user ginawa'
+  body: 'Gumawa ng user: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_EMAIL:
+  subject: 'Babala-Ni reset ng user ang password'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3><p>Password reset na-triggered para sa user ${user_name} 
+  <b>${user_email}</b></p><br/>
+  <p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - password reset ay na-trigger ni ${triggered_by} para kay ${user_name} <b>${user_email}</b> (team - ${team}).</p>
+  <p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_SMS:
+  body: 'Password reset: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_MOBILE:
+  subject: 'Ni reset ng user ang password'
+  body: 'Password reset: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_WEB:
+  subject: 'Babala-Ni reset ng user ang password'
+  body: 'Ni-reset ni user ang password: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CREATED_SYSTEM_EMAIL:
+  subject: 'Babala-Bagong user ay ginawa (system)'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3><p>User ${user_name} <b>${user_email}</b> ay ginawa.</p><br/>
+  <p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - user ${user_name} <b>${user_email}</b> (team - ${team}) ay ginawa ni ${triggered_by}.</p>
+  <p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_EMAIL:
+  subject: 'Babala-Na block ang user'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3><p>User ${user_name} <b>${user_email}</b> na blocked.</p><br/>
+  <p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} na si blocked user ${user_name} <b>${user_email}</b> [team: ${team}]</p>
+  <p>hinaharang ang mga mnesahe: ${data_message}</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_SMS:
+  body: 'Na block ang user: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_MOBILE:
+  subject: 'Na-block ang user'
+  body: 'Na block ang user: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_WEB:
+  subject: 'Babala-na-block ang user'
+  body: 'Na-block ng user: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_EMAIL:
+  subject: 'Babala-na delete ang user'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3><p>Gumagamit ${user_name} <b>${user_email}</b> ay inalis.</p><br/>
+  <p><b>Detalyadong impormasyon:</b></p><p>${event_time} - ${triggered_by} ay inalis ang gumagamit ${user_name} <b>${user_email}</b> [team: ${team}]</p>
+  <p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_SMS:
+  body: 'Inalis ng user: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_MOBILE:
+  subject: 'Inalis ng user'
+  body: 'Inalis ng user: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_WEB:
+  subject: 'Inalis ng user'
+  body: 'Inalis ng user: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_MOBILE:
+  subject: 'Pinalitan ni user ang pangalan'
+  body: 'Pinalitan ni user ang pangalan: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_WEB:
+  subject: 'Babala-Pinalitan ni user ang pangalan'
+  body: 'Pinalitan ni user ang pangalan: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_SMS:
+  body: 'Pinalitan ni user ang pangalan: ${user_name} (${user_email}). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_EMAIL:
+  subject: 'Babala-Pinalitan ni user ang pangalan'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3><p>Pinalitanang pangalan pa sa gumagamit <b>${user_name} (${user_email})</b></p><br/>
+  <p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} pinangalanan ang user mula sa "${old_value}" tungo sa "${user_name}".</p>
+  <p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_MOBILE:
+  subject: 'Babala-Pinalitan ni user ang apelyido'
+  body: 'Pinalitan ni user ang apelyido: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_WEB:
+  subject: '-Pinalitan ni user ang apelyido'
+  body: 'Pinalitan ni user ang apelyido: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_SMS:
+  body: 'Pinalitan ni user ang apelyido: ${user_name} (${user_email). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_EMAIL:
+  subject: 'Babala-Pinalitan ni user ang apelyido '
+  body: '<h3> Bagong paalala galing sa ${from_company} sistema:</h3><p>Ang user ay nagpalit ng apelyido: <b>${user_name} (${user_email)</b></p><br/>
+  <p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - user ${user_name} ay pinalitan ng ngalan ni ${triggered_by}.</p><br/>
+  <p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_EMAIL:
+  subject: 'Babala- Bagong kliyente ay ginawa'
+  body: '<h3>Bagong paalala galing sa ${from_company} sistema:</h3><p>Client <b>${client_name}</b> ay ginawa.</p><br/>
+  <p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - kliyente ${client_name} ginawa ${triggered_by}.</p>
+  <p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_SMS:
+  body: 'Ginawa ni kliyente: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_MOBILE:
+  subject: 'Gumawa ang bagong kliyente'
+  body: 'Gumawa ang kliyente: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_WEB:
+  subject: 'Ang bagong kliyente ay gunawa'
+  body: 'Ang kliyente ay gumawa: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_EMAIL:
+  subject: 'Babala- na-block ang kliyente'
+  body: '<h3>Bagong paalala mul sa ${from_company} sistema:</h3><p>Client <b>${client_name}</b> na-blocked.</p><br/>
+  <p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - kliyente ${client_name} mula ${team} na-block ni ${triggered_by}.</p>
+  <p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_SMS:
+  body: 'Client blocked: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_MOBILE:
+  subject: 'Na-block ang kliyente'
+  body: 'Na-blocked: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_WEB:
+  subject:  'Na-block ni kliyente'
+  body: 'Na-block ni kliyente: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_EMAIL:
+  subject: 'Babala- Na-expired ang client demo'
+  body: '<h3>Bagong babala mula sa ${from_company} sistema:</h3>  
+  <p>Bagong babala mula sa <b>${client_name}</b>.</p> 
+  <br/><p><b>Detalyadong impormasyon:</b></p> 
+  <p>${event_time} - client ${client_name} demo period na-expired.</p> 
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_SMS:
+  body: 'Expire ng ang client demo: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_MOBILE:
+  subject: 'Expired na ang client demo'
+  body: ' Expire ng ang client demo: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_WEB:
+  subject: 'Babala- Na-expired ang client demo'
+  body: 'Expire ng ang client demo: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_EMAIL:
+  subject: 'Babala- Gumawa ng sasakyan'
+  body: '<h3>Bagong babala mula sa ${from_company} sistema:</h3>
+  <p>Bagong sasakyan ay ginawa - ${reg_no_with_model}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} gumawa ng sasakyan, sasakyan ${reg_no_with_model} [team: ${team}]</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_SMS:
+  body: 'Gumawa ng  sasakyan: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_MOBILE:
+  subject: ' Gumawa ng sasakyan'
+  body: 'Gumawa ng sasakyan: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_WEB:
+  subject: 'Babala-gumawa ng sasakyan'
+  body: 'Gumawa ng sasakyan: ${reg_no}. ${comment}'
+
+
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_EMAIL:
+  subject: ' Babala-inalis ang sasakyan'
+  body: '<h3>Bagong babala mula ${from_company} sistema:</h3>
+  <p>Vehicle ${reg_no_with_model} ay inalis.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} ay inalis ang sasakyan ${reg_no_with_model}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_SMS:
+  body: 'Inalis ang sasakyan: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_MOBILE:
+  subject: 'Inalis ang sasakyan'
+  body: 'Inalis ang sasakyan: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_WEB:
+  subject: ' Babala- inalis ang sasakyan'
+  body: 'Inalis ang sasakyan: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_EMAIL:
+  subject: ' Babala-numero ng rehistro ay pinalitan'
+  body: '<h3>Bagong babala mula sa ${from_company} sistema:</h3> 
+  <p>RegNo Pinalitan para sa ${reg_no_with_model}.</p> 
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} pinalitan ang RegNo ng sasakyan mula "${old_value}" tungo sa"${reg_no}".</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_SMS:
+  body: 'Pinalitan ang numero ng rehistro ng sasakyan: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_MOBILE:
+  subject: 'Pinalitan ang numero ng rehistro ng sasakyan'
+  body: 'Pinalitan ang numero ng rehistro ng sasakyan: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_WEB:
+  subject: 'Babala-numero ng rehistro ay pinalitan'
+  body: 'Numero ng rehistro ay pinalitan: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_EMAIL:
+  subject: ' Pinalitan ang modelo ng sasakyan'
+  body: '<h3>Bagong babala mula sa ${from_company} sistema:</h3>
+  <p>Pinalitan ang modelo ng sasakyan para ${reg_no}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} Pinalitan ang modelo ng sasakyan mula sa "${old_value}" tungo sa "${model}".</p> 
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_SMS:
+  body: 'Ang modelo ng sasakyan ay pinalitan: ${model}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_MOBILE:
+  subject: 'Pinalitan ang modelo ng sasakyan'
+  body: 'Pinalitan ang modelo ng sasakyan: ${model}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_WEB:
+  subject: 'Babala-ang modelo ng sasakyan ay pinalitan'
+  body: 'Pinalitan ang modelo ng sasakyan: ${model}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_EMAIL:
+  subject: ' Babala-nagpalit ng katayuan ang sasakyan, di-available'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sasakyan ${reg_no_with_model} pinalitan ang katayuan sa "${status}".</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} nagpalit ng katayuan ang sasakyan ${reg_no_with_model} kasama ang driver ${driver} tungo sa "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_WEB:
+  subject: 'Nagpalit ng katayuan ang sasakyan, di-available'
+  body: 'Sasakyan ${reg_no} nagpalit ng katayuan ang sasakyan: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_SMS:
+  body: 'sasakyan ${reg_no} nagpalit ng katayuan ang sasakyan: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_MOBILE:
+  subject: 'Nagpalit na katayuan ang sasakyan, di-available'
+  body: 'Sasakyan ${reg_no} Nagpalit ng katayuan : ${status}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_EMAIL:
+  subject: 'Babala-Nagpalit ng katayuan ang sasakyan'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sasakyan ${reg_no_with_model} Nagpalit ng katayuan sa "${status}".</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang sasakyan ${reg_no_with_model} kasama ang driver ${driver} nagpalit ng katayuan sa "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_WEB:
+  subject: 'Babala- ang sasakyan ay nagpalit ng katayuan, offline'
+  body: 'Sasakyan ${reg_no} nagpalit ng katayuan: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_SMS:
+  body: 'Sasakyan ${reg_no} ay nagpalit ng katayuan: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_MOBILE:
+  subject: 'Ang sasakyan ay nagpalit ng katayuan, offline'
+  body: 'Sasakyan ${reg_no} ay nagpalit ng katayuan: ${status} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_WEB:
+  subject: 'Babala-Nag-reassign ang sasakyan'
+  body: 'Sasakyan ${reg_no} ay na-reassign kay driver ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_MOBILE:
+  subject: 'Na-reassign ang sasakyan'
+  body: 'Sasakyan ${reg_no} ay na-reassign sa driver ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_SMS:
+  body: 'Sasakyan ${reg_no} ay na reassign sa driver ${driver}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_EMAIL:
+  subject: 'Babala - Na-reassign ang sasakyan'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sasakyan ${reg_no} ay na-reassign sa driver ${driver}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Sasakyan ${reg_no} na-reassign ${old_value} kay "${driver}".</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_WEB:
+  subject: 'Babala - Sobrang bilis'
+  body: 'Sasakyan ${reg_no} ay tumatakbong ng mas mabilis sa ${avg_speed}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_SMS:
+  body: 'Sasakyan ${reg_no} ay tumatakbo ng mas mabilis sa ${avg_speed}km/h. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_MOBILE:
+  subject: 'Sobrang bilis'
+  body: 'Sasakyan ${reg_no} ay tumatakbo ng mabilis sa ${avg_speed}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_EMAIL:
+  subject: 'Babala - Sobrang bilis'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p> Sasakyan ${reg_no} ay tumatakbo >${avg_speed}km/h.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Sasakyan ${reg_no_with_model} kasama ang driver ${driver} ay nagmamaneho ng mas mabilis sa ${avg_speed}km/h, nai-set na speed limit sa ${overSpeed}km/h</p>                     
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_WEB:
+  subject: 'Babala - sobrang bilis sa loob ng lugar'
+  body: 'Sasakyan ${reg_no} ay tumatakbo ng mabilis sa ${avg_speed}km/h sa lugar: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_SMS:
+  body: 'Sasakyan ${reg_no} ay tumatakbo ng mas mabilis sa ${avg_speed}km/h sa lugar: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_MOBILE:
+  subject: 'Sobrang bilis sa loob ng lugar'
+  body: 'Sasakyan ${reg_no} ay tumatakbo ng mas mabilis sa ${avg_speed}km/h sa lugar: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_EMAIL:
+  subject: 'Babala - Sobrang bilis sa loob ng lugar'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Sasakyan ${reg_no} nagmamaneho >${avg_speed}km/h sa lugar "${area}"</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Sasakyan ${reg_no_with_model} kasama ang driver ${driver} ay nagmamaneho ng mas mabilis sa ${avg_speed}km/h sa lugar "${area}", nai set ang speed limit sa ${overSpeed}km/h</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_WEB:
+  subject: 'Babala-babala sa lugar ng mga sasakyan'
+  body: 'sasakyan ${reg_no} pumasok sa lugar: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_SMS:
+  body: 'Ang sasakyan ${reg_no} ay pumasok sa lugar: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_MOBILE:
+  subject: 'Babala sa lugar ng sasakyan'
+  body: 'sasakyan ${reg_no} pumasok sa lugar: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_EMAIL:
+  subject: 'Babala-sa lugar ng mga sasakyan'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Vehicle ${reg_no} pumasok sa lugar: ${area}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Sasakyan ${reg_no_with_model} kasama driver ${driver} ay pumasok sa lugar "${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_WEB:
+  subject: 'Babala-Lugar ng sasakyan'
+  body: 'Sasakyan ${reg_no} umalis sa lugar: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_SMS:
+  body: ' Sasakyan ${reg_no} umalis sa lugar : ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_MOBILE:
+  subject: 'Babala sa lugar ng sasakyan'
+  body: 'Sasakyan ${reg_no} umalis sa lugar: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_EMAIL:
+  subject: 'Babala- Babala sa lugar ng sasakyan'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sasakyan ${reg_no} malis sa lugar: ${area}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Sasakyan ${reg_no_with_model} kasama driver ${driver} ay umalis sa lugar "${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_WEB:
+  subject: 'Alerts - Babala-Sasakyan na tumatakbo'
+  body: 'Sasakyan na tumatakbo ng walang driver: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_SMS:
+  body: 'Sasakyan na tumatakbo ng walang driver: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_MOBILE:
+  subject: 'Sasakyan na tumatakbo '
+  body: 'Sasakyan na tumatakbo ng walang driver: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_EMAIL:
+  subject: 'Babala-Sasakyan na tumatakbo'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sasakyan ${reg_no} ay tumatakbo ng walang driver.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - sasakyan ${reg_no_with_model} ay tumatakbo ng walang driver.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_WEB:
+  subject: 'Babala-kaganapan sa paghila ng sasakyan.'
+  body: 'Nakapatay ang makina ng sasakyan pero gumagalaw: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_SMS:
+  body: 'Patay ang makina ng sasakyan pero tumatakbo: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_MOBILE:
+  subject: 'Kaganapan sa paghila ng sasakyan'
+  body: 'Patay ang makina ng sasakyan pero tumatakbo: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_EMAIL:
+  subject: 'Kaganapan sa paghila ng sasakyan'
+  body: '<h3>Bagong paalala mula ${from_company} sistema:</h3>
+  <p>Nakapatay ang makina ng sasakyan pero gumagalaw: ${reg_no}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_WEB:
+  subject: 'Babala-matagal na nakatigil na sasakyan.'
+  body: 'Ang sasakyan ay nakatigil ng mahigit ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_SMS:
+  body: 'Ang sasakyan ay nakatigil ng mahigit ${duration}: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_MOBILE:
+  subject: 'Matagal na nakatigil na sasakyan.'
+  body: 'Ang sasakyan ay nakatigil ng mahigit ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_EMAIL:
+  subject: 'Babala-matagal na nakatigil na sasakyan.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Ang sasakyan ${reg_no} ay pinatigil >${duration}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang sasakyan ${reg_no_with_model} at driver ${driver} ay pinatigil>${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_WEB:
+  subject: 'Babala-matagal na tumatakbong sasakyan.'
+  body: 'Ang sasakyan ay tumatakbo ng mahigit ${duration} na tuloy-tuloy na mahigit( ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_SMS:
+  body: 'Ang sasakyan ay tumatakbo ng mahigit ${duration} na tuloy-tuloy: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_MOBILE:
+  subject: 'Matagal na tumatakbong sasakyan.'
+  body: 'Ang sasakyan ay tumatakbo ng mahigit ${duration}na tuloy-tuloy na mahigit${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_EMAIL:
+  subject: 'Babala-Matagal na tumatakbong sasakyan.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Ang sasakyan ${reg_no} tuloy-tuloy na tumatakbo >${duration}</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang sasakyan ${reg_no_with_model} kasama ang driver ${driver} tuloy-tuloy na tumatakbo >${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_WEB:
+  subject: 'Babala-tumatakbong sasakyan.'
+  body: 'Ang sasakyan ay nagsimulang tumakbo: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_SMS:
+  body: 'Ang sasakyan ay nagsimulang tumakbo: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_MOBILE:
+  subject: 'Tumatakbong sasakyan.'
+  body: 'Ang sasakyan ay nagsimulang tumakbo: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_EMAIL:
+  subject: 'Babala-tumatakbong sasakyan.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sasakyan ${reg_no} with driver ${driver} nagsimulang tumakbo.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Sasakyan ${reg_no_with_model} kasama ang driver ${driver} ay nagsimulang tumakbo</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_WEB:
+  subject: 'Babala-sasakyan matagal na walang ginagawa.'
+  body: '${reg_no_or_device}ay walang ginagawa ng mahigit ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_SMS:
+  body: '${reg_no_or_device} ay walang ginagawa ng mahigit  ${duration}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_MOBILE:
+  subject: 'Sasakyang matagal na walang ginagawa.'
+  body: '${reg_no_or_device} ay walang ginagawa ng mahigit ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_EMAIL:
+  subject: 'Babala-sasakyan matagal na walang ginagawa.'
+  body: '<h3>Bagong paalala mula sa ${from_company}sistema:</h3>
+  <p>${reg_no_or_device} walang ginagawa ng mahigit  ${duration}.</p>
+  <p>${event_time} - ${reg_no_with_model_or_device} ${driver} walang ginagawa ng mahigit ${duration}</p>
+  <p style="kulay: pula;">${note}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_WEB:
+  subject: 'Babala-Ang sasakyan ay nagpalit ng katayuan:online'
+  body: 'Ang sasakyan ${reg_no} ay nagpalit ng katayuan: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_SMS:
+  body: 'Ang sasakyan ${reg_no} ay nagpalit ng katayuan: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_MOBILE:
+  subject: 'Ang sasakyan ay nagpalit ng katayuan:online'
+  body: 'Sasakyan ${reg_no} ay nagpalit ng katayuan: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_EMAIL:
+  subject: 'Babala-Ang sasakyan ay nagpalit ng katayuan:online'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Ang sasakyan ${reg_no_with_model}ay nagpalit ng katayuan tungo "${status}".</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang sasakyan ${reg_no_with_model} kasama ang driver ${driver} ay nagpalit ng katayuan tungo sa "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Babala-Ang dokumento ay nag expire.'
+  body: 'Ang dokumento ay nag expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Ang dokumento ay nag expire.: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Ang dokumento ay nag expire.'
+  body: 'Ang dokumento ay nag expire.: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Babala-Ang dokumento ay nag expire.'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Ang dokumento ay nag expire.${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${exp_date} - Ang dokumento ay nag expire. "${title}" expired ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Babala-Ang dokumento ay malapit ng ma-expire'
+  body: 'Ang dokumento ay malapit ng ma-expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Ang dokumento ay malapit ng ma-expire: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Ang dokumento ay malapit ng ma-expire'
+  body: 'Ang dokumento ay malapit ng ma-expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Ang dokumento ay malapit ng ma-expire'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Ang dokumento ay malapit ng ma-expire ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - dokumento "${title}" ${data_by_type} ay mag-expire sa ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_WEB:
+  subject: 'Babala-Inalis ang dokumento'
+  body: 'Inalis ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_SMS:
+  body: 'Inalis ang dokumento: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Inalis ang dokumento:Inalis ang dokumento'
+  body: 'Inalis ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Babala-Inalis ang dokumento'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Inalis ang dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} Inalis ang dokumento "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Babala-Nagdagdag ng rekord ng dokumento'
+  body: 'Nagdagdag ng rekord ng dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Nagdagdag ng rekord ng dokumento: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Nagdagdag ng rekord ng dokumento'
+  body: 'Nagdagdag ng rekord ng dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Babala-Nagdagdag ng rekord ng dokumento.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Nagdagdag ng rekord ng dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} Nagdagdag ng rekord ng dokumento "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_WEB:
+  subject: 'Babala-Mayroong stock'
+  body: 'Mayroong stock ng device: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_SMS:
+  body: 'Mayroong stock ng device: ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_MOBILE:
+  subject: 'Mayroong stock.'
+  body: 'Mayroong stock ng device: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_EMAIL:
+  subject: 'Mayroong stock ng device'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Mayroong stock ng device: ${device_imei}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang device ${device_imei} ay nagpalit ng katayuan mula sa "in stock"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_WEB:
+  subject: 'Babala-Ang device ay nagpalit ng katayuan, offline.'
+  body: 'Ang device ${device_imei} ay nagpalit ng katayuan, offline. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_SMS:
+  body: 'Ang device ${device_imei} ay nagpalit ng katayuan Offline. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_MOBILE:
+  subject: 'Ang device ay nagpalit ng katayuan, offline.'
+  body: 'Ang device ${device_imei} ay nagpalit ng katayuan. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_EMAIL:
+  subject: 'Babala-Ang device ay nagpalit ng katayuan, offline.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>ang device ${device_imei} nagpalit ng katayuan tungo sa "Offline"</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} -ang device ${device_imei} ay nagpalit ng katayuan sa "Offline"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_WEB:
+  subject: 'Babala-User web ng device ay nagpalit ng katayuan, di-available.'
+  body: 'Ang device ${device_imei} ay nagpalit ng katayuan, di-available. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_SMS:
+  body: 'Ang device ${device_imei}ay nagpalit ng katayuan, di-available. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_MOBILE:
+  subject: 'Ang device ay nagpalit ng katayuan, di-available.'
+  body: 'Ang device ${device_imei} ay nagpalit ng katayuan, di-available. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_EMAIL:
+  subject: 'Babala-Ang device ay nagpalit ng katayuan, di-available.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Ang device ${device_imei} ay nagpalit ng katayuan, di-available.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang device ${device_imei} ay nagpalit ng katayuan,"Unavailable"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_WEB:
+  subject: 'Ang device ay inalis.'
+  body: 'Ang device:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_SMS:
+  body: 'Ang device:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_MOBILE:
+  subject: 'Ang device ay inalis.'
+  body: 'Ang device:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_EMAIL:
+  subject: 'Babala-Ang device ay inalis.'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} ay inalis and device ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_WEB:
+  subject: 'Babala-na-detect ang di-kilalang device.'
+  body: 'Na-detect ang di-kilalang device: {device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_SMS:
+  body: 'Na-detect ang di-kilalang device: {device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_MOBILE:
+  subject: 'Na-detect ang di-kilalang device'
+  body: 'Na-detect ang di-kilalang device: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_EMAIL:
+  subject: 'Babala-na-detect ang di-kilalang device.'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Na-detect ang di-kilalang device:  ${device_imei}</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_WEB:
+  subject: 'Babala-Serbisyo ng paalala, malapit na.'
+  body: 'Serbisyo ng paalala, malapit na: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_SMS:
+  body: 'Serbisyo ng paalala, malapit na: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_MOBILE:
+  subject: 'Serbisyo ng paalala, malapit na'
+  body: 'Serbisyo ng paalala, malapit na: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_EMAIL:
+  subject: 'Babala-Serbisyo ng paalala, malapit na'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Serbisyo ng paalala, malapit na (${entity}).</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Serbisyo ng paalala "${title}" (${entity}) ay mag-expire sa ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_WEB:
+  subject: 'Babala-Nag-expire ang serbisyo ng paalala.'
+  body: 'Nag-expire ang serbisyo ng paalala: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_SMS:
+  body: 'Nag-expire ang serbisyo ng paalala ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_MOBILE:
+  subject: 'Nag-expire ang serbisyo ng paalala.'
+  body: 'Nag-expire ang serbisyo ng paalala: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_EMAIL:
+  subject: 'Babala-Nag-expire ang serbisyo ng paalala.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistems:</h3>
+  <p>Nag-expire ang serbisyo ng paalala (${entity}).</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang serbisyo ng paalala "${title}" (${entity}) nag-expire.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_WEB:
+  subject: 'Babala-serbisyo ng paalala, tapos na'
+  body: 'Serbisyo ng paalala, tapos na: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_SMS:
+  body: 'Serbisyo ng paalala, tapos na: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_MOBILE:
+  subject: 'Serbisyo ng paalala, tapos na'
+  body: 'Serbisyo ng paalala, tapos na: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_EMAIL:
+  subject: 'Babala-serbisyo ng paalala, tapos na.'
+  body: '<h3>Bagong paalala mula sa the ${from_company} sistema:</h3>
+  <p>Serbisyo ng paalala, tapos na (${entity}).</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} ay tinapos ang serbisyo ng paalala "${title}" (${entity}).</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_WEB:
+  subject: 'Babala-Inalis ang serbisyo ng paalala'
+  body: 'Inalis ang serbisyo ng paalala: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_SMS:
+  body: 'Inalis ang serbisyo ng paalala: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_MOBILE:
+  subject: 'Inalis ang serbisyo ng paalala'
+  body: 'Inalis ang serbisyo ng paalala: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_EMAIL:
+  subject: 'Babala-Inalis ang service reminder'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Inalis ang serbisyo ng paalala. (${entity}).</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} Inalis ang serbisyo ng paalala "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_WEB:
+  subject: 'Babala-rekord ng serbisyo ay idinagdag'
+  body: 'Rekord ng serbisyo ay idinagdag: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_SMS:
+  body: 'Rekord ng serbisyo ay idinagdag: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_MOBILE:
+  subject: 'Rekord ng serbisyo ay idinagdag'
+  body: 'Rekord ng serbisyo ay idinagdag: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_EMAIL:
+  subject: 'Babala-rekord ng serbisyo ay idinagdag.'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} Rekord ng serbisyo ay idinagdag "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_WEB:
+  subject: 'Babala-Serbisyo sa pagkumpuni idinagdag'
+  body: 'Serbisyo sa pagkumpuni idinagdag: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_SMS:
+  body: 'Serbisyo sa pagkumpuni idinagdag: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_MOBILE:
+  subject: 'Serbisyo sa pagkumpuni idinagdag'
+  body: 'Serbisyo sa pagkumpuni idinagdag: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_EMAIL:
+  subject: 'Babala-Serbisyo sa pagkumpuni idinagdag'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Serbisyo sa pagkumpuni idinagdag (${entity}).</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} Serbisyo sa pagkumpuni idinagdag "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_WEB:
+  subject: 'Babala-Boltahe'
+  body: 'Ang supply ng boltahe sa tracker ay ${battery_voltage}V sa sasakyan: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_SMS:
+  body: 'Ang supply ng boltahe sa tracker ay ${battery_voltage}V on the vehicle: ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_MOBILE:
+  subject: 'Boltahe'
+  body: 'Ang supply ng boltahe sa tracker ay ${battery_voltage}V on the vehicle: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_EMAIL:
+  subject: 'Babala-Boltahe'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Tracker ng supply ng boltahe sa tracker ay ${battery_voltage}V sa sasakyan${vehicle}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Ang supply na boltahe ng tracker  sa sasakyan ay ${reg_no_with_model} kasama ang driver ${driver} ay ${battery_voltage}V, ang limit ng boltahe ay nakaset sa ${deviceVoltage}</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_EMAIL:
+  subject: 'Babala - ${from_company} SOS button - ${reg_no_or_device}'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>SOS button pressed on ${reg_no_or_device}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - SOS button ay diniinan ng driver: ${driver} sa ${reg_no_with_model_or_device}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <p>${google_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_SMS:
+  body: 'SOS button ay diniinan ng driver: ${driver} sa ${reg_no_or_device}. ${event_time} ${google_url} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_MOBILE:
+  subject: 'SOS button - ${reg_no_or_device}'
+  body: 'SOS button ay diniinan ng driver: ${driver} sa ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_WEB:
+  subject: 'Babala-SOS button - ${reg_no_or_device}'
+  body: 'SOS button ay diniinan ng driver: ${driver} sa ${reg_no_or_device}. ${comment}'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_WEB:
+  subject: 'Babala-Gawain ng user'
+  body: 'Mag-login bilang kliyente: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_SMS:
+  body: 'Mag-login bilang kliyente: ${client_email} ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_MOBILE:
+  subject: 'Gawain ng user'
+  body: 'Mag-login bilang kliyente: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_EMAIL:
+  subject: 'Babala-Gawain ng user'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Mag-login bilang kliyente: ${client_email} ${client_name}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_WEB:
+  subject: 'Babala-Gawain ng user'
+  body: 'Mag-login bilang user: ${user_email} ${user_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_EMAIL:
+  subject: 'Gawain ng user'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Mag-login bilang user: ${user_email} ${user_name}</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_SMS:
+  body: 'Mag-login bilang user: ${user_email} ${user_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_MOBILE:
+  subject: 'Gawain ng user.'
+  body: 'Mag-login bilang user: ${user_email} ${user_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_EMAIL:
+  subject: 'Babala-Odometer itinama'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Odometer itinama sa ${new_value} para sa ${reg_no}</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${user_name} itinama na odometer ${reg_no}; lumang halaga- ${old_value}, bagong halaga - ${new_value}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_SMS:
+  body:  'Odometer itinama sa ${new_value} for ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_MOBILE:
+  subject: 'Odometer itinama'
+  body: 'Odometer itinama sa  ${new_value} para sa ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_WEB:
+  subject: 'Babala-Odometer itinama'
+  body: 'Odometer itinama sa ${new_value}para sa ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_EMAIL:
+  subject: 'Babala-Nakompleto ang form na bagsak'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Nakompleto ang form ng bagsak na driver: ${driver} sa sasakyan na : ${reg_no}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Form: ${form_title} nakompleto ng bagsak na driver: ${driver} sa sasakyan na: ${reg_no}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_SMS:
+  body: 'Nakompleto ng bagsak na driver: ${driver} to vehicle: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_MOBILE:
+  subject: 'Nakompleto ang form na bagsak'
+  body: 'nakompleto ng bagsak na driver: ${driver} to vehicle: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_WEB:
+  subject: 'Nakompleto ang form na bagsak'
+  body: 'nakompleto ng bagsak na driver: ${driver} to vehicle: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_EMAIL:
+  subject: 'Babala-Di-nakompleto ang form'
+  body: '<h3>Bagong paalala mula sa  ${from_company} sistema:</h3>
+  <p>Form is not completed by driver: ${driver} sa sasakyan: ${reg_no}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Form is not completed by driver: ${driver} sa sasakyan: ${reg_no}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_SMS:
+  body: 'Di-nakompleto ang form ng driver: ${driver} ng sasakyan: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_MOBILE:
+  subject: 'Di-nakompleto ang form'
+  body: 'Di-nakompleto ang form ng driver: ${driver} ng sasakyan: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_WEB:
+  subject: 'Babala-Di-nakompleto ang form'
+  body: 'Di-nakompleto ang form ng driver: ${driver} ng sasakyan: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_WEB:
+  subject: 'Babala-di-kompleto ang form'
+  body: 'Kailangan tapusin ang inspection form pa sa sasakyan na may ${reg_no}.'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_MOBILE:
+  subject: 'di-kompleto ang form'
+  body: 'Kailangan tapusin ang inspection form pa sa sasakyan na may ${reg_no}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_EMAIL:
+  subject: 'Babala-temperatura ng sensor'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sensor ${sensor_id}${label} Na-detect ang temperatura ${temperature}.</p> 
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, na-install sa ${reg_no}, ay nadetect ang temperatura ${sensor_temperature}${temperature}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_SMS:
+  body: 'Sensor ${label} ay nadetect ang temperatura ${sensor_temperature}${temperature}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_MOBILE:
+  subject: 'Temperatura ng sensor - ${reg_no}'
+  body: 'Sensor ${label} nadetect ang temperatura ${sensor_temperature}${temperature}.'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_WEB:
+  subject: 'Babala-temperatura ng sensor'
+  body: 'Sensor ${label} nadetect ang temperatura ${sensor_temperature}${temperature}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_EMAIL:
+  subject: 'Babala-halumigmig ng sensor'
+  body: '<h3>Bagong paalala mula sa  ${from_company} system:</h3>
+  <p>Sensor ${sensor_id}${label} Na-detect ang halumigmig ${sensor_humidity}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, na naka install sa ${reg_no}, Na-detect ang halumigmig ${sensor_humidity}${humidity}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_SMS:
+  body: 'Sensor ${label} na-detect ang halumigmig ${sensor_humidity}${humidity}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_MOBILE:
+  subject: 'Halumigmig ng sensor - ${reg_no}'
+  body: 'Sensor ID ${label} Na-detect ang halumigmig ${sensor_humidity}${humidity}.'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_WEB:
+  subject: 'Babala-halumigmig ng sensor'
+  body: 'Sensor ID ${label} Na-detect ang halumigmig ${sensor_humidity}${humidity}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_EMAIL:
+  subject: 'Babala-Ilaw ng sensor'
+  body: '<h3>Bagong paalala mula sa ${from_company} sistema:</h3>
+  <p>Sensor ${sensor_id}${label} na-detect ang katayuan ng ilaw ${sensor_light_status}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, naka-install sa ${reg_no}, na-detect ang pagpalit ng katayuan ng ilaw ${sensor_light_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_SMS:
+  body: 'Sensor ${label} na-detect and katayuan ng ilaw to ${sensor_light_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_MOBILE:
+  subject: 'Sensor ng ilaw - ${reg_no}'
+  body: 'Sensor ${label} na-detect ang pagpalit ng katayuan ng ilaw ${sensor_light_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_WEB:
+  subject: 'Babala - Ilaw ng sensor'
+  body: 'Sensor ${label} na-detect ang pagpalit ng katayuan ng ilaw ${sensor_light_status}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_EMAIL:
+  subject: 'Babala - Sensor ng battery level'
+  body: '<h3>Bagong paalala mula sa sistema  ${from_company}:</h3>
+  <p>Sensor ${sensor_id}${label} Na-detect ang battery level ${sensor_battery_level}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, na naka-install sa ${reg_no}, ay na-detect ang battery level ${sensor_battery_level} ${batteryLevel}.
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_SMS:
+  body: 'Sensor ${label} ay na detect ang battery level ${sensor_battery_level} ${batteryLevel}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_MOBILE:
+  subject:  'Sensor ng battery level - ${reg_no}'
+  body: ' Ang sensor ${label} ay na detect ang battery level ${sensor_battery_level} ${batteryLevel}.'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_WEB:
+  subject: 'Babala-Sensor ng battery level'
+  body: 'Ang sensor ${label} ay na detect ang battery level ${sensor_battery_level} ${batteryLevel}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_EMAIL:
+  subject: 'Babala-Katayuan ng sensor'
+  body: '<h3>Bagong paalala mula sa Sistema ${from_company} system:</h3>
+  <p>Ang sensor ${sensor_id}${label} ngayon ay ${sensor_status}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, na naka-install ${reg_no}, ay nagpalit ng katayuan ${sensor_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_SMS:
+  body: 'Sensor ${label} ay nagpalit ng katayuan sa ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_MOBILE:
+  subject: 'Katayuan ng sensor - ${reg_no}'
+  body: 'Sensor ${label} ay nagpalit ng katayuan sa ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_WEB:
+  subject: 'Babala-Katayuan ng sensor'
+  body: 'Sensor ${label} ay nagpalit ng katayuan sa ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Babala-Malapit na mag-expire ang dokumento'
+  body: 'Malapit na mag-expire ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Malapit na mag-expire ang dokumento: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Malapit na mag-expire ang dokumento'
+  body: 'Malapit na mag-expire ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Babala-Malapit na mag-expire ang dokumento'
+  body: '<h3>Bagong paalala mula sa sistema ${from_company} :</h3>
+  <p>Malapit na mag-expire ang dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - and dokumento "${title}" ${data_by_type} ay mag-eexpire sa ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Babala-Expired ang dokumento'
+  body: 'Expired ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Expired ang dokumento: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Expired ang dokumento'
+  body: 'Expired ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Babala-Expired ang dokumento'
+  body: '<h3>Bagong paalala mula sa sistema ${from_company}:</h3>
+  <p>Na-expired ang dokumento ${data_by_type}.
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${exp_date} - Na-expired ang dokumento "${title}" expired ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_WEB:
+  subject: 'Alerts - Babala-dokumento inalis'
+  body: 'Dokumento inalis: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_SMS:
+  body: 'Dokumento inalis: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Dokumento inalis'
+  body: 'Dokumento inalis: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Babala-dokumento inalis'
+  body: '<h3>Bagong paalala mula sa sistema ${from_company}:</h3>
+  <p>Dokumento inalis ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} inalis ang dokumento "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Babala-Nagdagdag ng rekord ng dokumento'
+  body: 'Nagdagdag ng rekord ng dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Nagdagdag ng rekord ng dokumento: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Nagdagdag ng rekord ng dokumento'
+  body: 'Nagdagdag ng rekord ng dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Babala- Nsgdagdag ng rekord ng dokumento'
+  body: '<h3>Bagong paalala mula sa sistema ${from_company} system:</h3>
+  <p>Nsgdagdag ng rekord ng dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} ay nagdagdag ng bagong rekord sa dokumento "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Babala-Malapit ng ma-expire ang dokumento'
+  body: 'Malapit ng ma-expire ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Malapit ng ma-expire ang dokumento ng asset: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Malapit ng ma-expire ang dokumento'
+  body: 'Malapit ng ma-expire ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Babala-Malapit ng ma-expire ang dokumento'
+  body: '<h3>Bagong paalala mula sa sistema ${from_company}</p>
+  <p>Malapit ng ma-expire ang dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Dokumento "${title}" ${data_by_type} ay mag-eexpire sa ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Babala-Nag-expired ang dokumento'
+  body: 'Nag-expired ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Nag-expired ang dokumento: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Nag-expired ang dokumento'
+  body: 'Nag-expired ang dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Babala-nag-expired ang dokumento'
+  body: '<h3>Bagong paalala mula sa sistema ng ${from_company} system:</h3>
+  <p>Nag-expire ang dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p> 
+  <p>${exp_date} - Nag-expired ang dokumento "${title}" ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_WEB:
+  subject: 'Babala-Inalis sng dokumento'
+  body: 'Inalis sng dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_SMS:
+  body: 'Inalis ng dokumento: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Inalis ng dokumento'
+  body: 'Inalis ng dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_EMAIL:
+  subject: ' Babala-Inalis ang dokumento'
+  body: '<h3>Bagong paalala mula sa sistema ${from_company}:</h3>
+  <p>Inalis ng dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} ay inalis ang dokumento "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Babala-Rekord ng dokumento ay idinagdag'
+  body: 'Ang rekord ng dokumento ay nagdagdag ng titulo: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Rekord ng dokumento ay idinagdag: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Nagdagdag ng rekord ng dokumento'
+  body: 'Nagdagdag ng rekord ng dokumento: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Babala-Nagdagdag ng rekord ng dokumento'
+  body: '<h3>Bagong paalala mula sa sistema  ${from_company} </h3>
+  <p>Nagdagdag ng rekord ng dokumento ${data_by_type}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} ay nagdagdag ng bagong rekord sa dokumento "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_EMAIL:
+  subject: 'Babala-Katayuan ng Digital IO - ${sensor_status}'
+  body: '<h3>Bagong paalala mula sa sistema  ${from_company}:</h3>
+  <p>Ang Digital I/O ${sor_iseno_type} sa ${regno_or_imei} ay nagpalit ng katayuan ${sensor_status}.</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p> 
+  <p>${event_time} - Digital I/O ${sensor_io_type} sa ${regno_or_imei}, ay nagpalit ng katayuan sa ${sensor_status}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_SMS:
+  body: 'Digital I/O ${sensor_io_type} sa ${regno_or_imei} ay nagpalit ng katayuan sa ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_MOBILE:
+  subject: 'Katayuan ng Digital I/O - ${sensor_status}'
+  body: 'Digital I/O ${sensor_io_type} sa ${regno_or_imei} ay nagpalit ng katayuan sa ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_WEB:
+  subject: 'Babala- Katayuan ng Digital I/O  - ${sensor_status}'
+  body: 'Digital I/O ${sensor_io_type} sa ${regno_or_imei} ay nagpalit ng katayuan sa  ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_EMAIL:
+  subject: ' Babala- Gumawa ng asset'
+  body: '<h3>Bagong paalala mula sa sistema ${from_company} system:</h3>
+  <p>Gumawa ng asset: ${asset_name}</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} ay gumawa ng asset ${asset_name} [team: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_SMS:
+  body: 'Gumawa ng asset: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_MOBILE:
+  subject: 'Gumawa ng asset: ${asset_name}'
+  body: '${event_time} - ${triggered_by} ay gumawa ng asset ${asset_name} [team: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_WEB:
+  subject: 'Babala- Gumawa ng asset: ${asset_name}'
+  body: '${event_time} - ${triggered_by} ay gumawa ng asset ${asset_name} [team: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_EMAIL:
+  subject: 'Babala- Inalis ang asset: ${asset_name}'
+  body: '<h3Bagong paalala mula sa sistema ${from_company}:</h3>
+  <p>Asset deleted: ${asset_name}</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - ${triggered_by} have deleted asset ${asset_name} [team: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_SMS:
+  body: 'Inalis and asset: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_MOBILE:
+  subject: 'Inalis ang asset: ${asset_name}'
+  body: '${event_time} - ${triggered_by} na delete ang asset ${asset_name} [team: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_WEB:
+  subject: 'Babala-Inalis ang asset: ${asset_name}'
+  body: '${event_time} - ${triggered_by} na delete ang asset ${asset_name} [team: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_EMAIL:
+  subject: 'Babala- Pumalya ang asset: ${asset_name}'
+  body: '<h3>Babala- Pumalya ang asset ${from_company} sistema:</h3>
+  <p>Pumalya ang asse: ${asset_name}</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - Pumalya ang asset: ${asset_name}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_SMS:
+  body: 'Inalis ang asset: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_MOBILE:
+  subject: 'Pumalya ang asset: ${asset_name}'
+  body: '${event_time} - pumalya ang asset: ${asset_name}.'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_WEB:
+  subject: 'Babala- nakaligtaan ang asset: ${asset_name}'
+  body: '${event_time} - asset missed: ${asset_name}.'
+
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_EMAIL:
+  subject: 'Babala - Panloob na Boltahe ng Baterya'
+  body: '<h3>Bagong notification mula sa ${from_company} system:</h3>
+  <p>Ang porsyento ng boltahe ng panloob na baterya sa tracker ay ${battery_percentage}% sa sasakyan na ${sasakyan}.</p>
+   <br/><p><b>Detalyadong impormasyon:</b></p>
+   <p>${event_time} - Ang porsyento ng boltahe ng panloob na baterya sa sasakyan ${reg_no_with_model} kasama ang driver na ${driver} ay ${battery_percentage}%, ang limitasyon ay nakatakda sa ${deviceBatteryPercentage}</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_SMS:
+  body: 'Ang porsyento ng boltahe ng panloob na baterya sa tracker ay ${battery_percentage}% sa sasakyan: ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_MOBILE:
+  subject: 'Mga Alerto sa Boltahe ng Panloob na Baterya'
+  body: 'Ang porsyento ng boltahe ng panloob na baterya sa tracker ay ${battery_percentage}% sa sasakyan: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_WEB:
+  subject: 'Mga Alerto - Panloob na Boltahe ng Baterya'
+  body: 'Ang porsyento ng boltahe ng panloob na baterya sa tracker ay ${battery_percentage}% sa sasakyan: ${vehicle}. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Mga Alerto - Stripe error'
+  body: '<h3>Bagong notification mula sa ${from_company} system:</h3>
+  <p>May naganap na error sa huling operasyon sa Stripe!</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - [pangkat: ${team}], ng gumagamit: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_SMS:
+  body: 'May naganap na error sa huling operasyon sa Stripe! [pangkat: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Mga Alerto - Stripe error'
+  body: 'May naganap na error sa huling operasyon sa Stripe! [pangkat: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Mga Alerto - Stripe error'
+  body: 'May naganap na error sa huling operasyon sa Stripe! [pangkat: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Mga Alerto - Nabigo ang pagbabayad ng Stripe'
+  body: '<h3>Bagong notification mula sa ${from_company} system:</h3>
+  <p>Nabigo ang pagbabayad ng stripe!</p>
+  <br/><p><b>Detalyadong impormasyon:</b></p>
+  <p>${event_time} - [pangkat: ${team}], ng gumagamit: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_SMS:
+  body: 'Nabigo ang pagbabayad ng stripe! [pangkat: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Mga Alerto - Nabigo ang pagbabayad ng Stripe'
+  body: 'Nabigo ang pagbabayad ng stripe! [pangkat: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_WEB:
+  subject: 'Mga Alerto - Nabigo ang pagbabayad ng Stripe'
+  body: 'Nabigo ang pagbabayad ng stripe! [pangkat: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Stripe payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Stripe payment successful!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Stripe payment successful! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred during the last operation with Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_SMS:
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero invoice creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while creating an invoice: ${invoice} in Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero invoice created: ${invoice}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_SMS:
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero payment creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while Xero payment creation by invoice: ${invoice}!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero payment created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero payment created by invoice: ${invoice}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_SMS:
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_WEB:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - New invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New invoice created.</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - New invoice ${invoice_id} created.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_SMS:
+  body: 'New invoice ${invoice_id} created. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Alerts - Invoice payment failed'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice payment failed!</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} payment failed, reason - ${message}</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_SMS:
+  body: 'Invoice ${invoice_id} payment failed. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Alerts - Invoice payment failed'
+  body: 'Invoice ${invoice_id} payment failed. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_WEB:
+  subject: 'Alerts - Invoice payment failed'
+  body: 'Invoice ${invoice_id} payment failed. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Invoice payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice payment successful!</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} paid successfully.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_SMS:
+  body: 'Invoice ${invoice_id} overdue. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_WEB:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue - account partially blocked.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_SMS:
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_WEB:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue - account blocked.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_SMS:
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_WEB:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_EMAIL:
+  subject: 'Device contract expired'
+  body: '<p>Contract expired for ${count} devices: ${imei_array}.</p>'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_SMS:
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_MOBILE:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_WEB:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_WEB:
+  subject: 'Alerts - Jammer'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_SMS:
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_MOBILE:
+  subject: 'Jammer started - ${reg_no_or_device}'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_EMAIL:
+  subject: 'Alerts - Jammer'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Jammer started ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Jammer started on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_WEB:
+  subject: 'Alerts - Accident'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_SMS:
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_MOBILE:
+  subject: 'Accident happened - ${reg_no_or_device}'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_EMAIL:
+  subject: 'Alerts - Accident'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Accident happened ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Accident happened on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_WEB:
+  subject: 'Alerts - Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_SMS:
+  body: 'Device replaced:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_MOBILE:
+  subject: 'Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_EMAIL:
+  subject: 'Alerts - Device replaced'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device ${device_imei} was replaced.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have replaced device ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+set_as_limit: 'Naka-set bilang limit' #example: temperature > 10
+outside_range: 'Nasa labas ng eksaktong hangganan' #example: temperatura na nasa labas ng eksaktong hangganan (10, 20)
+device: 'device'
+Device: 'Device'
+vehicle: 'sasakyan'
+Vehicle: 'Sasakyan'
+with_driver: 'may driver'
+without_driver: 'walang driver'
+vehicle_page: 'Pahina ng sasakyan'
+driver_page: 'Pahina ng driver'
+client_page: 'Pahina ng kliyente'
+form_page: 'Pahina ng form'
+document_page: 'Pahina ng dokumento'
+asset: 'asset'
+driver: 'driver'
+note_device_not_installed: 'Tandaan: Ang device na ito ay hindi naka-install sa anomang sasakyan.'
+reminder_page: 'Pahina ng serbisyo sa pagpapa-alaala.'
+repair_page: 'Pahina ng serbisyo sa pag aayos.'
+on: 'Gumagana'
+off: 'Nakasara'
+installed_in: 'Naka-install sa loob'
+from_driver: 'Mula sa driver'
+inside_areas: 'Sa loob ng mga lugar'
+outside_areas: 'Sa labas ng mga lugar'

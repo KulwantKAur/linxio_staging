@@ -1,0 +1,53 @@
+{% extends "reports/default.html.twig" %}
+{% block content %}
+    {% if data['vehicles']|length > 0 %}
+        {% for item in data['vehicles'] %}
+            {% if item['data']|length > 0 %}
+                <div>
+                    {% if item['vehicle'] is defined %}
+                        <h3>{{ item['vehicle']['regNo'] }} ({{ item['vehicle']['defaultLabel'] }})
+                            - {{ item['vehicle']['model'] }} </h3>
+                        {% if item['vehicle']['groups']|length > 0 %}
+                            <b>{{ 'vehicle.groups'|trans({}, 'entities') }}: </b>
+                            {% for key, row in item['vehicle']['groups'] %}
+                                {{ row['name'] }}{% if loop.last == false %},{% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% if item['vehicle']['depot']['name'] is defined %}
+                            </br><b>{{ 'vehicle.depot'|trans({}, 'entities') }}: </b>{{ item['vehicle']['depot']['name'] }}
+                        {% endif %}
+                    {% endif %}
+
+                    {% if item['sensor'] is defined %}
+                        <h3>{{ item['sensor']['sensorId'] }} ({{ item['sensor']['label'] ?? '-' }})</h3>
+                    {% endif %}
+                </div>
+                <table>
+                    {% for row in item['data'] %}
+                        <tr>
+                            {% for key, value in row %}
+                                {% if key not in ['servicerecord.sr_amount_total'] %}
+                                    <td class="{{ key | cssClass }}">{{ value }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    {% if item['data'][0]['servicerecord.sr_amount_total'] %}
+                        <tr class="totalRow">
+                            {% for key, value in item['data'][1] %}
+                                {% if key not in ['servicerecord.sr_amount_total'] %}
+                                    {% if key == 'servicerecord.sr_amount' %}
+                                        <td class="{{ key | cssClass }}">{{ item['data'][1]['servicerecord.sr_amount_total'] }}</td>
+                                    {% else %}
+                                        <td class="{{ key | cssClass }}"></td>
+                                    {% endif %}
+                                {% endif %}
+
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                </table>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

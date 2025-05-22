@@ -1,0 +1,22 @@
+invoice:
+  invoice: Invoice
+  paid: BINAYARAN
+  notPaid: HINDI BINAYARAN
+  invoiceDate: Petsa ng Invoice
+  invoiceDueDate: Invoice Due Date
+  issuer: Tagapagbigay
+  abn: ABN
+  phone: Ph
+  email: E-mail
+  address: Address
+  billedTo: Sinisingil sa
+  customerId: Customer ID
+  qty: QTY
+  desc: DESCRIPTION
+  unitPrice: UNIT PRICE
+  lineTotal: LINE TOTAL
+  prepayment: Prepayment
+  subTotal: Subtotal
+  total: Kabuuan
+  tax: Buwis
+  thx: Salamat sa iyong negosyo!

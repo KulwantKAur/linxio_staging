@@ -1,0 +1,32 @@
+<html>
+<body>
+{% if app.request.get('token') %}
+    <p>Success login!</p><br><br>
+{% endif %}
+{% if app.request.get('url') %}
+    <p>Success logout!</p><br><br>
+{% endif %}
+<a href="https://trial-1388278.okta.com/app/trial-1388278_test_1/exkcz55df5yuri92Y697/sso/saml">Login via okta app url</a>
+<br><br>OR<br><br>
+<a href="http://localhost:8098/api/saml/logout?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTIyMjk3OTYsImV4cCI6MTcyMDg2OTc5Niwic3ViIjoiMzM4IiwiZW1haWwiOiJkemhpbHNraXlAc2Nuc29mdC5jb20ifQ.Y0xbcvND3gh5NIOs5amG2jAakX3zY9J-xhaJ7GRbzcIW-Lgskn7gkjgX491YhrqP2A_XB0n0USuyj1TS0YRBK7ns590Jkquw5dUJTO_WYHJhDgSYp6DD2VpJPPF-SCjOzYpOsR1N8bhiQqJ0mqs37ni6pog-uVh6qkMEW66D3V8BSUXqyGgGbRTj3LLtQ4VhXrYRQZfKuHPdqd1DsXKomsUrCb3mkphXtg1ZoYBIH8PoL_c-mzIvYlIpzA5J0-7cWwTrb5xZo-8M2dT_eLW04mVTcTOcddAXWFKihw0JoxVQ9nPxlrh7_b9rcbk6c--q0j7lC0OtDrvfNFJYb_pXve2itw5uEDs_buBx6mWFB6gFSuIZ5BI4YvR17QvbuRG3Nl_9gSVdCeS9QDYnxqpMm-C55HkatgL4UyamURWrv2W98mzFCf5rQcCGkcN_ohZiXTiOI0IxCFKuWGXJ7XXuHMC24n-jp3jOOTvdpReqWK-dXDp0xOEQcO0mCqHl9IkEwvoKZefx1xDOYFWEDWVnTkxqjr-PGUnDTA7vEPV3-HZdvL_Q2Wx7axAcNe27Td4BpBT8yONhpMgNm_5D3DECLR93mBCTeBzogPqQV9EFFHOaI5Qda2GR4bEHx9Xz6-gWwAa-NEvdEiJ5ty23MoP3tDulWOlKaVRX_gGl0tTAz1I">LOGOUT
+    from linxio</a>
+<br><br>
+<form method="post" action="http://localhost:8098/api/saml/logout" class="inline">
+    <input type="hidden" name="token"
+           value="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTIyMjk3OTYsImV4cCI6MTcyMDg2OTc5Niwic3ViIjoiMzM4IiwiZW1haWwiOiJkemhpbHNraXlAc2Nuc29mdC5jb20ifQ.Y0xbcvND3gh5NIOs5amG2jAakX3zY9J-xhaJ7GRbzcIW-Lgskn7gkjgX491YhrqP2A_XB0n0USuyj1TS0YRBK7ns590Jkquw5dUJTO_WYHJhDgSYp6DD2VpJPPF-SCjOzYpOsR1N8bhiQqJ0mqs37ni6pog-uVh6qkMEW66D3V8BSUXqyGgGbRTj3LLtQ4VhXrYRQZfKuHPdqd1DsXKomsUrCb3mkphXtg1ZoYBIH8PoL_c-mzIvYlIpzA5J0-7cWwTrb5xZo-8M2dT_eLW04mVTcTOcddAXWFKihw0JoxVQ9nPxlrh7_b9rcbk6c--q0j7lC0OtDrvfNFJYb_pXve2itw5uEDs_buBx6mWFB6gFSuIZ5BI4YvR17QvbuRG3Nl_9gSVdCeS9QDYnxqpMm-C55HkatgL4UyamURWrv2W98mzFCf5rQcCGkcN_ohZiXTiOI0IxCFKuWGXJ7XXuHMC24n-jp3jOOTvdpReqWK-dXDp0xOEQcO0mCqHl9IkEwvoKZefx1xDOYFWEDWVnTkxqjr-PGUnDTA7vEPV3-HZdvL_Q2Wx7axAcNe27Td4BpBT8yONhpMgNm_5D3DECLR93mBCTeBzogPqQV9EFFHOaI5Qda2GR4bEHx9Xz6-gWwAa-NEvdEiJ5ty23MoP3tDulWOlKaVRX_gGl0tTAz1I">
+    <button type="submit" name="submit_param" value="submit_value" class="link-button">
+        LOGOUT from linxio POST (does not using)
+    </button>
+</form>
+<form method="post" action="https://trial-1388278.okta.com/app/trial-1388278_test_1/exkcz55df5yuri92Y697/slo/saml"
+      class="inline">
+    <button type="submit" name="submit_param" value="submit_value" class="link-button">
+        LOGOUT from okta app url (does not using)
+    </button>
+</form>
+<br>OR<br><br>
+<a href="http://localhost:8098/api/saml/metadata" target="_blank">metadata</a>
+<br>
+<a href="http://localhost:8098/api/saml/callback">home</a>
+</body>
+</html>

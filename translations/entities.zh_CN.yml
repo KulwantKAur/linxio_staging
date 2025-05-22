@@ -1,0 +1,703 @@
+user:
+  fullName: 用户名
+  email: 电子邮件
+  role: 角色
+  lastLoggedAt: 上次登录
+  status: 地位
+  userGroups: 用户组
+client:
+  name: 公司名
+  status: 地位
+  plan: 计划
+  keyContact: 密钥联系人
+  manager: 经理
+  usersCount: 用户总计
+  activeUsersCount: 用户活动
+  devicesCount: 设备总计
+  activeDevicesCount: 设备有效
+  vehiclesCount: 总车辆
+  activeVehiclesCount: 车辆活跃
+  createdAt: 创建日期
+vehicle:
+  id: 车辆号
+  model: 模型
+  type: 类型
+  defaultLabel: 车辆标题
+  year: 问题年份
+  regDate: 年
+  vin: vin.
+  regNo: 车辆reg。不。
+  status: 地位
+  driver: 司机
+  driverName: 司机
+  depot: 仓库
+  groups: 团体
+  fuelType: 燃油类型
+  fuelTankCapacity: 油箱容量
+  averageDailyMileage: 平均每日里程数
+  mileage: 里程
+  engineHours: 发动机时间
+device:
+  id: 设备编号
+  model: 模型
+  sn: 一个人
+  port: 港口
+  hw: HW.
+  sw: sw
+  imsi: IMSI.
+  devEui: deveui.
+  protocol: 协议
+  client: 客户
+  vendor: 小贩
+  status: 地位
+  imei: IMEI.
+  phone: 电话号码
+  installDate: 安装日期
+  vehicle: 车辆
+  lastActiveTime: 最后一个活跃的时间
+  createdAt: 创建日期
+  updatedAt: 更新日期
+  updatedBy: 更新
+  createdBy: 由...制作
+eventlog:
+  headers:
+    general:
+      id: 号码
+      formattedDate: 日期
+      importance: 重要性
+      eventTeam: 团队
+      eventType: 事件类型
+      triggeredDetails: 由（实例）触发
+      eventSource: 事件来源
+      eventSourceType: 事件源类型
+      notificationGenerated: 发出的通知？
+      notificationsList: 通知
+      limit: 限制
+      oldValue: 旧价值
+      newValue: 新价值
+    userCreated:
+      triggeredDetails: 由用户
+      eventSource: 新用户
+    userBlocked:
+      triggeredDetails: 由用户
+      eventSource: 被阻止的用户
+    userDeleted:
+      triggeredDetails: 由用户
+      eventSource: 已被删除的用户
+    userPwdResset:
+      triggeredDetails: 由用户
+      eventSource: 用户
+    userNameChanged:
+      triggeredDetails: 由用户
+      eventSource: 用户
+    loginAsUser:
+      triggeredDetails: 由用户
+      eventSource: 记录为
+    clientCreated:
+      triggeredDetails: 由用户
+    deviceInfo:
+      triggeredDetails: 由用户
+      eventSource: IMEI.
+    documentRecordInfo:
+      triggeredDetails: 由用户
+      eventSource: 附加到
+      expiredDate: 截止日期
+      vehicleRegNo: reg
+      title: 标题
+    documentInfo:
+      triggeredDetails: 由用户
+      eventSource: 标题
+      expiredDate: 截止日期
+      vehicleRegNo: reg
+    vehicleInfo:
+      triggeredDetails: 由用户
+      eventSource: reg
+    trackerInfo:
+      triggeredDetails: 司机
+      eventSource: reg
+      shortDetails: 细节
+      areas: 区域
+      maxSpeed: 速度
+      duration: 期间
+      distance: 距离
+      deviceVoltage: 电压
+      address: 地址
+      temperature: 温度
+      humidity: 湿度
+      batteryLevel: 电池电量
+      light: 光
+      status: 地位
+      sensorIOTypeId: 数字I / O类型
+      deviceBatteryPercentage: 電池百分比
+    assetInfo:
+      createdBy: 由...制作
+      deletedBy: 删除
+      eventSource: 资产
+    digitalForm:
+      formNotCompleted:
+        eventSource: reg
+      eventSource: 标题
+      user: 由用户
+      triggeredDetails: 司机
+      form: 表格标题
+      vehicleRegNo: reg
+    sensor:
+      temperature: 温度
+      humidity: 湿度
+      light: 光
+      batteryLevel: 电池电量
+      triggeredDetails: 通过传感器
+    data:
+      additionalParams:
+        timeDuration: 时间
+        overSpeed: 速度
+        deviceVoltage: 电压
+    stripe:
+      triggeredDetails: 按用户
+    xero:
+      triggeredDetails: 按用户
+
+fuelcard:
+  id: ID
+  model: 模型
+  regNo: 雷诺
+  defaultLabel: 标题
+  driver: 司机
+  groupsList: 团体
+  depotName: 仓库
+  fuelType: 燃油类型
+  fuelCardNumber: 燃料卡号码
+  refueled: 加油, L
+  total: 总计（澳元）
+  fuelPrice: 燃料价格
+  petrolStation: 加油站
+  refueledFuelType: 燃油类型
+  startDate: 交易日期
+  transactionDate: 交易日期
+  reg_no: 车辆雷诺
+  depot: 仓库
+  groups: 团体
+  mileage: 里程
+  transactionTime: Transaction Time
+  cardAccountNumber: Card Account
+  vehicle: Vehicle Number
+  odometer: Odometer
+  cardAccountNo: Card account No
+  siteId: Site ID
+  productCode: Product Code
+  pumpPrice: Pump Price
+  stationAddress: 地點坐標
+  vehicleAddress: 車輛位置
+  ifcsOdometer: IFCS Odometer
+  serviceStation: Service Station
+
+reminder:
+  id: ID
+  vehicleRegNo: 车辆雷诺
+  regNo: 车辆雷诺
+  vehicleDefaultLabel: 车辆名称
+  defaultLabel: 车辆名称
+  regno: 车辆雷诺
+  vehicleName: 车辆名称
+  vehicleModel: 模型
+  driver: 司机
+  vehicleGroups: 团体
+  vehicleDepot: 仓库
+  category: 维护类型
+  categoryName: 類別
+  categoryId: 维护类型
+  title: 标题
+  status: 地位
+  remainingDays: 剩下的日子
+  remainingMileage: 剩下的距离
+  remainingHours: 剩余的发动机时间
+  date: 截止日期
+  mileage: 控制里程
+  hours: 控制小时
+  controlDate: 到期日期
+  controlMileage: 控制里程
+  controlHours: 控制時間
+  note: 笔记
+  notes: 笔记
+  updatedAt: 上一次更改
+  lastModified: 上一次更改
+  lastModifiedDate: 最后修改日期
+  lastModifiedTime: 最后修改时间
+  createdAt: 创造了
+  createdAtDate: 创建日期
+  createdAtTime: 创造的时间
+remindercategory:
+  name: 名称
+  status: 地位
+route:
+  defaultlabel: 车辆名称
+  defaultLabel: 车辆名称
+  regno: 数字板
+  model: 模型
+  started_at: 日期
+  finished_at: 日期
+  started_at_date: 开始，日期
+  finished_at_date: 完成，日期
+  started_at_time: 开始，时间
+  finished_at_time: 完成，时间
+  driver_name: 司机
+  depot_name: 仓库
+  groups: 团体
+  address_from: 地址从
+  address_to: 写给
+  distance: 距离（km）
+  start_odometer: 开始里程表
+  finish_odometer: 终点尺
+  driving_time: 行车时间（HH：MM：SS）
+  idling_time: 空转时间（hh：mm：ss）
+  avg_speed: 平均速度
+  max_speed: 最大速度
+  start_areas_name: 地理癖
+  finish_areas_name: 地理位置
+  address: 地址
+  areas_name: 地理局
+  parking_time: 停车时间（HH：MM：SS）
+  eco_drive_events: Eco Drive Event.
+  eco_drive_score: Eco Drive得分
+  stops_count: 拦住
+  speeding_events_count: 超速事件
+  work_distance: 工作距离（km）
+  work_duration: 工作时间（hh：mm：ss）
+  private_distance: 私人距离（km）
+  private_duration: 私人持续时间（hh：mm：ss）
+  total_distance: 总距离（km）
+  total_duration: 总持续时间（hh：mm：ss）
+  scope: 行程类型
+  comment: 旅行评论
+  used_vehicles: 二手车
+  work_percentage: 工作百分比
+  private_percentage: 私人百分比
+  unclassified_percentage: 未分類百分比
+  unclassified_duration: 未分類的持續時間（HH:MM:SS）
+  unclassified_distance: 未分類距離（公里）
+  start_areas_group_name: 開始區域組
+  finish_areas_group_name: 完成區域組
+  area_group_name: 區域組
+area:
+  geofenceId: 地理位置ID
+  geofence: 格术名称
+  totalTime: Geofence的总时间（hh：mm：ss）
+  numberOfVisits: 访问次数
+  averageTime: Geofence的平均时间（hh：mm：ss）
+  model: 模型
+  regNo: 车辆雷诺
+  defaultLabel: 车辆
+  depot: 仓库
+  arrivedAt: 到达
+  arrivedAtDate: 到达日期
+  arrivedAtTime: 到达时间
+  departedAt: 离开了
+  departedAtDate: 离开日期
+  departedAtTime: 离开的时间
+  groups: 团体
+  odometer: 里程表
+  driver: 司机
+  idlingTime: 空转时间（hh：mm：ss）
+  parkingTime: 停车时间（HH：MM：SS）
+speeding:
+  id: 超速ID
+  defaultLabel: 车辆
+  regNo: 车辆雷诺
+  model: 模型
+  driver: 司机
+  groups: 团体
+  depot: 仓库
+  startedAt: 开始了
+  startedAtDate: 开始约会
+  startedAtTime: 开始时间
+  finishedAt: 完成了
+  finishedAtDate: 完成日期
+  finishedAtTime: 完成时间
+  distance: 距离（km）
+  avgSpeed: 平均速度
+  maxSpeed: 最大速度
+  postedLimit: 发布限制
+vehicle_summary:
+  id: 车辆ID
+  model: 模型
+  regNo: 车辆雷诺
+  reg_no: 车辆雷诺
+  regno: 车辆雷诺
+  defaultLabel: 车辆
+  defaultlabel: 车辆
+  depot: 仓库
+  groups: 团体
+  privateDistance: 私人距离（km）
+  private_distance: 私人距离（km）
+  workDistance: 工作距离（km）
+  work_distance: 工作距离（km）
+  distance: 距离（km）
+  startOdometer: 里程表开始
+  start_odometer: 里程表开始
+  endOdometer: 里程表结束
+  end_odometer: 里程表结束
+  maxSpeed: 最大速度
+  max_speed: 最大速度
+  stops: 拦住
+  parkingTime: 停车时间（HH：MM：SS）
+  parking_time: 停车时间（HH：MM：SS）
+  drivingTime: 行车时间（HH：MM：SS）
+  driving_time: 行车时间（HH：MM：SS）
+  idlingTime: 空转时间（hh：mm：ss）
+  ecoDriveScores: 生态驾驶得分
+  eco_drive_scores: 生态驾驶得分
+  ecoSpeedingEvents: 生态驱动事件
+  eco_speeding_events: 生态驱动事件
+  speedingEvents: 超速事件
+  speeding_events: 超速事件
+  minEngineOnTime: 發動機小時數開始
+  min_engine_on_time: 發動機小時數開始
+  maxEngineOnTime: 發動機小時結束
+  max_engine_on_time: 發動機小時結束
+  engineOnTime: 發動機總小時數
+  engine_on_time: 發動機總小時數
+  date: 日期
+vehicle_io:
+  id: 车辆ID
+  vehicleId: 车辆ID
+  deviceId: 设备编号
+  model: 模型
+  regno: 车辆雷诺
+  defaultlabel: 车辆
+  depotName: 仓库
+  depotId: 仓库ID
+  groups: 团体
+  driverName: 司机
+  inputType: 输入类型
+  inputLabel: 输入标签
+  inputValueOn: 输入值
+  tsOn: 打开
+  positionOn: 地址
+  inputValueOff: 输入值关闭
+  tsOff: 关掉
+  positionOff: 地址关闭
+  startAreasName: 地区
+  finishAreasName: 区域关闭
+  duration: 持续时间（hh：mm：ss）
+  distance: 距离（km）
+  fuelConsumed: 燃料消耗
+  durationTotal: 总持续时间（hh：mm：ss）
+  distanceTotal: 总距离 (公里)
+servicerecord:
+  defaultlabel: 车辆名称
+  defaultLabel: 车辆名称
+  regno: 数字板
+  model: 模型
+  depot_name: 仓库
+  groups: 团体
+  sr_last_date: 最后一次服务日期
+  sr_last_date_date: 最后一次服务日期
+  sr_last_date_time: 最后一次服务时间
+  sr_count: 服务参赛作品
+  sr_cost: 总金额
+  sr_amount: 数量
+  sr_amount_total: 数量
+  sr_note: 笔记
+  sr_date: 日期
+  sr_date_date: 日期
+  sr_date_time: 时间
+  r_category: 维护类型
+  date: 日期
+  repairTitle: 标题
+  repair_title: 标题
+  repairCategory: 类别
+  user: 用户
+  cost: 成本
+  note: 笔记
+  title: 标题
+  created_by_name: 用户
+document:
+  regNo: 车辆雷诺
+  title: 标题
+  status: 地位
+  remainingDays: 剩下的日子
+  issueDate: 发行日期
+  expDate: 截止日期
+  driver: 司机
+  fullName: 驅動程序名稱
+drivingbehavior:
+  harshAcceleration: 严格加速
+  harshBraking: 严格制动
+  harshCornering: 严格转弯
+  harshAccelerationCount: 严格加速计数
+  harshBrakingCount: 严格制动计数
+  harshCorneringCount: 严格转弯计数
+  harshAccelerationScore: 严格加速度分数
+  harshBrakingScore: 严格制动得分
+  harshCorneringScore: 严格转弯分数
+  totalDistance: 总距离 (公里)
+  idlingCount: 怠速计数
+  excessiveIdling: 过度闲置
+  ecoSpeedEventCount: 生物圈事件数量
+  ecoSpeedTotalDistance: 生態速度總距離 (公里)
+  speeding: 超速
+  ecoSpeed: 生態速度
+  idlingTotalTime: 怠速总时间（hh：mm：ss）
+  drivingTotalTime: 驾驶总时间（HH：MM：SS）
+  totalAvgSpeed: 总AVG速度
+  totalScore: 总成绩
+  driver: 司机
+  drivers: 司机
+  vehicle: 车辆
+  vehicles: 车辆
+  depot: 仓库
+  groups: 团体
+digitalformanswer:
+  date: 日期
+  duration: 期间
+  formTitle: 检查形式
+  id: ID
+  isPass: 地位
+  regNo: 雷诺
+  user: 由
+  frequency: 频率
+devicesensor:
+  id: ID
+  sensorId: 传感器ID
+  sensorBLEId: 传感器BLE ID
+  label: 传感器标签
+  lastPosition: 位置
+  vehicleId: 车辆ID
+  deviceId: 设备编号
+  defaultlabel: 车辆名称
+  regno: 车辆雷诺
+  model: 模型
+  depotName: 仓库
+  groups: 团体
+  position: 位置
+  type: 传感器类型
+  createdAt: 创建日期
+  updatedAt: 更新日期
+  updatedBy: 更新
+  createdBy: 由...制作
+trackerhistorysensor:
+  id: ID
+  deviceSensorId: 传感器ID
+  deviceSensorLabel: 标签
+  BLESensorId: 传感器BLE ID
+  deviceSensorBleId: 传感器BLE ID
+  occurredAt: 日期
+  occurredAtDate: 日期
+  occurredAtTime: 时间
+  temperature: 温度（c）
+  humidity: 湿度 （％）
+  value: 价值
+  lastPosition: 位置
+  batteryVoltage: 电池电压
+  batteryPercentage: 电池百分比
+  vehicleId: 车辆ID
+  deviceId: 设备编号
+  ambientLightValue: 环境光值
+  ambientLightStatus: 环境光状态（I / O）
+  deviceSensorType: 传感器类型
+  deviceSensorTypeLabel: 传感器类型标签
+  defaultlabel: 车辆
+  regno: 雷诺
+  model: 模型
+  depotName: 仓库
+  groups: 团体
+  position: 位置
+  coordinates: 坐标
+sensor:
+  id: ID
+  sensorId: id ..
+  label: 标签
+  lastPosition: 位置
+  vehicleId: 车辆ID
+  deviceId: 设备编号
+  defaultlabel: 车辆名称
+  regno: 车辆雷诺
+  model: 模型
+  depotName: 仓库
+  groups: 团体
+  position: 位置
+  type: 类型
+  createdAt: 创建日期
+  updatedAt: 更新日期
+  updatedBy: 更新
+  createdBy: 由...制作
+  lastDataValue: 最後一個數據值
+  lastDataReceived: 最後收到的數據
+  client: 客戶
+reseller:
+  companyName: 公司名
+  keyContact: 密钥联系人
+  legalName: 合法名称
+  legalAddress: 合法地址
+  billingAddress: 帐单地址
+  taxNr: 税收
+  manager: 经理
+  currency: 货币
+  timezone: 时区
+  logo: 标识
+  domain: 领域
+  units: 单位
+  phone: 电话
+  email: 电子邮件
+  smsName: SMS名称
+  emailName: 电子邮件名称
+  team: 团队
+  status: 地位
+  createdAt: 创造了
+  updatedAt: 更新了
+  usersCount: 用户总计
+  activeUsersCount: 用户活动
+  devicesCount: 设备总计
+  activeDevicesCount: 设备有效
+
+event:
+  VEHICLE_CREATED: 汽车增加
+  VEHICLE_DELETED: 车辆被删除
+  VEHICLE_UNAVAILABLE: 车辆不可用
+  VEHICLE_OFFLINE: 车辆离线
+  VEHICLE_ONLINE: 车辆在线
+  VEHICLE_CHANGED_REGNO: 车辆编号改变
+  VEHICLE_CHANGED_MODEL: 汽车制造/模型改变
+  VEHICLE_REASSIGNED: 新司机被分配到车辆上
+  SERVICE_REMINDER_SOON: 服务很快
+  SERVICE_REMINDER_EXPIRED: 服务过期
+  SERVICE_REMINDER_DONE: 服务完成
+  SERVICE_REMINDER_DELETED: 服务提醒删除
+  DOCUMENT_EXPIRE_SOON: 文档很快到期
+  DOCUMENT_EXPIRED: 文件过期了
+  DOCUMENT_DELETED: 文件被删除
+  USER_CREATED: 用户创建
+  USER_CREATED_SYSTEM: 系统已创建用户
+  USER_BLOCKED: 用户锁定
+  USER_DELETED: 用户被删除
+  USER_PWD_RESET: 用户密码重置
+  USER_CHANGED_NAME: 用户改变了名称
+  USER_CHANGED_SURNAME: 用户改变了名称
+  ADMIN_USER_CREATED: 创建用户
+  ADMIN_USER_BLOCKED: 用户锁定
+  ADMIN_USER_DELETED: 用户被删除
+  ADMIN_USER_PWD_RESET: 用户密码重置
+  ADMIN_USER_CHANGED_NAME: 用户改变了名称
+  CLIENT_CREATED: 客户端创建
+  CLIENT_DEMO_EXPIRED: 客户演示过期
+  CLIENT_BLOCKED: 客户端锁定
+  DEVICE_UNKNOWN_DETECTED: 设备检测到未知
+  DEVICE_IN_STOCK: 设备库存
+  DEVICE_OFFLINE: 设备离线
+  DEVICE_UNAVAILABLE: 设备不可用
+  DEVICE_DELETED: 设备被删除
+  LOGIN_AS_CLIENT: 客户登录
+  LOGIN_AS_USER: 用户登录
+  VEHICLE_GEOFENCE_ENTER: 车辆进入区域
+  VEHICLE_GEOFENCE_LEAVE: 车辆离开区域
+  VEHICLE_OVERSPEEDING_INSIDE_GEOFENCE: 车辆在区内超速行驶
+  VEHICLE_OVERSPEEDING: 超速行驶
+  VEHICLE_LONG_STANDING: 站立时间长于定义
+  VEHICLE_LONG_DRIVING: 驾驶时间长于规定时间
+  VEHICLE_MOVING: 车辆移动
+  VEHICLE_EXCESSING_IDLING: 多余的闲置
+  VEHICLE_TOWING_EVENT: 车辆被拖
+  VEHICLE_DRIVING_WITHOUT_DRIVER: 没有指定司机驾驶
+  DRIVER_ROUTE_UNDEFINED: 驾驶员线路未定义
+  SERVICE_RECORD_ADDED: 添加服务提醒
+  SERVICE_REPAIR_ADDED: 已修复
+  DOCUMENT_RECORD_ADDED: 文件被添加
+  TRACKER_VOLTAGE: 供给电压
+  PANIC_BUTTON: SOS 按钮
+  ODOMETER_CORRECTED: 汽车里程表纠正
+  DIGITAL_FORM_WITH_FAIL: 检查错误
+  DIGITAL_FORM_IS_NOT_COMPLETED: 未填写数字表格
+  SENSOR_TEMPERATURE: 温度传感器
+  SENSOR_HUMIDITY: 湿度传感器
+  SENSOR_LIGHT: 感应灯
+  SENSOR_BATTERY_LEVEL: 传感器电池级
+  SENSOR_STATUS: 传感器状态
+  DRIVER_DOCUMENT_EXPIRE_SOON: 文档很快到期
+  DRIVER_DOCUMENT_EXPIRED: 文件过期了
+  DRIVER_DOCUMENT_DELETED: 文件删除
+  DRIVER_DOCUMENT_RECORD_ADDED: 文档添加
+  SENSOR_IO_STATUS: 数字 I/O
+  ASSET_DOCUMENT_EXPIRE_SOON: 资产文件即将到期
+  ASSET_DOCUMENT_EXPIRED: 资产文件过期了
+  ASSET_DOCUMENT_DELETED: 资产文件被删除
+  ASSET_DOCUMENT_RECORD_ADDED: 新增资产文档记录
+  ASSET_CREATED: 资产创建
+  ASSET_DELETED: 资产已被删除
+  ASSET_MISSED: 资产遗失
+  TRACKER_BATTERY_PERCENTAGE: 电池电压的百分比
+  TRACKER_JAMMER_STARTED_ALARM: 干擾器啟動
+  TRACKER_ACCIDENT_HAPPENED_ALARM: 意外發生了
+
+alertSubType:
+  Vehicle Activities: 车辆活动
+  Vehicle Documents: 车辆文件
+  Asset Documents: 资产文件
+  Asset Activities: 资产的活动
+  Digital Forms: 数字形式
+  Driver activities: 驾驶员活动
+  Sensor Data: 传感器数据
+  Driver Documents: 驱动程序文件
+  Vehicle status: 车辆状态
+  Areas: 領域
+  Service reminders: 服务提醒
+  Vehicle data: 车辆数据
+  User accounts: 用户帐号
+
+billing:
+  client_name: 客戶
+  active_vehicle_trackers: 主動車輛跟踪器
+  deactivated_vehicle_trackers: 停用的車輛跟踪器
+  active_personal_trackers: 活躍的個人追踪器
+  deactivated_personal_trackers: 停用的個人跟踪器
+  active_asset_trackers: 活動資產跟踪器
+  deactivated_asset_trackers: 停用的資產跟踪器
+  active_vehicles: 主動車輛
+  virtual_vehicles: 虛擬車輛
+  archived_vehicles: 存檔車輛
+  deleted_vehicles: 刪除的車輛
+  active_sensors: 主動傳感器
+  archived_sensors: 存檔傳感器
+  deleted_sensors: 已刪除的傳感器
+
+  active_vehicle_trackers_total: 總計
+  deactivated_vehicle_trackers_total: 總計
+  active_personal_trackers_total: 總計
+  deactivated_personal_trackers_total: 總計
+  active_asset_trackers_total: 總計
+  deactivated_asset_trackers_total: 總計
+  active_vehicles_total: 總計
+  virtual_vehicles_total: 總計
+  archived_vehicles_total: 總計
+  deleted_vehicles_total: 總計
+  active_sensors_total: 總計
+  archived_sensors_total: 總計
+  deleted_sensors_total: 總計
+
+  active_vehicle_trackers_price: 單位
+  deactivated_vehicle_trackers_price: 單位
+  active_personal_trackers_price: 單位
+  deactivated_personal_trackers_price: 單位
+  active_asset_trackers_price: 單位
+  deactivated_asset_trackers_price: 單位
+  active_vehicles_price: 單位
+  virtual_vehicles_price: 單位
+  archived_vehicles_price: 單位
+  deleted_vehicles_price: 單位
+  active_sensors_price: 單位
+  archived_sensors_price: 單位
+  deleted_sensors_price: 單位
+
+  prepayment: 预付款 %month% %year%
+
+trackerhistory:
+  ts: 日期時間
+  createdAt: 已創建
+  gps: 全球定位系統
+  speed: 速度
+  angle: 角度
+  IO: IO
+  batteryVoltage: 電池電壓
+  batteryVoltagePercentage: 電池電壓百分比
+  temperatureLevel: 溫度等級
+  odometer: 里程表
+  externalVoltage: 外部電壓

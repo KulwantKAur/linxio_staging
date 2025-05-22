@@ -1,0 +1,2272 @@
+fos_elastica:
+  clients:
+    default:
+      host: '%env(ELASTICSEARCH_HOST)%'
+      port: '%env(ELASTICSEARCH_PORT)%'
+      transport: '%env(ELASTICSEARCH_TRANSPORT)%'
+  indexes:
+    client:
+      index_name: client_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+              analyzer_by_key:
+                tokenizer: tokenizer_word_startswith
+                filter: lowercase
+            tokenizer:
+              tokenizer_word_startswith:
+                "type": "edge_ngram"
+                "min_gram": 1
+                "max_gram": 10
+                "token_chars": [
+                    "letter",
+                    "digit"
+                ]
+      properties:
+        id:
+          type: integer
+        teamId:
+          type: integer
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        key_contact:
+          type: "nested"
+          properties:
+            full_name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        manager:
+          type: "nested"
+          properties:
+            full_name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        salesManager:
+          type: "nested"
+          properties:
+            full_name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        plan:
+          type: "nested"
+          properties:
+            display_name:
+              type: text
+              fielddata: true
+        name:
+          type: text
+          fielddata: true
+          analyzer: analyzer_by_key
+          search_analyzer: analyzer_by_key
+        nameSort:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        legalName:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        status:
+          type: keyword
+        users_count:
+          type: integer
+        active_users_count:
+          type: integer
+        devices_count:
+          type: integer
+        active_devices_count:
+          type: integer
+        vehicles_count:
+          type: integer
+        active_vehicles_count:
+          type: integer
+        created_at_formatted:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        created_at:
+          type: date
+        createdBy:
+          type: "object"
+          properties:
+            team:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+        reseller:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        contractMonths:
+          type: integer
+        ownerTeam:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        waed:
+          type: date
+      persistence:
+        driver: orm
+        model: App\Entity\Client
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\ClientRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    user:
+      index_name: user_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            filter:
+              phone_number:
+                type: pattern_capture
+                preserve_original: true
+                patterns: ["[A-Za-z0-9]+"]
+              not_empty:
+                type: length
+                min: 1
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+              phone_number:
+                char_filter: digits_letters_only
+                tokenizer: keyword
+                filter: [phone_number]
+              phone_number_search:
+                char_filter: digits_letters_only
+                tokenizer: keyword
+                filter: [not_empty]
+            char_filter:
+              digits_letters_only:
+                type: pattern_replace
+                pattern: "[^A-Za-z0-9]+"
+      properties:
+        id:
+          type: integer
+        client_id:
+          type: integer
+        email:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        name:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        surname:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        phone:
+          type: text
+          fielddata: true
+          analyzer: phone_number
+          search_analyzer: phone_number_search
+        fullname:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        status:
+          type: keyword
+        team_type:
+          type: text
+          fielddata: true
+        last_logged_at:
+          type: date
+        role:
+          type: "nested"
+          properties:
+            name:
+              type: text
+              fielddata: true
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        groups:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        vehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        driver_sensor_id:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        driverFOBId:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        isDualAccount:
+          type: boolean
+        isInDriverList:
+          type: boolean
+        driverId:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\User
+        repository: App\ElasticRepository\UserRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    device:
+      index_name: device_%kernel.environment%
+      settings:
+        max_result_window: 30000
+        index:
+          analysis:
+            filter:
+              phone_number:
+                type: pattern_capture
+                preserve_original: true
+                patterns: ["[A-Za-z0-9]+"]
+              not_empty:
+                type: length
+                min: 1
+              suffixes:
+                type: "edgeNGram"
+                min_gram: 1
+                max_gram: 20
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+              analyzer_starts_ends_with:
+                type: custom
+                tokenizer: keyword
+                filter: [lowercase, reverse, suffixes, reverse]
+              phone_number:
+                char_filter: digits_letters_only
+                tokenizer: keyword
+                filter: [phone_number]
+              phone_number_search:
+                char_filter: digits_letters_only
+                tokenizer: keyword
+                filter: [not_empty]
+            char_filter:
+              digits_letters_only:
+                type: pattern_replace
+                pattern: "[^A-Za-z0-9]+"
+      properties:
+        id:
+          type: long
+        client:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        clientId:
+          type: integer
+        imei:
+          type: text
+          fielddata: true
+          analyzer: analyzer_starts_ends_with
+          search_analyzer: analyzer_startswith
+        imsi:
+          type: text
+          fielddata: true
+          analyzer: analyzer_starts_ends_with
+          search_analyzer: analyzer_startswith
+        iccid:
+          type: text
+          fielddata: true
+          analyzer: analyzer_starts_ends_with
+          search_analyzer: analyzer_startswith
+        sn:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        vehicle:
+          type: object
+          properties:
+            regno:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            id:
+              type: integer
+        team:
+          type: object
+          properties:
+            id:
+              type: integer
+            type:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            chevronAccountId:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        modelName:
+          type: text
+          fielddata: true
+          analyzer: analyzer_starts_ends_with
+          search_analyzer: analyzer_startswith
+        modelAlias:
+          type: text
+          fielddata: true
+          analyzer: analyzer_starts_ends_with
+          search_analyzer: analyzer_startswith
+        vendorName:
+          type: text
+          fielddata: true
+          analyzer: analyzer_starts_ends_with
+          search_analyzer: analyzer_startswith
+        vendorAlias:
+          type: text
+          fielddata: true
+          analyzer: analyzer_starts_ends_with
+          search_analyzer: analyzer_startswith
+        phone:
+          type: text
+          fielddata: true
+          analyzer: phone_number
+          search_analyzer: phone_number_search
+        status:
+          type: keyword
+        statusExt:
+          type: keyword
+        install_date:
+          type: date
+        updated_at:
+          type: date
+        lastActiveTime:
+          type: date
+        lastDataReceivedAt:
+          type: date
+        mileage:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        engineHours:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        fuelType:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        previousPhones:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        fuelTankCapacity:
+          type: float
+        createdBy:
+          type: "object"
+          properties:
+            team:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+        reseller:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            companyName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        usage:
+          type: keyword
+        isDeactivated:
+          type: boolean
+        isUnavailable:
+          type: boolean
+        contractFinishAt:
+          type: date
+        contractStartAt:
+          type: date
+        processedStatus:
+          type: keyword
+        addedToTeam:
+          type: date
+        deactivatedAt:
+          type: date
+        contractId:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        plan:
+          type: object
+          properties:
+            name:
+              type: keyword
+        ownership:
+          type: keyword
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Device
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\DeviceRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    vehicle:
+      index_name: vehicle_%kernel.environment%
+      settings:
+        index:
+          max_ngram_diff: 14
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+              ngram_analyzer:
+                tokenizer: ngram_tokenizer
+                filter: lowercase
+            tokenizer:
+              ngram_tokenizer:
+                "type": "ngram"
+                "min_gram": 3
+                "max_gram": 17
+                "token_chars": [
+                  "letter",
+                  "digit"
+                ]
+      properties:
+        id:
+          type: integer
+        clientId:
+          type: integer
+        clientName:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            type:
+              type: keyword
+        status:
+          type: keyword
+        type:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        driverId:
+          type: integer
+        driverName:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        driverEmail:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        model:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        defaultlabel:
+          fielddata: true
+          type: text
+          analyzer: ngram_analyzer
+          search_analyzer: ngram_analyzer
+        year:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        vin:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        regcertno:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        regNo:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        defaultLabel:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        regDate:
+          type: date
+        depot:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        groups:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        fuelType:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        fueltankcapacity:
+          type: float
+        device:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        areas:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        areasGroups:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        mileage:
+          type: double
+        engineHours:
+          type: double
+        isInArea:
+          type: boolean
+        isInAssetList:
+          type: boolean
+        reminders:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            activeServiceRecords:
+              type: object
+              properties:
+                date:
+                  type: date
+                status:
+                  type: keyword
+                reminderCategoryEntity:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+        deviceImei:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        fullSearchField:
+          fielddata: true
+          type: text
+          analyzer: ngram_analyzer
+          search_analyzer: ngram_analyzer
+        updatedAt:
+          type: date
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Vehicle
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\VehicleRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    depot:
+      index_name: depot_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        status:
+          type: keyword
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        vehiclesCount:
+          type: integer
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Depot
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\DepotRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    vehicleGroup:
+      index_name: vehicle_group_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        status:
+          type: keyword
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        vehiclesCount:
+          type: integer
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\VehicleGroup
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\VehicleGroupRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    reminder:
+      index_name: reminder_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        teamId:
+          type: integer
+        title:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        status:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        remainingDays:
+          type: integer
+        date:
+          type: date
+        createdAt:
+          type: date
+        updatedAt:
+          type: date
+        remainingMileage:
+          type: long
+        mileage:
+          type: long
+        remainingHours:
+          type: integer
+        hours:
+          type: integer
+        vehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            regno:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            defaultLabel:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            model:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            driverEmail:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            driverName:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            driverId:
+              type: integer
+            depot:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: text
+                  fielddata: true
+                  analyzer: analyzer_startswith
+                  search_analyzer: analyzer_startswith
+            groups:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: text
+                  fielddata: true
+                  analyzer: analyzer_startswith
+                  search_analyzer: analyzer_startswith
+        asset:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        category:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        type:
+          type: keyword
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Reminder
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\ReminderRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    serviceRecord:
+      index_name: service_record_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        reminderId:
+          type: integer
+        date:
+          type: date
+        status:
+          type: keyword
+        repairTitle:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        repairCategoryEntity:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        type:
+          type: keyword
+        cost:
+          type: double
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        repairVehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            regNo:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        repairAsset:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        serviceRecordVehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        createdBy:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\ServiceRecord
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\ServiceRecordRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    document:
+      index_name: document_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        title:
+          fielddata: true
+          type: text
+        status:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        vehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            depot:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: text
+                  fielddata: true
+                  analyzer: analyzer_startswith
+                  search_analyzer: analyzer_startswith
+            groups:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: text
+                  fielddata: true
+                  analyzer: analyzer_startswith
+                  search_analyzer: analyzer_startswith
+        driver:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        asset:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        documentType:
+          type: keyword
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        commonDocumentStatus:
+          type: keyword
+        remainingDays:
+          type: integer
+        regNo:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        draftRecord:
+          type: "object"
+          properties:
+            status:
+              type: keyword
+            issueDate:
+              type: date
+            expDate:
+              type: date
+            remainingDays:
+              type: integer
+        currentActiveRecord:
+          type: "object"
+          properties:
+            status:
+              type: keyword
+            issueDate:
+              type: date
+            expDate:
+              type: date
+            remainingDays:
+              type: integer
+        updatedAt:
+          type: date
+        fullName:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+      persistence:
+        driver: orm
+        model: App\Entity\Document
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    notification:
+      index_name: notification_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        title:
+          type: text
+          fielddata: true
+        status:
+          type: keyword
+        importance:
+          type: keyword
+        event:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        ownerTeam:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        transportsArray:
+          type: text
+          fielddata: true
+        timeFromTo:
+          type: keyword
+        eventTrackingDays:
+          type: text
+          fielddata: true
+      persistence:
+        driver: orm
+        model: App\Entity\Notification\Notification
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    alertSetting:
+      index_name: alert_setting_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        team:
+          type: keyword
+        alertType:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: keyword
+        alertSubType:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: keyword
+        event:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            alias:
+              type: keyword
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Notification\Alert\AlertSetting
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    alertSubType:
+      index_name: alert_subtype_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        name:
+          type: keyword
+        alertSetting:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            team:
+              type: keyword
+            event:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                alias:
+                  type: keyword
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Notification\Alert\AlertSubType
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    area:
+      index_name: area_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        teamId:
+          type: integer
+        areaClientId:
+          type: integer
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        status:
+          type: keyword
+        groups:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Area
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+#    eventLog:
+#      index_name: event_history_%kernel.environment%
+#      settings:
+#        index:
+#          analysis:
+#            analyzer:
+#              analyzer_startswith:
+#                tokenizer: keyword
+#                filter: lowercase
+#      properties:
+#        id:
+#          type: integer
+#        entityId:
+#          type: integer
+#        formattedDate:
+#          type: date
+#        triggeredBy:
+#          type: keyword
+#        triggeredDetails:
+#          fielddata: true
+#          type: text
+#          analyzer: analyzer_startswith
+#          search_analyzer: analyzer_startswith
+#        eventSourceType:
+#          type: keyword
+#        eventSource:
+#          type: text
+#          fielddata: true
+#          analyzer: analyzer_startswith
+#          search_analyzer: analyzer_startswith
+#        eventTeam:
+#          type: text
+#          fielddata: true
+#          analyzer: analyzer_startswith
+#          search_analyzer: analyzer_startswith
+#        notificationGenerated:
+#          type: keyword
+#        event:
+#          type: "object"
+#          properties:
+#            id:
+#              type: integer
+#            name:
+#              type: keyword
+#            importance:
+#              type: "object"
+#              properties:
+#                id:
+#                  type: integer
+#                name:
+#                  type: keyword
+#        notificationsList:
+#          type: text
+#          fielddata: true
+#        teamId:
+#          type: integer
+#        createdAt:
+#          type: date
+#        eventDate:
+#          type: date
+#      persistence:
+#        driver: orm
+#        model: App\Entity\EventLog\EventLog
+#        provider: ~
+#        finder: ~
+#        persister:
+#          refresh: true
+#        elastica_to_model_transformer:
+#          ignore_missing: true
+
+    fuelCard:
+      index_name: fuel_card_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        fuelCardNumber:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        refueled:
+          type: double
+        total:
+          type: double
+        fuelPrice:
+          type: double
+        petrolStation:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        refueledFuelType:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: keyword
+        transactionDate:
+          type: date
+        status:
+          fielddata: true
+          type: text
+        vehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            regno:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            defaultLabel:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            model:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            fuelType:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: keyword
+            depot:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: text
+                  fielddata: true
+                  analyzer: analyzer_startswith
+                  search_analyzer: analyzer_startswith
+            groups:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: text
+                  fielddata: true
+                  analyzer: analyzer_startswith
+                  search_analyzer: analyzer_startswith
+            team:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+        file:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            teamId:
+              type: integer
+        teamId:
+          type: integer
+        driver:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        odometer:
+          type: integer
+        pumpPrice:
+          type: double
+        siteId:
+          type: integer
+        productCode:
+          type: integer
+        vehicleFarFromStation:
+          type: boolean
+      persistence:
+        driver: orm
+        model: App\Entity\FuelCard\FuelCard
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\FuelCardRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    areaGroup:
+      index_name: area_group_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        status:
+          type: keyword
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        color:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        areasCount:
+          type: integer
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\AreaGroup
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\AreaGroupRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    fuelType:
+      index_name: fuel_type_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        name:
+          type: keyword
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\FuelType\FuelType
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    fuelMapping:
+      index_name: fuel_mapping_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+      properties:
+        id:
+          type: integer
+        name:
+          fielddata: true
+          type: text
+        status:
+          type: keyword
+        fuelType:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            name:
+              type: keyword
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\FuelType\FuelMapping
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    fuelIgnore:
+      index_name: fuel_ignore_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        name:
+          fielddata: true
+          type: text
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\FuelType\FuelIgnoreList
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    reminderCategory:
+      index_name: reminder_category_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        status:
+          type: keyword
+        reminders:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        order:
+          type: integer
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\ReminderCategory
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    inspectionForm:
+      index_name: inspection_form_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        teamId:
+          type: integer
+        duration:
+          type: integer
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        createdAt:
+          type: date
+        status:
+          type: keyword
+        formTitle:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        vehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            regNo:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            defaultLabel:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        version:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        user:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\InspectionFormData
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    userGroup:
+      index_name: user_group_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        status:
+          type: keyword
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        usersCount:
+          type: integer
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\UserGroup
+        provider: ~
+        finder: ~
+        repository: App\ElasticRepository\UserGroupRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    digitalFormAnswer:
+      index_name: digital_form_answer_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        duration:
+          type: integer
+        createdAt:
+          type: date
+        isPass:
+          type: keyword
+          null_value: true
+        digitalForm:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            active:
+              type: boolean
+            status:
+              type: keyword
+            type:
+              type: keyword
+            title:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            inspectionPeriod:
+              type: keyword
+        vehicle:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            regNo:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            defaultLabel:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            team:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+        user:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            team:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\DigitalFormAnswer
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    digitalFormSchedule:
+      index_name: digital_form_schedule_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        weight:
+          type: integer
+        createdAt:
+          type: date
+        isDefault:
+          type: boolean
+        days:
+          type: keyword
+        digitalForm:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            active:
+              type: boolean
+            status:
+              type: keyword
+            type:
+              type: keyword
+            team:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+            title:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            inspectionPeriod:
+              fielddata: true
+              type: text
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        createdBy:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        vehicleCount:
+          type: integer
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\DigitalFormSchedule
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    deviceSensor:
+      index_name: device_sensor_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        device:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            imei:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            vehicle:
+              type: "object"
+              properties:
+                id:
+                  type: integer
+                regNo:
+                  type: text
+                  fielddata: true
+                  analyzer: analyzer_startswith
+                  search_analyzer: analyzer_startswith
+        sensor:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            sensorId:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            label:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            typeLabel:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            typeId:
+              type: integer
+        createdAt:
+          type: date
+        updatedAt:
+          type: date
+        vendorName:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        teamId:
+          type: integer
+        isDeleted:
+          type: boolean
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\DeviceSensor
+        provider: ~
+        finder: ~
+        repository: App\Repository\DeviceSensorRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    sensor:
+      index_name: sensor_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        sensorId:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        label:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        createdAt:
+          type: date
+        updatedAt:
+          type: date
+        typeLabel:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        typeId:
+          type: integer
+        teamId:
+          type: integer
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        client:
+          type: "object"
+          properties:
+            name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        typeName:
+          type: keyword
+        systemStatus:
+          type: keyword
+        asset:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            idNumber:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        lastDataReceived:
+          type: date
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Sensor
+        provider: ~
+        finder: ~
+        repository: App\Repository\SensorRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    reseller:
+      index_name: reseller_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        status:
+          type: keyword
+        companyName:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        keyContact:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        users_count:
+          type: integer
+        active_users_count:
+          type: integer
+        devices_count:
+          type: integer
+        active_devices_count:
+          type: integer
+        manager:
+          type: "nested"
+          properties:
+            full_name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        salesManager:
+          type: "nested"
+          properties:
+            full_name:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Reseller
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    scheduledReport:
+      index_name: scheduled_report_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        type:
+          type: keyword
+        name:
+          type: text
+          fielddata: true
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        intervalType:
+          type: keyword
+        status:
+          type: keyword
+        teamId:
+          type: integer
+        eventId:
+          type: integer
+        periodDays:
+          type: integer
+        createdAt:
+          type: date
+        updatedAt:
+          type: date
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\ScheduledReport
+        provider: ~
+        finder: ~
+        repository: App\Repository\ScheduledReportRepository
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    asset:
+      index_name: asset_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        team:
+          type: "object"
+          properties:
+            id:
+              type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        idNumber:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        manufacturer:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        model:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        serialNumber:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        category:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        status:
+          type: keyword
+        location:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        lastOccurredAt:
+          type: date
+        lastOccurredAtBySensorHistory:
+          type: date
+        lastDataValue:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        sensorBleId:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        sensorLabel:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        isWithVehicle:
+          type: boolean
+      persistence:
+        # the driver can be orm, mongodb or phpcr
+        driver: orm
+        model: App\Entity\Asset
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true
+
+    chat:
+      index_name: chat_%kernel.environment%
+      settings:
+        index:
+          analysis:
+            analyzer:
+              analyzer_startswith:
+                tokenizer: keyword
+                filter: lowercase
+      properties:
+        id:
+          type: integer
+        name:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        users:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            teamId:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+        channel:
+          fielddata: true
+          type: text
+          analyzer: analyzer_startswith
+          search_analyzer: analyzer_startswith
+        lastSentAt:
+          type: date
+        createdAt:
+          type: date
+        sortDate:
+          type: date
+        createdBy:
+          type: "object"
+          properties:
+            id:
+              type: integer
+            fullName:
+              type: text
+              fielddata: true
+              analyzer: analyzer_startswith
+              search_analyzer: analyzer_startswith
+            teamId:
+              type: integer
+        scope:
+          type: text
+      persistence:
+        driver: orm
+        model: App\Entity\Chat
+        provider: ~
+        finder: ~
+        persister:
+          refresh: true
+        elastica_to_model_transformer:
+          ignore_missing: true

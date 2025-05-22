@@ -1,0 +1,19 @@
+password_reset_request: คําขอตั้งค่ารหัสผ่านใหม่
+dear: เรียนคุณ
+detailed_information: รายละเอียด
+requested_reset_password: คุณ (หรือบางคนจากทีมของคุณ) ร้องขอให้รีเซ็ตรหัสผ่านของคุณ
+visit_link_new_password: กรุณาไปที่การเชื่อมโยงเพื่อระบุรหัสผ่านใหม่
+reset_password: ตั้งค่ารหัสผ่านใหม่
+copy_url: หากคุณมีปัญหากับปุ่มด้านบนให้คัดลอกและวาง URL ด้านล่างลงในเว็บเบราว์เซอร์ของคุณ
+best_regards: 'ขอแสดงความนับถือ, ทีม %emailName%'
+linxio_cred: ข้อมูลประจําตัวของลินซิโอ
+hello_username: 'สวัสดี %user.fullName%'
+new_user_verify_phone: 'คุณถูกเพิ่มเป็นผู้ใช้ไปยัง Linxio ในบัญชี %company% โปรดคลิกที่ลิงค์ด้านล่างเพื่อยืนยันหมายเลขโทรศัพท์มือถือของคุณและตั้งรหัสผ่าน'
+new_user_set_password: 'คุณถูกเพิ่มเป็นผู้ใช้ไปยัง Linxio ในบัญชี %company% โปรดคลิกการเชื่อมโยงด้านล่างเพื่อตั้งค่ารหัสผ่าน'
+client_sharing_link:  '%client% กําลังใช้ตําแหน่งที่ตั้งของพาหนะร่วมกับคุณ'
+client_sharing_location:  '%client% กําลังใช้ตําแหน่งที่ตั้งของพาหนะร่วมกับคุณ'
+drivers_name: ชื่อผู้ขับ
+vehicle_regno: ยานพาหนะ regno
+message: ข้อความ
+tracking_link: ลิ้งก์การติดตาม
+tracking_technology: ติดตามโดย Linxio

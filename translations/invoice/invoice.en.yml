@@ -1,0 +1,22 @@
+invoice:
+  invoice: Invoice
+  paid: PAID
+  notPaid: NOT PAID
+  invoiceDate: Invoice Date
+  invoiceDueDate: Invoice Due Date
+  issuer: Issuer
+  abn: ABN
+  phone: Ph
+  email: E-mail
+  address: Address
+  billedTo: Billed to
+  customerId: Customer ID
+  qty: QTY
+  desc: DESCRIPTION
+  unitPrice: UNIT PRICE
+  lineTotal: LINE TOTAL
+  prepayment: Prepayment
+  subTotal: Subtotal
+  total: Total
+  tax: Tax
+  thx: Thank you for your business!

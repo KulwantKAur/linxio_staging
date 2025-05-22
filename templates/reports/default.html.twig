@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        table {
+            table-layout:  auto;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #A6ACAF;
+            border-collapse: collapse;
+            font-family: "DejaVu Sans", sans-serif;
+        }
+
+        td,
+        th {
+            font-size: 10px;
+        }
+
+        .totalRow {
+            background: #E5E7E9;
+        }
+
+        .header {
+            width: 100%;
+            position: relative;
+            overflow: auto;
+            margin-bottom: 20px;
+        }
+
+        .header:after {
+            content: "";
+            clear: both;
+        }
+
+        #logo {
+            width: 200px;
+            display: block;
+        }
+
+        #logo-div {
+            float: right;
+            width: 200px;
+        }
+
+        #report-name {
+            font-size: 20px;
+            margin-top: 15px;
+            float: left;
+            width: auto;
+            margin-right: 300px;
+            font-family: "DejaVu Sans", sans-serif;
+        }
+
+        td, th {
+            background: white;
+            word-break: break-word;
+        }
+
+        table tr:nth-child(1) td {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* default */
+        .route-defaultlabel,
+        .route-defaultLabel,
+        .route-regno,
+        .route-model,
+        .route-driver_name,
+        .route-groups,
+        .route-started_at,
+        .route-started_at_date,
+        .route-started_at_time,
+        .route-address_from,
+        .route-address,
+        .route-start_areas_name,
+        .route-finished_at,
+        .route-finished_at_date,
+        .route-finished_at_time,
+        .route-address_to,
+        .route-finish_areas_name,
+        .route-areas_name,
+        .route-distance,
+        .route-start_odometer,
+        .route-finish_odometer,
+        .route-driving_time,
+        .route-idling_time,
+        .route-parking_time,
+        .route-avg_speed,
+        .route-max_speed,
+        .route-scope,
+        .route-comment,
+        .route-depot,
+        .route-areas,
+        .route-driver,
+        .route-installed,
+        .route-trial_finish,
+        .area-geofence,
+        .area-averageTime,
+        .area-totalTime,
+        .area-numberOfVisits,
+        .area-arrivedAt,
+        .area-arrivedAtDate,
+        .area-arrivedAtTime,
+        .area-defaultLabel,
+        .area-driver,
+        .area-model,
+        .area-depot,
+        .area-departedAt,
+        .area-departedAtDate,
+        .area-departedAtTime,
+        .area-groups,
+        .area-odometer,
+        .area-parkingTime,
+        .area-idlingTime,
+        .fuelcard-startDate,
+        .fuelcard-regNo,
+        .fuelcard-defaultLabel,
+        .fuelcard-model,
+        .fuelcard-driver,
+        .fuelcard-depotName,
+        .fuelcard-groupsList,
+        .fuelcard-fuelType,
+        .fuelcard-fuelCardNumber,
+        .fuelcard-refueled,
+        .fuelcard-total,
+        .fuelcard-fuelPrice,
+        .fuelcard-petrolStation,
+        .fuelcard-refueledFuelType,
+        .fuelcard-transactionDate,
+        .fuelcard-reg_no,
+        .fuelcard-depot,
+        .fuelcard-groups,
+        .fuelcard-mileage,
+        .drivingbehavior-vehicle,
+        .drivingbehavior-regNo,
+        .drivingbehavior-depot,
+        .drivingbehavior-groups,
+        .drivingbehavior-drivers,
+        .drivingbehavior-totalScore,
+        .drivingbehavior-ecoSpeed,
+        .drivingbehavior-excessiveIdling,
+        .drivingbehavior-harshBraking,
+        .drivingbehavior-harshAcceleration,
+        .drivingbehavior-harshCornering,
+        .drivingbehavior-totalDistance,
+        .drivingbehavior-totalAvgSpeed,
+        .drivingbehavior-drivingTotalTime,
+        .drivingbehavior-driver,
+        .drivingbehavior-vehicles,
+        .reminder-vehicleModel,
+        .reminder-driver,
+        .reminder-vehicleGroups,
+        .reminder-vehicleDepot,
+        .reminder-remainingHours,
+        .reminder-remainingMileage,
+        .reminder-remainingDays,
+        .reminder-createdAt,
+        .reminder-createdAtDate,
+        .reminder-createdAtTime,
+        .reminder-vehicleName,
+        .reminder-defaultLabel,
+        .reminder-regno,
+        .reminder-categoryId,
+        .reminder-notes,
+        .reminder-lastModifiedDate,
+        .reminder-lastModifiedTime,
+        .servicerecord-defaultlabel,
+        .servicerecord-defaultLabel,
+        .servicerecord-regno,
+        .servicerecord-model,
+        .servicerecord-groups,
+        .servicerecord-depot_name,
+        .servicerecord-sr_count,
+        .servicerecord-sr_cost,
+        .servicerecord-sr_last_date,
+        .servicerecord-sr_last_date_time,
+        .servicerecord-sr_last_date_date,
+        .servicerecord-r_category,
+        .servicerecord-sr_date,
+        .servicerecord-sr_date_date,
+        .servicerecord-sr_date_time,
+        .servicerecord-sr_amount,
+        .servicerecord-sr_note,
+        .servicerecord-repair_title,
+        .servicerecord-created_by_name,
+        .servicerecord-title,
+        .vehicle_summary-defaultLabel,
+        .vehicle_summary-regno,
+        .vehicle_summary-model,
+        .vehicle_summary-groups,
+        .vehicle_summary-depot,
+        .vehicle_summary-workDistance,
+        .vehicle_summary-privateDistance,
+        .vehicle_summary-startOdometer,
+        .vehicle_summary-endOdometer,
+        .vehicle_summary-distance,
+        .vehicle_summary-maxSpeed,
+        .vehicle_summary-drivingTime,
+        .vehicle_summary-stops,
+        .vehicle_summary-parkingTime,
+        .vehicle_summary-speedingEvents,
+        .vehicle_summary-ecoDriveScores,
+        .vehicle_summary-ecoSpeedingEvents,
+        .vehicle_summary-minEngineOnTime,
+        .vehicle_summary-maxEngineOnTime,
+        .vehicle_summary-engineOnTime,
+        .vehicle_summary-defaultlabel,
+        .vehicle_summary-date,
+        .vehicle_summary-work_distance,
+        .vehicle_summary-private_distance,
+        .vehicle_summary-start_odometer,
+        .vehicle_summary-end_odometer,
+        .vehicle_summary-max_speed,
+        .vehicle_summary-driving_time,
+        .vehicle_summary-parking_time,
+        .vehicle_summary-speeding_events,
+        .vehicle_summary-eco_drive_scores,
+        .vehicle_summary-eco_speeding_events,
+        .vehicle_summary-min_engine_on_time,
+        .vehicle_summary-max_engine_on_time,
+        .vehicle_summary-engine_on_time,
+        .route-used_vehicles,
+        .route-work_duration,
+        .route-private_duration,
+        .route-parking_time,
+        .route-work_distance,
+        .route-private_distance,
+        .route-total_distance,
+        .route-total_duration,
+        .route-max_speed,
+        .route-stops_count,
+        .route-speeding_events_count,
+        .route-eco_drive_events,
+        .route-eco_drive_score,
+        .route-work_percentage,
+        .route-private_percentage,
+        .route-unclassified_percentage,
+        .route-unclassified_distance,
+        .route-unclassified_duration,
+        .vehicle_io-defaultLabel,
+        .vehicle_io-regno,
+        .vehicle_io-model,
+        .vehicle_io-driverName,
+        .vehicle_io-groups,
+        .vehicle_io-depot,
+        .vehicle_io-depotName,
+        .vehicle_io-inputTypeIds,
+        .vehicle_io-inputLabel,
+        .vehicle_io-tsOn,
+        .vehicle_io-tsOff,
+        .vehicle_io-positionOn,
+        .vehicle_io-positionOff,
+        .vehicle_io-areaStartId,
+        .vehicle_io-areaFinishId,
+        .vehicle_io-distance,
+        .vehicle_io-duration,
+        .vehicle_io-defaultlabel,
+        .vehicle_io-depotName,
+        .vehicle_io-inputType,
+        .vehicle_io-startAreasName,
+        .vehicle_io-finishAreasName,
+        .digitalformanswer-id,
+        .digitalformanswer-isPass,
+        .digitalformanswer-regNo,
+        .digitalformanswer-date,
+        .digitalformanswer-duration,
+        .speeding-defaultLabel,
+        .speeding-regNo,
+        .speeding-model,
+        .speeding-driver,
+        .speeding-groups,
+        .speeding-depot,
+        .speeding-startedAtDate,
+        .speeding-startedAtTime,
+        .speeding-finishedAtDate,
+        .speeding-finishedAtTime,
+        .speeding-distance,
+        .speeding-avgSpeed,
+        .speeding-maxSpeed,
+        .speeding-postedLimit,
+        .billing-active_vehicle_trackers_total,
+        .billing-deactivated_vehicle_trackers_total,
+        .billing-active_personal_trackers_total,
+        .billing-deactivated_personal_trackers_total,
+        .billing-active_asset_trackers_total,
+        .billing-deactivated_asset_trackers_total,
+        .billing-active_vehicles_total,
+        .billing-virtual_vehicles_total,
+        .billing-archived_vehicles_total,
+        .billing-deleted_vehicles_total,
+        .billing-active_sensors_total,
+        .billing-archived_sensors_total,
+        .billing-deleted_sensors_total,
+        .billing-active_vehicle_trackers_price,
+        .billing-deactivated_vehicle_trackers_price,
+        .billing-active_personal_trackers_price,
+        .billing-deactivated_personal_trackers_price,
+        .billing-active_asset_trackers_price,
+        .billing-deactivated_asset_trackers_price,
+        .billing-active_vehicles_price,
+        .billing-virtual_vehicles_price,
+        .billing-archived_vehicles_price,
+        .billing-deleted_vehicles_price,
+        .billing-active_sensors_price,
+        .billing-archived_sensors_price,
+        .billing-deleted_sensors_price,
+        .billing-client_name,
+        .billing-active_vehicle_trackers,
+        .billing-deactivated_vehicle_trackers,
+        .billing-active_personal_trackers,
+        .billing-deactivated_personal_trackers,
+        .billing-active_asset_trackers,
+        .billing-deactivated_asset_trackers,
+        .billing-active_vehicles,
+        .billing-virtual_vehicles,
+        .billing-archived_vehicles,
+        .billing-deleted_vehicles,
+        .billing-active_sensors,
+        .billing-archived_sensors,
+        .billing-deleted_sensors {
+            width: auto;
+            max-width: 80px;
+            background: transparent;
+        }
+
+        .route-started_at,
+        .route-started_at_date,
+        .route-finished_at,
+        .route-finished_at_date {
+            width: 60px;
+            max-width: 120px;
+        }
+
+        .route-started_at_time,
+        .route-finished_at_time {
+            width: 50px;
+        }
+
+        /* address type */
+        .route-address,
+        .route-address_from,
+        .route-address_to,
+        .vehicle_io-positionOn,
+        .vehicle_io-positionOff {
+            width: auto;
+            max-width: 600px;
+            word-break: normal;
+        }
+
+        .route-groups {
+            word-break: normal;
+        }
+
+        /* date type */
+        .route-started_at,
+        .route-finished_at,
+        .area-departedAt,
+        .area-arrivedAt,
+        .fuelcard-startDate,
+        .reminder-createdAt,
+        .reminder-lastModified,
+        .servicerecord-sr_last_date,
+        .servicerecord-sr_date,
+        .vehicle_io-tsOn,
+        .vehicle_io-tsOff,
+        .digitalformanswer-date {
+            width: 80px;
+            max-width: 80px;
+            text-align: center;
+        }
+
+        /* number type */
+        .route-distance,
+        .route-start_odometer,
+        .route-finish_odometer,
+        .route-avg_speed,
+        .route-max_speed,
+        .area-odometer,
+        .area-numberOfVisits,
+        .reminder-remainingMileage,
+        .reminder-remainingDays,
+        .reminder-remainingHours,
+        .fuelcard-fuelCardNumber,
+        .fuelcard-refueled,
+        .fuelcard-total,
+        .fuelcard-fuelPrice,
+        .fuelcard-mileage,
+        .drivingbehavior-totalScore,
+        .drivingbehavior-ecoSpeed,
+        .drivingbehavior-excessiveIdling,
+        .drivingbehavior-harshBraking,
+        .drivingbehavior-harshAcceleration,
+        .drivingbehavior-harshCornering,
+        .drivingbehavior-totalDistance,
+        .drivingbehavior-totalAvgSpeed,
+        .vehicle_summary-workDistance,
+        .vehicle_summary-privateDistance,
+        .vehicle_summary-startOdometer,
+        .vehicle_summary-endOdometer,
+        .vehicle_summary-distance,
+        .vehicle_summary-maxSpeed,
+        .vehicle_summary-stops,
+        .vehicle_summary-speedingEvents,
+        .vehicle_summary-ecoDriveScores,
+        .vehicle_summary-ecoSpeedingEvents,
+        .servicerecord-sr_count,
+        .servicerecord-sr_cost,
+        .servicerecord-sr_amount,
+        .route-private_distance,
+        .route-work_distance,
+        .route-unclassified_distance,
+        .route-unclassified_duration,
+        .route-total_distance,
+        .route-max_speed,
+        .route-stops_count,
+        .route-speeding_events_count,
+        .route-eco_drive_events,
+        .route-eco_drive_score,
+        .vehicle_io-distance,
+        .vehicle_io-duration,
+        .digitalformanswer-duration,
+        .route-work_percentage,
+        .route-private_percentage,
+        .route-unclassified_percentage {
+            text-align: right;
+        }
+
+        /* time type */
+        .route-driving_time,
+        .route-idling_time,
+        .route-parking_time,
+        .area-parkingTimeInSec,
+        .area-idlingTimeInSec,
+        .area-averageTime,
+        .area-totalTime,
+        .drivingbehavior-drivingTotalTime,
+        .vehicle_summary-drivingTime,
+        .vehicle_summary-parkingTime,
+        .route-work_duration,
+        .route-private_duration,
+        .route-total_duration,
+        .route-parking_time {
+            text-align: right;
+            width: 50px;
+            max-width: 50px;
+        }
+
+        .timezone {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div id="report-name">
+        {% if reportName is defined %}
+            {{ reportName|capitalize }} report
+        {% endif %}
+    </div>
+    <div id="logo-div">
+        <img id="logo"
+             src="{{ api_url }}{{ logoPath|default('/uploads/linxio-logo.png') }}"
+        />
+    </div>
+</div>
+
+<div>{% block content %}{% endblock %}</div>
+<br>
+<div class="timezone">Timezone: {{ timezoneText }}</div>
+</body>
+</html>

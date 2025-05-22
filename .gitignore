@@ -1,0 +1,78 @@
+.DS_Store
+/.web-server-pid
+/app/config/parameters.yml
+/app/config/parameters.yaml
+/app/config/jwt
+/app/config/firebase.json
+/build/
+/.vscode/
+/phpunit.xml
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/*-tracker-server
+!var/logs/traccar
+var/logs/*/*
+!var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
+/vendor/
+/web/bundles/
+.env
+.idea
+docker-compose.yml
+node_modules
+/esdata/
+web/uploads/*
+!web/uploads/default
+!web/uploads/sftpFuelFile
+!web/uploads/DeviceImportSample.csv
+nohup.out
+startup.sh
+logrotate-*
+/devops/supervisor/config/www.conf
+/devops/supervisor/supervisor/prod.conf
+/devops/php-fpm/config/www.conf
+/devops/php-fpm/Dockerfile
+/devops/nginx/conf.d/*.conf
+/devops/nginx/*.conf
+.env.drone
+/devops/traccar/traccar.xml
+/devops/centrifugo/config.json
+/devops/centrifugo/tests/*.html
+.infra/centrifugo/config.json
+/traccar/client/*.txt
+/src/Service/SSO/Example/*
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+/docker-sync.yml
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+
+###> liip/imagine-bundle ###
+/web/media/
+###< liip/imagine-bundle ###

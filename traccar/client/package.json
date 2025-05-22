@@ -1,0 +1,19 @@
+{
+  "name": "tcp-server",
+  "version": "0.0.0",
+  "description": "A simple tcp-server using net library",
+  "main": "client.js",
+  "author": "Ocsico",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "line-reader": "*",
+    "socket.io": "^1.7.2",
+    "http": "^0.0.0",
+    "fs": "^0.0.0",
+    "net": "^1.0.2"
+  },
+  "scripts": {
+    "start": "node client.js"
+  }
+}

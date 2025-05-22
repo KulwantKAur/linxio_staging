@@ -1,0 +1,52 @@
+imports:
+  - { resource: ../app/config/parameters.yml }
+  - { resource: bundles/fos_rest.yaml }
+  - { resource: elasticsearch.yaml }
+  - { resource: rabbitmq.yaml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+  locale: en
+  container.dumper.inline_factories: true
+
+knp_paginator:
+  page_range: 10                      # number of links showed in the pagination menu
+  default_options:
+    page_name: page                 # page query parameter name
+    sort_field_name: sort           # sort field query parameter name
+    sort_direction_name: direction  # sort direction query parameter name
+    distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    filter_field_name: filterField  # filter field query parameter name
+    filter_value_name: filterValue  # filter value query parameter name
+
+noxlogic_rate_limit:
+  enabled:              true
+
+  # The storage engine where all the rates will be stored
+  storage_engine:       redis # One of "redis"; "memcache"; "doctrine"; "php_redis"; "php_redis_cluster"
+
+  # The redis client to use for the redis storage engine
+  redis_client:         default
+
+  # The Redis client to use for the php_redis storage engine
+  # Depending on storage_engine an instance of \Redis or \RedisCluster
+  php_redis_service:    redis # Example: project.redis
+
+  # The HTTP status code to return when a client hits the rate limit
+  rate_response_code:   429
+
+  # Optional exception class that will be returned when a client hits the rate limit
+  rate_response_exception:  null
+
+  # The HTTP message to return when a client hits the rate limit
+  rate_response_message:  'You exceeded the rate limit'
+
+  # Should the rate-limit headers be automatically added to the response?
+  display_headers:      true
+
+  # What are the different header names to add
+  headers:
+    limit:                X-RateLimit-Limit
+    remaining:            X-RateLimit-Remaining
+    reset:                X-RateLimit-Reset

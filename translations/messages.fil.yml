@@ -1,0 +1,311 @@
+validation:
+  errors:
+    password:
+      min_length: Hindi dapat bababa sa 8 character ang password
+      uppercase: Ang password ay dapat maglaman ng mga uppercase na titik
+      lowercase: Ang password ay dapat maglaman ng maliliit na titik
+      symbols: Ang password ay dapat maglaman ng mga simbolo
+      digits: Ang password ay dapat maglaman ng mga digit
+      weak: Mahina ang password
+    image:
+      empty_data: Walang laman na data ng imahe
+      is_not_base64: Ang string ng imahe na ito ay hindi SINTAXED bilang base64.
+      type_is_not_allowed: Hindi pinapayagan ang uri ng larawan
+    field:
+      required: Kinakailangang .
+      wrong_format: Maling format
+      wrong_value: Maling halaga
+      wrong_value_for_name: Maling halaga para sa '%name%'
+      email_exist: Kasalukuyang email
+      should_be_less_than: Maling halaga. Dapat na mas mababa sa %value%
+      should_be_greater_than: Maling halaga. Dapat ay mas malaki sa %value%
+      unique: Ang patlang ay dapat na kakaiba
+      should_be_numeric: Dapat ay binubuo ng mga numero
+      should_be_empty: Dapat walang laman
+      only_one_every_time_form: Isa lamang na everytime form.
+      last_every_time_form: Huling every time form.
+      only_one_active_every_time_form: Isang aktibong everytime form
+      wrong_email_format: Maling format ng email.
+      wrong_phone_format: Maling format ng telepono
+    import:
+      fuel_type_mismatch: Di-tugma ang krudo!
+      capacity_mismatch: Di-tugma ang kapasidad!
+      unknown_vehicle: Hindi kilalang sasakyan!
+      date_in_future: Petsa sa hinaharap!
+      fields_not_recognized: Ang mga patlang para sa pag-import ay hindi kinikilala!
+      error_parsing_file: 'Error habang parse ang file na ito. Maaari kang magsumite ng tiket ng
+        suporta at ilakip ang file na ito - susuriin ng aming koponan ang
+        problema.'
+  warning:
+    import:
+      unknown_fuel_type: Hindi kilalang uri ng gasolina!
+      duplicate_record: doblehin ang tala.
+auth:
+  invalid_credentials: Di-wasto ang mga pagkakilanlan.
+  user:
+    not_found: Hindi nakita ang user.
+    not_found_with_phone: Di-makita gamit ang telepono
+    not_found_with_verify_token: Di-makita gamit ang verify token
+    deleted: Tinanggal ang user.
+    loginWithId: mag-log in gamit ang id.
+    more_then_one: Higit pang natagpuan ang isang user.
+    login_restricted: Di-pinapayagan ang pag log-in.
+    blocked_account_access: Na-block ang Account Access. Mangyaring makipag-ugnayan sa Accounts sa (02)79085450 - titigil ang data ng pagsubaybay sa ika-1 ng Oktubre.
+  mobileDevice:
+    not_found: Hindi natagpuan ang device.
+    not_allowed: Mag-log in gamit ang device na ito ay hindi pinapayagan
+  otp:
+    not_found_for_phone: Di-matagpuan para sa telepono
+    not_found_for_email: Di-matagpuan para sa email
+    code_is_wrong: 'Ang verification code na iyong ipinasok ay mali, mangyaring suriin ang
+      iyong numero ng telepono at humiling ng isang bagong code.'
+    your_code_is: 'Ang iyong code ay: %code%'
+    expired: 'Nag-expire na ang isang oras na password. Mangyaring, subukan na
+      humiling ng bago'
+  reset_password:
+    not_found: Ang kahilingan para sa password para sa token na ito ay hindi natagpuan
+    already_requested: I-reset ang password na hiniling. Mangyaring suriin ang iyong mail
+    expired: 'Ang pansamantalang link para sa pag-reset ng password ay na-expire na.
+      Mangyaring subukan na humiling ng bago'
+    the_same: 'Ang bagong password ay ang parehong password tulad ng mayroon ka.
+      Mangyaring magpasok ng bagong password'
+services:
+  sms:
+    plivo:
+      parameters_cannot_be_null: Ang mga ipinag-uutos na parameter ay hindi maaaring null.
+      specify_powerpack_uuid: 'Tukuyin ang alinman sa PowerPack_uuid o SRC sa mga paraaang kahilingan
+        upang magpadala ng mensahe.'
+      specify_parameters: 'Ang parehong PowerPack_uuid at SRC ay hindi maaaring tinukoy. Tukuyin
+        ang alinman sa PowerPack_uuid o SRC sa mga paraaang kahilingan upang
+        magpadala ng mensahe.'
+      unexpected_response: Hindi inaasahang tugon mula sa Plivo API.
+  tracker:
+    device_not_found: Hindi natagpuan ang device.
+entities:
+  already_exist: Umiiral na ang entidad
+  reminder:
+    has_service_records: Ang paalala ay may mga rekord ng serbisyo.
+    not_found: Hindi nakita ang kliyente
+    need_client_manager: Kailangan ng kliyente
+    unknownClientId: Unknown Client ID.
+    blocked: 'Na-block ang iyong account, mangyaring makipag-ugnayan sa Linxio Support
+      Team sa pamamagitan ng pag-email sa support@linxio.com'
+  user:
+    is_key_contact: Ang gumagamit ay ang pangunahing contact.
+    delete_yourself: Hindi mo maaaring tanggalin ang iyong sarili.
+    team_not_found: Ang koponan ay hindi natagpuan
+  vehicle:
+    driver_set: Ang driver ay naka-set.
+    vehicle_installed: Ang sasakyan ay nakatalaga.
+    device_not_installed: Sa sasakyan ay walang naka-install na device.
+    regNo: Meron ng sasakyan na may numerong kagaya nito.
+    vin: Meron ng sasakyang may ganitong vin.
+    type: Hindi kilalang uri ng sasakyan.
+    regNoWithouDetails: 'Nakarehistro ngunit walang detalye ng numero.'
+    belongsAnotherClient: Ang sasakyan ay pag-aari ng ibang kliyente
+    not_found: Hindi nakita ang sasakyan
+    vehicle_permission: 'Mangyaring hilingin sa admin na suriin ang mga pahintulot para sa sasakyan na ito.'
+    id_does_not_exist: Wala pang sasakyan na may id kagaya nito'%id%'.
+    you_were_unassigned_from_the_vehicle: Ikaw ay hindi nakatalaga mula sa sasakyan '%regno%'
+  device:
+    device_installed: Na-install na ang device.
+    installed_different_vehicle: Naka-install na ang device sa ibang sasakyan.
+    device_imei: Ang aparato na may imei na ito ay umiiral na
+    vendor: Di-kilalang tindahan ng device.
+    model: Di-kilalang modelo ng device.
+    device_was_replaced_by: Ang device ay pinalitan ng '%imei%'
+    device_replaced: Pinalitan ang device '%imei%'
+    replacement_not_found: Hindi nakita ang pagpapalit ng device
+    can_not_wakeup_device: Hindi ma-wake up ang device dahil sa error sa serbisyo ng 3rd party
+  reminder_category:
+    name: Ang kategorya na may parehong pangalan ay meron na.
+  reseller:
+    noKeyContact: Ang reseller ay walang key contact user para mag-login
+    unknownResellerId: Di-kilalang Reseller ID.
+  vehicles_drivers:
+    only_for_drivers: Maaari magdagdag ng mga sasakyan para lamang sa mga driver
+    vehicle_ids_required: Kinakailangang parameter para sa mga sasakyan.
+  device_sensor:
+    id_does_not_exist: Ang sensor ng device na may sensor id '%id%' ay wala pa.
+    sensors_required: Kinakailangang parameter ng sensor.
+    vehicle_is_moving: Ang sasakyan ay gumagalaw.
+    required_device_id: Ang 'DeviceID' ay kinakailangan.
+    sensor_has_device_from_another_team: 'Na-install ang sensor sa device mula sa isa pang koponan, mangyaring
+      i-clear ang mga device muna at muling subukan.'
+  device_sensor_type:
+    id_does_not_exist: Ang uri ng sensor ng device na may id '%id%' ay wala pa.
+    required_sensor_type: Ang kinakailangan 'Sensortype'.
+    sensor_id_is_denied_to_change: Ang 'Sensorid' ay di-maaring baguhin.
+  sensor:
+    id_does_not_exist: Ang sensor na may sensor id '%id%' ay wala pa.
+    sensors_required: Ang 'sensors' ay kinakailangan.
+    sensor_id_required: Ang 'sensorid' ay kinakailangan.
+    vehicle_is_moving: Ang sasakyan ay gumagalaw.
+    team_id_does_not_exist: Ang id '%id%' ng grupo ay wala pa.
+    deny_to_change_team: Wala kang access sa Edit Team.
+  driverHistory:
+    driver_history_already_exists: 'Hindi maaaring magtalaga ng driver sa sasakyan na ito - mayroon nang
+      ilang mga rekord sa pagmamaneho pagkatapos ng petsang ito / oras.'
+  asset:
+    id_does_not_exist: Ang asset na may id '%id%'ay wala pa.
+    asset_cannot_be_paired_with_type: Ang asset ay hindi maaaring ipares sa uri ng sensor '%type%'
+    sensor_is_wrong: Ang asset ay hindi ipinares sa sensor na ito.
+  chat:
+    id_does_not_exist: Ang chat na may id na '%id%' ay wala
+    only_chat_members_can_edit_other: Tanging mga miyembro ng chat ang maaaring mag-edit ng iba
+    chat_has_been_renamed: Ang chat ay pinalitan ng pangalan sa %name%
+    user_has_been_added: 'Sumali si %user% sa chat'
+    user_has_been_deleted: 'umalis si %user% sa chat'
+    message_deleted: Ang mensahe mula kay %user% ay tinanggal
+    user_was_removed_by_current_user: '%user% ay inalis ng %currentUser%'
+    current_user_removed_message: 'Inalis ni %currentUser% ang mensaheng ito'
+  chat_history:
+    id_does_not_exist: Ang mensahe sa chat na may id na '%id%' ay hindi umiiral
+    file_id_does_not_exist: Ang file na may id na '%id%' ay wala
+    attachment_does_not_exist: Ang mensahe sa chat na may id na '%id%' ay walang attachment
+    attachment_does_not_equal_to_file: Ang mensahe sa chat na may id na '%id%' ay may attachment sa isa pang id
+    attachment_already_exists: Ang mensahe sa chat na may id na '%id%' ay mayroon nang attachment
+
+notes:
+  type:
+    not_found: Hindi natagpuan ang katayuan
+general:
+  access_denied: Walang pahintulot
+import:
+  bpInvoice:
+    vehicle: Numero ng pagpaparehistro ng sasakyan
+    transactionDate: Epektibong petsa ng transaksyon
+    transactionTime: Epektibong oras ng transaksyon
+    refueled: Litro.
+    total: Halaga ng Binayaran (Exc GST)
+    petrolStation: Pangalan ng lugar
+  fleetCard:
+    vehicle: Sasakyan
+    fuelCardNumber: Numero ng fuel card.
+    transactionDate: Petsa
+    refueled: Gasolina
+    total: Total.
+    petrolStation: Supplier.
+    refueledFuelType: Bayad ibinigay na panahon / stamp duty.
+  transaction:
+    vehicle: Numero ng pagpaparehistro
+    fuelCardNumber: Card No.
+    transactionDate: Petsa ng transaksyon
+    transactionTime: Oras ng transaksyon
+    refueled: Dami
+    total: Kabuuan
+    petrolStation: Pangalan ng Merchant Site.
+    refueledFuelType: Paglalarawan ng Produkto
+  motorpass:
+    vehicle: Sasakyan
+    fuelCardNumber: Card No.
+    transactionDate: Petsa
+    refueled: Litro.
+    total: Gross.
+    petrolStation: Supplier.
+    refueledFuelType: Produkto
+  mpData:
+    vehicle: Sasakyan
+    fuelCardNumber: Card No.
+    transactionDate: Petsa
+    refueled: Litro.
+    total: Gross.
+    petrolStation: Supplier.
+    refueledFuelType: Produkto
+  caltex:
+    vehicle: Rego.
+    fuelCardNumber: Card no.
+    transactionDate: Petsa
+    refueled: Dami
+    total: Total Inc.
+    petrolStation: 'Mga detalye ng card,'
+    refueledFuelType: Produkto
+  caltexTSDetail:
+    vehicle: Pagpaparehistro
+    fuelCardNumber: Numero ng card
+    transactionDate: Petsa ng Transaksyon.
+    transactionTime: Oras ng transaksyon (hhmmss)
+    refueled: Dami / litro
+    total: Presyo ng isang piraso
+    petrolStation: Pangalan ng lugar
+    refueledFuelType: Produkto
+  shell:
+    vehicle: Numero ng rehistro.
+    fuelCardNumber: Numero ng card
+    transactionDate: Petsa / Oras ng Transaksyon
+    refueled: Dami
+    total: Buo na halaga (kasama ang GST)
+    petrolStation: Lokasyon
+    refueledFuelType: Produkto
+  transactionV2:
+    vehicle: Numero ng pagpaparehistro ng sasakyan
+    fuelCardNumber: Numero ng card
+    transactionDate: Epektibong petsa ng transaksyon
+    transactionTime: Epektibong oras ng transaksyon
+    refueled: Liters.
+    total: Halaga ng Binayaran ($)
+    petrolStation: Pangalan ng lugar
+    refueledFuelType: Produkto
+  devicesVehicles:
+    deviceVendor: Tindahan ng Device.
+    deviceModel: Modelo ng device.
+    deviceImei: Device_imei
+    deviceImsi: Device_imsi
+    devicePhone: Device_phone
+    clientId: ID ng kliyente
+    resellerId: Reseller_id.
+    vehicleTitle: Titulo ng Sasakyan.
+    vehicleRegNo: Numero ng rehistro ng sasakyan.
+    vehicleModel: Modelo ng sasakyan.
+    vehicleType: Uri ng sasakyan.
+digitalForm:
+  emptyInspectionForm: Walang anumang wastong digital form.
+  entityDigitalFormNotFound: 'Digital form na may ID: `%id%` hindi natagpuan'
+  entityDigitalFormAnswerNotFound: 'Ang mga Sagot ng Digital Form na may ID: `%id%` ay hindi natagpuan'
+  entityDigitalFormScheduleNotFound: 'Ang mga sagot sa Digital form na iskedyul na may ID: `%id%`ay hindi natagpuan'
+  answerValidator:
+    notPresent: Ang sagot na ito ay wala sa mga tanong sa form.
+    nonValid: Hindi wastong halaga ng sagot.
+  answerFactory:
+    stepObjectInvalidType:  'Di-wastong mga hakbang. : %type%'
+    stepValidatorInvalidType: 'Di-wastong pagtatama: %type%'
+reseller:
+  wrongStatus: Maling ng katayuan
+
+report:
+  totalBySelectedVehicles: Total ng mga napiling sasakyan.
+  parkingTime: Oras ng pagparada.
+  distance: Distansya.
+  drivingTime: Oras ng pagmamaneho.
+  idlingTime: Oras na walang gawa.
+
+calendar:
+  months:
+    month_1: Enero
+    month_2: Pebrero
+    month_3: Marso
+    month_4: Abril
+    month_5: May
+    month_6: Hunyo
+    month_7: Hulyo
+    month_8: Agosto
+    month_9: Setyembre
+    month_10: Oktubre
+    month_11: Nobyembre
+    month_12: Disyembre
+
+billing:
+  accountStatus:
+    haveNotPaidInvoices: Mayroon kang mga hindi nabayarang invoice
+    paymentError: "Error sa pagbabayad: %error%"
+    haveOverdueInvoices: Mayroon kang mga overdue na invoice
+    noPendingInvoices: Walang nakabinbing mga invoice
+    checkPaymentMethod: Pakisuri ang iyong paraan ng pagbabayad
+
+camera_type:
+  outward: Panlabas
+  dms: Driver
+  ext1: Panlabas1
+  ext2: Panlabas2
+  ext3: Panlabas3
+  ext4: Panlabas4

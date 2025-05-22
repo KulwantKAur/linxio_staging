@@ -1,0 +1,38 @@
+monolog:
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: error
+            excluded_404s:
+                - ^/
+            handler: grouped
+        grouped:
+            type: group
+            members: [nested, deduplicated, critical_log]
+        nested:
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            level: error
+            formatter: 'app.monolog.formatter.json'
+        console:
+            type: console
+            process_psr_3_messages: false
+            formatter: 'app.monolog.formatter.json'
+        deduplicated:
+            type: deduplication
+            # the time in seconds during which duplicate entries are discarded (default: 60)
+            time: 600
+            handler: swift
+        swift:
+            type:       symfony_mailer
+            from_email: '%env(SYMFONY__MAIL__FROM)%'
+            to_email:   ['%env(SYMFONY__MAIL__TO__DEVELOPER)%']
+            subject:    'Linxio [stage]: An Error Occurred! %%message%%'
+            level:      critical
+            formatter:  monolog.formatter.html
+            content_type: text/html
+        critical_log:
+            type: stream
+            path: '%kernel.logs_dir%/critical_log.log'
+            level: critical
+            formatter: 'app.monolog.formatter.json'

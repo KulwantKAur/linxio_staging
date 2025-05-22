@@ -1,0 +1,11 @@
+{% extends 'emails/base.html.twig' %}
+
+{% block subject %}
+    {{ subject }}
+{% endblock %}
+
+{% block body %}
+        {{ body | raw }}
+    <div class="timezone">{{ timezone }}</div>
+    <br>
+{% endblock %}

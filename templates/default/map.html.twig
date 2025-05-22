@@ -1,0 +1,142 @@
+<!DOCTYPE html >
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Trip Route</title>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+    #map {
+      height: 90%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+<span class="metadata-marker" style="display: none;" data-region_tag="html-body"></span>
+
+{% for message in app.flashes('success') %}
+  <div class="alert alert-success">
+    {{ message }}
+  </div>
+{% endfor %}
+
+<div id="map"></div>
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <form method="POST" action="{{ path('app_trackersimulator_generatetrack') }}">
+        <input type="hidden" name="imei" value="{{ app.request.get('imei') }}">
+        <input type="hidden" name="dateFrom" value="{{ app.request.get('dateFrom') }}">
+        <input type="hidden" name="dateTo" value="{{ app.request.get('dateTo') }}">
+        <div class="form-group">
+          <input type="text" name="trackName" class="form-control" placeholder="Track name (optional)">
+        </div>
+        <div class="form-group">
+          <input type="text" name="location" class="form-control" placeholder="Location (optional)">
+        </div>
+        <button type="submit" class="btn btn-success">Generate track</button>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
+<script type="text/javascript">
+  var coordinates = {{ coordinates|json_encode|raw }};
+  var map;
+  var bounds;
+
+  function initMap()
+  {
+    drawMap(coordinates);
+  }
+
+  function drawMap(coordinates)
+  {
+    var mapEl = 'map';
+
+    map = new google.maps.Map(document.getElementById(mapEl), {
+      center: new google.maps.LatLng(coordinates[0].lat, coordinates[0].lng),
+      zoom: 13
+    });
+    bounds = new google.maps.LatLngBounds();
+
+    drawLine();
+    // uncomment if need to check each point
+    // drawMarkers();
+
+    map.fitBounds(bounds);
+  }
+
+  function drawLine() {
+    var routeCoordinates = [];
+
+    Array.prototype.forEach.call(coordinates, function (coordinate, key) {
+      var point = new google.maps.LatLng(
+              parseFloat(coordinate.lat),
+              parseFloat(coordinate.lng)
+      );
+      bounds.extend(point);
+      console.log(coordinate.lat + ', ' + coordinate.lng + ': ' + coordinate.ts.date + ' - ' + key);
+
+      routeCoordinates.push({lat: point.lat(), lng: point.lng()});
+    });
+
+    var routePath = new google.maps.Polyline({
+      path: routeCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+
+    routePath.setMap(map);
+  }
+
+  function drawMarkers() {
+    Array.prototype.forEach.call(coordinates, function (coordinate, key) {
+      var point = new google.maps.LatLng(
+              parseFloat(coordinate.lat),
+              parseFloat(coordinate.lng)
+      );
+      var infowincontent = document.createElement('div');
+      var text = document.createElement('text');
+      var marker = new google.maps.Marker({
+        map: map,
+        position: point,
+        label: key.toString()
+      });
+
+      text.textContent = key;
+      infowincontent.appendChild(text);
+      bounds.extend(marker.getPosition());
+
+      if (key === 0) {
+        marker.setLabel('Start');
+      }
+
+      if (key === (coordinates.length - 1)) {
+        marker.setLabel('Here');
+      }
+    });
+  }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_key }}&callback=initMap">
+</script>
+
+</body>
+</html>

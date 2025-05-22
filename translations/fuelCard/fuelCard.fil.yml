@@ -1,0 +1,116 @@
+import:
+  bpInvoice:
+    vehicle: Numero ng pagpaparehistro ng sasakyan
+    transactionDate: Petsa ng Bisa ng Transaksyon
+    transactionTime: Oras ng Mabisang Transaksyon
+    refueled: Mga litro
+    total: CHalaga ng customer (EXCL GST)
+    petrolStation: Pangalan ng lugar
+  fleetCard:
+    vehicle: Sasakyan
+    fuelCardNumber: Card No.
+    transactionDate: Petsa
+    refueled: panggatong
+    total: Gross
+    petrolStation: Supplier
+    refueledFuelType: Pana-panahong Bayad/Stamp Duty
+  transaction:
+    vehicle: Numero ng pagpaparehistro
+    fuelCardNumber: Card No.
+    transactionDate: Petsa ng transaksyon
+    transactionTime: Oras ng Transaksyon
+    refueled: Dami
+    total: Kabuuan
+    petrolStation: Pangalan ng Site ng Merchant
+    refueledFuelType: Paglalarawan ng Produkto
+  motorpass:
+    vehicle: Sasakyan
+    fuelCardNumber: Card No.
+    transactionDate: Petsa
+    refueled: Mga litro
+    total: Gross
+    petrolStation: Supplier
+    refueledFuelType: Produkto
+  motorpassV2:
+    vehicle: Rego
+    transactionDate: Petsa
+    refueled: Dami
+    total: Amount Inc
+    petrolStation: Halaga Inc
+    searchEndPosition: Subtotal Para sa
+  mpData:
+    vehicle: Sasakyan
+    fuelCardNumber: Card No.
+    transactionDate: Petsa
+    refueled: Mga litro
+    total: Gross
+    petrolStation: Supplier
+    refueledFuelType: Produkto
+  caltex:
+    vehicle: Rego
+    fuelCardNumber: Card no
+    transactionDate: Petsa
+    refueled: Dami
+    total: Kabuuang inc
+    petrolStation: Mga detalye ng card,
+    refueledFuelType: Produkto
+  caltexTSDetail:
+    vehicle: Pagpaparehistro
+    fuelCardNumber: Numero ng card
+    transactionDate: TranDate
+    transactionTime: TranTime (hhmmss)
+    refueled: Dami/Litro
+    total: Presyo ng isang piraso
+    petrolStation: Pangalan ng lugar
+    refueledFuelType: Produkto
+  shell:
+    vehicle: Numero ng Reg
+    fuelCardNumber: Numero ng card
+    transactionDate: Petsa/Oras ng Transaksyon
+    refueled: Dami
+    total: Halaga ng Docket (Kasama ang GST)
+    petrolStation: Lokasyon
+    refueledFuelType: Produkto
+  shellCard:
+    vehicle: Pagpaparehistro ng sasakyan
+    fuelCardNumber: numero ng card
+    transactionDate: Petsa ng transaksyon
+    refueled: dami
+    total: docketAmount
+    petrolStation: transactionOutlet
+    refueledFuelType: produkto
+  transactionV2:
+    vehicle: Numero ng pagpaparehistro ng sasakyan
+    fuelCardNumber: Numero ng card
+    transactionDate: Petsa ng Bisa ng Transaksyon
+    transactionTime: Oras ng Mabisang Transaksyon
+    refueled: Mga litro
+    total: Halaga ng Customer ($)
+    petrolStation: Pangalan ng lugar
+    refueledFuelType: Produkto
+  transactionV3:
+    vehicle: Pagpaparehistro
+    fuelCardNumber: Numero ng card
+    transactionDate: Petsa ng transaksyon
+    refueled: Kabuuang dami
+    total: Kabuuang Kabuuang Halaga
+    petrolStation: Pangalan ng Tindahan
+    refueledFuelType: RetailProductName
+  fuelTransaction:
+    vehicle: Pagpaparehistro
+    fuelCardNumber: Numero ng Fuel Card
+    transactionDate: Petsa ng Paglabas ng gasolina
+    transactionTime: Oras ng Isyu sa gasolina
+    refueled: Ang dami ng gasolina
+    total: Kabuuan ng Gastos ng gasolina
+    petrolStation: Supplier
+    refueledFuelType: Uri ng panggatong
+  fuelCardV2:
+    vehicle: Rego ng Sasakyan
+    fuelCardNumber: Card No
+    transactionDate: Petsa ng transaksyon
+    transactionTime: Oras ng Transaksyon
+    refueled: Mga litro
+    total: Halaga
+    petrolStation: Pangalan ng Merchant
+    refueledFuelType: Pangalan ng Produkto

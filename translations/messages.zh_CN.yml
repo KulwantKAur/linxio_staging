@@ -1,0 +1,307 @@
+validation:
+  errors:
+    password:
+      min_length: 密码必须至少8个字符
+      uppercase: 密码必须包含大写字母
+      lowercase: 密码必须包含小写字母
+      symbols: 密码必须包含符号
+      digits: 密码必须包含数字
+      weak: 密码过于简单
+    image:
+      empty_data: 空图像数据
+      is_not_base64: 此图像字符串未被分类为base64
+      type_is_not_allowed: 图像类型不允许
+    field:
+      required: 必填项目
+      wrong_format: 错误的格式
+      wrong_value: 错误的价值
+      wrong_value_for_name: '的错误值 %name%'
+      email_exist: 电子邮件已存在
+      should_be_less_than: 错误的价值。应小于 %value%
+      should_be_greater_than: 錯誤的價值。 應該大於 %value%
+      unique: 字段应该是独一无二的
+      should_be_numeric: 应该由数字组成
+      should_be_empty: 应该是空的
+      only_one_every_time_form: 您只能创建1个每次表单
+      last_every_time_form: 您无法删除最后一次表单
+      only_one_active_every_time_form: 每次只有1个表格可以处于活动状态
+      wrong_email_format: 错误的电子邮件格式
+      wrong_phone_format: 错误的手机格式
+    import:
+      fuel_type_mismatch: 燃料类型不匹配！
+      capacity_mismatch: 容量不匹配！
+      unknown_vehicle: 未知车辆！
+      date_in_future: 未来日期！
+      fields_not_recognized: 进口领域无法识别！
+      error_parsing_file: 解析此文件时出错。您可以提交支持机票并附上此文件 - 我们的团队将分析问题。
+  warning:
+    import:
+      unknown_fuel_type: 未知的燃油类型！
+      duplicate_record: 复制？
+
+auth:
+  invalid_credentials: 电子邮件或密码无效
+  user:
+    not_found: 找不到用户
+    not_found_with_phone: 找不到使用此电话号码的用户
+    not_found_with_verify_token: 找不到使用此验证令牌的用户
+    deleted: 用户已删除
+    loginWithId: 用户无法使用ID登录
+    more_then_one: 更多的是一个用户找到
+    login_restricted: 登录已受到此帐户限制
+    blocked_account_access: 帳戶存取已被封鎖。請致電 (02)79085450 聯絡客戶 - 追蹤資料將於 10 月 1 日
+  mobileDevice:
+    not_found: 找不到设备
+    not_allowed: 不允许使用此设备登录
+  otp:
+    not_found_for_phone: 找不到此电话号码的一次密码
+    not_found_for_email: 找不到此电子邮件的一次密码
+    code_is_wrong: 您输入的验证码错误，请检查您的电话号码并请求新代码。
+    your_code_is: 您的代码是：%code%
+    expired: 一个时间密码已过期。请尝试请求新的
+  reset_password:
+    not_found: 找不到此令牌的密码请求
+    already_requested: 重置密码已请求。请检查您的邮件
+    expired: 重置密码的临时链接已过期。请尝试请求新的
+    the_same: 新密码与您的密码相同。请输入新密码
+
+services:
+  sms:
+    plivo:
+      parameters_cannot_be_null: 强制性参数不能为null
+      specify_powerpack_uuid: 指定PowerPack_uuID或SRC中的请求参数以发送消息。
+      specify_parameters: 无法指定PowerPack_UuID和SRC。指定PowerPack_uuID或SRC中的请求参数以发送消息。
+      unexpected_response: Plivo API的意外反应
+  tracker:
+    device_not_found: 找不到设备
+
+entities:
+  already_exist: 实体已经存在
+  reminder:
+    has_service_records: 提醒有服务记录
+  client:
+    not_found: 未找到客户
+    need_client_manager: 客户需要客户经理
+    unknownClientId: 未知客户ID
+    blocked: 您的帐户已被封锁，请通过电子邮件发送至Linxio支持团队至：kinxio.com
+  user:
+    is_key_contact: 用户是密钥联系人
+    delete_yourself: 你不能删除自己
+    team_not_found: 找不到团队
+  vehicle:
+    driver_set: 司机已设置
+    vehicle_installed: 车辆已经安装设备
+    device_not_installed: 车辆没有安装设备
+    regNo: 具有此板号的车辆已经存在
+    vin: 带有此VIN的车辆已经存在
+    type: 不知名的车辆类型
+    regNoWithouDetails: 未知的车辆牌照号，但没有提供车辆细节
+    belongsAnotherClient: 车辆已经属于另一个客户
+    not_found: 没有找到车辆
+    vehicle_permission: 请询问管理员检查此车辆的权限
+    id_does_not_exist: 具有ID '%id%' 的车辆不存在
+    you_were_unassigned_from_the_vehicle: 您已從車輛中取消分配 '%regno%'
+  device:
+    device_installed: 设备已安装
+    installed_different_vehicle: 设备已安装到不同的车辆中
+    device_imei: 具有此IMEI的设备已经存在
+    vendor: 未知的设备供应商
+    model: 未知的设备模型
+    device_was_replaced_by: 設備被替換為 '%imei%'
+    device_replaced: 設備已更換 '%imei%'
+    replacement_not_found: 找不到設備更換
+    can_not_wakeup_device: 由於第 3 方服務錯誤而無法喚醒設備
+  reminder_category:
+    name: 具有相同名称的类别已存在
+  reseller:
+    noKeyContact: 经销商没有密钥联系人用户登录
+    unknownResellerId: 未知经销商ID
+  vehicles_drivers:
+    only_for_drivers: 你只能为司机添加车辆
+    vehicle_ids_required: '''车辆''是必需参数'
+  device_sensor:
+    id_does_not_exist: 具有传感器ID '%id%' 的设备传感器不存在
+    sensors_required: '''传感器''是必需的参数'
+    vehicle_is_moving: 车辆正在移动
+    required_device_id: '''deviceId''是必需的参数'
+    sensor_has_device_from_another_team: 传感器安装在另一个团队的设备上，请先清除设备并重试
+  device_sensor_type:
+    id_does_not_exist: 设备传感器类型为ID '%id%' 不存在
+    required_sensor_type: '''sensortype''是必需的参数'
+    sensor_id_is_denied_to_change: “Sensorid”被拒绝改变这种类型
+  sensor:
+    id_does_not_exist: 具有传感器ID '%id%' 的传感器不存在
+    sensors_required: '''传感器''是必需的参数'
+    sensor_id_required: '''sensorid''是必需的参数'
+    vehicle_is_moving: 车辆正在移动
+    team_id_does_not_exist: id'％id％'的团队不存在
+    deny_to_change_team: 您无法访问编辑团队
+  driverHistory:
+    driver_history_already_exists: 无法将驱动程序分配给此车辆 - 此日期/时间后已经存在一些驾驶记录。
+  asset:
+    id_does_not_exist: 具有ID '%id%' 的资产不存在
+    asset_cannot_be_paired_with_type: 資產不能與傳感器類型 '%type%' 配對
+    sensor_is_wrong: 资产不与此传感器配对
+  chat:
+    id_does_not_exist: 與 id '%id%' 的聊天不存在
+    only_chat_members_can_edit_other: 只有聊天成員可以編輯其他
+    chat_has_been_renamed: 聊天已重命名為%name%
+    user_has_been_added: '%user% 加入了聊天'
+    user_has_been_deleted: '%user% 離開了聊天'
+    message_deleted: 來自 %user% 的消息已刪除
+    user_was_removed_by_current_user: '%user% 已被 %currentUser% 刪除'
+    current_user_removed_message: '%currentUser% 已刪除此消息'
+  chat_history:
+    id_does_not_exist: id '%id%' 的聊天消息不存在
+    file_id_does_not_exist: id 為 '%id%' 的文件不存在
+    attachment_does_not_exist: id '%id%' 的聊天消息沒有附件
+    attachment_does_not_equal_to_file: id 為 '%id%' 的聊天消息有另一個 id 的附件
+    attachment_already_exists: id '%id%' 的聊天消息已經有附件
+
+notes:
+  type:
+    not_found: 找不到状态
+
+general:
+  access_denied: 拒绝访问
+
+import:
+  bpInvoice:
+    vehicle: 车辆登记号码
+    transactionDate: 交易生效日期
+    transactionTime: 交易有效时间
+    refueled: 升
+    total: 客户价值（Exc GST）
+    petrolStation: 地点名称
+  fleetCard:
+    vehicle: 车辆
+    fuelCardNumber: 卡号。
+    transactionDate: 日期
+    refueled: 燃料
+    total: 总的
+    petrolStation: 供应商
+    refueledFuelType: 定期费用/印花税
+  transaction:
+    vehicle: 注册号码
+    fuelCardNumber: 卡号。
+    transactionDate: 交易日期
+    transactionTime: 交易时间
+    refueled: 数量
+    total: 全部的
+    petrolStation: 商家网站名称
+    refueledFuelType: 产品描述
+  motorpass:
+    vehicle: 车辆
+    fuelCardNumber: 卡号。
+    transactionDate: 日期
+    refueled: 升
+    total: 总的
+    petrolStation: 供应商
+    refueledFuelType: 产品
+  mpData:
+    vehicle: 车辆
+    fuelCardNumber: 卡号。
+    transactionDate: 日期
+    refueled: 升
+    total: 总的
+    petrolStation: 供应商
+    refueledFuelType: 产品
+  caltex:
+    vehicle: 雷
+    fuelCardNumber: 卡号
+    transactionDate: 日期
+    refueled: 数量
+    total: 总公司
+    petrolStation: 卡详细信息，
+    refueledFuelType: 产品
+  caltexTSDetail:
+    vehicle: 登记
+    fuelCardNumber: 卡号
+    transactionDate: tr
+    transactionTime: 时间（HHMMSS）
+    refueled: 数量/升
+    total: 单价
+    petrolStation: 地点名称
+    refueledFuelType: 产品
+  shell:
+    vehicle: reg number
+    fuelCardNumber: 卡号
+    transactionDate: 交易日期/时间
+    refueled: 数量
+    total: 档案金额（包括GST）
+    petrolStation: 地点
+    refueledFuelType: 产品
+  transactionV2:
+    vehicle: 车辆登记号码
+    fuelCardNumber: 卡号
+    transactionDate: 交易生效日期
+    transactionTime: 交易有效时间
+    refueled: 升
+    total: 客户价值（$）
+    petrolStation: 地点名称
+    refueledFuelType: 产品
+  devicesVehicles:
+    deviceVendor: dev_供应商.
+    deviceModel: dev_模型.
+    deviceImei: dev_imei.
+    deviceImsi: dev_imsi.
+    devicePhone: dev_手机.
+    clientId: 客户_号码.
+    resellerId: Reseller_号码.
+    vehicleTitle: veh_主题.
+    vehicleRegNo: veh_牌照号.
+    vehicleModel: veh_模型.
+    vehicleType: veh_类型
+
+digitalForm:
+  emptyInspectionForm: 没有任何有效的数字形式
+  entityDigitalFormNotFound: 数字形式，具有ID：'%id%' 未找到
+  entityDigitalFormAnswerNotFound: 数字表单答案id：'%id%' 未找到
+  entityDigitalFormScheduleNotFound: 数字表单计划与ID：'%id%' 未找到
+  answerValidator:
+    notPresent: 此答案不存在表格问题
+    nonValid: 无效答案值
+  answerFactory:
+    stepObjectInvalidType: 无法创建步骤对象。无效的`类型值：'%type%'
+    stepValidatorInvalidType: 无法创建步进验证器。无效的`类型值：'%type%'
+
+reseller:
+  wrongStatus: 错误状态值
+
+report:
+  totalBySelectedVehicles: 所选车辆总计
+  parkingTime: 停车时间
+  distance: 距离
+  drivingTime: 行驶时间
+  idlingTime: 怠速时间
+
+calendar:
+  months:
+    month_1: 一月
+    month_2: 二月
+    month_3: 行进
+    month_4: 四月
+    month_5: 可能
+    month_6: 六月
+    month_7: 七月
+    month_8: 八月
+    month_9: 九月
+    month_10: 十月
+    month_11: 十一月
+    month_12: 十二月
+
+billing:
+  accountStatus:
+    haveNotPaidInvoices: 您有未付的发票
+    paymentError: "付款错误: %error%"
+    haveOverdueInvoices: 您有逾期发票
+    noPendingInvoices: 没有待处理的发票
+    checkPaymentMethod: 请检查您的付款方式
+
+camera_type:
+  outward: 向外
+  dms: 司機
+  ext1: 外部1
+  ext2: 外部2
+  ext3: 外部3
+  ext4: 外部4

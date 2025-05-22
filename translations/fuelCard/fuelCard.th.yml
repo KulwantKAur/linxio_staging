@@ -1,0 +1,116 @@
+import:
+  bpInvoice:
+    vehicle: เลขทะเบียนรถ
+    transactionDate: วันที่มีผลทำรายการ
+    transactionTime: เวลาที่มีผลการทำธุรกรรม
+    refueled: ลิตร
+    total: มูลค่าลูกค้า (EXC GST)
+    petrolStation: ชื่อสถานที่
+  fleetCard:
+    vehicle: ยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่
+    refueled: เชื้อเพลิง
+    total: ทั้งหมด
+    petrolStation: ผู้ผลิต
+    refueledFuelType: ค่างวด/อากรแสตมป์
+  transaction:
+    vehicle: ทะเบียนเลขที่
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่ทำรายการ
+    transactionTime: เวลาทำรายการ
+    refueled: ปริมาณ
+    total: ทั้งหมด
+    petrolStation: ชื่อเว็บไซต์ผู้ขาย
+    refueledFuelType: รายละเอียดสินค้า
+  motorpass:
+    vehicle: ยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่
+    refueled: ลิตร
+    total: ทั้งหมด
+    petrolStation: ผู้ผลิต
+    refueledFuelType: ผลิตภัณฑ์
+  motorpassV2:
+    vehicle: ร่องลึก
+    transactionDate: วันที่
+    refueled: ปริมาณ
+    total: จำนวน Inc
+    petrolStation: คำอธิบาย
+    searchEndPosition: ยอดรวมสำหรับ
+  mpData:
+    vehicle: ยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร.
+    transactionDate: วันที่
+    refueled: ลิตร
+    total: ทั้งหมด
+    petrolStation: ผู้ผลิต
+    refueledFuelType: ผลิตภัณฑ์
+  caltex:
+    vehicle: ร่องลึก
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่
+    refueled: ปริมาณ
+    total: รวม inc
+    petrolStation: รายละเอียดบัตร
+    refueledFuelType: ผลิตภัณฑ์
+  caltexTSDetail:
+    vehicle: การลงทะเบียน
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: ทรานเดท
+    transactionTime: TranTime (หืม)
+    refueled: ปริมาณ/ลิตร
+    total: ราคาต่อหน่วย
+    petrolStation: LocationName
+    refueledFuelType: ผลิตภัณฑ์
+  shell:
+    vehicle: หมายเลขทะเบียน
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่/เวลาทำรายการ
+    refueled: ปริมาณ
+    total: จำนวนใบปะหน้า (รวม GST)
+    petrolStation: ที่ตั้ง
+    refueledFuelType: ผลิตภัณฑ์
+  shellCard:
+    vehicle: ทะเบียนรถ
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่ทำรายการ
+    refueled: ปริมาณ
+    total: docketAmount
+    petrolStation: ธุรกรรมOutlet
+    refueledFuelType: ผลิตภัณฑ์
+  transactionV2:
+    vehicle: เลขทะเบียนรถ
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่มีผลทำรายการ
+    transactionTime: เวลาที่มีผลการทำธุรกรรม
+    refueled: ลิตร
+    total: มูลค่าของลูกค้า ($)
+    petrolStation: ชื่อสถานที่
+    refueledFuelType: ผลิตภัณฑ์
+  transactionV3:
+    vehicle: การลงทะเบียน
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่ทำรายการ
+    refueled: ปริมาณทั้งหมด
+    total: มูลค่ารวมทั้งหมด
+    petrolStation: ชื่อร้าน
+    refueledFuelType: ขายปลีกชื่อผลิตภัณฑ์
+  fuelTransaction:
+    vehicle: การลงทะเบียน
+    fuelCardNumber: หมายเลขบัตรน้ำมัน
+    transactionDate: วันที่จ่ายน้ำมัน
+    transactionTime: Fuel Issue Time
+    refueled: ปริมาณเชื้อเพลิง
+    total: รวมค่าน้ำมัน
+    petrolStation: ผู้ผลิต
+    refueledFuelType: ประเภทเชื้อเพลิง
+  fuelCardV2:
+    vehicle: รีโก้ยานพาหนะ
+    fuelCardNumber: หมายเลขบัตร
+    transactionDate: วันที่ทำรายการ
+    transactionTime: เวลาทำรายการ
+    refueled: ลิตร
+    total: จำนวน
+    petrolStation: ชื่อร้านค้า
+    refueledFuelType: ชื่อผลิตภัณฑ์

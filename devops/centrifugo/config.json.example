@@ -1,0 +1,41 @@
+{
+  "admin": true,
+  "token_rsa_public_key": "-----BEGIN PUBLIC KEY-----\n<HERE_IS_LONG_PUBLIC_KEY_IN_ONE_LINE_FROM_APP_CONFIG_JWT_PUBLIC_PEM>\n-----END PUBLIC KEY-----",
+  "publish": true,
+  "anonymous": true,
+  "presence": true,
+  "join_leave": true,
+  "recover": true,
+  "history_size": 1000,
+  "history_ttl": "168h",
+  "namespaces": [
+    {
+      "name": "dialogs",
+      "publish": true,
+      "anonymous": false,
+      "presence": true,
+      "join_leave": true,
+      "recover": true,
+      "history_size": 1000,
+      "history_ttl": "168h"
+    },
+    {
+      "name": "private",
+      "publish": true,
+      "anonymous": false,
+      "presence": true,
+      "join_leave": true,
+      "recover": false,
+      "history_size": 0
+    },
+    {
+      "name": "team",
+      "publish": true,
+      "anonymous": false,
+      "presence": true,
+      "join_leave": true,
+      "recover": false,
+      "history_size": 0
+    }
+  ]
+}

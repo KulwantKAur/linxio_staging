@@ -1,0 +1,21 @@
+password_reset_request: Password reset request
+dear: Dear
+detailed_information: Detailed information
+requested_reset_password: You (or someone from your team) requested reset for your password.
+visit_link_new_password: Please visit this link to specify a new password
+reset_password: Reset Password
+copy_url: If you are having trouble with the link above, copy and paste the URL below into your web browser.
+best_regards: 'Best Regards'
+team: 'team'
+linxio_cred: '%product_name% Credentials'
+hello_username: 'Hello %user.fullName%'
+new_user_verify_phone: 'You have been added as a user to %product_name% on the %company% account, please click the link below to verify your mobile phone number and set a password.'
+new_user_set_password: 'You have been added as a user to %product_name% on the %company% account, please click the link below to set a password.'
+client_sharing_link:  '%client% is sharing the location of a vehicle with you.'
+client_sharing_location:  '%client% is sharing the location of a vehicle with you.'
+drivers_name: Drivers name
+vehicle_regno: Vehicle regno
+message: Message
+tracking_link: Tracking link
+tracking_technology: Tracking technology by Linxio
+ignore_email: If you did not mean to reset your password, please ignore this email and your password will remain the same.<br/>The password reset link expires on

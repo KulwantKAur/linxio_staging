@@ -1,0 +1,30 @@
+{% extends "reports/default.html.twig" %}
+{% block content %}
+    {% if data|length > 0 %}
+        <table>
+            {% for item in data %}
+                <tr>
+                    {% for key, item in item %}
+                        {% if key not in ['vehicle_io.distanceTotal', 'vehicle_io.durationTotal'] %}
+                            <td class="{{ key | cssClass }}">{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            <tr class="totalRow">
+                {% for key, value in data[1] %}
+                    {% if key not in ['vehicle_io.distanceTotal', 'vehicle_io.durationTotal'] %}
+                        {% if key == 'vehicle_io.distance' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['vehicle_io.distanceTotal'] ?? 0 }}</td>
+                        {% elseif key == 'vehicle_io.duration' %}
+                            <td class="{{ key | cssClass }}">{{ data[1]['vehicle_io.durationTotal'] ?? 0 }}</td>
+                        {% else %}
+                            <td class="{{ key | cssClass }}"></td>
+                        {% endif %}
+                    {% endif %}
+
+                {% endfor %}
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

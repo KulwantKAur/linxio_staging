@@ -1,0 +1,189 @@
+version: "3"
+
+services:
+  api-php-fpm:
+    build:
+      context: '.'
+      dockerfile: './.infra/api/php-fpm/Dockerfile'
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+    ports:
+      - 9001:9000
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  api-nginx:
+    build:
+      context: '.'
+      dockerfile: './.infra/api/nginx/Dockerfile'
+    restart: unless-stopped
+    environment:
+      - NGINX_PHP_FPM_DSN=api-php-fpm:9000
+    depends_on:
+      - api-php-fpm
+    ports:
+      - 0.0.0.0:${API_PORT}:80
+    expose:
+      - "80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  database:
+    build: '${APP_ROOT_DIR}/.infra/database'
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - PGPASSWORD=${SYMFONY__DATABASE__PASS}
+      - POSTGRES_USER=${SYMFONY__DATABASE__USER}
+      - POSTGRES_DB=${SYMFONY__DATABASE__NAME}
+      - POSTGRES_PASSWORD=${SYMFONY__DATABASE__PASS}
+    ports:
+      - 0.0.0.0:${DB_PORT}:5432
+    volumes:
+      - './var/dbdata:/var/lib/postgresql/data'
+
+  elasticsearch:
+    image: elasticsearch:6.6.2
+    restart: unless-stopped
+    command: elasticsearch
+    ports:
+      - 127.0.0.1:9200:9200
+    volumes:
+      - './var/esdata:/usr/share/elasticsearch/data'
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+
+  postfix:
+    image: juanluisbaptiste/postfix:latest
+    expose:
+      - "25"
+    env_file: .env
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    hostname: ${REDIS_HOST}
+    expose:
+      - ${REDIS_PORT}
+
+  rabbit:
+    image: rabbitmq:3-management
+    restart: unless-stopped
+    ports:
+      - ${RABBITMQ_MPANEL_PORT}:15672
+      - ${RABBITMQ_SERVER_PORT}:5672
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+
+  tracker-provider:
+    build:
+      context: .
+      dockerfile: '${APP_ROOT_DIR}/.infra/tracker/provider/Dockerfile'
+    restart: unless-stopped
+    depends_on:
+      - database
+    expose:
+      - "${TRACKER_PROVIDER_PORT}"
+    ports:
+      - 0.0.0.0:3000:${TRACKER_PROVIDER_PORT}
+    environment:
+      - DB_HOST=${SYMFONY__DATABASE__HOST}
+      - DB_USER=${SYMFONY__DATABASE__USER}
+      - DB_PASS=${SYMFONY__DATABASE__PASS}
+      - DB_NAME=${SYMFONY__DATABASE__NAME}
+      - TRACKER_PROVIDER_SECRET=${TRACKER_PROVIDER_SECRET}
+      - JWT_SECRET=${SYMFONY__JWT__SECRET}
+      - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  tracker-teltonika-server:
+    build:
+      dockerfile: '.infra/tracker/teltonika/server/Dockerfile'
+      context: .
+    restart: unless-stopped
+    expose:
+      - "3080"
+    environment:
+      - API_HOST=${API_HOST}
+      - API_PORT=80
+      - API_URL=/api/tracker/teltonika/tcp
+      - API_HEALTHCHECK_URL=/api/health
+      - TRACKER_SERVER_PORT=${TELTONIKA_TRACKER_SERVER_PORT}
+      - TRACKER_PROVIDER_PROTOCOL=${TRACKER_PROVIDER_PROTOCOL}
+      - TRACKER_PROVIDER_HOST=${TRACKER_PROVIDER_HOST}
+      - TRACKER_PROVIDER_PORT=${TRACKER_PROVIDER_PORT}
+      - TRACKER_PROVIDER_SECRET=${TRACKER_PROVIDER_SECRET}
+      - ENABLE_TRACKER_LOGGING=${ENABLE_TRACKER_LOGGING}
+
+  tracker-topflytech-server:
+    build:
+      dockerfile: '.infra/tracker/topflytech/server/Dockerfile'
+      context: .
+    restart: unless-stopped
+    expose:
+      - "3080"
+      - "33010/udp"
+    environment:
+      - API_HOST=${API_HOST}
+      - API_PORT=80
+      - API_URL=/api/tracker/topflytech/tcp
+      - API_HEALTHCHECK_URL=/api/health
+      - TRACKER_SERVER_PORT=${TOPFLYTECH_TRACKER_SERVER_PORT}
+      - TRACKER_SERVER_UDP_PORT=${TOPFLYTECH_TRACKER_SERVER_PORT}
+      - ENABLE_TRACKER_LOGGING=${ENABLE_TRACKER_LOGGING}
+      - TRACKER_PROVIDER_PROTOCOL=${TRACKER_PROVIDER_PROTOCOL}
+      - TRACKER_PROVIDER_HOST=${TRACKER_PROVIDER_HOST}
+      - TRACKER_PROVIDER_PORT=${TRACKER_PROVIDER_PORT}
+      - TRACKER_PROVIDER_SECRET=${TRACKER_PROVIDER_SECRET}
+
+  tracker-ulbotech-server:
+    build:
+      dockerfile: '.infra/tracker/ulbotech/server/Dockerfile'
+      context: .
+    restart: unless-stopped
+    expose:
+      - "3080"
+    environment:
+      - API_HOST=${API_HOST}
+      - API_PORT=80
+      - API_URL=/api/tracker/ulbotech/tcp
+      - API_HEALTHCHECK_URL=/api/health
+      - TRACKER_SERVER_PORT=${ULBOTECH_TRACKER_SERVER_PORT}
+      - ENABLE_TRACKER_LOGGING=${ENABLE_TRACKER_LOGGING}
+      - TRACKER_PROVIDER_PROTOCOL=${TRACKER_PROVIDER_PROTOCOL}
+      - TRACKER_PROVIDER_HOST=${TRACKER_PROVIDER_HOST}
+      - TRACKER_PROVIDER_PORT=${TRACKER_PROVIDER_PORT}
+      - TRACKER_PROVIDER_SECRET=${TRACKER_PROVIDER_SECRET}
+
+  tracker-nginx:
+    build:
+      dockerfile: '.infra/tracker/nginx/Dockerfile'
+      context: .
+    restart: unless-stopped
+    ports:
+      - 0.0.0.0:${TCP_TELTONIKA_SERVER_PORT}:${TCP_TELTONIKA_SERVER_PORT}
+      - 0.0.0.0:${TCP_TOPFLYTECH_SERVER_PORT}:${TCP_TOPFLYTECH_SERVER_PORT}
+      - 0.0.0.0:${TCP_ULBOTECH_SERVER_PORT}:${TCP_ULBOTECH_SERVER_PORT}
+      - 0.0.0.0:3001:3001
+      - ${UDP_TOPFLYTECH_SERVER_PORT}:${UDP_TOPFLYTECH_SERVER_PORT}/udp
+    environment:
+      - NGINX_TRACKER_TELTONIKA_SERVER_HOST=${TELTONIKA_TRACKER_SERVER_HOST}
+      - NGINX_TRACKER_TOPFLYTECH_SERVER_HOST=${TELTONIKA_TRACKER_SERVER_HOST}
+      - NGINX_TRACKER_ULBOTECH_SERVER_HOST=${TELTONIKA_TRACKER_SERVER_HOST}
+    expose:
+      - "3080"
+

@@ -1,0 +1,11 @@
+sso_saml:
+    debug: true
+    contactPerson:
+        technical:
+            givenName: 'Technical support'
+            emailAddress: 'dzhilskiy@scnsoft.com'
+    organization:
+        en:
+            name: 'Linxio dev'
+            displayname: 'Linxio dev'
+            url: 'http://localhost:8098'

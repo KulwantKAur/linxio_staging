@@ -1,0 +1,248 @@
+validation:
+  errors:
+    password:
+      min_length: Password must be at least 8 characters
+      uppercase: Password must contain uppercase letters
+      lowercase: Password must contain lowercase letters
+      symbols: Password must contain symbols
+      digits: Password must contain digits
+      weak: Password is weak
+    image:
+      empty_data: Empty image data
+      is_not_base64: This image string isn't sintaxed as base64
+      type_is_not_allowed: File type isn't allowed
+    field:
+      required: Required field
+      wrong_format: Wrong format
+      wrong_value: Wrong value
+      wrong_value_for_name: Wrong value for '%name%'
+      email_exist: Email already exist
+      should_be_less_than: Wrong value. Should be less than %value%
+      should_be_greater_than: Wrong value. Should be greater than %value%
+      unique: Field should be unique
+      should_be_numeric: Should consists of digits
+      should_be_empty: Should be empty
+      only_one_every_time_form: You can create only 1 EveryTime Form
+      last_every_time_form: You can't delete last EveryTime Form
+      only_one_active_every_time_form: Only 1 EveryTime Form can be active
+      wrong_email_format: Wrong email format
+      wrong_phone_format: Wrong phone format
+    import:
+      fuel_type_mismatch: Fuel type mismatch!
+      capacity_mismatch: Capacity mismatch!
+      unknown_vehicle: Unknown vehicle!
+      date_in_future: Date in future!
+      fields_not_recognized: Fields for import were not recognized!
+      error_parsing_file: Error while parsing this file. You may submit a support ticket and attach this file - our team will analyze the problem.
+      error_upload_file: An error occurred while uploading this file.
+  warning:
+    import:
+      unknown_fuel_type: Unknown fuel type!
+      duplicate_record: Duplicate?
+
+auth:
+  invalid_credentials: Email or password is invalid
+  user:
+    not_found: User is not found
+    not_found_with_phone: User with this phone number is not found
+    not_found_with_verify_token: User with this verify token is not found
+    deleted: User deleted
+    loginWithId: User can't log in with ID
+    more_then_one: More then one user found
+    login_restricted: Login has been restricted on this account
+    blocked_account_access: Account Access has been blocked. Please contact Accounts on (02)79085450 - tracking data will cease on 1st of October.
+  mobileDevice:
+    not_found: Device is not found
+    not_allowed: Log in with this device is not allowed
+  otp:
+    not_found_for_phone: One time password for this phone number is not found
+    not_found_for_email: One time password for this email is not found
+    code_is_wrong: The verification code you've entered is wrong, please check your phone number and request a new code.
+    your_code_is: 'Your code is: %code%'
+    expired: One time password has been expired. Please, try to request new one
+  reset_password:
+    not_found: Request for password for this token is not found
+    already_requested: Reset password already requested. Please, check your mail
+    expired: Temporary link for reset password has been expired. Please, try to request new one
+    the_same: New password is the same password as you had. Please, enter new password
+
+services:
+  sms:
+    plivo:
+      parameters_cannot_be_null: Mandatory parameters cannot be null
+      specify_powerpack_uuid: Specify either powerpack_uuid or src in request params to send a message.
+      specify_parameters: Both powerpack_uuid and src cannot be specified. Specify either powerpack_uuid or src in request params to send a message.
+      unexpected_response: Unexpected response from Plivo API
+  tracker:
+    device_not_found: Device is not found
+
+entities:
+  already_exist: Entity already exists
+  reminder:
+    has_service_records: Reminder has service records
+  client:
+    not_found: Client is not found
+    need_client_manager: Client need client manager
+    unknownClientId: Unknown Client ID
+    blocked: Your account has been blocked, please contact Linxio support team by emailing support@linxio.com
+  user:
+    is_key_contact: The user is a key contact
+    delete_yourself: You can't delete yourself
+    team_not_found: Team is not found
+    not_found_with_id: 'User with %id% is not found'
+  vehicle:
+    driver_set: Driver already set
+    vehicle_installed: Vehicle already has installed device
+    device_not_installed: Vehicle hasn't installed device
+    regNo: Vehicle with this Plate Number already exists
+    vin: Vehicle with this VIN already exists
+    type: Unknown vehicle type
+    regNoWithouDetails: Unknown vehicle RegNo but no vehicle details provided
+    belongsAnotherClient: Vehicle already belongs to another client
+    not_found: Vehicle is not found
+    vehicle_permission: Please ask admin to check permissions for this vehicle
+    id_does_not_exist: Vehicle with id '%id%' does not exist
+    you_were_unassigned_from_the_vehicle: You were unassigned from the vehicle '%regno%'
+    assign_another_vehicle: '%driver% was assigned %regno% at %time%. Would you like to re-assign to %selected_regno% instead?'
+  device:
+    device_installed: Device is already installed
+    installed_different_vehicle: Device already installed into a different vehicle
+    device_imei: Device with this IMEI already exists
+    vendor: Unknown device vendor
+    model: Unknown device model
+    not_found: Device is not found
+    contract: Device has active contract
+    device_was_replaced_by: Device was replaced by '%imei%'
+    device_replaced: Device replaced '%imei%'
+    replacement_not_found: Device replacement is not found
+    can_not_wakeup_device: Can not wake up device due to 3rd party service error
+  reminder_category:
+    name: Category with the same name already exists
+  reseller:
+    noKeyContact: Reseller don't have key contact user for login
+    unknownResellerId: Unknown Reseller ID
+  vehicles_drivers:
+    only_for_drivers: You could add vehicles only for drivers
+    vehicle_ids_required: "'vehicleIds' is required parameter"
+  device_sensor:
+    id_does_not_exist: Device sensor with sensor id '%id%' does not exist
+    sensors_required: "'sensors' is required parameter"
+    vehicle_is_moving: Vehicle is moving
+    required_device_id: "'deviceId' is required parameter"
+    sensor_has_device_from_another_team: Sensor installed on device from another team, please clear devices first and retry
+  device_sensor_type:
+    id_does_not_exist: Device sensor type with id '%id%' does not exist
+    required_sensor_type: "'sensorType' is required parameter"
+    sensor_id_is_denied_to_change: "'sensorId' is denied to change for this type"
+  sensor:
+    id_does_not_exist: Sensor with sensor id '%id%' does not exist
+    sensors_required: "'sensors' is required parameter"
+    sensor_id_required: "'sensorId' is required parameter"
+    vehicle_is_moving: Vehicle is moving
+    team_id_does_not_exist: Team with id '%id%' does not exist
+    deny_to_change_team: You don't have access to edit team
+  driverHistory:
+    driver_history_already_exists: Can't assign driver to this vehicle - there are already some driving records after this date/time.
+  asset:
+    id_does_not_exist: Asset with id '%id%' does not exist
+    asset_cannot_be_paired_with_type: Asset cannot be paired with sensor type '%type%'
+    sensor_is_wrong: Asset is not paired with this sensor
+  chat:
+    id_does_not_exist: Chat with id '%id%' does not exist
+    only_chat_members_can_edit_other: Only chat members can edit other
+    chat_has_been_renamed: Chat has been renamed to %name%
+    user_has_been_added: '%user% joined the chat'
+    user_has_been_deleted: '%user% left the chat'
+    message_deleted: Message from %user% deleted
+    user_was_removed_by_current_user: '%user% was removed by %currentUser%'
+    current_user_removed_message: '%currentUser% has removed this message'
+  chat_history:
+    id_does_not_exist: Chat message with id '%id%' does not exist
+    file_id_does_not_exist: File with id '%id%' does not exist
+    attachment_does_not_exist: Chat message with id '%id%' has no attachment
+    attachment_does_not_equal_to_file: Chat message with id '%id%' has attachment with another id
+    attachment_already_exists: Chat message with id '%id%' already has attachment
+  invoice:
+    not_found: Invoice is not found
+    xero:
+      not_paid: Invoice is not paid. Only paid invoices can be imported to Xero
+
+notes:
+  type:
+    not_found: Status not found
+
+general:
+  access_denied: Access Denied
+
+import:
+  devicesVehicles:
+    deviceVendor: Dev_Vendor
+    deviceModel: Dev_Model
+    deviceImei: Dev_IMEI
+    deviceImsi: Dev_IMSI
+    devicePhone: Dev_Phone
+    clientId: Client_ID
+    resellerId: Reseller_ID
+    vehicleTitle: Veh_Title
+    vehicleRegNo: Veh_RegNo
+    vehicleModel: Veh_Model
+    vehicleMake: Veh_Make
+    vehicleType: Veh_Type
+    vehicleYear: Veh_Year
+    expDate: Exp_Date
+    contractId: Contract_ID
+    ownership: Ownership
+    contractStart: Contract_Start
+
+digitalForm:
+  emptyInspectionForm: "No any valid Digital form"
+  entityDigitalFormNotFound: "Digital form with id: `%id%` not found"
+  entityDigitalFormAnswerNotFound: "Digital form answer with id: `%id%` not found"
+  entityDigitalFormScheduleNotFound: "Digital form schedule with id: `%id%` not found"
+  answerValidator:
+    notPresent: This answer is not present in form questions
+    nonValid: Non valid answer value
+  answerFactory:
+    stepObjectInvalidType: "Can't create step object. Invalid `type` value: %type%"
+    stepValidatorInvalidType: "Can't create step validator. Invalid `type` value: %type%"
+
+reseller:
+  wrongStatus: "Wrong status value"
+
+report:
+  totalBySelectedVehicles: Total by selected vehicles
+  parkingTime: Parking time
+  distance: Distance
+  drivingTime: Driving time
+  idlingTime: Idling time
+
+calendar:
+  months:
+    month_1: January
+    month_2: February
+    month_3: March
+    month_4: April
+    month_5: May
+    month_6: June
+    month_7: July
+    month_8: August
+    month_9: September
+    month_10: October
+    month_11: November
+    month_12: December
+
+billing:
+  accountStatus:
+    haveNotPaidInvoices: You have unpaid invoices
+    paymentError: "Payment error: %error%"
+    haveOverdueInvoices: You have overdue invoices
+    noPendingInvoices: No pending invoices
+    checkPaymentMethod: Please check your payment method
+
+camera_type:
+  outward: Outward
+  dms: Driver
+  ext1: External1
+  ext2: External2
+  ext3: External3
+  ext4: External4

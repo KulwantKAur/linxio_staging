@@ -1,0 +1,19 @@
+{% extends 'emails/base.html.twig' %}
+{% trans_default_domain 'email' %}
+{% block subject %}
+    {{ subject }}
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <p class="header_text">{{ 'hello_username'|trans({'%user.fullName%': user.fullName}) }}!</p>
+    </div>
+    <div class="detailed-information">
+        <p class="detailed-information_title">{{ 'detailed_information' | trans }}</p>
+        <p class="detailed-information_text">
+            {{ 'new_user_verify_phone'|trans({'%company%': company, '%product_name%': product_name}) }}
+            <br/><br/>
+            {{ front_url_verify_phone }}
+        </p>
+    </div>
+{% endblock %}

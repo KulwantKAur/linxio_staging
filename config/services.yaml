@@ -1,0 +1,1507 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+imports:
+    - { resource: config.yaml }
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        # automatically injects dependencies in your services
+        autowire: true
+        # automatically registers your services as commands, event subscribers, etc.
+        autoconfigure: true
+        # this means you cannot fetch services directly from the container via $container->get()
+        # if you need to do this, you can override this setting on individual services
+        public: false
+        bind:
+            $fixturesPath:  '%kernel.project_dir%/src/Fixtures'
+            $resetPasswordTokenTtl: '%env(RESET_PASSWORD_TOKEN_TTL)%'
+            $simulatorBaseImei: "%env(TELTONIKA_SIMULATOR_BASE_IMEI)%"
+            $simulatorDevicesCount: '%env(TELTONIKA_SIMULATOR_DEVICES_COUNT)%'
+            $devicesOffsetOnTrackTs: "%env(TELTONIKA_SIMULATOR_DEVICES_OFFSET_ON_TRACK_TS)%"
+            $userTransformer: "@fos_elastica.elastica_to_model_transformer.user"
+            $clientTransformer: "@fos_elastica.elastica_to_model_transformer.client"
+            $deviceTransformer: "@fos_elastica.elastica_to_model_transformer.device"
+            $vehicleTransformer: "@fos_elastica.elastica_to_model_transformer.vehicle"
+            $areaTransformer: "@fos_elastica.elastica_to_model_transformer.area"
+            $depotTransformer: "@fos_elastica.elastica_to_model_transformer.depot"
+            $vehicleGroupTransformer: "@fos_elastica.elastica_to_model_transformer.vehicleGroup"
+            $areaGroupTransformer: "@fos_elastica.elastica_to_model_transformer.areaGroup"
+            $sensorTransformer: "@fos_elastica.elastica_to_model_transformer.sensor"
+            $assetTransformer: "@fos_elastica.elastica_to_model_transformer.asset"
+            $partnerToken: "%env(FLEETIO_PARTNER_TOKEN)%"
+            $env: "%kernel.environment%"
+
+    Doctrine\ORM\EntityManager: '@doctrine.orm.default_entity_manager'
+    Doctrine\ORM\EntityManagerInterface: '@doctrine.orm.default_entity_manager'
+    \Swift_Mailer: '@swiftmailer.mailer'
+
+    # makes classes in src/AppBundle available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+
+        # controllers are imported separately to make sure services can be injected
+        # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
+
+    # add more services, or override services that need manual wiring
+    # App\Service\ExampleService:
+    #     arguments:
+    #         $someArgument: 'some_value'
+
+    app.exception_listener:
+        class: App\Listener\ExceptionListener
+        arguments:
+          ["@translator", "@monolog.logger", '%kernel.debug%']
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+
+    App\Service\User\UserService:
+        autowire: true
+        lazy: true
+        public: true
+        arguments:
+            $fileService: "@app.local_file_service"
+            $userFinder: "@fos_elastica.finder.user"
+            $eventDispatcher: "@event_dispatcher"
+            $tokenStorage: "@security.token_storage"
+
+    app.local_file_service:
+        class: App\Service\File\LocalFileService
+        autowire: true
+        public: true
+        lazy: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $imageService: "@App\\Service\\File\\ImageService"
+            $router: "@router"
+
+    app.aws_s3_file_service:
+        class: App\Service\File\AWSS3FileService
+        autowire: true
+        public: true
+        lazy: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $imageService: "@App\\Service\\File\\ImageService"
+            $router: "@router"
+            $key: '%env(AWS_CHAT_KEY)%'
+            $secret: '%env(AWS_CHAT_SECRET)%'
+            $bucket: '%env(AWS_CHAT_BUCKET)%'
+            $region: '%env(AWS_CHAT_REGION)%'
+
+    App\Service\File\Provider\SftpFileService:
+        autowire: true
+        public: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $host: '%env(SFTP_HOST)%'
+            $user: '%env(SFTP_USER)%'
+            $privateKey: '%env(SFTP_KEY)%'
+            $password: '%env(SFTP_PASS)%'
+            $remotePath: '%env(SFTP_REMOTE_PATH)%'
+            $loadPath: '%env(SFTP_APP_UPLOAD_PATH)%'
+
+    App\Service\Sms\SmsService:
+        class: App\Service\Sms\SmsService
+        public: true
+        lazy: true
+        arguments:
+            $service: "@app.sms_service.plivo"
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+            $env: "%kernel.environment%"
+            $smsEnabled: "%env(SMS_ENABLED)%"
+
+    app.sms_service.plivo:
+        class: App\Service\Sms\Plivo\Plivo
+        public: true
+        lazy: true
+        arguments:
+            $plivoAuthId: '%env(PLIVO_AUTH_ID)%'
+            $plivoAuthToken: '%env(PLIVO_AUTH_TOKEN)%'
+            $plivoNumberFrom: '%env(PLIVO_NUMBER_FROM)%'
+            $apiUrl: '%env(API_URL)%'
+
+    App\Service\Sms\OtpService:
+        class: App\Service\Sms\OtpService
+        public: true
+        arguments:
+            $env: '%kernel.environment%'
+            $otpTtl: '%otp_ttl%'
+            $smsEnabled: "%env(SMS_ENABLED)%"
+
+    App\Service\Client\ClientService:
+        autowire: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager", '@App\Service\User\UserService', "@app.note_service",
+           "@fos_elastica.finder.client", "@fos_elastica.finder.user", "@event_dispatcher", "@app.local_file_service",
+           "@App\\Service\\Setting\\SettingService", "@App\\Service\\Validation\\ValidationService",
+           "@App\\Service\\Notification\\EventDispatcher", "@validator"]
+
+    App\Service\Client\ClientUserService:
+        autowire: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $userService: '@App\Service\User\UserService'
+            $userFinder: "@fos_elastica.finder.user"
+            $eventDispatcher: "@event_dispatcher"
+            $fileService: "@app.local_file_service"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $validator: "@validator"
+            $vehicleService: '@App\Service\Vehicle\VehicleService'
+
+    app.note_service:
+        class: App\Service\Note\NoteService
+        autowire: true
+        public: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager", "@security.token_storage"]
+
+    app.client.status_transition:
+        class: App\Service\Client\StatusTransitionService
+        autowire: true
+        public: true
+
+    app.token_voter:
+        class: App\Security\TokenVoter
+        autowire: true
+        tags:
+            - {name: security.voter}
+        public: false
+
+    app.client_voter:
+        class: App\Security\ClientVoter
+        autowire: true
+        tags:
+            - {name: security.voter}
+        public: false
+
+    app.user_voter:
+        class: App\Security\UserVoter
+        autowire: true
+        tags:
+            - {name: security.voter}
+        public: false
+
+    app.reset_password_service:
+        class: App\Service\User\ResetPasswordService
+        public: true
+        arguments:
+            $resetPasswordTokenTtl: '%env(RESET_PASSWORD_TOKEN_TTL)%'
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+
+    app.password_service:
+        class: App\Service\User\PasswordService
+        public: true
+        arguments:
+          ["@security.user_password_hasher", "@doctrine.orm.entity_manager"]
+
+    App\Mailer\MailSender:
+        class: App\Mailer\MailSender
+        public: true
+        lazy: true
+        arguments:
+            $from: "%env(SYMFONY__MAIL__FROM)%"
+            $appFrontUrl: "%env(APP_FRONT_URL)%"
+            $logger: "@logger"
+
+    app.elastica_listener.elasticsearch_client_listener:
+        class: App\EventListener\ElasticSearch\ClientListener
+        tags:
+            - { name: kernel.event_subscriber }
+
+    App\EventListener\Client\ClientListener:
+        class: App\EventListener\Client\ClientListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+
+    app.entity_history_service:
+        class: App\Service\EntityHistory\EntityHistoryService
+        public: true
+        lazy: true
+        arguments:
+          ["@security.token_storage", "@doctrine.orm.entity_manager"]
+
+    app.security.authentication.success:
+        class: App\EventListener\Security\AuthenticationSuccessListener
+        tags:
+            - { name: kernel.event_listener, event: security.authentication.success, method: onAuthenticationSuccess }
+        arguments:
+          ["@event_dispatcher"]
+
+    App\EventListener\User\UserListener:
+        class: App\EventListener\User\UserListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $tokenStorage: "@security.token_storage"
+            $sensorService: '@App\Service\Sensor\SensorService'
+
+    App\EventListener\Device\DeviceListener:
+        class: App\EventListener\Device\DeviceListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $tokenStorage: "@security.token_storage"
+            $deviceService: '@App\Service\Device\DeviceService'
+            $vehicleService: '@App\Service\Vehicle\VehicleService'
+            $voltageProducer: '@old_sound_rabbit_mq.tracker_voltage_producer'
+            $towingProducer: '@old_sound_rabbit_mq.tracker_towing_producer'
+            $panicButtonProducer: '@old_sound_rabbit_mq.tracker_panic_button_producer'
+            $overSpeedingProducer: '@old_sound_rabbit_mq.tracker_overspeeding_producer'
+            $exceedingSpeedLimitProducer: '@old_sound_rabbit_mq.tracker_exceeding_speed_limit_producer'
+            $longDrivingProducer: '@old_sound_rabbit_mq.tracker_long_driving_producer'
+            $longStandingProducer: '@old_sound_rabbit_mq.tracker_long_standing_producer'
+            $engineOnTimeProducer: '@old_sound_rabbit_mq.tracker_engine_on_time_producer'
+            $ioProducer: '@old_sound_rabbit_mq.tracker_io_producer'
+            $movingWithoutDriverProducer: '@old_sound_rabbit_mq.tracker_moving_without_driver_producer'
+            $movingProducer: '@old_sound_rabbit_mq.tracker_moving_producer'
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $vehicleOdometerService: '@App\Service\Vehicle\VehicleOdometerService'
+            $clientObjectPersister: '@fos_elastica.object_persister.client'
+            $resellerObjectPersister: '@fos_elastica.object_persister.reseller'
+            $deviceObjectPersister: '@fos_elastica.object_persister.device'
+            $batteryProducer: '@old_sound_rabbit_mq.tracker_battery_producer'
+            $todayDataProducer: '@old_sound_rabbit_mq.tracker_today_data_producer'
+            $memoryDb: "@app.memoryDb"
+            $reminderObjectPersister: '@fos_elastica.object_persister.reminder'
+            $trackerEngineHistoryProducer: '@old_sound_rabbit_mq.tracker_engine_history_producer'
+
+    App\EventListener\Vehicle\VehicleListener:
+        class: App\EventListener\Vehicle\VehicleListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $billingEntityHistoryService: "@App\\Service\\Billing\\BillingEntityHistoryService"
+            $mapServiceResolver: "@app.map_resolver"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $reminderObjectPersister: '@fos_elastica.object_persister.reminder'
+            $documentObjectPersister: '@fos_elastica.object_persister.document'
+
+    App\EventListener\Depot\DepotListener:
+        class: App\EventListener\Depot\DepotListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $reminderObjectPersister: '@fos_elastica.object_persister.reminder'
+            $documentObjectPersister: '@fos_elastica.object_persister.document'
+
+    App\EventListener\Reminder\ReminderListener:
+        class: App\EventListener\Reminder\ReminderListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $reminderObjectPersister: '@fos_elastica.object_persister.reminder'
+
+    App\EventListener\VehicleGroup\VehicleGroupListener:
+        class: App\EventListener\VehicleGroup\VehicleGroupListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $reminderObjectPersister: '@fos_elastica.object_persister.reminder'
+            $documentObjectPersister: '@fos_elastica.object_persister.document'
+            $tokenStorage: "@security.token_storage"
+
+    App\EventListener\Team\TeamDoctrineEventListener:
+        class: App\EventListener\Team\TeamDoctrineEventListener
+        tags:
+            - { name: doctrine.event_listener, event: postPersist}
+        arguments:
+            - '@App\Service\Setting\SettingService'
+
+    App\EventListener\Client\ClientEntityListener:
+        class: App\EventListener\Client\ClientEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $transitionService: "@app.client.status_transition"
+            $translator: "@translator"
+            $timeZoneService: "@App\\Service\\Setting\\TimeZoneService"
+            $deviceObjectPersister: "@fos_elastica.object_persister.device"
+
+    App\EventListener\User\UserEntityListener:
+        class: App\EventListener\User\UserEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@security.token_storage'
+            - '@service_container'
+            - '@App\Service\User\UserService'
+            - '@App\Service\Setting\TimeZoneService'
+
+    App\EventListener\Team\TeamEntityListener:
+        class: App\EventListener\Team\TeamEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $entityManager: "@doctrine.orm.entity_manager"
+
+    App\EventListener\Device\DeviceEntityListener:
+        class: App\EventListener\Device\DeviceEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@security.token_storage'
+            - '@fos_elastica.object_persister.client'
+            - '@App\Service\Setting\SettingService'
+            - '@app.entity_history_service'
+            - '@doctrine.orm.history_entity_manager'
+            - '@App\Service\Traccar\TraccarService'
+            - '@App\Service\Streamax\StreamaxService'
+            - '@logger'
+
+    App\EventListener\Setting\SettingEntityListener:
+        class: App\EventListener\Setting\SettingEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+
+    App\EventListener\DeviceSensor\DeviceSensorEntityListener:
+        class: App\EventListener\DeviceSensor\DeviceSensorEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $logger: "@logger"
+
+    App\EventListener\Vehicle\VehicleEntityListener:
+        class: App\EventListener\Vehicle\VehicleEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@App\Service\Vehicle\VehicleService'
+
+    App\Service\User\VerificationService:
+        class: App\Service\User\VerificationService
+        public: true
+        arguments:
+            $verifyTokenTtl: '%env(USER_VERIFY_TOKEN_TTL)%'
+
+    App\Service\Setting\SettingService:
+        autowire: true
+        lazy:  true
+        arguments:
+          ["@doctrine.orm.entity_manager", "@translator"]
+
+    App\Service\Setting\TimeZoneService:
+        autowire: true
+        lazy:  true
+        arguments:
+          ["@doctrine.orm.entity_manager", "@translator", "@App\\Service\\Setting\\SettingService"]
+
+    App\Service\Device\DeviceService:
+        autowire: true
+        lazy:  true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $noteService: "@app.note_service"
+            $deviceFinder: "@fos_elastica.finder.device"
+            $eventDispatcher: "@event_dispatcher"
+            $entityHistoryService: "@app.entity_history_service"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $fileService: "@app.local_file_service"
+            $devicesVehiclesImport: "@App\\Service\\Device\\Import\\DevicesVehiclesImport"
+            $vehicleObjectPersister: "@fos_elastica.object_persister.vehicle"
+            $deviceObjectPersister: "@fos_elastica.object_persister.device"
+            $clientObjectPersister: "@fos_elastica.object_persister.client"
+            $paginator: "@knp_paginator"
+
+    App\Service\MobileDevice\MobileDeviceService:
+        autowire: true
+        lazy:  true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager"]
+
+    App\Service\Vehicle\VehicleService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $vehicleFinder: "@fos_elastica.finder.vehicle"
+            $updateDriverProducer: "@old_sound_rabbit_mq.update_driver_in_related_entries_producer"
+            $fileService: "@app.local_file_service"
+            $trackerProviderService: "@App\\Service\\TrackerProvider\\TrackerProviderService"
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+            $deviceObjectPersister: '@fos_elastica.object_persister.device'
+            $fcmService: "@App\\Service\\Firebase\\FCMService"
+
+    App\Service\Depot\DepotService:
+        autowire: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager", "@fos_elastica.finder.depot", "@event_dispatcher"]
+
+    tracker.tracker_factory:
+        class: App\Service\Tracker\Factory\TrackerFactory
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+            $translator: "@translator"
+            $eventDispatcher: "@event_dispatcher"
+            $simulatorBaseImei: "%env(TELTONIKA_SIMULATOR_BASE_IMEI)%"
+            $simulatorDevicesCount: "%env(TELTONIKA_SIMULATOR_DEVICES_COUNT)%"
+            $traccarService: "@App\\Service\\Traccar\\TraccarService"
+            $engineOnTimeService: "@App\\Service\\EngineOnTime\\EngineOnTimeService"
+            $memoryDb: "@app.memoryDb"
+        tags:
+            - { name: monolog.logger, channel: tracker }
+
+    App\Producer\SensorEventProducer: "@old_sound_rabbit_mq.tracker_sensor_event_producer"
+
+    tracker.simulator_tracker_factory:
+        class: App\Service\Tracker\Factory\SimulatorTrackerFactory
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+            $translator: "@translator"
+            $simulatorBaseImei: "%env(TELTONIKA_SIMULATOR_BASE_IMEI)%"
+            $simulatorDevicesCount: '%env(TELTONIKA_SIMULATOR_DEVICES_COUNT)%'
+            $devicesOffsetOnTrackTs: "%env(TELTONIKA_SIMULATOR_DEVICES_OFFSET_ON_TRACK_TS)%"
+        tags:
+            - { name: monolog.logger, channel: tracker }
+
+    tracker.request.listener:
+        class: App\Listener\RequestListener
+        arguments: ["@logger", "@doctrine.orm.entity_manager"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onRequest }
+            - { name: monolog.logger, channel: tracker }
+
+    App\Service\VehicleGroup\VehicleGroupService:
+        autowire: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager", "@event_dispatcher", "@fos_elastica.finder.vehicleGroup"]
+
+    App\Service\UserGroup\UserGroupService:
+        autowire: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager", "@event_dispatcher", "@fos_elastica.finder.userGroup"]
+
+    App\Service\Validation\ValidationService:
+        autowire: true
+        arguments:
+          ["@translator"]
+
+    App\EventListener\Notification\NotificationListener:
+        class: App\EventListener\Notification\NotificationListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+          ["@doctrine.orm.entity_manager", "@old_sound_rabbit_mq.events_producer"]
+
+    App\EventListener\Route\RouteListener:
+        class: App\EventListener\Route\RouteListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+          ["@doctrine.orm.entity_manager", "@security.token_storage", "@App\\Service\\Device\\DeviceService"]
+
+    App\EventListener\Area\AreaListener:
+        class: App\EventListener\Area\AreaListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $deviceService: '@App\Service\Device\DeviceService'
+            $producer: '@old_sound_rabbit_mq.areas_producer'
+
+    App\EventListener\Asset\AssetListener:
+        class: App\EventListener\Asset\AssetListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+          ["@doctrine.orm.entity_manager", "@app.entity_history_service", "@fos_elastica.object_persister.vehicle"]
+
+    app.notification.event_consumer:
+        class: App\Service\Notification\Queue\Consumer\NotificationEventConsumer
+
+    App\Service\Notification\NotificationCollectorService:
+        public: true
+        autowire: true
+
+    app.route.check_area:
+        class: App\Service\Area\CheckAreaConsumer
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $logger: "@logger"
+            $slaveEntityManager: "@doctrine.orm.slave_entity_manager"
+
+    app.tracker.voltage:
+        class: App\Service\Device\DeviceVoltageQueue\DeviceVoltageConsumer
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $memoryDb: "@app.memoryDb"
+
+    app.tracker.battery:
+        class: App\Service\Device\DeviceBatteryQueue\DeviceBatteryConsumer
+        arguments: [ "@doctrine.orm.entity_manager" ]
+
+    app.tracker.towing:
+        class: App\Service\Device\DeviceTowingQueue\DeviceTowingConsumer
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    app.tracker.panic_button:
+        class: App\Service\Device\DeviceQueue\PanicButton\PanicButtonConsumer
+        arguments: [ "@doctrine.orm.entity_manager" ]
+
+    app.tracker.overspeeding:
+        class: App\Service\Device\DeviceOverSpeedingQueue\DeviceOverSpeedingConsumer
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $mapServiceResolver: "@app.map_resolver"
+            $memoryDb: "@app.memoryDb"
+
+    app.tracker.exceeding_speed_limit:
+        class: App\Service\Device\DeviceOverSpeedingQueue\DeviceExceedingSpeedLimitConsumer
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $mapServiceResolver: "@app.map_resolver"
+            $memoryDb: "@app.memoryDb"
+            $tomtomKey: "%env(TOMTOM_KEY)%"
+
+    app.tracker.long_driving:
+        class: App\Service\Device\DeviceQueue\DeviceLongDrivingQueue\DeviceLongDrivingConsumer
+        arguments: [ "@doctrine.orm.entity_manager" ]
+
+    app.tracker.long_standing:
+        class: App\Service\Device\DeviceQueue\DeviceLongStanding\DeviceLongStandingConsumer
+        arguments: [ "@doctrine.orm.entity_manager" ]
+
+    app.tracker.engine_on_time:
+        class: App\Service\Device\DeviceQueue\EngineOnTime\EngineOnTimeConsumer
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+
+    app.tracker.sensor_event:
+        class: App\Service\Device\DeviceSensorQueue\DeviceSensorConsumer
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    app.tracker.io:
+        class: App\Service\Device\DeviceIOQueue\IOConsumer
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    app.routes.post_handle:
+        class: App\Service\Route\RoutePostHandle\RoutePostHandleConsumer
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    app.tracker.moving_without_drive:
+        class: App\Service\Device\DeviceQueue\MovingWithoutDriver\MovingWithoutDriverConsumer
+        autowire: true
+        arguments:
+              $em: "@doctrine.orm.entity_manager"
+              $memoryDb: "@app.memoryDb"
+
+    app.tracker.moving:
+        class: App\Service\Device\DeviceQueue\DeviceMovingQueue\DeviceMovingConsumer
+        autowire: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $memoryDb: "@app.memoryDb"
+
+    app.notification.null_transport_consumer:
+        class: App\Service\Notification\Queue\Consumer\NullTransportConsumer
+
+    app.notification.email_transport_consumer:
+        class: App\Service\Notification\Queue\Consumer\EmailTransportConsumer
+        arguments:
+            $mailSender: '@app.mail_sender.real'
+
+    app.notification.webapp_transport_consumer:
+        class: App\Service\Notification\Queue\Consumer\WebAppTransportConsumer
+        autowire: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+            $trackerProviderService: "@App\\Service\\TrackerProvider\\TrackerProviderService"
+
+    app.notification.mobileapp_transport_consumer:
+        class: App\Service\Notification\Queue\Consumer\MobileAppTransportConsumer
+        autowire: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $fcmService: "@App\\Service\\Firebase\\FCMService"
+            $logger: "@logger"
+
+    app.notification.sms_transport_consumer:
+        class: App\Service\Notification\Queue\Consumer\SmsTransportConsumer
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $smsService: "@App\\Service\\Sms\\SmsService"
+            $logger: "@logger"
+
+    App\Service\Reminder\ReminderService:
+        autowire: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $reminderFinder: "@fos_elastica.finder.reminder"
+            $eventDispatcher: "@event_dispatcher"
+            $validationService: "@App\\Service\\Validation\\ValidationService"
+            $serviceRecordService: "@App\\Service\\ServiceRecord\\ServiceRecordService"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $dashboardCache: "@app.redis.dashboard"
+
+    App\Service\ReminderCategory\ReminderCategoryService:
+        autowire: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager", "@fos_elastica.finder.reminderCategory", "@event_dispatcher",
+           "@App\\Service\\Validation\\ValidationService"]
+
+    App\Service\ServiceRecord\ServiceRecordService:
+        autowire: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $serviceRecordFinder: "@fos_elastica.finder.serviceRecord"
+            $eventDispatcher: "@event_dispatcher"
+            $validationService: "@App\\Service\\Validation\\ValidationService"
+            $fileService: "@app.local_file_service"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $vehicleService: "@App\\Service\\Vehicle\\VehicleService"
+            $dashboardCache: "@app.redis.dashboard"
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+
+    App\Service\Vehicle\DocumentService:
+        class: App\Service\Vehicle\DocumentService
+        arguments:
+            $documentFinder: '@fos_elastica.finder.document'
+            $documentObjectPersister: '@fos_elastica.object_persister.document'
+
+    App\EventListener\Vehicle\Document\DocumentEntityListener:
+        class: App\EventListener\Vehicle\Document\DocumentEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
+    App\EventListener\Document\DocumentRecordEntityListener:
+        class: App\EventListener\Document\DocumentRecordEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@fos_elastica.object_persister.document'
+
+    App\EventListener\AreaHistory\AreaHistoryEntityListener:
+        class: App\EventListener\AreaHistory\AreaHistoryEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@fos_elastica.object_persister.vehicle'
+
+    App\EventListener\Reminder\ReminderEntityListener:
+        class: App\EventListener\Reminder\ReminderEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@fos_elastica.object_persister.vehicle'
+            - '@fos_elastica.object_persister.asset'
+
+    App\EventListener\ServiceRecord\ServiceRecordEntityListener:
+        class: App\EventListener\ServiceRecord\ServiceRecordEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@fos_elastica.object_persister.vehicle'
+            - '@fos_elastica.object_persister.asset'
+
+    App\EventListener\AreaGroup\AreaGroupEntityListener:
+        class: App\EventListener\AreaGroup\AreaGroupEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@service_container'
+            - '@fos_elastica.object_persister.vehicle'
+
+    App\Service\Vehicle\DocumentRecordService:
+        class: App\Service\Vehicle\DocumentRecordService
+        arguments:
+            $fileService: '@app.local_file_service'
+
+    Jsor\Doctrine\PostGIS\Event\ORMSchemaEventSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    App\Service\Notification\EntityPlaceholderService:
+        autowire: true
+        arguments:
+            - '%env(APP_FRONT_URL)%'
+            - '@placeholder.placeholder_factory'
+            - '@placeholder.event_entity_handler_factory'
+
+    placeholder.placeholder_factory:
+        class: App\Service\Notification\Placeholder\Factory\PlaceholderFactory
+        public: true
+
+    placeholder.event_entity_handler_factory:
+        class: App\Service\Notification\Placeholder\Factory\EventEntityHandlerFactory
+        public: true
+        arguments:
+            - '@translator'
+
+    App\Service\Area\AreaService:
+        autowire: true
+        public: true
+        arguments:
+            - '@translator'
+            - '@doctrine.orm.entity_manager'
+            - '@fos_elastica.finder.area'
+            - '@event_dispatcher'
+            - '@App\Service\Validation\ValidationService'
+            - '@app.entity_history_service'
+            - '@App\Service\Vehicle\VehicleService'
+            - '@doctrine.orm.slave_entity_manager'
+
+    App\Service\Asset\AssetService:
+        autowire: true
+        public: true
+        arguments:
+            $translator: '@translator'
+            $em: '@doctrine.orm.entity_manager'
+            $assetFinder: '@fos_elastica.finder.asset'
+            $eventDispatcher: '@event_dispatcher'
+            $validationService: '@App\Service\Validation\ValidationService'
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $userService: "@App\\Service\\User\\UserService"
+
+    App\EventListener\Area\AreaEntityListener:
+        class: App\EventListener\Area\AreaEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@security.token_storage'
+            - '@service_container'
+
+    App\EventListener\Asset\AssetEntityListener:
+        class: App\EventListener\Asset\AssetEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@security.token_storage'
+            - "@App\\Service\\Asset\\AssetService"
+
+    App\Service\Notification\NotificationService:
+        autowire: true
+        arguments:
+            $notificationFinder: '@fos_elastica.finder.notification'
+
+    App\Service\Notification\AlertService:
+        autowire: true
+        arguments:
+            $alertSettingFinder: '@fos_elastica.finder.alertSubType'
+
+    App\Service\Notification\NotificationMobileDeviceService:
+        autowire: true
+        lazy:  true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+
+    recipient.recipient_type_factory:
+        class: App\Service\Notification\Recipient\Factory\RecipientTypeFactory
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+
+    App\Service\Notification\RecipientService:
+        autowire: true
+        lazy: true
+        arguments:
+          [ "@doctrine.orm.entity_manager", "@recipient.recipient_type_factory"]
+
+    app.mail_sender.real:
+        class: App\Mailer\MailSender
+        lazy: true
+        public: true
+        arguments:
+            $from: "%env(SYMFONY__MAIL__FROM)%"
+            $appFrontUrl: "%env(APP_FRONT_URL)%"
+            $logger: "@logger"
+
+    App\Service\EventLog\EventLogService:
+        autowire: true
+        arguments:
+#            $evenLogFinder: '@fos_elastica.finder.eventLog'
+            $translator: "@translator"
+
+    App\Service\EventLog\Report\EventLogReportService:
+        autowire: true;
+        arguments:
+#            $evenLogFinder: '@fos_elastica.finder.eventLog'
+            $translator: "@translator"
+
+    App\Service\FuelCard\FuelCardService:
+        autowire: true;
+        arguments:
+            $fuelCardFinder: "@fos_elastica.finder.fuelCard"
+            $translator: "@translator"
+            $fileService: "@app.local_file_service"
+            $em: "@doctrine.orm.entity_manager"
+
+    App\Service\FuelStation\FuelStationService:
+        autowire: true;
+        arguments:
+            $fileService: "@app.local_file_service"
+
+    App\Service\FuelType\FuelIgnoreListService:
+        autowire: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $fuelIgnoreFinder: "@fos_elastica.finder.fuelIgnore"
+            $eventDispatcher: "@event_dispatcher"
+            $validator: "@validator"
+            $fuelIgnoreListPersister: "@fos_elastica.object_persister.fuelIgnore"
+
+    App\Service\FuelType\FuelMappingService:
+        autowire: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $fuelMappingFinder: "@fos_elastica.finder.fuelMapping"
+            $eventDispatcher: "@event_dispatcher"
+            $validator: "@validator"
+
+    App\Service\FuelType\FuelTypeService:
+        autowire: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $fuelTypeFinder: "@fos_elastica.finder.fuelType"
+
+    App\Service\FuelCard\Report\FuelCardReportService:
+        autowire: true;
+        arguments:
+            $finder: "@fos_elastica.finder.fuelCard"
+            $em: "@doctrine.orm.entity_manager"
+            $translator: "@translator"
+
+    App\Service\AreaGroup\AreaGroupService:
+        autowire: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager", "@event_dispatcher", "@fos_elastica.finder.areaGroup"]
+
+    app.route_service:
+        class: App\Service\Route\RouteService
+        lazy: true
+        autowire: true
+        public: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+            $deviceService: "@App\\Service\\Device\\DeviceService"
+            $validator: "@validator"
+            $settingService: "@App\\Service\\Setting\\SettingService"
+            $mapServiceResolver: "@app.map_resolver"
+            $vehicleService: "@App\\Service\\Vehicle\\VehicleService"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $routePostHandleProducer: '@old_sound_rabbit_mq.routes_post_handle_producer'
+            $routeAreaProducer: '@old_sound_rabbit_mq.route_area_producer'
+            $logger: "@logger"
+
+    App\EventListener\Route\RouteEntityListener:
+        class: App\EventListener\Route\RouteEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
+    app.elasticsearch.fullSearch:
+        class: App\Service\ElasticSearch\FullSearch
+        autowire: true
+        lazy: true
+        public: true
+        arguments:
+            $indexManager: "@fos_elastica.index_manager"
+            $env: "%kernel.environment%"
+
+    app.map_resolver:
+        class: App\Service\MapService\MapServiceResolver
+        autowire: true
+        public: true
+        lazy: true
+        arguments:
+            $mapBoxService: "@app.mapbox_service"
+
+    app.mapbox_service: "@App\\Service\\MapService\\MapBox\\MapBoxService"
+    App\Service\MapService\MapBox\MapBoxService:
+        class: App\Service\MapService\MapBox\MapBoxService
+        lazy: true
+        autowire: true
+        public: true
+        arguments:
+            $logger: "@logger"
+            $mapBoxKey: "%env(MAPBOX_KEY)%"
+
+    App\EventListener\Tracker\TrackerHistoryLastEntityListener:
+        class: App\EventListener\Tracker\TrackerHistoryLastEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
+    App\EventListener\FuelCard\FuelCardEntityListener:
+        class: App\EventListener\FuelCard\FuelCardEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $mapServiceResolver: "@app.map_resolver"
+
+    App\EventListener\Idling\IdlingEntityListener:
+        class: App\EventListener\Idling\IdlingEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
+    App\EventListener\Speeding\SpeedingEntityListener:
+        class: App\EventListener\Speeding\SpeedingEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
+    App\EventListener\Tracker\TrackerHistoryIOEntityListener:
+        class: App\EventListener\Tracker\TrackerHistoryIOEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+
+    app.idling_service:
+        class: App\Service\Idling\IdlingService
+        autowire: true
+        public: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+
+    app.speeding_service:
+        class: App\Service\Speeding\SpeedingService
+        autowire: true
+        public: true
+
+    App\Service\Route\SetDriverInRelatedEntriesConsumer:
+        class: App\Service\Route\SetDriverInRelatedEntriesConsumer
+        autowire: true
+        public: true
+
+    App\Service\InspectionForm\InspectionFormService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $eventDispatcher: "@event_dispatcher"
+            $validationService: "@App\\Service\\Validation\\ValidationService"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $inspectionFormFinder: "@fos_elastica.finder.inspectionForm"
+            $fileService: "@app.local_file_service"
+
+    App\Service\Route\Driver\SetDriverExecutorRegistry: ~
+
+    security.access.project_voter:
+        class:      App\Security\BaseVoter
+        arguments: [ "@doctrine.orm.entity_manager", "@translator" ]
+        public:     true
+        tags:
+            - { name: security.voter }
+
+    app.redis.dashboard:
+        class: App\Service\Redis\RedisService
+        public: true
+        autowire: true
+        lazy: true
+        arguments:
+            $cache: "@app.cache.dashboard"
+
+    app.memoryDb:
+        class: App\Service\Redis\MemoryDbService
+        public: true
+        autowire: true
+        lazy: true
+        arguments:
+            $appCacheMemoryDb: "@app.cache.memory_db"
+
+    App\Service\DrivingBehavior\DrivingBehaviorService:
+        autowire: true
+        lazy: true
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+            $vehicleService: "@App\\Service\\Vehicle\\VehicleService"
+            $settingService: "@App\\Service\\Setting\\SettingService"
+            $idlingService : "@app.idling_service"
+            $userService: "@App\\Service\\User\\UserService"
+            $translator: "@translator"
+            $dashboardCache: "@app.redis.dashboard"
+
+    App\Service\Firebase\FCMService:
+        public: true
+        lazy: true
+        autowire: true
+        arguments:
+            $googleAppConfig: "%kernel.project_dir%%env(GOOGLE_APPLICATION_CREDENTIALS)%"
+
+    App\Service\Vehicle\VehicleOdometerService:
+        public: true
+        autowire: true
+        lazy: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $validator: "@validator"
+            $paginator: "@knp_paginator"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+
+    App\Util\AwsS3ForPrism:
+        public: true
+        autowire: true
+        lazy: true
+        arguments:
+            $key: "%env(AWS_KEY)%"
+            $secret: "%env(AWS_SECRET)%"
+            $bucket: "%env(AWS_BUCKET)%"
+
+    App\Service\DigitalForm\ElasticSearchVehicleInspection:
+        arguments:
+          ["@fos_elastica.finder.digitalFormAnswer"]
+
+    App\Service\DigitalForm\ElasticSearchSchedule:
+        arguments:
+          ["@fos_elastica.finder.digitalFormSchedule"]
+
+    App\Service\DigitalForm\DigitalFormService:
+        arguments:
+            $persister: '@fos_elastica.object_persister.digitalFormSchedule'
+
+    App\Service\Reseller\ResellerService:
+        autowire: true
+        lazy: true
+        public: true
+        arguments:
+            $resellerFinder: "@fos_elastica.finder.reseller"
+            $translator: "@translator"
+            $fileService: "@app.local_file_service"
+            $em: "@doctrine.orm.entity_manager"
+            $timeZoneService: "@App\\Service\\Setting\\TimeZoneService"
+            $userService: "@App\\Service\\User\\UserService"
+            $noteService: "@app.note_service"
+            $platformSettingService: "@app.platform_setting_service"
+
+    tracker.tracker_command_factory:
+        class: App\Service\Tracker\Factory\TrackerCommandFactory
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+
+    App\Service\Device\DeviceCommandService:
+        autowire: true
+        lazy:  true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $trackerFactory: "@tracker.tracker_factory"
+            $trackerCommandFactory: "@tracker.tracker_command_factory"
+            $validator: "@validator"
+            $logger: "@logger"
+
+    App\Service\Device\DeviceSensorService:
+        autowire: true
+        lazy:  true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $validator: "@validator"
+            $deviceSensorFinder: "@fos_elastica.finder.deviceSensor"
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+            $paginator: "@knp_paginator"
+
+    App\Service\Notification\MessageService:
+        class: App\Service\Notification\MessageService
+        public: true
+        arguments:
+            $acknowledgeService: "@App\\Service\\Notification\\AcknowledgeService"
+
+    App\Service\Sensor\SensorService:
+        autowire: true
+        lazy:  true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $validator: "@validator"
+            $sensorFinder: "@fos_elastica.finder.sensor"
+
+    App\EventListener\DeviceSensor\DeviceSensorListener:
+        class: App\EventListener\DeviceSensor\DeviceSensorListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $vehicleService: '@App\Service\Vehicle\VehicleService'
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+
+    App\EventListener\Sensor\SensorListener:
+        class: App\EventListener\Sensor\SensorListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $entityHistoryService: "@app.entity_history_service"
+            $sensorService: "@App\\Service\\Sensor\\SensorService"
+
+    app.device.resolver:
+        class: App\Service\Device\DeviceServiceResolver
+        public: true
+        arguments: ["@service_container"]
+
+    doctrineMigrationDiffListener:
+        class: App\EventListener\Migration\MigrationEventListener
+        arguments:
+            $env: "%kernel.environment%"
+        tags:
+            - {name: doctrine.event_subscriber, connection: default}
+
+    App\Service\ScheduledReport\ScheduledReportService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $reportFinder: "@fos_elastica.finder.scheduledReport"
+
+    App\EventListener\ScheduledReport\ScheduledReportEntityListener:
+        class: App\EventListener\ScheduledReport\ScheduledReportEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            - '@service_container'
+
+    App\EventListener\Reseller\ResellerEntityListener:
+        class: App\EventListener\Reseller\ResellerEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $translator: "@translator"
+            $timeZoneService: "@App\\Service\\Setting\\TimeZoneService"
+
+    app.reseller.reseller_listener:
+        class: App\EventListener\Reseller\ResellerListener
+        tags:
+            - { name: kernel.event_listener, event: app.event.reseller.updated, method: onResellerUpdated }
+            - { name: kernel.event_listener, event: app.event.reseller.created, method: onResellerCreated }
+        arguments: ["@doctrine.orm.entity_manager", "@app.entity_history_service"]
+
+    App\Service\Route\RoutePostHandle\RoutePostHandleProducer: '@old_sound_rabbit_mq.routes_post_handle_producer'
+
+    App\Command\Tracker\UpdateRouteLocationCommand:
+        tags:
+            - { name: 'console.command', command: 'app:tracker:update-route-location' }
+        arguments:
+            $assetPersister: '@fos_elastica.object_persister.asset'
+
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
+
+    app.platform_setting_service:
+        class: App\Service\PlatformSetting\PlatformSettingService
+        autowire: true
+        public: true
+        arguments:
+            $translator: "@translator"
+            $em: "@doctrine.orm.entity_manager"
+            $fileService: "@app.local_file_service"
+
+    App\Command\ExportVehicleData:
+        tags:
+            - { name: 'console.command', command: 'app:export-vehicle-data' }
+        arguments:
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+            $em: "@doctrine.orm.entity_manager"
+
+    App\EntityManager\SlaveEntityManager:
+        decorates: doctrine.orm.slave_entity_manager
+
+    App\EntityManager\AuroraEntityManager:
+        decorates: doctrine.orm.aurora_entity_manager
+
+    App\Command\SendFleetioDataCommand:
+        tags:
+            - { name: 'console.command', command: 'app:send-fleetio-data' }
+        arguments:
+            $partnerToken: "%env(FLEETIO_PARTNER_TOKEN)%"
+
+    Symfony\Bridge\Monolog\Processor\ConsoleCommandProcessor:
+        tags:
+            - { name: monolog.processor, handler: console }
+
+    Symfony\Bridge\Monolog\Processor\RouteProcessor:
+        tags:
+            - { name: monolog.processor, handler: nested }
+
+    Symfony\Bridge\Monolog\Processor\TokenProcessor:
+        tags:
+            - { name: monolog.processor, handler: nested }
+
+    Monolog\Processor\IntrospectionProcessor:
+        tags:
+            - { name: monolog.processor }
+        arguments:
+            $skipClassesPartials: ["Symfony\\"]
+
+    Monolog\Processor\MemoryPeakUsageProcessor:
+        tags:
+            - { name: monolog.processor }
+        arguments:
+            $useFormatting: false
+
+    App\Util\Monolog\RequestIdProcessor:
+        tags:
+            - { name: monolog.processor }
+
+    app.monolog.formatter.json:
+        class: Monolog\Formatter\JsonFormatter
+        calls:
+            - [ includeStacktraces ]
+        arguments:
+            $batchMode: !php/const Monolog\Formatter\JsonFormatter::BATCH_MODE_NEWLINES
+
+    App\Service\Traccar\TraccarService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $eventDispatcher: "@event_dispatcher"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $logger: "@logger"
+            $traccarWebUrl: '%env(TRACCAR_WEB_URL)%'
+            $traccarWebUser: '%env(TRACCAR_WEB_USER)%'
+            $traccarWebPass: '%env(TRACCAR_WEB_PASS)%'
+            $trackerProviderService: "@App\\Service\\TrackerProvider\\TrackerProviderService"
+            $engineOnTimeService: "@App\\Service\\EngineOnTime\\EngineOnTimeService"
+            $memoryDb: "@app.memoryDb"
+            $billingEntityHistoryService: "@App\\Service\\Billing\\BillingEntityHistoryService"
+
+    App\Service\TrackerProvider\TrackerProviderService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $eventDispatcher: "@event_dispatcher"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $logger: "@logger"
+            $trackerProviderUrl: '%env(TRACKER_PROVIDER_URL)%'
+            $trackerProvider2Url: '%env(TRACKER_PROVIDER2_URL)%'
+            $trackerProviderSecret: '%env(TRACKER_PROVIDER_SECRET)%'
+
+    App\Service\Report\ReportService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $emSlave: "@doctrine.orm.slave_entity_manager"
+            $translator: "@translator"
+            $reportBuilder: '@App\Report\Core\Factory\ReportBuilderFactory'
+            $outputFactory: '@App\Report\Core\Factory\ReportOutputFactory'
+
+    App\Report\Core\Factory\ReportOutputFactory:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $paginator: "@knp_paginator"
+            $pdfService: '@App\Service\PdfService'
+
+    App\Service\EventLog\Report\ReportBuilder\ReportFacade:
+        autowire: true
+        arguments:
+            - '@App\Service\EventLog\Report\CriteriaBuilder\CriteriaBuilder'
+
+    App\Service\EngineOnTime\EngineOnTimeService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+            $memoryDb: "@app.memoryDb"
+
+    App\Service\Chat\CentrifugoService:
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $eventDispatcher: "@event_dispatcher"
+            $notificationDispatcher: "@App\\Service\\Notification\\EventDispatcher"
+            $logger: "@logger"
+            $fileService: "@App\\Service\\File\\FileServiceInterface"
+            $settingService: "@App\\Service\\Setting\\SettingService"
+            $chatFinder: "@fos_elastica.finder.chat"
+            $paginator: "@knp_paginator"
+            $fcmService: "@App\\Service\\Firebase\\FCMService"
+            $centrifugoWebUrl: '%env(CENTRIFUGO_WEB_URL)%'
+            $centrifugoApiKey: '%env(CENTRIFUGO_API_KEY)%'
+
+    App\EventListener\Chat\ChatHistoryEntityListener:
+        class: App\EventListener\Chat\ChatHistoryEntityListener
+        tags:
+            - { name: doctrine.orm.entity_listener }
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $logger: "@logger"
+
+    App\Service\Chat\ChatServiceInterface: "@App\\Service\\Chat\\CentrifugoService"
+    App\Service\File\FileServiceInterface: "@app.local_file_service"
+
+    App\Service\File\ImageService:
+        class: App\Service\File\ImageService
+        autowire: true
+        lazy:  true
+        public: true
+        arguments:
+            $cacheManager: "@liip_imagine.cache.manager"
+            $dataManager: "@liip_imagine.data.manager"
+            $filterManager: "@liip_imagine.filter.manager"
+
+    app.tracker.today_data:
+        class: App\Service\Device\TodayDataQueue\TodayDataConsumer
+
+    app.tracker.engine_history:
+        class: App\Service\Device\EngineHistoryQueue\EngineHistoryConsumer
+
+    App\Command\ScheduledReportCommand:
+        arguments:
+            $logger: "@logger"
+
+    App\Command\TestCommand:
+        arguments:
+            $logger: "@logger"
+
+    App\Service\Auth\AuthService:
+        lazy: true
+        arguments:
+            $translator: "@translator"
+            $refreshJwtTtl: "%env(REFRESH__JWT__TTL)%"
+            $jwtTtl: "%jwt_ttl%"
+
+    ### SSO (SAML)
+    app.sso.auth_success_handler:
+        class: App\Service\SSO\Security\SAMLAuthenticationSuccessHandler
+        arguments:
+            $frontSSOUrl: '%env(SSO_FRONTEND_URL)%'
+    app.sso.auth_failure_handler:
+        class: App\Service\SSO\Security\SAMLAuthenticationFailureHandler
+    app.sso.user_provider:
+        class: App\Service\SSO\Security\SAMLUserProvider
+        arguments:
+            $em: "@doctrine.orm.entity_manager"
+            $userService: '@App\Service\SSO\SSOUserService'
+    app.sso.auth:
+        class: OneLogin\Saml2\Auth
+        arguments:
+            0: '%sso_saml.settings%'
+    App\Service\SSO\Security\SAMLAuthenticator:
+        lazy: true
+        arguments:
+            $oneLoginAuth: '@app.sso.auth'
+            $userProvider: '@app.sso.user_provider'
+            $successHandler: '@app.sso.auth_success_handler'
+            $failureHandler: '@app.sso.auth_failure_handler'
+            $settings: '%sso_saml.settings%'
+            $frontUrl: '%env(APP_FRONT_URL)%'
+
+    App\Service\Streamax\StreamaxService:
+        autowire: true
+        lazy:  true
+        arguments:
+            $signature: '%env(STREAMAX_SIGNATURE)%'
+            $secretKey: '%env(STREAMAX_SECRET_KEY)%'
+            $tenantId: '%env(STREAMAX_TENANT_ID)%'
+            $streamaxProducer: '@old_sound_rabbit_mq.tracker_streamax_producer'
+            $streamaxPostponedProducer: '@old_sound_rabbit_mq.tracker_streamax_postponed_producer'
+            $streamaxProxyProducer: '@old_sound_rabbit_mq.tracker_streamax_proxy_producer'
+            $BEApiUrl: '%env(API_URL)%'
+            $BERequestTimeout: '%env(TRACKER_BE_REQUEST_TIMEOUT)%'
+
+    app.tracker.streamax_consumer:
+        class: App\Service\Streamax\Consumer\StreamaxConsumer
+        arguments:
+            $streamaxService: '@App\Service\Streamax\StreamaxService'
+            $logger: "@logger"
+
+    app.tracker.streamax_postponed_consumer:
+        class: App\Service\Streamax\Consumer\StreamaxPostponedConsumer
+        arguments:
+            $streamaxService: '@App\Service\Streamax\StreamaxService'
+            $logger: "@logger"
+
+    app.tracker.streamax_proxy_consumer:
+        class: App\Service\Streamax\Consumer\StreamaxProxyConsumer
+        arguments:
+            $streamaxService: '@App\Service\Streamax\StreamaxService'
+            $logger: "@logger"
+
+    app.route.area_consumer:
+        class: App\Service\Route\RouteAreaConsumer
+
+    App\Command\Integration\GearBoxCommand:
+        tags:
+            - { name: 'console.command', command: 'app:gearbox:data' }
+        arguments:
+            $clientId: "%env(GEARBOX_CLIENT_ID)%"
+            $clientSecret: "%env(GEARBOX_CLIENT_SECRET)%"
+
+    App\Service\Device\Import\DevicesVehiclesDriverImport:
+        autowire: true
+        lazy:  true
+        arguments:
+            $vehiclePersister: "@fos_elastica.object_persister.vehicle"
+            $devicePersister: "@fos_elastica.object_persister.device"
+            $userPersister: "@fos_elastica.object_persister.user"
+
+    App\Command\DeviceExceedingSpeedLimitCommand:
+        class: App\Command\DeviceExceedingSpeedLimitCommand
+        arguments:
+            $mapServiceResolver: "@app.map_resolver"
+            $tomtomKey: "%env(TOMTOM_KEY)%"
+
+    App\Command\Tracker\TransferTrackerPayloadsCommand:
+        class: App\Command\Tracker\TransferTrackerPayloadsCommand
+        arguments:
+            $BEApiUrl: "%env(API_URL)%"

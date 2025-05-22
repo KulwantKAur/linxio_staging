@@ -1,0 +1,12 @@
+fos_rest:
+  param_fetcher_listener: true
+  body_listener:
+    array_normalizer:
+      forms: true
+
+  routing_loader: false
+
+  exception:
+    codes:
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+      'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT

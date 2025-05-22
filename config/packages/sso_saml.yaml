@@ -1,0 +1,96 @@
+sso_saml:
+    # Default settings
+    idp:
+        entityId: 'https://app.linxio.com'
+        singleSignOnService:
+            url: 'https://app.linxio.com'
+            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+        singleLogoutService:
+            url: 'https://app.linxio.com'
+            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+        x509cert: 'x509cert'
+    sp:
+        entityId: '%env(SSO_SP_IDP_ENTITY_ID)%'
+        assertionConsumerService:
+            url: '%env(SSO_SP_ACS_URL)%'
+            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+        NameIDFormat: 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'
+        singleLogoutService:
+            url: '%env(SSO_SP_LOGOUT_URL)%'
+            binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+        x509cert: '%env(SSO_SP_X509CERT_KEY)%'
+        privateKey: '%env(SSO_SP_PRIVATE_KEY)%'
+        attributeConsumingService:
+            serviceName: 'Linxio'
+            serviceDescription: 'Linxio'
+            requestedAttributes:
+                email:
+                    name: 'email'
+                    isRequired: true
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                    attributeValue: 'email@example.com'
+                role:
+                    name: 'role'
+                    isRequired: true
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                    attributeValue: 'manager|driver|support|admin|account-manager|installer'
+                firstName:
+                    name: 'firstName'
+                    isRequired: true
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                lastName:
+                    name: 'lastName'
+                    isRequired: true
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                phone:
+                    name: 'phone'
+                    isRequired: true
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                position:
+                    name: 'position'
+                    isRequired: false
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                abn:
+                    name: 'abn'
+                    isRequired: false
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                    attributeValue: 'Business ID'
+                chevronAccountId:
+                    name: 'chevronAccountId'
+                    isRequired: false
+                    nameFormat: 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic'
+                    attributeValue: 'Chevron Account ID'
+    # Optional settings
+    baseurl: '%env(SSO_BASE_URL)%'
+    strict: true
+    debug: false
+    security:
+        nameIdEncrypted: false
+        authnRequestsSigned: false
+        # false by default
+        # Okta: enable option 'Validate SAML requests with signature certificates.'
+        logoutRequestSigned: true
+        logoutResponseSigned: false
+        wantMessagesSigned: false
+        wantAssertionsSigned: false
+        wantNameIdEncrypted: false
+        requestedAuthnContext: true
+        signMetadata: false
+        wantXMLValidation: true
+        relaxDestinationValidation: false
+        destinationStrictlyMatches: true
+        rejectUnsolicitedResponsesWithInResponseTo: false
+        signatureAlgorithm: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'
+        digestAlgorithm: 'http://www.w3.org/2001/04/xmlenc#sha256'
+    contactPerson:
+        technical:
+            givenName: 'Technical support'
+            emailAddress: 'developer@linxio.com'
+        support:
+            givenName: 'Support'
+            emailAddress: 'sales@linxio.com'
+    organization:
+        en:
+            name: 'Linxio'
+            displayname: 'Linxio'
+            url: 'https://linxio.com'

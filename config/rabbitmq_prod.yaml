@@ -1,0 +1,7 @@
+old_sound_rabbit_mq:
+  connections:
+    default:
+      ssl_context:
+        verify_peer: false
+
+      use_socket: false

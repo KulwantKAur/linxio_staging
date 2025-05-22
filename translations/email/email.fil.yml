@@ -1,0 +1,19 @@
+password_reset_request: Kahilingan sa pag-reset ng password
+dear: Minamahal
+detailed_information: Detalyadong impormasyon
+requested_reset_password: Ikaw (o isang tao mula sa iyong koponan) ay humiling para i-reset ang iyong password.
+visit_link_new_password: Pakibisita ang link paara tukuyin ang bagong password
+reset_password: I-reset ang Password
+copy_url: Kopyahin ang URL.
+best_regards: 'Pinakamahusay na Pagbati, %emailName%'
+linxio_cred: Mga Kredensyal ng Linxio
+hello_username: 'Kamusta, username'
+new_user_verify_phone: 'Bagong gumagamit %company%,  i-verify ang telepono'
+new_user_set_password: 'Bagong gumagamit %company%, i-set ang ang password.'
+client_sharing_link:  'Link ng pag share ng kliyente.'
+client_sharing_location:  'Lugar ng pag share ng kliyente.'
+drivers_name: Pangalan ng mga driver
+vehicle_regno: Numero ng rehistro ng sasakyan
+message: Mensahe
+tracking_link: Link sa pagsubaybay
+tracking_technology: Teknolohiya sa pagsubaybay

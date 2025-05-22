@@ -1,0 +1,3 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+  profiler: { only_exceptions: true }

@@ -1,0 +1,10 @@
+imports:
+    - { resource: ../../rabbitmq_test.yaml }
+
+services:
+    app.local_file_service:
+        class: App\Service\File\LocalFileServiceTest
+        autowire: true
+        public: true
+        arguments:
+          ["@translator", "@doctrine.orm.entity_manager"]

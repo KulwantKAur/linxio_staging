@@ -1,0 +1,6 @@
+import:
+  siteId: siteId
+  stationName: stationName
+  lng: lng
+  lat: lat
+  address: address

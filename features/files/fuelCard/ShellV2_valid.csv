@@ -1,0 +1,2 @@
+transactionDate,transactionOutlet,cardNumber,vehicleRegistration,driverName,costCentre,transactionMethod,docketAmount,odometer,orderNumber,product,pumpPrice,quantity,receiptNumber,city,state,shellCardAmountExGST,shellCardAmountIncGST,shellCardPriceIncGST,gst
+2022-09-21T16:25:00+10:00,COLES EXP 2720 ALBANY ORANA,"=""7034301095494362""",221SVP,POOL,,Card,66.23,29638,,UNLEADED PETROL,1.6590,39.92,165,ORANA,WA,58.39,64.23,1.6090,5.84

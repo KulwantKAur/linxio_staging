@@ -1,0 +1,855 @@
+user:
+  fullName: Name
+  email: Email
+  role: Role
+  lastLoggedAt: Last Login
+  last_logged_at: Last Login
+  status: Status
+  userGroups: User Groups
+  driverId: Driver ID
+  driverSensorId: Driver BLE Tag
+  phone: Phone
+  position: Position
+
+client:
+  name: Company Name
+  status: Status
+  plan: Plan
+  keyContact: Key contact
+  manager: Manager
+  usersCount: Users total
+  activeUsersCount: Users active
+  devicesCount: Devices total
+  activeDevicesCount: Devices active
+  vehiclesCount: Vehicles total
+  activeVehiclesCount: Vehicles active
+  createdAt: Created date
+  waed: Waed
+  salesManager: Sales Person
+  contractMonths: Contract Months
+
+vehicle:
+  id: Vehicle No.
+  model: Model
+  type: Type
+  defaultLabel: Vehicle Title
+  year: Year of issue
+  regDate: Year
+  vin: VIN
+  regNo: Vehicle reg. No.
+  status: Status
+  driver: Driver
+  driverName: Driver
+  depot: Depot
+  groups: Groups
+  fuelType: Fuel Type
+  fuelTankCapacity: Fuel Tank Capacity
+  averageDailyMileage: Average Daily Mileage
+  mileage: Mileage
+  engineHours: Engine Hours
+  deviceImei: Device imei
+
+device:
+  id: Device ID
+  model: Model
+  sn: SN
+  port: Port
+  hw: HW
+  sw: SW
+  imsi: IMSI
+  devEui: devEui
+  protocol: Protocol
+  client: Client
+  vendor: Vendor
+  status: Status
+  imei: IMEI
+  phone: Phone number
+  installDate: Installed date
+  vehicle: Vehicle
+  lastActiveTime: Last active time
+  createdAt: Created date
+  updatedAt: Updated date
+  updatedBy: Updated by
+  createdBy: Created by
+  iccid: ICCID
+  usage: Usage
+  vehicleRegNo: Vehicle regNo
+  statusExt: Connection
+  isDeactivated: Activity
+  addedToTeam: Device added
+  deactivatedAt: Deactivated
+  contractFinishAt: Contract ends
+  contractStartAt: Contract starts
+  contractId: Contract ID
+  lastDataReceivedAt: Last active
+  plan: Plan
+  reseller: Reseller
+  chevronAccountId: Chevron Account ID
+
+eventlog:
+  headers:
+    general:
+      id: ID
+      formattedDate: Date
+      importance: Importance
+      eventTeam: Team
+      eventType: Event Type
+      triggeredDetails: Triggered by (instance)
+      eventSource: Event Source
+      eventSourceType: Event Source Type
+      notificationGenerated: Notification generated?
+      notificationsList: Notifications
+      limit: Limit
+      oldValue: Old value
+      newValue: New value
+    userCreated:
+      triggeredDetails: By user
+      eventSource: New user
+    userBlocked:
+      triggeredDetails: By user
+      eventSource: Blocked user
+    userDeleted:
+      triggeredDetails: By user
+      eventSource: Deleted user
+    userPwdResset:
+      triggeredDetails: By user
+      eventSource: User
+    userNameChanged:
+      triggeredDetails: By user
+      eventSource: User
+    loginAsUser:
+      triggeredDetails: By user
+      eventSource: Logged as
+    clientCreated:
+      triggeredDetails: By user
+    deviceInfo:
+      triggeredDetails: By user
+      eventSource: Imei
+    documentRecordInfo:
+      triggeredDetails: By user
+      eventSource: Attach to
+      expiredDate: Expiration date
+      vehicleRegNo: Reg no
+      title: Title
+    documentInfo:
+      triggeredDetails: By user
+      eventSource: Title
+      expiredDate: Expiration date
+      vehicleRegNo: Reg no
+    vehicleInfo:
+      triggeredDetails: By user
+      eventSource: Reg no
+      defaultLabel: Default Label
+      title: Vehicle Title
+    trackerInfo:
+      triggeredDetails: Driver
+      eventSource: Reg no
+      shortDetails: Details
+      areas: Area
+      maxSpeed: Speed
+      speedOverLimitPercent: '% Over Limit'
+      duration: Duration
+      durationOffline: Duration offline
+      distance: Distance
+      deviceVoltage: Voltage
+      address: Address
+      temperature: Temperature
+      humidity: Humidity
+      batteryLevel: Battery Level
+      light: Light
+      status: Status
+      sensorIOTypeId: Digital I/O Type
+      deviceBatteryPercentage: Battery Percentage
+      imei: Imei
+    assetInfo:
+      createdBy: Created by
+      deletedBy: Deleted by
+      eventSource: Asset
+    digitalForm:
+      formNotCompleted:
+        eventSource: Reg no
+      eventSource: Title
+      title: Title
+      user: By user
+      triggeredDetails: Driver
+      form: Form title
+      vehicleRegNo: Reg no
+    sensor:
+      temperature: Temperature
+      humidity: Humidity
+      light: Light
+      batteryLevel: Battery Level
+      triggeredDetails: By sensor
+    data:
+      additionalParams:
+        timeDuration: Time
+        overSpeed: Speed
+        deviceVoltage: Voltage
+    stripe:
+      triggeredDetails: By user
+      errorMsg: Error message
+      extInvoiceId: Invoice
+    xero:
+      triggeredDetails: By user
+      errorMsg: Error message
+      extInvoiceId: Xero Invoice
+    invoice:
+      triggeredDetails: By user
+      errorMsg: Error message
+      extInvoiceId: Invoice
+    payment:
+      triggeredDetails: By user
+      errorMsg: Error message
+      extInvoiceId: Invoice
+
+fuelcard:
+  id: ID
+  model: Model
+  regNo: Regno
+  defaultLabel: Title
+  driver: Driver
+  groupsList: Groups
+  depotName: Depot
+  fuelType: Fuel Type
+  refueled: Refueled, L
+  total: Total
+  fuelPrice: Fuel price
+  petrolStation: Petrol Station
+  refueledFuelType: Fuel Type
+  startDate: Transaction Date
+  transactionDate: Transaction Date
+  reg_no: VEHICLE REGNO
+  depot: DEPOT
+  groups: GROUPS
+  mileage: Mileage
+  transactionTime: Transaction Time
+  fuelCardNumber: Fuel Card Number
+  cardAccountNumber: Card Account
+  vehicle: Vehicle Number
+  odometer: Odometer
+  cardAccountNo: Card account No
+  siteId: Site ID
+  productCode: Product Code
+  pumpPrice: Pump Price
+  stationAddress: Site Location
+  vehicleAddress: Vehicle Location
+  ifcsOdometer: IFCS Odometer
+  serviceStation: Service Station
+
+reminder:
+  id: ID
+  vehicleRegNo: Vehicle RegNo
+  regNo: Vehicle RegNo
+  vehicleDefaultLabel: Vehicle Name
+  defaultLabel: Vehicle Name
+  regno: Vehicle RegNo
+  vehicleName: Vehicle Name
+  vehicleModel: Model
+  driver: Driver
+  vehicleGroups: Group
+  vehicleDepot: Depot
+  category: Maintenance Type
+  categoryName: Category
+  categoryId: Maintenance Type
+  title: Title
+  status: Status
+  remainingDays: Remaining Days
+  remainingMileage: Remaining Mileage
+  remainingHours: Remaining Hours
+  date: Expiration Date
+  mileage: Control Mileage
+  hours: Control Hours
+  controlDate: Expiration Date
+  controlMileage: Control Mileage
+  controlHours: Control Hours
+  note: notes
+  notes: Notes
+  updatedAt: Last Modified
+  lastModified: Last Modified
+  lastModifiedDate: Last Modified Date
+  lastModifiedTime: Last Modified Time
+  createdAt: Created
+  createdAtDate: Created Date
+  createdAtTime: Created Time
+  groups: Group
+  depot: Depot
+
+remindercategory:
+  name: Name
+  status: Status
+
+route:
+  defaultlabel: Vehicle Name
+  defaultLabel: Vehicle Name
+  regno: Number Plate
+  model: Model
+  started_at: Date from
+  finished_at: Date to
+  started_at_date: Started, date
+  finished_at_date: Finish, date
+  started_at_time: Started, time
+  finished_at_time: Finish, time
+  driver_name: Driver
+  depot_name: Depot
+  groups: Group
+  address_from: Address from
+  address_to: Address to
+  distance: Distance (km)
+  start_odometer: Start Odometer
+  finish_odometer: End Odometer
+  driving_time: Driving Time (HH:MM:SS)
+  idling_time: Idling Time (HH:MM:SS)
+  avg_speed: Average Speed
+  max_speed: Max Speed
+  start_areas_name: Geofence from
+  finish_areas_name: Geofence to
+  address: Address
+  areas_name: Geofence
+  parking_time: Parking Time (HH:MM:SS)
+  eco_drive_events: Eco drive event
+  eco_drive_score: Eco drive score
+  stops_count: Stops
+  speeding_events_count: Speeding events
+  work_distance: Work distance (km)
+  work_duration: Work duration (HH:MM:SS)
+  private_distance: Private distance (km)
+  private_duration: Private duration (HH:MM:SS)
+  total_distance: Total distance (km)
+  total_duration: Total duration (HH:MM:SS)
+  scope: Trip type
+  comment: Trip comment
+  used_vehicles: Used Vehicles
+  work_percentage: Work percentage
+  private_percentage: Private percentage
+  unclassified_percentage: Unclassified percentage
+  unclassified_duration: Unclassified duration (HH:MM:SS)
+  unclassified_distance: Unclassified distance (km)
+  driver: Driver
+  installed: Installed date
+  trial_finish: First 12-week falls on
+  start_areas_group_name: Start area group
+  finish_areas_group_name: Finish area group
+  areas_group_name: Area group
+  trip_code: Trip code
+
+area:
+  geofenceId: Geofence ID
+  geofence: Geofence name
+  totalTime: Total time in geofence (HH:MM:SS)
+  numberOfVisits: Number of visits
+  averageTime: Average time in geofence (HH:MM:SS)
+  model: Model
+  regNo: Vehicle regno
+  defaultLabel: Vehicle
+  depot: Depot
+  arrivedAt: Arrived at
+  arrivedAtDate: Arrived Date
+  arrivedAtTime: Arrived Time
+  departedAt: Departed at
+  departedAtDate: Departed Date
+  departedAtTime: Departed Time
+  groups: Groups
+  odometer: Odometer
+  driver: Driver
+  idlingTime: Idling time (HH:MM:SS)
+  parkingTime: Parking time (HH:MM:SS)
+  agName: Area Groups
+
+speeding:
+  id: Speeding ID
+  defaultLabel: Vehicle
+  regNo: Vehicle regno
+  model: Model
+  driver: Driver
+  groups: Groups
+  depot: Depot
+  startedAt: Started at
+  startedAtDate: Started Date
+  startedAtTime: Started Time
+  finishedAt: Finished at
+  finishedAtDate: Finished Date
+  finishedAtTime: Finished Time
+  distance: Distance (km)
+  avgSpeed: Average speed
+  maxSpeed: Max speed
+  postedLimit: Posted limit
+
+vehicle_summary:
+  id: Vehicle ID
+  model: Model
+  regNo: Regno
+  reg_no: Regno
+  regno: Regno
+  defaultLabel: Vehicle
+  defaultlabel: Vehicle
+  depot: Depot
+  groups: Groups
+  privateDistance: Private distance (km)
+  private_distance: Private distance (km)
+  workDistance: Work distance (km)
+  work_distance: Work distance (km)
+  distance: Distance (km)
+  startOdometer: Odometer start
+  start_odometer: Odometer start
+  endOdometer: Odometer end
+  end_odometer: Odometer end
+  maxSpeed: Max speed
+  max_speed: Max speed
+  stops: Stops
+  parking_time: Parking time (HH:MM:SS)
+  parkingTime: Parking time (HH:MM:SS)
+  drivingTime: Driving time (HH:MM:SS)
+  driving_time: Driving time (HH:MM:SS)
+  idlingTime: Idling time (HH:MM:SS)
+  ecoDriveScores: Eco drive score
+  eco_drive_scores: Eco drive score
+  eco_speeding_events: Eco drive events
+  ecoSpeedingEvents: Eco drive events
+  speedingEvents: Speeding events
+  speeding_events: Speeding events
+  minEngineOnTime: Engine hours start
+  min_engine_on_time: Engine hours start
+  maxEngineOnTime: Engine hours end
+  max_engine_on_time: Engine hours end
+  engineOnTime: Total engine hours
+  engine_on_time: Total engine hours
+  date: Date
+  driverId: Driver
+
+vehicle_io:
+  id: Vehicle ID
+  vehicleId: Vehicle ID
+  deviceId: Device ID
+  model: Model
+  regno: Vehicle regno
+  defaultlabel: Vehicle
+  depotName: Depot
+  depotId: Depot ID
+  groups: Groups
+  driverName: Driver
+  inputType: Input Type
+  inputLabel: Input Label
+  inputValueOn: Input Value On
+  tsOn: Turned On
+  positionOn: Address On
+  inputValueOff: Input Value Off
+  tsOff: Turned Off
+  positionOff: Address Off
+  startAreasName: Area On
+  finishAreasName: Area Off
+  duration: Duration (HH:MM:SS)
+  distance: Distance (km)
+  fuelConsumed: Fuel Consumed
+  durationTotal: Total duration (HH:MM:SS)
+  distanceTotal: Total distance (km)
+
+servicerecord:
+  defaultlabel: Vehicle Name
+  defaultLabel: Vehicle Name
+  regno: Number Plate
+  model: Model
+  depot_name: Depot
+  groups: Group
+  sr_last_date:  Last Service Date
+  sr_last_date_date:  Last Service Date
+  sr_last_date_time:  Last Service Time
+  sr_count: Service Entries
+  sr_cost: Total amount
+  sr_amount: Amount
+  sr_amount_total: Amount
+  sr_note: Notes
+  sr_date: Date
+  sr_date_date: Date
+  sr_date_time: Time
+  r_category: Maintenance Type
+  date: Date
+  repairTitle: Title
+  repair_title: Title
+  repairCategory: Category
+  user: User
+  cost: Cost
+  note: Note
+  title: Title
+  created_by_name: User
+
+document:
+  regNo: Vehicle RegNo
+  title: Title
+  status: Status
+  remainingDays: Remaining Days
+  issueDate: Issue Date
+  expDate: Expiration Date
+  driver: Driver
+  fullName: Driver name
+  groups: Groups
+  depot: Depot
+
+drivingbehavior:
+  harshAcceleration: Harsh Acceleration
+  harshBraking: Harsh Braking
+  harshCornering: Harsh Cornering
+  harshAccelerationCount: Harsh Acceleration Count
+  harshBrakingCount: Harsh Braking Count
+  harshCorneringCount: Harsh Cornering Count
+  harshAccelerationScore: Harsh Acceleration Score
+  harshBrakingScore: Harsh Braking Score
+  harshCorneringScore: Harsh Cornering Score
+  totalDistance: Total Distance (km)
+  idlingCount: Idling Count
+  excessiveIdling: Excessive Idling
+  ecoSpeedEventCount: EcoSpeed Event Count
+  ecoSpeedTotalDistance: EcoSpeed Total Distance (km)
+  speeding: Speeding
+  ecoSpeed: EcoSpeed
+  idlingTotalTime: Idling Total Time (HH:MM:SS)
+  drivingTotalTime: Driving Total Time (HH:MM:SS)
+  totalAvgSpeed: Total Avg Speed
+  totalScore: Total Score
+  driver: Driver
+  drivers: Drivers
+  vehicle: Vehicle
+  vehicles: Vehicles
+  depot: Depot
+  groups: Groups
+
+digitalformanswer:
+  date: Date
+  duration: Duration
+  formTitle: Inspection form
+  inspectionFormTitle: Inspection form
+  id: Id
+  isPass: Status
+  regNo: RegNo
+  user: Performed By
+  performedBy: Performed By
+  frequency: Frequency
+
+devicesensor:
+  id: Id
+  sensorId: Sensor ID
+  sensorBLEId: Sensor BLE ID
+  label: Sensor label
+  lastPosition: Position
+  vehicleId: Vehicle ID
+  deviceId: Device ID
+  defaultlabel: Vehicle Name
+  regno: Vehicle RegNo
+  model: Model
+  depotName: Depot
+  groups: Group
+  position: Position
+  type: Sensor type
+  createdAt: Created date
+  updatedAt: Updated date
+  updatedBy: Updated by
+  createdBy: Created by
+
+trackerhistorysensor:
+  id: Id
+  deviceSensorId: Sensor ID
+  deviceSensorLabel: Label
+  BLESensorId: Sensor BLE ID
+  deviceSensorBleId: Sensor BLE ID
+  occurredAt: Date
+  occurredAtDate: Date
+  occurredAtTime: Time
+  temperature: Temperature (C)
+  humidity: Humidity (%)
+  value: Value
+  lastPosition: Position
+  batteryVoltage: Battery Voltage
+  batteryPercentage: Battery Percentage
+  vehicleId: Vehicle ID
+  deviceId: Device ID
+  ambientLightValue: Ambient Light Value
+  ambientLightStatus: Ambient Light Status (I/O)
+  deviceSensorType: Sensor Type
+  deviceSensorTypeLabel: Sensor Type Label
+  defaultlabel: Vehicle
+  regno: RegNo
+  model: Model
+  depotName: Depot
+  groups: Group
+  position: Position
+  coordinates: Coordinates
+
+sensor:
+  id: Id
+  sensorId: BLE ID
+  label: Label
+  lastPosition: Position
+  vehicleId: Vehicle ID
+  deviceId: Device ID
+  defaultlabel: Vehicle Name
+  regno: Vehicle RegNo
+  model: Model
+  depotName: Depot
+  groups: Group
+  position: Position
+  type: Type
+  createdAt: Created date
+  updatedAt: Updated date
+  updatedBy: Updated by
+  createdBy: Created by
+  lastDataValue: Last data value
+  lastDataReceived: Last data received
+  client: Client
+
+reseller:
+  companyName: Company Name
+  keyContact: Key Contact
+  legalName: Legal Name
+  legalAddress: Legal Address
+  billingAddress: Billing Address
+  taxNr: TaxNr
+  manager: Manager
+  currency: Currency
+  timezone: Timezone
+  logo: Logo
+  domain: Domain
+  units: Units
+  phone: Phone
+  email: Email
+  smsName: Sms Name
+  emailName: Email Name
+  team: Team
+  status: Status
+  createdAt: Created At
+  updatedAt: Updated At
+  usersCount: Users total
+  activeUsersCount: Users active
+  devicesCount: Devices total
+  activeDevicesCount: Devices active
+
+event:
+  VEHICLE_CREATED: Vehicle added
+  VEHICLE_DELETED: Vehicle deleted
+  VEHICLE_UNAVAILABLE: Vehicle unavailable
+  VEHICLE_OFFLINE: Vehicle offline
+  VEHICLE_ONLINE: Vehicle online
+  VEHICLE_CHANGED_REGNO: Vehicle rego number changed
+  VEHICLE_CHANGED_MODEL: Vehicle make/model change
+  VEHICLE_REASSIGNED: New driver assigned to vehicle
+  SERVICE_REMINDER_SOON: Service due soon
+  SERVICE_REMINDER_EXPIRED: Service overdue
+  SERVICE_REMINDER_DONE: Service completed
+  SERVICE_REMINDER_DELETED: Service reminder deleted
+  DOCUMENT_EXPIRE_SOON: Document expiring soon
+  DOCUMENT_EXPIRED: Document expired
+  DOCUMENT_DELETED: Document deleted
+  USER_CREATED: User created
+  USER_CREATED_SYSTEM: User created (system)
+  USER_BLOCKED: User blocked
+  USER_DELETED: User deleted
+  USER_PWD_RESET: User password reset
+  USER_CHANGED_NAME: User changed name
+  USER_CHANGED_SURNAME: User changed surname
+  ADMIN_USER_CREATED: User created
+  ADMIN_USER_BLOCKED: User blocked
+  ADMIN_USER_DELETED: User deleted
+  ADMIN_USER_PWD_RESET: User password reset
+  ADMIN_USER_CHANGED_NAME: User changed name
+  CLIENT_CREATED: Client created
+  CLIENT_DEMO_EXPIRED: Client demo expired
+  CLIENT_BLOCKED: Client blocked
+  DEVICE_UNKNOWN_DETECTED: Device unknown detected
+  DEVICE_IN_STOCK: Device in stock
+  DEVICE_OFFLINE: Device offline
+  DEVICE_UNAVAILABLE: Device unavailable
+  DEVICE_DELETED: Device deleted
+  LOGIN_AS_CLIENT: Login as client
+  LOGIN_AS_USER: Login as user
+  VEHICLE_GEOFENCE_ENTER: Vehicle entered area
+  VEHICLE_GEOFENCE_LEAVE: Vehicle left area
+  VEHICLE_OVERSPEEDING_INSIDE_GEOFENCE: Vehicle overspeeding inside area
+  VEHICLE_OVERSPEEDING: Maximum Speed
+  EXCEEDING_SPEED_LIMIT: Exceeding speed limit
+  VEHICLE_LONG_STANDING: Standing longer than defined
+  VEHICLE_LONG_DRIVING: Driving longer than defined
+  VEHICLE_MOVING: Vehicle is moving
+  VEHICLE_EXCESSING_IDLING: Excess Idling
+  VEHICLE_TOWING_EVENT: Vehicle being towed
+  VEHICLE_DRIVING_WITHOUT_DRIVER: Driving without assigned driver
+  DRIVER_ROUTE_UNDEFINED: Driver route undefined
+  SERVICE_RECORD_ADDED: Service reminder added
+  SERVICE_REPAIR_ADDED: Repair Added
+  DOCUMENT_RECORD_ADDED: Document added
+  TRACKER_VOLTAGE: Supply Voltage
+  PANIC_BUTTON: SOS button
+  ODOMETER_CORRECTED: Vehicle odometer corrected
+  DIGITAL_FORM_WITH_FAIL: Failed inspection
+  DIGITAL_FORM_IS_NOT_COMPLETED: Digital form is not completed
+  SENSOR_TEMPERATURE: Sensor temperature
+  SENSOR_HUMIDITY: Sensor humidity
+  SENSOR_LIGHT: Sensor light
+  SENSOR_BATTERY_LEVEL: Sensor battery level
+  SENSOR_STATUS: Sensor status
+  DRIVER_DOCUMENT_EXPIRE_SOON: Document expiring soon
+  DRIVER_DOCUMENT_EXPIRED: Document expired
+  DRIVER_DOCUMENT_DELETED: Document deleted
+  DRIVER_DOCUMENT_RECORD_ADDED: Document added
+  SENSOR_IO_STATUS: Digital I/O
+  ASSET_DOCUMENT_EXPIRE_SOON: Asset document expire soon
+  ASSET_DOCUMENT_EXPIRED: Asset document expired
+  ASSET_DOCUMENT_DELETED: Asset document deleted
+  ASSET_DOCUMENT_RECORD_ADDED: Asset document record added
+  ASSET_CREATED: Asset created
+  ASSET_DELETED: Asset deleted
+  ASSET_MISSED: Asset missed
+  TRACKER_BATTERY_PERCENTAGE: Battery Voltage Percentage
+  STRIPE_INTEGRATION_ERROR: Stripe integration error
+  STRIPE_PAYMENT_FAILED: Stripe payment failed
+  STRIPE_PAYMENT_SUCCESSFUL: Stripe payment successful
+  XERO_INTEGRATION_ERROR: Xero integration error
+  XERO_INVOICE_CREATION_ERROR: Xero invoice creation error
+  XERO_INVOICE_CREATED: Xero invoice created
+  XERO_PAYMENT_CREATION_ERROR: Xero payment creation error
+  XERO_PAYMENT_CREATED: Xero payment created
+  INVOICE_CREATED: Invoice created
+  PAYMENT_SUCCESSFUL: Payment successful
+  PAYMENT_FAILED: Payment failed
+  INVOICE_OVERDUE: Invoice overdue
+  INVOICE_OVERDUE_PARTIALLY_BLOCKED: Invoice overdue - Account partially blocked
+  INVOICE_OVERDUE_BLOCKED: Invoice overdue - Account blocked
+  INVOICE_CREATED_ADMIN: Invoice created
+  INVOICE_OVERDUE_ADMIN: Invoice overdue
+  INVOICE_OVERDUE_PARTIALLY_BLOCKED_ADMIN: Invoice overdue - Account partially blocked
+  INVOICE_OVERDUE_BLOCKED_ADMIN: Invoice overdue - Account blocked
+  DEVICE_CONTRACT_EXPIRED: Device contract expired
+  ACCESS_LEVEL_CHANGED: Access level changed
+  TRACKER_JAMMER_STARTED_ALARM: Jammer is started
+  TRACKER_ACCIDENT_HAPPENED_ALARM: Accident happened
+  INTEGRATION_ENABLED: Integration enabled
+
+alertSubType:
+  Vehicle Activities: Vehicle Activities
+  Vehicle Documents: Vehicle Documents
+  Asset Documents: Asset Documents
+  Asset Activities: Asset Activities
+  Digital Forms: Digital Forms
+  Driver activities: Driver activities
+  Sensor Data: Sensor Data
+  Driver Documents: Driver Documents
+  Vehicle status: Vehicle status
+  Areas: Areas
+  Service reminders: Service reminders
+  Vehicle data: Vehicle data
+  User accounts: User accounts
+  Admin user accounts: Admin user accounts
+  Admin activities: Admin activities
+  Client accounts: Client accounts
+  Device status: Device status
+  Stripe integration: Stripe integration
+  Xero integration: Xero integration
+  Stripe payment information: Stripe payment information
+  Billing: Billing
+  Billing admin: Billing
+
+billing:
+  client_name: Client
+  active_vehicle_trackers: Active vehicle trackers
+  deactivated_vehicle_trackers: Deactiveated vehicle trackers
+  active_personal_trackers: Active personal trackers
+  deactivated_personal_trackers: Deactivated personal trackers
+  active_asset_trackers: Active asset trackers
+  deactivated_asset_trackers: Deactivated asset trackers
+  active_satellite_trackers: Active satellite trackers
+  deactivated_satellite_trackers: Deactivated satellite trackers
+  active_vehicles: Active vehicles
+  virtual_vehicles: Virtual vehicles
+  archived_vehicles: Archived vehicles
+  deleted_vehicles: Deleted vehicles
+  active_sensors: Active sensors
+  archived_sensors: Archived sensors
+  deleted_sensors: Deleted sensors
+  prepayment: Prepayment %month% %year%
+
+  active_vehicle_trackers_total: Total
+  deactivated_vehicle_trackers_total: Total
+  active_personal_trackers_total: Total
+  deactivated_personal_trackers_total: Total
+  active_asset_trackers_total: Total
+  deactivated_asset_trackers_total: Total
+  active_satellite_trackers_total: Total
+  deactivated_satellite_trackers_total: Total
+  active_vehicles_total: Total
+  virtual_vehicles_total: Total
+  archived_vehicles_total: Total
+  deleted_vehicles_total: Total
+  active_sensors_total: Total
+  archived_sensors_total: Total
+  deleted_sensors_total: Total
+
+  active_vehicle_trackers_price: Unit
+  deactivated_vehicle_trackers_price: Unit
+  active_personal_trackers_price: Unit
+  deactivated_personal_trackers_price: Unit
+  active_asset_trackers_price: Unit
+  deactivated_asset_trackers_price: Unit
+  active_satellite_trackers_price: Unit
+  deactivated_satellite_trackers_price: Unit
+  active_vehicles_price: Unit
+  virtual_vehicles_price: Unit
+  archived_vehicles_price: Unit
+  deleted_vehicles_price: Unit
+  active_sensors_price: Unit
+  archived_sensors_price: Unit
+  deleted_sensors_price: Unit
+
+  #  active_vehicle_trackers_total: Active vehicle trackers total
+  #  deactivated_vehicle_trackers_total: Deactiveated vehicle trackers total
+  #  active_personal_trackers_total: Active personal trackers total
+  #  deactivated_personal_trackers_total: Deactivated personal trackers total
+  #  active_asset_trackers_total: Active asset trackers total
+  #  deactivated_asset_trackers_total: Deactivated asset trackers total
+  #  active_vehicles_total: Active vehicles total
+  #  virtual_vehicles_total: Virtual vehicles total
+  #  archived_vehicles_total: Archived vehicles total
+  #  deleted_vehicles_total: Deleted vehicles total
+  #  active_sensors_total: Active sensors total
+  #  archived_sensors_total: Archived sensors total
+  #  deleted_sensors_total: Deleted sensors total
+  #
+  #  active_vehicle_trackers_price: Active vehicle trackers price
+  #  deactivated_vehicle_trackers_price: Deactiveated vehicle trackers price
+  #  active_personal_trackers_price: Active personal trackers price
+  #  deactivated_personal_trackers_price: Deactivated personal trackers price
+  #  active_asset_trackers_price: Active asset trackers price
+  #  deactivated_asset_trackers_price: Deactivated asset trackers price
+  #  active_vehicles_price: Active vehicles price
+  #  virtual_vehicles_price: Virtual vehicles price
+  #  archived_vehicles_price: Archived vehicles price
+  #  deleted_vehicles_price: Deleted vehicles price
+  #  active_sensors_price: Active sensors price
+  #  archived_sensors_price: Archived sensors price
+  #  deleted_sensors_price: Deleted sensors price
+
+trackerhistory:
+  ts: Date time
+  createdAt: Created
+  gps: Gps
+  speed: Speed
+  angle: Direction
+  io: IO
+  batteryVoltage: Battery Voltage
+  batteryVoltagePercentage: Battery Voltage Percentage
+  temperatureLevel: Temperature Level
+  odometer: Odometer
+  externalVoltage: External Voltage
+
+role:
+  super_admin: SuperAdmin
+  admin: Admin
+  sales_rep: Sales Representative
+  installer: Installer
+  support: Support
+  account_manager: Account Manager
+  manager: Manager
+  driver: Driver
+  reseller_admin: Reseller Admin
+  reseller_sales_manager: Reseller Sales Representative
+  reseller_account_manager: Reseller Account Manager
+  reseller_support: Reseller Support
+  reseller_installer: Reseller Installer
+  client_support: Reseller Support Admin
+  client_support_admin: Reseller Support Admin

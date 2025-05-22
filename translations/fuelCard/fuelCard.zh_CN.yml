@@ -1,0 +1,116 @@
+import:
+  bpInvoice:
+    vehicle: 车辆登记号码
+    transactionDate: 交易生效日期
+    transactionTime: 交易生效时间
+    refueled: 升
+    total: 客户价值 (EXC GST)
+    petrolStation: 地点名称
+  fleetCard:
+    vehicle: 车辆
+    fuelCardNumber: 卡号。
+    transactionDate: 日期
+    refueled: 汽油
+    total: 总的
+    petrolStation: 供应商
+    refueledFuelType: 定期费用/印花税
+  transaction:
+    vehicle: 注册号码
+    fuelCardNumber: 卡号。
+    transactionDate: 交易日期
+    transactionTime: 交易时间
+    refueled: 数量
+    total: 全部的
+    petrolStation: 商户网站名称
+    refueledFuelType: 产品描述
+  motorpass:
+    vehicle: 车辆
+    fuelCardNumber: 卡号。
+    transactionDate: 日期
+    refueled: 升
+    total: 总的
+    petrolStation: 供应商
+    refueledFuelType: 产品
+  motorpassV2:
+    vehicle: 雷戈
+    transactionDate: 日期
+    refueled: 数量
+    total: 金额公司
+    petrolStation: 描述
+    searchEndPosition: 小计
+  mpData:
+    vehicle: 车辆
+    fuelCardNumber: 卡号。
+    transactionDate: 日期
+    refueled: 升
+    total: 总的
+    petrolStation: 供应商
+    refueledFuelType: 产品
+  caltex:
+    vehicle: 雷戈
+    fuelCardNumber: 卡号
+    transactionDate: 日期
+    refueled: 数量
+    total: 道达尔公司
+    petrolStation: 卡详细信息，
+    refueledFuelType: 产品
+  caltexTSDetail:
+    vehicle: 登记
+    fuelCardNumber: 卡号
+    transactionDate: 翻译日期
+    transactionTime: 传输时间 (hhmmss)
+    refueled: 数量/升
+    total: 单价
+    petrolStation: 地点名称
+    refueledFuelType: 产品
+  shell:
+    vehicle: 注册号
+    fuelCardNumber: 卡号
+    transactionDate: 交易日期/时间
+    refueled: 数量
+    total: 案卷金额（包括 GST
+    petrolStation: 地点
+    refueledFuelType: 产品
+  shellCard:
+    vehicle: 车辆登记
+    fuelCardNumber: 卡号
+    transactionDate: 交易日期
+    refueled: 数量
+    total: 案卷金额
+    petrolStation: 交易出口
+    refueledFuelType: 产品
+  transactionV2:
+    vehicle: 车辆登记号码
+    fuelCardNumber: 卡号
+    transactionDate: 交易生效日期
+    transactionTime: 交易生效时间
+    refueled: 升
+    total: 客户价值 ($)
+    petrolStation: 地点名称
+    refueledFuelType: 产品
+  transactionV3:
+    vehicle: 登记
+    fuelCardNumber: 卡号
+    transactionDate: 交易日期
+    refueled: 总数（量
+    total: 总价值
+    petrolStation: 店铺名称
+    refueledFuelType: 零售产品名称
+  fuelTransaction:
+    vehicle: 登记
+    fuelCardNumber: 加油卡号
+    transactionDate: 燃料发行日期
+    transactionTime: 燃料发行时间
+    refueled: 燃料数量
+    total: 燃料成本总计
+    petrolStation: 供应商
+    refueledFuelType: 汽油种类
+  fuelCardV2:
+    vehicle: 车辆雷戈
+    fuelCardNumber: 卡号
+    transactionDate: 交易日期
+    transactionTime: 交易时间
+    refueled: 升
+    total: 数量
+    petrolStation: 商户名称
+    refueledFuelType: 产品名称

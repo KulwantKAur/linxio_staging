@@ -1,0 +1,137 @@
+security:
+    # https://symfony.com/doc/current/security/experimental_authenticators.html
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        entity_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+        saml_provider:
+            id: App\Service\SSO\Security\SAMLUserProvider
+
+    password_hashers:
+        App\Entity\User:
+            algorithm:        sha1
+            encode_as_base64: false
+            iterations:       1
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern:  ^/api/login
+            stateless: true
+
+        refresh_token:
+            pattern:  ^/api/token/refresh
+            stateless: true
+
+        phone_code_verification:
+            pattern:  ^/api/phone/code
+
+        phone_verification:
+            pattern:  ^/api/phone
+
+        check_user_verify_token:
+            pattern:  ^/api/users/check-verify-token
+
+        register:
+            pattern:  ^/api/register
+            stateless: true
+
+        health:
+            pattern:  ^/api/health
+            stateless: true
+
+        version:
+            pattern:  ^/api/version
+            stateless: true
+
+        sms:
+            pattern:  ^/api/sms
+
+        password:
+            pattern:  ^/api/password
+
+        timezones:
+            pattern:  ^/api/timezones
+
+        tracklink_vehicle_types:
+            pattern:  ^/api/tracklink/\w+/vehicles/types$
+            stateless: true
+
+        tracklink:
+            pattern:  ^/api/tracklink/\w+$
+
+        tracker:
+            pattern:   ^/api/tracker
+            stateless: true
+
+        traccar:
+            pattern:   ^/api/traccar
+            stateless: true
+
+        streamax:
+            pattern:   ^/api/streamax
+            stateless: true
+
+        platform_settings_domain:
+            pattern:   ^/api/platform-settings/domain
+            stateless: true
+
+        get_mobile_device:
+            pattern:   ^/api/get-mobile-device
+            stateless: true
+
+        saml:
+            pattern: ^/api/saml
+            provider: saml_provider
+            custom_authenticators:
+                - App\Service\SSO\Security\SAMLAuthenticator
+
+        api:
+            pattern:   ^/api
+            stateless: true
+            provider: entity_provider
+            jwt: ~
+
+        main:
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/token/refresh, roles: PUBLIC_ACCESS }
+        - { path: ^/api/phone/code, roles: PUBLIC_ACCESS }
+        - { path: ^/api/phone, roles: PUBLIC_ACCESS }
+        - { path: ^/api/register, roles: PUBLIC_ACCESS }
+        - { path: ^/api/health,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/version,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/sms,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/password,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/users/check-verify-token, roles: PUBLIC_ACCESS }
+        - { path: ^/api/timezones,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/tracker,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/traccar,       roles: PUBLIC_ACCESS }
+        - { path: ^/api/get-mobile-device, roles: PUBLIC_ACCESS }
+        - { path: ^/api/tracklink/\w+/vehicles/types$, roles: PUBLIC_ACCESS }
+        - { path: ^/api/tracklink/\w+$, roles: PUBLIC_ACCESS }
+        - { path: ^/api/platform-settings/domain, roles: PUBLIC_ACCESS }
+        - { path: ^/api/saml/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/saml/metadata, roles: PUBLIC_ACCESS }
+        - { path: ^/api/saml/logout, roles: PUBLIC_ACCESS }
+        - { path: ^/api/streamax,       roles: PUBLIC_ACCESS }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+
+    access_decision_manager:
+        strategy: unanimous
+        allow_if_all_abstain: false

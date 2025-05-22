@@ -1,0 +1,23 @@
+{
+        "Cluster": "linxio-dev-main",
+        "ContainerInstanceARN": "arn:aws:ecs:us-east-1:296258661150:container-instance/linxio-dev-main/3010ccfa741540f5acc45bf6f9b26228",
+        "TaskARN": "arn:aws:ecs:us-east-1:296258661150:task/linxio-dev-main/050e8898f99041aba146784b3bed309f",
+        "TaskDefinitionFamily": "linxio-dev-main-app-cron-t-update-route-location",
+        "TaskDefinitionRevision": "33",
+        "ContainerID": "2b2f8d94ecb3724a97d04493e0879480a8d4ac63e03ef4f41bfc6676d762042d",
+        "ContainerName": "php-cronjob",
+        "DockerContainerName": "/ecs-linxio-dev-main-app-cron-t-recalculate-speeding-33-php-cronjob-dcd1b999b5c5e7f37e00",
+        "ImageID": "sha256:df02d5217fd7d71ac8c6468b0db172f7806056df3871a426379272305cf7b4a1",
+        "ImageName": "296258661150.dkr.ecr.us-east-1.amazonaws.com/linxio-common-app-api-php-fpm:devops-refactoring-87373beb",
+        "Networks": [
+                {
+                        "NetworkMode": "bridge",
+                        "IPv4Addresses": [
+                                "172.17.0.2"
+                        ]
+                }
+        ],
+        "MetadataFileStatus": "READY",
+        "AvailabilityZone": "us-east-1b",
+        "HostPrivateIPv4Address": "10.0.128.104"
+}

@@ -1,0 +1,22 @@
+invoice:
+  invoice: ใบแจ้งหนี้
+  paid: จ่าย
+  notPaid: ไม่จ่าย
+  invoiceDate: วันที่ใบแจ้งหนี้
+  invoiceDueDate: วันที่ครบกำหนดของใบแจ้งหนี้
+  issuer: ผู้ออก
+  abn: เอบีเอ็น
+  phone: โทรศัพท์
+  email: อีเมล
+  address: ที่อยู่
+  billedTo: เรียกเก็บเงินไปที่
+  customerId: รหัสลูกค้า
+  qty: ปริมาณ
+  desc: คำอธิบาย
+  unitPrice: ราคาต่อหน่วย
+  lineTotal: รวมสาย
+  prepayment: ชำระเงินล่วงหน้า
+  subTotal: ผลรวมย่อย
+  total: ทั้งหมด
+  tax: ภาษี
+  thx: ขอบคุณสำหรับธุรกิจของคุณ!

@@ -1,0 +1,14 @@
+{% extends 'emails/base.html.twig' %}
+{% trans_default_domain 'email' %}
+{% block subject %}
+    {{ subject }}
+{% endblock %}
+
+{% block body %}
+    <p>Vehicle inspections - {{ title }}</p>
+    <p>Date: {{ date }}</p>
+    <p>Vehicle: {{ regno }}</p>
+    <p>Performed by: {{user}}</p>
+    <p>Inspection plan: {{title}}</p>
+    <p>Result: {{ isPass ? 'Pass' : 'Fail' }} {{result}}</p>
+{% endblock %}

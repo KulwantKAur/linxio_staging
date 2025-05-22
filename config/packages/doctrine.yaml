@@ -1,0 +1,154 @@
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        driver: pdo_pgsql
+        host: '%env(SYMFONY__DATABASE__HOST)%'
+        port: '%database_port%'
+        dbname: '%env(SYMFONY__DATABASE__NAME)%'
+        user: '%env(SYMFONY__DATABASE__USER)%'
+        password: '%env(SYMFONY__DATABASE__PASS)%'
+        charset: UTF8
+        server_version: 12.7
+        mapping_types:
+          _text: string
+          name: string
+      slave:
+        driver: pdo_pgsql
+        host: '%env(SYMFONY_DATABASE_REPLICA_HOST)%'
+        port: '%database_port%'
+        dbname: '%env(SYMFONY_DATABASE_REPLICA_NAME)%'
+        user: '%env(SYMFONY_DATABASE_REPLICA_USER)%'
+        password: '%env(SYMFONY_DATABASE_REPLICA_PASS)%'
+        charset: UTF8
+        server_version: 12.7
+        mapping_types:
+          _text: string
+          name: string
+      aurora:
+        driver: pdo_pgsql
+        host: '%env(SYMFONY_DATABASE_AURORA_HOST)%'
+        port: '%database_port%'
+        dbname: '%env(SYMFONY__DATABASE__NAME)%'
+        user: '%env(SYMFONY__DATABASE__USER)%'
+        password: '%env(SYMFONY__DATABASE__PASS)%'
+        charset: UTF8
+        server_version: 12.7
+        mapping_types:
+          _text: string
+          name: string
+    types:
+      geography:
+        class: 'Jsor\Doctrine\PostGIS\Types\GeographyType'
+        commented: false
+      geometry:
+        class: 'Jsor\Doctrine\PostGIS\Types\GeometryType'
+        commented: false
+#      raster:
+#        class: 'Jsor\Doctrine\PostGIS\Types\RasterType'
+#        commented: false
+#          #        driver_class: App\Doctrine\Driver\PDOPgSqlDriver
+#          # if using pdo_sqlite as your database driver:
+#          #   1. add the path in parameters.yml
+#          #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
+#          #   2. Uncomment database_path in parameters.yml.dist
+#          #   3. Uncomment next line:
+#        #path: '%database_path%'
+
+  orm:
+    default_entity_manager: default
+    auto_generate_proxy_classes: false
+    entity_managers:
+      default:
+        second_level_cache:
+          enabled: true
+          region_lifetime: 3600
+          region_cache_driver:
+            type: pool
+            pool: app.cache.memory_db
+        auto_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        dql:
+          string_functions:
+            DATE_FORMAT: DoctrineExtensions\Query\Postgresql\DateFormat
+            JSON_GET_TEXT: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonGetText
+            JSON_GET_PATH: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonGetPathText
+            JSONB_CONTAINS: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonbContains
+          datetime_functions:
+            extract: DoctrineExtensions\Query\Postgresql\ExtractFunction
+          numeric_functions:
+            st_contains: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STContains
+            contains: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\Contains
+            st_area: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\Area
+            st_geomfromtext: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STGeomFromText
+            st_intersects: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STIntersects
+            st_buffer: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STBuffer
+            point: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STPoint
+            string_agg: App\Util\Doctrine\Functions\StringAgg
+            distinct_on: App\Util\Doctrine\Functions\DistinctOn
+            cast: Oro\ORM\Query\AST\Functions\Cast
+            pg_sleep: App\Util\Doctrine\Functions\PgSleep
+        connection: default
+        mappings:
+          App:
+            is_bundle: false
+            type: attribute
+            dir: '%kernel.project_dir%/src/Entity'
+            prefix: 'App\Entity'
+      slave:
+        auto_mapping: false
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        dql:
+          string_functions:
+            DATE_FORMAT: DoctrineExtensions\Query\Postgresql\DateFormat
+            JSON_GET_TEXT: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonGetText
+            JSON_GET_PATH: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonGetPathText
+            JSONB_CONTAINS: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Postgresql\JsonbContains
+          datetime_functions:
+            extract: DoctrineExtensions\Query\Postgresql\ExtractFunction
+          numeric_functions:
+            st_contains: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STContains
+            contains: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\Contains
+            st_area: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\Area
+            st_geomfromtext: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STGeomFromText
+            st_intersects: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STIntersects
+            st_buffer: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STBuffer
+            point: CrEOF\Spatial\ORM\Query\AST\Functions\PostgreSql\STPoint
+            string_agg: App\Util\Doctrine\Functions\StringAgg
+            distinct_on: App\Util\Doctrine\Functions\DistinctOn
+            cast: Oro\ORM\Query\AST\Functions\Cast
+            pg_sleep: App\Util\Doctrine\Functions\PgSleep
+        connection: slave
+        mappings:
+          App:
+            is_bundle: false
+            type: attribute
+            dir: '%kernel.project_dir%/src/Entity'
+            prefix: 'App\Entity'
+      history:
+        auto_mapping: false
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        dql:
+          string_functions:
+            DATE_FORMAT: DoctrineExtensions\Query\Postgresql\DateFormat
+        connection: default
+        mappings:
+          App:
+            is_bundle: false
+            type: attribute
+            dir: '%kernel.project_dir%/src/Entity'
+            prefix: 'App\Entity'
+      aurora:
+        auto_mapping: false
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        dql:
+          numeric_functions:
+            pg_sleep: App\Util\Doctrine\Functions\PgSleep
+        connection: aurora
+        mappings:
+          App:
+            is_bundle: false
+            type: attribute
+            dir: '%kernel.project_dir%/src/Entity'
+            prefix: 'App\Entity'

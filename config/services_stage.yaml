@@ -1,0 +1,2 @@
+services:
+    App\Service\File\FileServiceInterface: "@app.aws_s3_file_service"

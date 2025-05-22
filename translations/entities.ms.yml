@@ -1,0 +1,797 @@
+user:
+  fullName: Nama Pengguna
+  email: E-mel
+  role: Peranan
+  lastLoggedAt: Log Masuk Terakhir
+  status: Status
+  UserGroups: Kumpulan Pengguna
+
+client:
+  name: Nama Syarikat
+  status: Status
+  plan: Rancang
+  keyContact: Kenalan kunci
+  manager: Pengurus
+  usersCount: Jumlah pengguna
+  activeUsersCount: Pengguna aktif
+  devicesCount: Jumlah peranti
+  activeDevicesCount: Peranti aktif
+  vehiclesCount: Jumlah kenderaan
+  activeVehiclesCount: Kenderaan aktif
+  createdAt: Tarikh dibuat
+
+vehicle:
+  id: No Kenderaan
+  model: Model
+  type: Jenis
+  defaultLabel: Tajuk Kenderaan
+  year: Tahun terbitan
+  regDate: Tahun
+  vin: VIN
+  regNo: Reg kenderaan. Tidak.
+  status: Status
+  driver: Pemandu
+  driverName: Pemandu
+  depot: Depot
+  groups: Kumpulan
+  fuelType: Jenis Bahan Api
+  fuelTankCapacity: Kapasiti Tangki Bahan Api
+  averageDailyMileage: Average Daily Mileage
+  mileage: Mileage
+  engineHours: Waktu Enjin
+
+device:
+  id: ID Peranti
+  model: Model
+  sn: SN
+  port: Pelabuhan
+  hw: HW
+  sw: SW
+  imsi: IMSI
+  devEui: devEui
+  protocol: Protokol
+  client: Pelanggan
+  vendor: Vendor
+  status: Status
+  imei: IMEI
+  phone: Nombor telefon
+  installDate: Tarikh dipasang
+  vehicle: Kenderaan
+  lastActiveTime: Masa aktif terakhir
+  createdAt: Tarikh dibuat
+  updatedAt: Tarikh dikemas kini
+  updatedBy: Dikemaskini oleh
+  createdBy: Dicipta oleh
+
+eventlog:
+  headers:
+    general:
+      id: ID
+      formattedDate: Tarikh
+      importance: Kepentingan
+      eventTeam: Pasukan
+      eventType: Jenis Acara
+      triggeredDetails: Dicetuskan oleh (contoh)
+      eventSource: Sumber Acara
+      eventSourceType: Jenis Sumber Acara
+      notificationGenerated: Pemberitahuan dihasilkan?
+      notificationsList: Pemberitahuan
+      limit: Had
+      oldValue: Nilai lama
+      newValue: Nilai baharu
+    userCreated:
+      triggeredDetails: Oleh pengguna
+      eventSource: Pengguna baharu
+    userBlocked:
+      triggeredDetails: Oleh pengguna
+      eventSource: Pengguna yang disekat
+    userDeleted:
+      triggeredDetails: Oleh pengguna
+      eventSource: Pengguna yang dipadamkan
+    userPwdResset:
+      triggeredDetails: Oleh pengguna
+      eventSource: Pengguna
+    userNameChanged:
+      triggeredDetails: Oleh pengguna
+      eventSource: Pengguna
+    loginAsUser:
+      triggeredDetails: Oleh pengguna
+      eventSource: Dilog sebagai
+    clientCreated:
+      triggeredDetails: Oleh pengguna
+    deviceInfo:
+      triggeredDetails: Oleh pengguna
+      eventSource: Imei
+    documentRecordInfo:
+      triggeredDetails: Oleh pengguna
+      eventSource: Lampirkan kepada
+      expiredDate: Tarikh luput
+      vehicleRegNo: No
+      title: Tajuk
+    documentInfo:
+      triggeredDetails: Oleh pengguna
+      eventSource: Tajuk
+      expiredDate: Tarikh luput
+      vehicleRegNo: No
+    vehicleInfo:
+      triggeredDetails: Oleh pengguna
+      eventSource: Reg no
+    trackerInfo:
+      triggeredDetails: Pemandu
+      eventSource: Reg no
+      shortDetails: Butiran
+      areas: Kawasan
+      maxSpeed: Kelajuan
+      duration: Tempoh
+      distance: Jarak
+      deviceVoltage: Voltan
+      address: Alamat
+      temperature: Suhu
+      humidity: Kelembapan
+      batteryLevel: Aras Bateri
+      light: Cahaya
+      status: Status
+      sensorIOTypeId: Jenis I/O Digital
+      deviceBatteryPercentage: Peratusan Bateri
+    assetInfo:
+      createdBy: Dicipta oleh
+      deletedBy: Dipadamkan oleh
+      eventSource: Aset
+    digitalForm:
+      formNotCompleted:
+        eventSource: Reg no
+      eventSource: Tajuk
+      user: Oleh pengguna
+      triggeredDetails: Pemandu
+      form: Tajuk borang
+      vehicleRegNo: No
+    sensor:
+      temperature: Suhu
+      humidity: Kelembapan
+      light: Cahaya
+      batteryLevel: Aras Bateri
+      triggeredDetails: Dengan sensor
+    data:
+      additionalParams:
+        timeDuration: Masa
+        overSpeed: Kelajuan
+        deviceVoltage: Voltan
+    stripe:
+      triggeredDetails: Oleh pengguna
+      errorMsg: Mesej ralat
+      extInvoiceId: Invois
+    xero:
+      triggeredDetails: Oleh pengguna
+      errorMsg: Mesej ralat
+      extInvoiceId: Invois Xero
+    invoice:
+      triggeredDetails: Oleh pengguna
+      errorMsg: Mesej ralat
+      extInvoiceId: Invois
+    payment:
+      triggeredDetails: Oleh pengguna
+      errorMsg: Mesej ralat
+      extInvoiceId: Invois
+
+fuelcard:
+  id: ID
+  model: Model
+  regNo: Regno
+  defaultLabel: Tajuk
+  driver: Pemandu
+  groupsList: Kumpulan
+  depotName: Depot
+  fuelType: Jenis Bahan Api
+  refueled: diisi minyak, L
+  total: Jumlah
+  fuelPrice: Harga bahan api
+  petrolStation: Stesen Minyak
+  refueledFuelType: Jenis Bahan Api
+  startDate: Tarikh Transaksi
+  transactionDate: Tarikh Transaksi
+  reg_no: REGNO KENDERAAN
+  depot: DEPOT
+  groups: KUMPULAN
+  mileage: Mileage
+  transactionTime: Masa Transaksi
+  fuelCardNumber: Nombor Kad Bahan Api
+  cardAccountNumber: Akaun Kad
+  vehicle: Nombor Kenderaan
+  odometer: Odometer
+  cardAccountNo: Kad akaun No
+  siteId: ID tapak
+  productCode: Kod Produk
+  pumpPrice: Harga Pam
+  stationAddress: Lokasi Tapak
+  vehicleAddress: Lokasi Kenderaan
+  ifcsOdometer: IFCS Odometer
+  serviceStation: Service Station
+
+peringatan:
+  id: ID
+  vehicleRegNo: No Reg Kenderaan
+  regNo: Kenderaan RegNo
+  vehicleDefaultLabel: Nama Kenderaan
+  defaultLabel: Nama Kenderaan
+  regno: No Reg Kenderaan
+  vehicleName: Nama Kenderaan
+  vehicleModel: Model
+  driver: Pemandu
+  vehicleGroups: Kumpulan
+  vehicleDepot: Depot
+  category: Jenis Penyelenggaraan
+  categoryName: Kategori
+  categoryId: Jenis Penyelenggaraan
+  title: Tajuk
+  status: Status
+  remainingDays: Baki Hari
+  remainingMileage: Baki Mileage
+  remainingHours: Baki Jam
+  date: Tarikh Luput
+  mileage: Control Mileage
+  hours: Waktu Kawalan
+  controlDate: Tarikh Luput
+  controlMileage: Control Mileage
+  controlHours: Control Hours
+  note: nota
+  notes: Nota
+  updatedAt: Terakhir Diubah Suai
+  lastModified: Last Modified
+  lastModifiedDate: Tarikh Terakhir Diubah Suai
+  lastModifiedTime: Last Modified Time
+  createdAt: Created
+  createdAtDate: Created Date
+  createdAtTime: Masa Dicipta
+
+remindercategory:
+  name: Nama
+  status: Status
+
+route:
+  defaultlabel: Nama Kenderaan
+  defaultLabel: Nama Kenderaan
+  regno: Plat Nombor
+  model: Model
+  started_at: Tarikh dari
+  finished_at: Tarikh ke
+  started_at_date: Bermula, tarikh
+  finished_at_date: Selesai, tarikh
+  started_at_time: Bermula, masa
+  finished_at_time: Selesai, masa
+  driver_name: Pemandu
+  depot_name: Depot
+  groups: Kumpulan
+  address_from: Alamat dari
+  address_to: Alamat kepada
+  distance: Jarak (km)
+  start_odometer: Mula Odometer
+  finish_odometer: End Odometer
+  driving_time: Masa Memandu (HH:MM:SS)
+  idling_time: Masa Melahu (HH:MM:SS)
+  avg_speed: Kelajuan Purata
+  max_speed: Kelajuan Maks
+  start_aas_name: Geofence from
+  finish_areas_name: Geofence ke
+  address: Alamat
+  areas_name: Geofence
+  parking_time: Parking Time (HH:MM:SS)
+  eco_drive_events: Acara Eco drive
+  eco_drive_score: Skor pemanduan eko
+  stops_count: Berhenti
+  speeding_events_count: Acara memecut
+  work_distance: Jarak kerja (km)
+  work_duration: Tempoh kerja (HH:MM:SS)
+  private_distance: Jarak peribadi (km)
+  private_duration: Tempoh peribadi (HH:MM:SS)
+  total_distance: Jumlah jarak (km)
+  total_duration: Jumlah tempoh (HH:MM:SS)
+  scope: Jenis perjalanan
+  comment: Ulasan perjalanan
+  used_vehicles: Kenderaan Terpakai
+  work_percentage: Peratusan kerja
+  private_percentage: Peratusan persendirian
+  unclassified_percentage: Peratusan tidak terkelas
+  unclassified_duration: Tempoh tidak diklasifikasikan (HH:MM:SS)
+  unclassified_distance: Jarak tak terkelas (km)
+  driver: Pemandu
+  installed: Tarikh dipasang
+  trial_finish: 12 minggu pertama jatuh pada
+  start_areas_group_name: Mulakan kumpulan kawasan
+  finish_areas_group_name: Selesaikan kumpulan kawasan
+  areas_group_name: Kumpulan kawasan
+
+area:
+  geofenceId: ID Geofence
+  geofence: nama Geofence
+  totalTime: Jumlah masa dalam geofence (HH:MM:SS)
+  numberOfVisits: Bilangan lawatan
+  averageTime: Purata masa dalam geofence (HH:MM:SS)
+  model: Model
+  regNo: Regno kenderaan
+  defaultLabel: Kenderaan
+  depot: Depot
+  arriveAt: Tiba di
+  arriveAtDate: Tarikh Tiba
+  arriveAtTime: Masa Tiba
+  departedAt: Bertolak pada
+  departedAtDate: Tarikh Berlepas
+  departedAtTime: Waktu Berlepas
+  groups: Kumpulan
+  odometer: Odometer
+  driver: Pemandu
+  idlingTime: Masa melahu (HH:MM:SS)
+  parkingTime: Masa letak kereta (HH:MM:SS)
+
+memandu laju:
+  id: ID Memandu
+  defaultLabel: Kenderaan
+  regNo: Regno kenderaan
+  model: Model
+  driver: Pemandu
+  groups: Kumpulan
+  depot: Depot
+  startedAt: Bermula pada
+  startedAtDate: Tarikh Mula
+  startedAtTime: Masa Mula
+  finishedAt: Selesai pada
+  finishedAtDate: Tarikh Selesai
+  finishedAtTime: Masa Selesai
+  distance: Jarak (km)
+  avgSpeed: Kelajuan purata
+  maxSpeed: Kelajuan maksimum
+  postedLimit: Had yang disiarkan
+
+vehicle_summary:
+  id: ID Kenderaan
+  model: Model
+  regNo: Regno
+  reg_no: Regno
+  regno: Regno
+  defaultLabel: Kenderaan
+  defaultlabel: Kenderaan
+  depot: Depot
+  groups: Kumpulan
+  privateDistance: Jarak peribadi (km)
+  private_distance: Jarak peribadi (km)
+  workDistance: Jarak kerja (km)
+  work_distance: Jarak kerja (km)
+  distance: Jarak (km)
+  startOdometer: Odometer mula
+  start_odometer: Odometer mula
+  endOdometer: hujung Odometer
+  end_odometer: Odometer hujung
+  maxSpeed: Kelajuan maksimum
+  max_speed: Kelajuan maksimum
+  stops: Berhenti
+  parking_time: Masa parking (HH:MM:SS)
+  parkingTime: Masa letak kereta (HH:MM:SS)
+  drivingTime: Masa memandu (HH:MM:SS)
+  driving_time: Masa memandu (HH:MM:SS)
+  idlingTime: Masa melahu (HH:MM:SS)
+  ecoDriveScores: Skor pemanduan eko
+  eco_drive_scores: Skor pemanduan eko
+  eco_speeding_events: Acara pandu eko
+  ecoSpeedingEvents: Acara pandu eko
+  speedingEvents: Acara memecut
+  speeding_events: Acara memecut
+  minEngineOnTime: Waktu enjin bermula
+  min_engine_on_time: Waktu enjin dimulakan
+  maxEngineOnTime: Waktu enjin tamat
+  max_engine_on_time: Waktu enjin tamat
+  engineOnTime: Jumlah jam enjin
+  engine_on_time: Jumlah masa enjin
+  date: Tarikh
+
+vehicle_io:
+  id: ID Kenderaan
+  vehicleId: ID Kenderaan
+  deviceId: ID Peranti
+  model: Model
+  regno: Regno kenderaan
+  defaultlabel: Kenderaan
+  depotNamу: Depot
+  depotId: ID Depot
+  groups: Kumpulan
+  driverName: Pemandu
+  inputType: Jenis Input
+  inputLabel: Label Input
+  inputValueOn: Nilai Input Hidup
+  tsOn: Dihidupkan
+  positionOn: Alamat On
+  inputValueOff: Nilai Input Mati
+  tsOff: Dimatikan
+  positionOff: Alamat Off
+  startAreasName: Kawasan Hidup
+  finishAreasName: Kawasan Dimatikan
+  duration: Tempoh (HH:MM:SS)
+  distance: Jarak (km)
+  fuelConsumed: Bahan api yang digunakan
+  durationTotal: Jumlah tempoh (HH:MM:SS)
+  distanceTotal: Jumlah jarak (km)
+
+servicerecord:
+  defaultlabel: Nama Kenderaan
+  defaultLabel: Nama Kenderaan
+  regno: Plat Nombor
+  model: Model
+  depot_name: Depot
+  groups: Kumpulan
+  sr_last_date: Tarikh Servis Terakhir
+  sr_last_date_date: Tarikh Servis Terakhir
+  sr_last_date_time: Masa Perkhidmatan Terakhir
+  sr_count: Entri Perkhidmatan
+  sr_cost: Jumlah amaun
+  sr_amount: Amaun
+  sr_amount_total: Amaun
+  sr_note: Nota
+  sr_date: Tarikh
+  sr_date_date: Tarikh
+  sr_date_time: Masa
+  r_category: Jenis Penyelenggaraan
+  date: Tarikh
+  repairTitle: Tajuk
+  repair_title: Tajuk
+  repairCategory: Kategori
+  user: Pengguna
+  cost: Kos
+  nota: Nota
+  title: Tajuk
+  created_by_name: Pengguna
+
+document:
+  regNo: Kenderaan RegNo
+  title: Tajuk
+  status: Status
+  remainingDays: Baki Hari
+  issueDate: Tarikh Keluaran
+  expDate: Tarikh Luput
+  driver: Pemandu
+  fullName: Nama pemandu
+
+drivingbehavior:
+  harshAcceleration: Harsh Acceleration
+  harshBraking: Harsh Brek
+  harshCornering: Harsh Cornering
+  harshAccelerationCount: Kiraan Pecutan Keras
+  harshBrakingCount: Kiraan Brek Kasar
+  harshCorneringCount: Harsh Cornering Count
+  harshAccelerationScore: Marsh Acceleration Score
+  harshBrakingScore: Marsh Braking Score
+  harshCorneringScore: Harsh Cornering Score
+  totalDistance: Jumlah Jarak (km)
+  idlingCount: Idling Count
+  excessiveIdling: Terlalu melahu
+  ecoSpeedEventCount: Kiraan Peristiwa EcoSpeed
+  ecoSpeedTotalDistance: Jumlah Jarak EcoSpeed (km)
+  speeding: Melaju
+  ecoSpeed: EcoSpeed
+  idlingTotalTime: Melahu Jumlah Masa (HH:MM:SS)
+  drivingTotalTime: Jumlah Masa Memandu (HH:MM:SS)
+  totalAvgSpeed: Jumlah Purata Kelajuan
+  totalScore: Jumlah Skor
+  driver: Pemandu
+  drivers: Pemandu
+  vehicle: Kenderaan
+  vehicles: Kenderaan
+  depot: Depot
+  groups: Kumpulan
+
+digitalformanswer:
+  date: Tarikh
+  duration: Tempoh
+  formTitle: Borang pemeriksaan
+  id: ID
+  isPass: Status
+  regNo: RegNo
+  user: Dilakukan Oleh
+  frequency: Kekerapan
+
+devicesensor:
+  id: Id
+  sensorId: ID Sensor
+  sensorBLEId: ID BLE Sensor
+  label: Label sensor
+  lastPosition: Jawatan
+  vehicleId: ID Kenderaan
+  deviceId: ID Peranti
+  defaultlabel: Nama Kenderaan
+  regno: No Reg Kenderaan
+  model: Model
+  depotName: Depot
+  groups: Kumpulan
+  position: Jawatan
+  type: Jenis sensor
+  createdAt: Tarikh dibuat
+  updatedAt: Tarikh dikemas kini
+  updatedBy: Dikemaskini oleh
+  createdBy: Dicipta oleh
+
+trackerhistorysensor:
+  id: Id
+  deviceSensorId: ID Sensor
+  DeviceSensorLabel: Label
+  BLESensorId: ID BLE Sensor
+  deviceSensorBleId: ID BLE Sensor
+  occurredAt: Tarikh
+  occurredAtDate: Tarikh
+  occurredAtTime: Masa
+  temperature: Suhu (C)
+  humidity: Kelembapan (%)
+  value: Nilai
+  lastPosition: Jawatan
+  batteryVoltage: Voltan Bateri
+  batteryPercentage: Peratusan Bateri
+  vehicleId: ID Kenderaan
+  deviceId: ID Peranti
+  ambientLightValue: Nilai Cahaya Ambien
+  ambientLightStatus: Status Cahaya Ambien (I/O)
+  deviceSensorType: Jenis Sensor
+  deviceSensorTypeLabel: Label Jenis Sensor
+  defaultlabel: Kenderaan
+  regno: RegNo
+  model: Model
+  depotName: Depot
+  groups: Kumpulan
+  position: Jawatan
+  coordinates: Koordinat
+
+sensor:
+  id: Id
+  sensorId: ID BLE
+  label: Label
+  lastPosition: Jawatan
+  vehicleId: ID Kenderaan
+  deviceId: ID Peranti
+  defaultlabel: Nama Kenderaan
+  regno: No Reg Kenderaan
+  model: Model
+  depotName: Depot
+  groups: Kumpulan
+  position: Jawatan
+  type: Jenis
+  createdAt: Tarikh dibuat
+  updatedAt: Tarikh dikemas kini
+  updatedBy: Dikemaskini oleh
+  createdBy: Dicipta oleh
+  lastDataValue: Nilai data terakhir
+  lastDataReceived: Data terakhir diterima
+  client: Pelanggan
+
+reseller:
+  companyName: Nama Syarikat
+  keyContact: Kenalan Utama
+  legalName: Nama Undang-undang
+  legalAddress: Legal Address
+  billingAddress: Alamat Pengebilan
+  taxNr: CukaiNr
+  manager: Pengurus
+  currency: Mata wang
+  timezone: Zon waktu
+  logo: Logo
+  domain: Domain
+  unit: Unit
+  phone: Telefon
+  e-mel: E-mel
+  smsName: Nama Sms
+  emailName: Nama E-mel
+  team: Pasukan
+  status: Status
+  createdAt: Created At
+  updatedAt: Updated At
+  usersCount: Jumlah pengguna
+  activeUsersCount: Pengguna aktif
+  deviceCount: Jumlah peranti
+  activeDevicesCount: Peranti aktif
+
+event:
+  VEHICLE_CREATED: Kenderaan ditambah
+  VEHICLE_DELETED: Kenderaan dipadamkan
+  VEHICLE_UNAVAILABLE: Kenderaan tidak tersedia
+  VEHICLE_OFFLINE: Kenderaan di luar talian
+  VEHICLE_ONLINE: Kenderaan dalam talian
+  VEHICLE_CHANGED_REGNO: Nombor rego kenderaan ditukar
+  VEHICLE_CHANGED_MODEL: Pembuatan/penukaran model kenderaan
+  VEHICLE_REASSIGNED: Pemandu baharu diberikan kepada kenderaan
+  SERVICE_REMINDER_SOON: Perkhidmatan akan tamat tidak lama lagi
+  SERVICE_REMINDER_EXPIRED: Perkhidmatan tertunggak
+  SERVICE_REMINDER_DONE: Perkhidmatan selesai
+  SERVICE_REMINDER_DELETED: Peringatan perkhidmatan dipadamkan
+  DOCUMENT_EXPIRE_SOON: Dokumen akan tamat tempoh tidak lama lagi
+  DOCUMENT_EXPIRED: Dokumen tamat tempoh
+  DOCUMENT_DELETED: Dokumen dipadamkan
+  USER_CREATED: Pengguna dibuat
+  USER_CREATED_SYSTEM: Pengguna dibuat (sistem)
+  USER_BLOCKED: Pengguna disekat
+  USER_DELETED: Pengguna dipadamkan
+  USER_PWD_RESET: Tetapan semula kata laluan pengguna
+  USER_CHANGED_NAME: Pengguna menukar nama
+  USER_CHANGED_SURNAME: Pengguna menukar nama keluarga
+  ADMIN_USER_CREATED: Pengguna dibuat
+  ADMIN_USER_BLOCKED: Pengguna disekat
+  ADMIN_USER_DELETED: Pengguna dipadamkan
+  ADMIN_USER_PWD_RESET: Tetapan semula kata laluan pengguna
+  ADMIN_USER_CHANGED_NAME: Pengguna menukar nama
+  CLIENT_CREATED: Pelanggan dibuat
+  CLIENT_DEMO_EXPIRED: Demo pelanggan tamat tempoh
+  CLIENT_BLOCKED: Pelanggan disekat
+  DEVICE_UNKNOWN_DETECTED: Peranti tidak diketahui dikesan
+  DEVICE_IN_STOCK: Peranti dalam stok
+  DEVICE_OFFLINE: Peranti di luar talian
+  DEVICE_UNAVAILABLE: Peranti tidak tersedia
+  DEVICE_DELETED: Peranti dipadamkan
+  LOGIN_AS_CLIENT: Log masuk sebagai pelanggan
+  LOGIN_AS_USER: Log masuk sebagai pengguna
+  VEHICLE_GEOFENCE_ENTER: Kenderaan memasuki kawasan
+  VEHICLE_GEOFENCE_LEAVE: Kawasan kiri kenderaan
+  VEHICLE_OVERSPEEDING_INSIDE_GEOFENCE: Kenderaan terlebih laju di dalam kawasan
+  VEHICLE_OVERSPEEDING: Terlalu laju
+  VEHICLE_LONG_STANDING: Berdiri lebih lama daripada yang ditentukan
+  VEHICLE_LONG_DRIVING: Memandu lebih lama daripada yang ditentukan
+  VEHICLE_MOVING: Kenderaan sedang bergerak
+  VEHICLE_EXCESSING_IDLING: Lebihan Melahu
+  VEHICLE_TOWING_EVENT: Kenderaan sedang ditunda
+  VEHICLE_DRIVING_WITHOUT_DRIVER: Memandu tanpa pemandu yang ditetapkan
+  DRIVER_ROUTE_UNDEFINED: Laluan pemandu tidak ditentukan
+  SERVICE_RECORD_ADDED: Peringatan perkhidmatan ditambah
+  SERVICE_REPAIR_ADDED: Pembaikan Ditambah
+  DOCUMENT_RECORD_ADDED: Dokumen ditambah
+  TRACKER_VOLTAGE: Voltan Bekalan
+  PANIC_BUTTON: Butang SOS
+  ODOMETER_CORRECTED: Odometer kenderaan diperbetulkan
+  DIGITAL_FORM_WITH_FAIL: Pemeriksaan gagal
+  DIGITAL_FORM_IS_NOT_COMPLETED: Borang digital tidak dilengkapkan
+  SENSOR_TEMPERATURE: Suhu penderia
+  SENSOR_HUMIDITY: Kelembapan sensor
+  SENSOR_LIGHT: Lampu sensor
+  SENSOR_BATTERY_LEVEL: Paras bateri sensor
+  SENSOR_STATUS: Status penderia
+  DRIVER_DOCUMENT_EXPIRE_SOON: Dokumen akan tamat tempoh tidak lama lagi
+  DRIVER_DOCUMENT_EXPIRED: Dokumen tamat tempoh
+  DRIVER_DOCUMENT_DELETED: Dokumen dipadamkan
+  DRIVER_DOCUMENT_RECORD_ADDED: Dokumen ditambah
+  SENSOR_IO_STATUS: I/O Digital
+  ASSET_DOCUMENT_EXPIRE_SOON: Dokumen aset tamat tempoh tidak lama lagi
+  ASSET_DOCUMENT_EXPIRED: Dokumen aset tamat tempoh
+  ASSET_DOCUMENT_DELETED: Dokumen aset dipadamkan
+  ASSET_DOCUMENT_RECORD_ADDED: Rekod dokumen aset ditambah
+  ASSET_CREATED: Aset dibuat
+  ASSET_DELETED: Aset dipadamkan
+  ASSET_MISSED: Aset terlepas
+  TRACKER_BATTERY_PERCENTAGE: Peratusan Voltan Bateri
+  STRIPE_INTEGRATION_ERROR: Ralat penyepaduan jalur
+  STRIPE_PAYMENT_FAILED: Pembayaran jalur gagal
+  STRIPE_PAYMENT_SUCCESSFUL: Pembayaran jalur berjaya
+  XERO_INTEGRATION_ERROR: Ralat penyepaduan Xero
+  XERO_INVOICE_CREATION_ERROR: Ralat penciptaan invois Xero
+  XERO_INVOICE_CREATED: Invois Xero dibuat
+  XERO_PAYMENT_CREATION_ERROR: Ralat pembuatan pembayaran Xero
+  XERO_PAYMENT_CREATED: Pembayaran Xero dibuat
+  INVOICE_CREATED: Invois dibuat
+  PAYMENT_SUCCESSFUL: Pembayaran berjaya
+  PAYMENT_FAILED: Pembayaran gagal
+  INVOICE_OVERDUE: Invois tertunggak
+  INVOICE_OVERDUE_PARTIALLY_BLOCKED: Invois tertunggak - Akaun disekat sebahagian
+  INVOICE_OVERDUE_BLOCKED: Invois tertunggak - Akaun disekat
+  INVOICE_CREATED_ADMIN: Invois dibuat
+  INVOICE_OVERDUE_ADMIN: Invois tertunggak
+  INVOICE_OVERDUE_PARTIALLY_BLOCKED_ADMIN: Invois tertunggak - Akaun disekat sebahagian
+  INVOICE_OVERDUE_BLOCKED_ADMIN: Invois tertunggak - Akaun disekat
+  DEVICE_CONTRACT_EXPIRED: Kontrak peranti tamat tempoh
+  TRACKER_JAMMER_STARTED_ALARM: Jammer dimulakan
+  TRACKER_ACCIDENT_HAPPENED_ALARM: Kemalangan berlaku
+
+alertSubType:
+  Vehicle Activities: Aktiviti Kenderaan
+  Vehicle Documents: Dokumen Kenderaan
+  Asset Documents: Dokumen Aset
+  Asset Activities: Aktiviti Aset
+  Digital Forms: Borang Digital
+  Driver activities: Aktiviti pemandu
+  Sensor Data: Data Sensor
+  Driver Documents: Dokumen Pemandu
+  Vehicle status: Status kenderaan
+  Areas: Kawasan
+  Service reminders: Peringatan perkhidmatan
+  Vehicle data: Data kenderaan
+  User accounts: Akaun pengguna
+  Admin user accounts: Akaun pengguna pentadbir
+  Admin activities: Aktiviti pentadbir
+  Client accounts: Akaun pelanggan
+  Device status: Status peranti
+  Stripe integration: Penyepaduan jalur
+  Xero integration: Penyepaduan Xero
+  Stripe payment information: Maklumat pembayaran jalur
+  Billing: Pengebilan
+  Billing admin: Pengebilan
+
+billing:
+  client_name: Pelanggan
+  active_vehicle_trackers: Penjejak kenderaan aktif
+  deactivated_vehicle_trackers: Penjejak kenderaan dinyahaktifkan
+  active_personal_trackers: Penjejak peribadi yang aktif
+  deactivated_personal_trackers: Penjejak peribadi dinyahaktifkan
+  active_asset_trackers: Penjejak aset aktif
+  deactivated_asset_trackers: Penjejak aset dinyahaktifkan
+  active_satellite_trackers: Penjejak satelit aktif
+  deactivated_satellite_trackers: Penjejak satelit dinyahaktifkan
+  active_vehicles: Kenderaan aktif
+  virtual_vehicles: Kenderaan maya
+  archived_vehicles: Kenderaan yang diarkibkan
+  deleted_vehicles: Kenderaan yang dipadamkan
+  active_sensors: Penderia aktif
+  archived_sensors: Penderia arkib
+  deleted_sensors: Penderia yang dipadamkan
+  prepayment: Prabayaran %bulan% %tahun%
+
+  active_vehicle_trackers_total: Jumlah
+  deactivated_vehicle_trackers_total: Jumlah
+  active_personal_trackers_total: Jumlah
+  deactivated_personal_trackers_total: Jumlah
+  active_asset_trackers_total: Jumlah
+  deactivated_asset_trackers_total: Jumlah
+  active_satellite_trackers_total: Jumlah
+  deactivated_satellite_trackers_total: Jumlah
+  active_vehicles_total: Jumlah
+  virtual_vehicles_total: Jumlah
+  archived_vehicles_total: Jumlah
+  deleted_vehicles_total: Jumlah
+  active_sensors_total: Jumlah
+  archived_sensors_total: Jumlah
+  deleted_sensors_total: Jumlah
+
+  active_vehicle_trackers_price: Unit
+  deactivated_vehicle_trackers_price: Unit
+  active_personal_trackers_price: Unit
+  deactivated_personal_trackers_price: Unit
+  active_asset_trackers_price: Unit
+  deactivated_asset_trackers_price: Unit
+  active_satellite_trackers_price: Unit
+  deactivated_satellite_trackers_price: Unit
+  harga_kenderaan aktif: Unit
+  virtual_vehicles_price: Unit
+  archived_vehicles_price: Unit
+  deleted_vehicles_price: Unit
+  active_sensors_price: Unit
+  archived_sensors_price: Unit
+  deleted_sensors_price: Unit
+
+  # active_vehicle_trackers_total: Jumlah penjejak kenderaan aktif
+  # deactivated_vehicle_trackers_total: Jumlah penjejak kenderaan yang dinyahaktifkan
+  # active_personal_trackers_total: Jumlah penjejak peribadi yang aktif
+  # deactivated_personal_trackers_total: Jumlah penjejak peribadi yang dinyahaktifkan
+  # active_asset_trackers_total: Jumlah penjejak aset aktif
+  # deactivated_asset_trackers_total: Jumlah penjejak aset dinyahaktifkan
+  # active_vehicles_total: Jumlah kenderaan aktif
+  # virtual_vehicles_total: Jumlah kenderaan maya
+  # archived_vehicles_total: Jumlah kenderaan yang diarkibkan
+  # deleted_vehicles_total: Jumlah kenderaan yang dipadam
+  # active_sensors_total: Jumlah sensor aktif
+  # archived_sensors_total: Jumlah sensor yang diarkibkan
+  # deleted_sensors_total: Jumlah sensor yang dipadamkan
+  #
+  # harga_penjejak_kenderaan aktif: Harga penjejak kenderaan aktif
+  # harga penjejak_kenderaan yang dinyahaktifkan: Harga penjejak kenderaan yang dinyahaktifkan
+  # active_personal_trackers_price: Harga penjejak peribadi yang aktif
+  # deactivated_personal_trackers_price: Harga penjejak peribadi yang dinyahaktifkan
+  # active_asset_trackers_price: Harga penjejak aset aktif
+  # deactivated_asset_trackers_price: Harga penjejak aset dinyahaktifkan
+  # harga_kenderaan aktif: Harga kenderaan aktif
+  # virtual_vehicles_price: Harga kenderaan maya
+  # harga_kenderaan arkib: Harga kenderaan arkib
+  # deleted_vehicles_price: Harga kenderaan yang dipadam
+  # active_sensors_price: Harga sensor aktif
+  # archived_sensors_price: Harga sensor arkib
+  # deleted_sensors_price: Harga sensor yang dipadamkan
+
+trackerhistory:
+  ts: Tarikh masa
+  createdAt: Created
+  gps: Gps
+  speed: Kelajuan
+  angle: Arah
+  io: IO
+  batteryVoltage: Voltan Bateri
+  batteryVoltagePercentage: Peratusan Voltan Bateri
+  temperatureLevel: Paras Suhu
+  odometer: Odometer
+  externalVoltage: Voltan Luaran

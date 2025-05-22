@@ -1,0 +1,1438 @@
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ผู้ใช้ใหม่ถูกสร้างขึ้น'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ:</h3><p>ผู้ใช้ ${user_name} <b>${user_email}</b> ถูกสร้าง </p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - ผู้ใช้ ${user_name} <b>${user_email}</b> (ทีม - ${team}) ถูกสร้างโดย ${triggered_by}.</p><p>หน้าผู้ใช้: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_SMS:
+  body: 'ผู้ใช้ถูกสร้าง: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_MOBILE:
+  subject: 'ผู้ใช้ใหม่ถูกสร้าง'
+  body: 'ผู้ใช้ถูกสร้าง: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_WEB:
+  subject: 'การแจ้งเตือน - ผู้ใช้ใหม่ถูกสร้างขึ้น'
+  body: 'ผู้ใช้ถูกสร้าง: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_EMAIL:
+  subject: 'การแจ้งเตือน - รหัสผ่านการตั้งค่าผู้ใช้ใหม่'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ:</h3><p>ทริกเกอร์การตั้งค่ารหัสผ่านใหม่สําหรับผู้ใช้ ${user_name} <b>${user_email}</b></p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - การตั้งค่ารหัสผ่านใหม่ถูกทริกเกอร์โดย ${triggered_by} สําหรับผู้ใช้ ${user_name} <b>${user_email}</b> (ทีม - ${team}).</p><p>หน้าผู้ใช้: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_SMS:
+  body: 'รีเซ็ตรหัสผ่านแล้ว: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_MOBILE:
+  subject: 'รหัสผ่านการตั้งค่าผู้ใช้ใหม่'
+  body: 'รีเซ็ตรหัสผ่านแล้ว: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_WEB:
+  subject: 'การแจ้งเตือน - รหัสผ่านการตั้งค่าผู้ใช้ใหม่'
+  body: 'รีเซ็ตรหัสผ่านแล้ว: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CREATED_SYSTEM_EMAIL:
+  subject: 'การแจ้งเตือน - ผู้ใช้ใหม่สร้าง (ระบบ)'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3><p>ผู้ใช้ ${user_name} <b>${user_email}</b>ถูกสร้าง</p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - ผู้ใช้ ${user_name} <b>${user_email}</b> (ทีม - ${team})ถูกสร้างโดย ${triggered_by}.</p><p>หน้าผู้ใช้: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ผู้ใช้ถูกบล็อค'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3><p>ผู้ใช้ ${user_name} <b>${user_email}</b> ถูกบล็อก</p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - ${triggered_by} ได้บล็อกผู้ใช้ ${user_name} <b>${user_email}</b> [ทีม: ${team}]</p><p>การบล็อกข้อความ: ${data_message}</p><p>หน้าผู้ใช้: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_SMS:
+  body: 'ผู้ใช้ถูกบล็อก: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_MOBILE:
+  subject: 'ผู้ใช้ถูกบล็อก'
+  body: 'ผู้ใช้ถูกบล็อก: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_WEB:
+  subject: 'การแจ้งเตือน - ผู้ใช้ถูกบล็อก'
+  body: 'ผู้ใช้ถูกบล็อก: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ผู้ใช้ถูกลบ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3><p>ผู้ใช้ ${user_name} <b>${user_email}</b>ถูกลบ</p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - ${triggered_by} ได้ลบผู้ใช้แล้ว ${user_name} <b>${user_email}</b> [ทีม: ${team}]</p><p>หน้าผู้ใช้: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_SMS:
+  body: 'ผู้ใช้ถูกลบ: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_MOBILE:
+  subject: 'ผู้ใช้ถูกลบ'
+  body: 'ผู้ใช้ถูกลบ: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - ผู้ใช้ถูกลบ'
+  body: 'ผู้ใช้ถูกลบ: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_MOBILE:
+  subject: 'ชื่อที่เปลี่ยนแปลงของผู้ใช้'
+  body: 'ชื่อผู้ใช้ได้เปลี่ยนชื่อ: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_WEB:
+  subject: 'การแจ้งเตือน - ชื่อที่เปลี่ยนแปลงของผู้ใช้'
+  body: 'ชื่อผู้ใช้ได้เปลี่ยนชื่อ: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_SMS:
+  body: 'ชื่อผู้ใช้ได้เปลี่ยนชื่อ: ${user_name} (${user_email}). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ชื่อที่เปลี่ยนแปลงของผู้ใช้'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3><p>เปลี่ยนชื่อสําหรับผู้ใช้ <b>${user_name} (${user_email})</b></p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - ${triggered_by} ได้เปลี่ยนชื่อผู้ใช้จาก "${old_value}"เป็น "${user_name}".</p><p>หน้าผู้ใช้: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_MOBILE:
+  subject: 'ผู้ใช้เปลี่ยนนามสกุล'
+  body: 'ผู้ใช้เปลี่ยนนามสกุล: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_WEB:
+  subject: 'การแจ้งเตือน - ผู้ใช้เปลี่ยนนามสกุล'
+  body: 'ผู้ใช้เปลี่ยนนามสกุล: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_SMS:
+  body: 'ผู้ใช้เปลี่ยนนามสกุล: ${user_name} (${user_email). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ผู้ใช้เปลี่ยนนามสกุล'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3><p>ผู้ใช้เปลี่ยนนามสกุล: <b>${user_name} (${user_email)</b></p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - ผู้ใช้ ${user_name} ถูกเปลี่ยนชื่อโดย ${triggered_by}.</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - สร้างไคลเอนต์ใหม่แล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3><p>Client <b>${client_name}</b>ถูกสร้าง</p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - client ${client_name}ถูกสร้างโดย ${triggered_by}.</p><p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_SMS:
+  body: 'สร้างไคลเอนต์แล้ว: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_MOBILE:
+  subject: 'สร้างไคลเอนต์ใหม่แล้ว'
+  body: 'สร้างไคลเอนต์แล้ว: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_WEB:
+  subject: 'การแจ้งเตือน - สร้างไคลเอนต์ใหม่แล้ว'
+  body: 'สร้างไคลเอนต์แล้ว: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ไคลเอนต์ถูกบล็อค'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3><p>Client <b>${client_name}</b> ถูกบล็อก</p><br/><p><b>ข้อมูลโดยละเอียด:</b></p><p>${event_time} - client ${client_name} from ${team} was blocked by ${triggered_by}.</p><p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_SMS:
+  body: 'ไคลเอนต์ถูกบล็อค: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_MOBILE:
+  subject: 'ไคลเอนต์ถูกบล็อค'
+  body: 'ไคลเอนต์ถูกบล็อค: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_WEB:
+  subject: ไคลเอนต์ถูกบล็อค'
+  body: 'ไคลเอนต์ถูกบล็อค: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - การสาธิตไคลเอ็นต์หมดอายุแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>รอบระยะเวลาการสาธิตหมดอายุแล้วสําหรับลูกค้า <b>${client_name}</b>.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - client ${client_name} ระยะเวลาการสาธิตหมดอายุ</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_SMS:
+  body: 'การสาธิตไคลเอ็นต์หมดอายุแล้ว: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_MOBILE:
+  subject: 'การสาธิตไคลเอ็นต์หมดอายุแล้ว'
+  body: 'การสาธิตไคลเอ็นต์หมดอายุแล้ว: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_WEB:
+  subject: 'การแจ้งเตือน - การสาธิตไคลเอ็นต์หมดอายุแล้ว'
+  body: 'การสาธิตไคลเอ็นต์หมดอายุแล้ว: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - สร้างพาหนะแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>สร้างพาหนะใหม่แล้ว - ${reg_no_with_model}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้สร้างยานพาหนะ ${reg_no_with_model} [ทีม: ${team}]</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_SMS:
+  body: 'สร้างพาหนะแล้ว: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_MOBILE:
+  subject: 'สร้างพาหนะแล้ว'
+  body: 'สร้างพาหนะแล้ว: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_WEB:
+  subject: 'การแจ้งเตือน - สร้างพาหนะแล้ว'
+  body: 'สร้างพาหนะแล้ว: ${reg_no}. ${comment}'
+
+
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะถูกลบ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no_with_model}ถูกลบ</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้ลบยานพาหนะ ${reg_no_with_model}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_SMS:
+  body: 'ยานพาหนะถูกลบ: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_MOBILE:
+  subject: 'ยานพาหนะถูกลบ'
+  body: 'ยานพาหนะถูกลบ: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะถูกลบ'
+  body: 'ยานพาหนะถูกลบ: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_EMAIL:
+  subject: 'การแจ้งเตือน - พาหนะ regNo ถูกเปลี่ยน'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>RegNo เปลี่ยนสําหรับยานพาหนะ ${reg_no_with_model}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้เปลี่ยนรถ RegNo จาก "${old_value}"เป็น "${reg_no}".</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_SMS:
+  body: 'ยานพาหนะregNo ถูกเปลี่ยน: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_MOBILE:
+  subject: 'ยานพาหนะregNo ถูกเปลี่ยน'
+  body: 'ยานพาหนะregNo ถูกเปลี่ยน: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะregNo ถูกเปลี่ยน'
+  body: 'ยานพาหนะregNo ถูกเปลี่ยน: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_EMAIL:
+  subject: 'การแจ้งเตือน - รุ่นยานพาหนะ ถูกเปลี่ยน'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>รุ่นยานพาหนะ เปลี่ยนเป็น ${reg_no}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้เปลี่ยนรุ่นรถจาก "${old_value}"เป็น "${model}".</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_SMS:
+  body: 'รุ่นยานพาหนะ ถูกเปลี่ยน: ${model}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_MOBILE:
+  subject: 'รุ่นยานพาหนะ ถูกเปลี่ยน'
+  body: 'รุ่นยานพาหนะ ถูกเปลี่ยน: ${model}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_WEB:
+  subject: 'การแจ้งเตือน - รุ่นยานพาหนะ ถูกเปลี่ยน'
+  body: 'รุ่นยานพาหนะ ถูกเปลี่ยน: ${model}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะเปลี่ยนสถานะ: ไม่ว่าง'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no_with_model} สถานะเปลี่ยนเป็น "${status}".</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} เปลี่ยนสถานะ สำหรับยานพาหนะ ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver}เป็น "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะเปลี่ยนสถานะ: ไม่ว่าง'
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_MOBILE:
+  subject: 'ยานพาหนะเปลี่ยนสถานะ: ไม่ว่าง'
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะเปลี่ยนสถานะ: ออฟไลน์'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no_with_model} สถานะเปลี่ยนเป็น "${status}".</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} เปลี่ยนสถานะเป็น "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะเปลี่ยนสถานะ: ออฟไลน์'
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_MOBILE:
+  subject: 'ยานพาหนะเปลี่ยนสถานะ: ออฟไลน์'
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status} ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะมอบหมายใหม่'
+  body: 'ยานพาหนะ${reg_no} ได้รับมอบหมายโปรแกรมควบคุมใหม่ ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_MOBILE:
+  subject: 'ยานพาหนะมอบหมายใหม่'
+  body: 'ยานพาหนะ${reg_no} ได้รับมอบหมายโปรแกรมควบคุมใหม่ ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} ได้รับมอบหมายโปรแกรมควบคุมใหม่ ${driver}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะมอบหมายใหม่'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} มอบหมายไปยังผู้ขับขี่ ${driver}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no} มอบหมายอีกครั้ง ${old_value}เป็น "${driver}".</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_WEB:
+  subject: 'การแจ้งเตือน - การขับขี่เร็วเกินกำหนด'
+  body: 'ยานพาหนะ${reg_no} ขับขี่เร็วกว่า ${avg_speed}กม/ชม. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} ขับขี่เร็วกว่า ${avg_speed}กม/ชม. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_MOBILE:
+  subject: 'การขับขี่เร็วเกินกำหนด'
+  body: 'ยานพาหนะ${reg_no} ขับขี่เร็วกว่า ${avg_speed}กม/ชม. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_EMAIL:
+  subject: 'การแจ้งเตือน - การขับขี่เร็วเกินกำหนด'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} driving >${avg_speed}กม/ชม.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} driving more than ${avg_speed}กม/ชม, การจํากัดความเร็วถูกตั้งค่าเป็น ${overSpeed}กม/ชม</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_WEB:
+  subject: 'การแจ้งเตือน - การขับขี่เร็วเกินกำหนดภายในบริเวณ'
+  body: 'ยานพาหนะ${reg_no} ขับขี่เร็วกว่า ${avg_speed}กม/ชม ไปยังบริเวณ: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} ขับขี่เร็วกว่า ${avg_speed}กม/ชม ไปยังบริเวณ: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_MOBILE:
+  subject: 'การขับขี่เร็วเกินกำหนดภายในบริเวณ'
+  body: 'ยานพาหนะ${reg_no} ขับขี่เร็วกว่า ${avg_speed}กม/ชม ไปยังบริเวณ: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - การขับขี่เร็วเกินกำหนดภายในบริเวณ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} driving >${avg_speed}กม/ชม ในบริเวณ "${area}"</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} driving more than ${avg_speed}กม/ชม ในบริเวณ "${area}", การจํากัดความเร็วถูกตั้งค่าเป็น ${overSpeed}กม/ชม</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะแจ้งเตือนบริเวณ'
+  body: 'ยานพาหนะ${reg_no} เข้าสู่บริเวณ: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} เข้าสู่บริเวณ: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_MOBILE:
+  subject: 'ยานพาหนะแจ้งเตือนบริเวณ'
+  body: 'ยานพาหนะ${reg_no} เข้าสู่บริเวณ: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะแจ้งเตือนบริเวณ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} เข้าสู่บริเวณ: ${area}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} เข้าสู่บริเวณ "${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะแจ้งเตือนบริเวณ'
+  body: 'ยานพาหนะ${reg_no} ออกเดินทางจากพื้นที่: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} ออกเดินทางจากพื้นที่: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_MOBILE:
+  subject: 'ยานพาหนะแจ้งเตือนบริเวณ'
+  body: 'ยานพาหนะ${reg_no} ออกเดินทางจากพื้นที่: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะแจ้งเตือนบริเวณ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} ออกเดินทางจากพื้นที่: ${area}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} departed from the area "${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะdriving'
+  body: 'ยานพาหนะกำลังขับขี่โดยไม่มีผู้ขับขี่: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_SMS:
+  body: 'ยานพาหนะกำลังขับขี่โดยไม่มีผู้ขับขี่: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_MOBILE:
+  subject: 'ยานพาหนะdriving'
+  body: 'ยานพาหนะกำลังขับขี่โดยไม่มีผู้ขับขี่: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะdriving'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no}กำลังขับขี่โดยไม่มีผู้ขับขี่.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model}กำลังขับขี่โดยไม่มีผู้ขับขี่.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะเหตุการณ์ลากจูง'
+  body: 'ยานพาหนะมีเครื่องยนต์ออก, แต่เป็นจริงกําลังย้าย: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_SMS:
+  body: 'ยานพาหนะมีเครื่องยนต์ออก, แต่เป็นจริงกําลังย้าย: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_MOBILE:
+  subject: 'ยานพาหนะเหตุการณ์ลากจูง'
+  body: 'ยานพาหนะมีเครื่องยนต์ออก, แต่เป็นจริงกําลังย้าย: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะเหตุการณ์ลากจูง'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะมีเครื่องยนต์ออก, แต่เป็นจริงกําลังย้าย: ${reg_no}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะlong standing'
+  body: 'ยานพาหนะถูกหยุดนานกว่า ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_SMS:
+  body: 'ยานพาหนะถูกหยุดนานกว่า ${duration}: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_MOBILE:
+  subject: 'ยานพาหนะlong standing'
+  body: 'ยานพาหนะถูกหยุดนานกว่า ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะlong standing'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} ได้หยุด >${duration}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} ได้หยุด >${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะการขับขี่ทางไกล'
+  body: 'ยานพาหนะการขับขี่มากกว่า ${duration} อย่างต่อเนื่องและได้ขับเคลื่อนมานานกว่า ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_SMS:
+  body: 'ยานพาหนะการขับขี่มากกว่า ${duration}  อย่างต่อเนื่อง: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_MOBILE:
+  subject: 'ยานพาหนะการขับขี่ทางไกล'
+  body: 'ยานพาหนะการขับขี่มากกว่า ${duration} อย่างต่อเนื่องและได้ขับเคลื่อนมานานกว่า ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะการขับขี่ทางไกล'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} กําลังขับรถอย่างต่อเนื่อง >${duration}</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} กําลังขับรถอย่างต่อเนื่อง >${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะกำลังขยับ'
+  body: 'ยานพาหนะเริ่มขยับ: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_SMS:
+  body: 'ยานพาหนะเริ่มขยับ: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_MOBILE:
+  subject: 'ยานพาหนะกำลังขยับ'
+  body: 'ยานพาหนะเริ่มขยับ: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะกำลังขยับ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no} พร้อมกับผู้ขับขี่ ${driver} เริ่มกำลังขยับ.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} เริ่มกำลังขยับ</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะexcessive idling'
+  body: '${reg_no_or_device} หยุดนานมากกว่า ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_SMS:
+  body: '${reg_no_or_device} หยุดนานมากกว่า ${duration}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_MOBILE:
+  subject: 'ยานพาหนะexcessive idling'
+  body: '${reg_no_or_device} หยุดนานมากกว่า ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะexcessive idling'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>${reg_no_or_device} หยุดนานมากกว่า ${duration}.</p>
+  <p>${event_time} - ${reg_no_with_model_or_device} ${driver} หยุดนานมากกว่า ${duration}</p>
+  <p style="color: red;">${note}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_WEB:
+  subject: 'การแจ้งเตือน - ยานพาหนะเปลี่ยนสถานะ: Online'
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_SMS:
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_MOBILE:
+  subject: 'ยานพาหนะเปลี่ยนสถานะ: Online'
+  body: 'ยานพาหนะ${reg_no} ได้เปลี่ยนสถานะ: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ยานพาหนะเปลี่ยนสถานะ: Online'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ยานพาหนะ${reg_no_with_model} สถานะเปลี่ยนเป็น "${status}".</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ยานพาหนะ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} เปลี่ยนสถานะเป็น "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุ'
+  body: 'เอกสารหมดอายุ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_SMS:
+  body: 'เอกสารหมดอายุ: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'เอกสารหมดอายุ'
+  body: 'เอกสารหมดอายุ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารหมดอายุ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${exp_date} - เอกสารหมดอายุ "${title}" หมดอายุ ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุเร็วๆนี้'
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'เอกสารหมดอายุเร็วๆนี้'
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุเร็วๆนี้'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารหมดอายุเร็วๆนี้ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เอกสาร "${title}" ${data_by_type} จะหมดอายุเมื่อ ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารถูกลบ'
+  body: 'เอกสารถูกลบ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_SMS:
+  body: 'เอกสารถูกลบ: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'เอกสารถูกลบ'
+  body: 'เอกสารถูกลบ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารถูกลบ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารถูกลบ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้ลบเอกสาร "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'การแจ้งเตือน - เพิ่มเอกสาร'
+  body: 'เพิ่มเอกสาร: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'เพิ่มเอกสาร: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'เพิ่มเอกสาร'
+  body: 'เพิ่มเอกสาร: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เพิ่มเอกสาร'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เพิ่มเอกสาร ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้เพิ่มระเบียนใหม่ลงในเอกสาร "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_WEB:
+  subject: 'การแจ้งเตือน - อุปกรณ์อยู่ในสต๊อก'
+  body: 'อุปกรณ์อยู่ในสต๊อก: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_SMS:
+  body: 'อุปกรณ์อยู่ในสต๊อก: ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_MOBILE:
+  subject: 'อุปกรณ์อยู่ในสต๊อก'
+  body: 'อุปกรณ์อยู่ในสต๊อก: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_EMAIL:
+  subject: 'การแจ้งเตือน - อุปกรณ์อยู่ในสต๊อก'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>อุปกรณ์อยู่ในสต๊อก: ${device_imei}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - อุปกรณ์${device_imei} เปลี่ยนสถานะเป็น "ในสต๊อก"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_WEB:
+  subject: 'การแจ้งเตือน - อุปกรณ์เปลี่ยนสถานะ: ออฟไลน์'
+  body: 'อุปกรณ์${device_imei} ได้เปลี่ยนสถานะ: ออฟไลน์. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_SMS:
+  body: 'อุปกรณ์${device_imei} ได้เปลี่ยนสถานะ: ออฟไลน์. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_MOBILE:
+  subject: 'อุปกรณ์เปลี่ยนสถานะ: ออฟไลน์'
+  body: 'อุปกรณ์${device_imei} ได้เปลี่ยนสถานะ: ออฟไลน์. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - อุปกรณ์เปลี่ยนสถานะ: ออฟไลน์'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>อุปกรณ์${device_imei} สถานะเปลี่ยนเป็น "ออฟไลน์"</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - อุปกรณ์${device_imei} เปลี่ยนสถานะเป็น "ออฟไลน์"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_WEB:
+  subject: 'การแจ้งเตือน - อุปกรณ์เปลี่ยนสถานะ: ไม่ว่าง'
+  body: 'อุปกรณ์${device_imei} ได้เปลี่ยนสถานะ: ไม่ว่าง. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_SMS:
+  body: 'อุปกรณ์${device_imei} ได้เปลี่ยนสถานะ: ไม่ว่าง. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_MOBILE:
+  subject: 'อุปกรณ์เปลี่ยนสถานะ: ไม่ว่าง'
+  body: 'อุปกรณ์${device_imei} ได้เปลี่ยนสถานะ: ไม่ว่าง. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - อุปกรณ์เปลี่ยนสถานะ: ไม่ว่าง'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>อุปกรณ์${device_imei} สถานะเปลี่ยนเป็น "ไม่ว่าง"</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - อุปกรณ์${device_imei} เปลี่ยนสถานะเป็น "ไม่ว่าง"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - อุปกรณ์ถูกลบ'
+  body: 'อุปกรณ์ถูกลบ:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_SMS:
+  body: 'อุปกรณ์ถูกลบ:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_MOBILE:
+  subject: 'อุปกรณ์ถูกลบ'
+  body: 'อุปกรณ์ถูกลบ:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - อุปกรณ์ถูกลบ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>อุปกรณ์${device_imei}ถูกลบ</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้ลบอุปกรณ์แล้ว ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_WEB:
+  subject: 'การแจ้งเตือน - ตรวจพบอุปกรณ์ที่ไม่รู้จัก'
+  body: 'ตรวจพบอุปกรณ์ที่ไม่รู้จัก:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_SMS:
+  body: 'ตรวจพบอุปกรณ์ที่ไม่รู้จัก:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_MOBILE:
+  subject: 'ตรวจพบอุปกรณ์ที่ไม่รู้จัก'
+  body: 'ตรวจพบอุปกรณ์ที่ไม่รู้จัก:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ตรวจพบอุปกรณ์ที่ไม่รู้จัก'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ตรวจพบอุปกรณ์ที่ไม่รู้จัก:  ${device_imei}</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_WEB:
+  subject: 'การแจ้งเตือน - การแจ้งเตือนบริการเร็ว ๆ นี้'
+  body: 'การแจ้งเตือนบริการเร็ว ๆ นี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_SMS:
+  body: 'การแจ้งเตือนบริการเร็ว ๆ นี้: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_MOBILE:
+  subject: 'การแจ้งเตือนบริการเร็ว ๆ นี้'
+  body: 'การแจ้งเตือนบริการเร็ว ๆ นี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_EMAIL:
+  subject: 'การแจ้งเตือน - การแจ้งเตือนบริการเร็ว ๆ นี้'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>การแจ้งเตือนบริการเร็ว ๆ นี้ (${entity}).</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - การแจ้งเตือนบริการ "${title}" (${entity}) จะหมดอายุเมื่อ ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_WEB:
+  subject: 'การแจ้งเตือน - การแจ้งเตือนการบริการหมดอายุแล้ว'
+  body: 'การแจ้งเตือนการบริการหมดอายุแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_SMS:
+  body: 'การแจ้งเตือนการบริการหมดอายุแล้ว: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_MOBILE:
+  subject: 'การแจ้งเตือนการบริการหมดอายุแล้ว'
+  body: 'การแจ้งเตือนการบริการหมดอายุแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - การแจ้งเตือนการบริการหมดอายุแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>การแจ้งเตือนการบริการหมดอายุแล้ว (${entity}).</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - การแจ้งเตือนบริการ "${title}" (${entity}) หมดอายุ.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_WEB:
+  subject: 'การแจ้งเตือน - การแจ้งเตือนการบริการเสร็จสิ้นแล้ว'
+  body: 'การแจ้งเตือนการบริการเสร็จสิ้นแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_SMS:
+  body: 'การแจ้งเตือนการบริการเสร็จสิ้นแล้ว: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_MOBILE:
+  subject: 'การแจ้งเตือนการบริการเสร็จสิ้นแล้ว'
+  body: 'การแจ้งเตือนการบริการเสร็จสิ้นแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - การแจ้งเตือนการบริการเสร็จสิ้นแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>การแจ้งเตือนการบริการเสร็จสิ้นแล้ว (${entity}).</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้ทําการแจ้งเตือนการบริการ "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - ลบการแจ้งเตือนการบริการแล้ว'
+  body: 'ลบการแจ้งเตือนการบริการแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_SMS:
+  body: 'ลบการแจ้งเตือนการบริการแล้ว: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_MOBILE:
+  subject: 'ลบการแจ้งเตือนการบริการแล้ว'
+  body: 'ลบการแจ้งเตือนการบริการแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ลบการแจ้งเตือนการบริการแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ลบการแจ้งเตือนการบริการแล้ว (${entity}).</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ตัวเตือนบริการที่ถูกลบ "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_WEB:
+  subject: 'การแจ้งเตือน - เพิ่มเรกคอร์ดการบริการแล้ว'
+  body: 'เพิ่มเรกคอร์ดการบริการแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_SMS:
+  body: 'เพิ่มเรกคอร์ดการบริการแล้ว: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_MOBILE:
+  subject: 'เพิ่มเรกคอร์ดการบริการแล้ว'
+  body: 'เพิ่มเรกคอร์ดการบริการแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เพิ่มเรกคอร์ดการบริการแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เพิ่มเรกคอร์ดการบริการแล้ว (${entity}).</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้เพิ่มเรกคอร์ดการบริการใหม่ "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_WEB:
+  subject: 'การแจ้งเตือน - เพิ่มการซ่อมแซมบริการแล้ว'
+  body: 'เพิ่มการซ่อมแซมบริการแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_SMS:
+  body: 'เพิ่มการซ่อมแซมบริการแล้ว: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_MOBILE:
+  subject: 'เพิ่มการซ่อมแซมบริการแล้ว'
+  body: 'เพิ่มการซ่อมแซมบริการแล้ว: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เพิ่มการซ่อมแซมบริการแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เพิ่มการซ่อมแซมบริการแล้ว (${entity}).</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้เพิ่มการซ่อมแซมบริการใหม่ "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_WEB:
+  subject: 'การแจ้งเตือน - แรงดันไฟฟ้า'
+  body: 'จ่ายแรงดันไฟฟ้าเพื่อติดตามเป็น ${battery_voltage}V บนยานพาหนะ: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_SMS:
+  body: 'จ่ายแรงดันไฟฟ้าเพื่อติดตามเป็น ${battery_voltage}V บนยานพาหนะ: ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_MOBILE:
+  subject: 'แรงดันไฟฟ้า'
+  body: 'จ่ายแรงดันไฟฟ้าเพื่อติดตามเป็น ${battery_voltage}V บนยานพาหนะ: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - แรงดันไฟฟ้า'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ติดตามแรงดันไฟฟ้าอุปทานเป็น ${battery_voltage}V ในรถ ${vehicle}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ติดตามแรงดันไฟฟ้าอุปทานในยานพาหนะ ${reg_no_with_model} พร้อมกับผู้ขับขี่ ${driver} คือ ${battery_voltage}V, ขีดจํากัดแรงดันไฟฟ้าถูกตั้งค่าเป็น ${deviceVoltage}</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ${from_company} ปุ่ม SOS - ${reg_no_or_device}'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ปุ่ม SOS ถูกกดเมื่อ ${reg_no_or_device}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ปุ่ม SOS ที่กดโดยไดรเวอร์: ${driver} บน${reg_no_with_model_or_device}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <p>${google_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_SMS:
+  body: 'ปุ่ม SOS ที่กดโดยไดรเวอร์: ${driver} บน${reg_no_or_device}. ${event_time} ${google_url} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_MOBILE:
+  subject: 'ปุ่ม SOS - ${reg_no_or_device}'
+  body: 'ปุ่ม SOS ที่กดโดยไดรเวอร์: ${driver} บน${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_WEB:
+  subject: 'การแจ้งเตือน - ปุ่ม SOS - ${reg_no_or_device}'
+  body: 'ปุ่ม SOS ที่กดโดยไดรเวอร์: ${driver} บน${reg_no_or_device}. ${comment}'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_WEB:
+  subject: 'การแจ้งเตือน - กิจกรรมของผู้ใช้'
+  body: 'Login as client: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_SMS:
+  body: 'Login as client: ${client_email} ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_MOBILE:
+  subject: 'กิจกรรมของผู้ใช้'
+  body: 'Login as client: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_EMAIL:
+  subject: 'การแจ้งเตือน - กิจกรรมของผู้ใช้'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>Login as client: ${client_email} ${client_name}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_WEB:
+  subject: 'การแจ้งเตือน - กิจกรรมของผู้ใช้'
+  body: 'ล็อกอินในฐานะผู้ใช้: ${user_email} ${user_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_EMAIL:
+  subject: 'การแจ้งเตือน - กิจกรรมของผู้ใช้'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ล็อกอินในฐานะผู้ใช้: ${user_email} ${user_name}</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_SMS:
+  body: 'ล็อกอินในฐานะผู้ใช้: ${user_email} ${user_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_MOBILE:
+  subject: 'กิจกรรมของผู้ใช้'
+  body: 'ล็อกอินในฐานะผู้ใช้: ${user_email} ${user_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เครื่องวัดระยะทางได้รับการแก้ไขแล้ว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เครื่องวัดระยะทางถูกตั้งเป็น ${new_value} สำหรับ ${reg_no}</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${user_name}  เครื่องวัดระยะทางที่แก้ไขแล้วสําหรับ ${reg_no}; ค่าเก่า - ${old_value}, ค่าใหม่ - ${new_value}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_SMS:
+  body:  'เครื่องวัดระยะทางถูกตั้งเป็น ${new_value} สำหรับ ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_MOBILE:
+  subject: 'เครื่องวัดระยะทางได้รับการแก้ไขแล้ว'
+  body: 'เครื่องวัดระยะทางถูกตั้งเป็น ${new_value} สำหรับ ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_WEB:
+  subject: 'การแจ้งเตือน - เครื่องวัดระยะทางได้รับการแก้ไขแล้ว'
+  body: 'เครื่องวัดระยะทางถูกตั้งเป็น ${new_value} สำหรับ ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ฟอร์มที่สมบูรณ์โดยล้มเหลว'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ฟอร์มที่สมบูรณ์โดยล้มเหลวโดยผู้ขับขี่: ${driver} ต่อยานพาหนะ: ${reg_no}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - แบบฟอร์ม: ${form_title} เสร็จสมบูรณ์โดยความล้มเหลวโดยผู้ขับขี่ ${driver} ต่อยานพาหนะ: ${reg_no}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_SMS:
+  body: 'ฟอร์มที่สมบูรณ์โดยล้มเหลวโดยผู้ขับขี่: ${driver} ต่อยานพาหนะ: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_MOBILE:
+  subject: 'ฟอร์มที่สมบูรณ์โดยล้มเหลว'
+  body: 'ฟอร์มที่สมบูรณ์โดยล้มเหลวโดยผู้ขับขี่: ${driver} ต่อยานพาหนะ: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_WEB:
+  subject: 'การแจ้งเตือน - ฟอร์มที่สมบูรณ์โดยล้มเหลว'
+  body: 'ฟอร์มที่สมบูรณ์โดยล้มเหลวโดยผู้ขับขี่: ${driver} ต่อยานพาหนะ: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - แบบฟอร์มยังไม่ถูกทำ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>พวกขับขี่ไม่ได้ทำแบบฟอร์ม: ${driver} ต่อยานพาหนะ: ${reg_no}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - พวกขับขี่ไม่ได้ทำแบบฟอร์ม: ${driver} ต่อยานพาหนะ: ${reg_no}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_SMS:
+  body: 'พวกขับขี่ไม่ได้ทำแบบฟอร์ม: ${driver} ต่อยานพาหนะ: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_MOBILE:
+  subject: 'แบบฟอร์มยังไม่ถูกทำ'
+  body: 'พวกขับขี่ไม่ได้ทำแบบฟอร์ม: ${driver} ต่อยานพาหนะ: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_WEB:
+  subject: 'การแจ้งเตือน - แบบฟอร์มยังไม่ถูกทำ'
+  body: 'พวกขับขี่ไม่ได้ทำแบบฟอร์ม: ${driver} ต่อยานพาหนะ: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_WEB:
+  subject: 'การแจ้งเตือน - แบบฟอร์มยังไม่ถูกทำ'
+  body: 'คุณต้องกรอกแบบฟอร์มการตรวจสอบสําหรับยานพาหนะ ${reg_no}.'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_MOBILE:
+  subject: 'แบบฟอร์มยังไม่ถูกทำ'
+  body: 'คุณต้องกรอกแบบฟอร์มการตรวจสอบสําหรับยานพาหนะ ${reg_no}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์อุณหภูมิ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เซ็นเซอร์ ${sensor_id}${label} ตรวจพบค่าอุณหภูมิ ${temperature}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เซ็นเซอร์${sensor_id}${label}, ถูกติดตั้งใน ${reg_no}, ตรวจพบค่าอุณหภูมิ ${sensor_temperature}${temperature}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_SMS:
+  body: 'เซ็นเซอร์ ${label} ตรวจพบค่าอุณหภูมิ ${sensor_temperature}${temperature}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_MOBILE:
+  subject: 'เซ็นเซอร์ Temperature - ${reg_no}'
+  body: 'เซ็นเซอร์ ${label} ตรวจพบค่าอุณหภูมิ ${sensor_temperature}${temperature}.'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_WEB:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์ Temperature'
+  body: 'เซ็นเซอร์ ${label} ตรวจพบค่าอุณหภูมิ ${sensor_temperature}${temperature}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์ humidity'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เซ็นเซอร์ ${sensor_id}${label} ตรวจพบค่าความชื้น ${sensor_humidity}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เซ็นเซอร์${sensor_id}${label}, ถูกติดตั้งใน ${reg_no}, ตรวจพบค่าความชื้น ${sensor_humidity}${humidity}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_SMS:
+  body: 'เซ็นเซอร์ ${label} ตรวจพบค่าความชื้น ${sensor_humidity}${humidity}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_MOBILE:
+  subject: 'เซ็นเซอร์ความชื้น - ${reg_no}'
+  body: 'เซ็นเซอร์ ${label}  ตรวจพบค่าตัวเลข ${sensor_humidity}${humidity}.'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_WEB:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์ความชื้น'
+  body: 'เซ็นเซอร์ ${label} ตรวจพบค่าความชื้น ${sensor_humidity}${humidity}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์แสง'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เซ็นเซอร์ ${sensor_id}${label} ตรวจพบแสงสถานะ ${sensor_light_status}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เซ็นเซอร์${sensor_id}${label}, ถูกติดตั้งใน ${reg_no}, ตรวจพบแสง สถานะเปลี่ยนเป็น ${sensor_light_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_SMS:
+  body: 'เซ็นเซอร์ ${label} ตรวจพบแสง สถานะเปลี่ยนเป็น ${sensor_light_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_MOBILE:
+  subject: 'เซ็นเซอร์แสง - ${reg_no}'
+  body: 'เซ็นเซอร์ ${label} ตรวจพบแสง สถานะเปลี่ยนเป็น ${sensor_light_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_WEB:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์แสง'
+  body: 'เซ็นเซอร์ ${label} ตรวจพบแสง สถานะเปลี่ยนเป็น ${sensor_light_status}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์ระดับแบตเตอรี่'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เซ็นเซอร์ ${sensor_id}${label} ตรวจพบระดับแบตเตอรี่ ${sensor_battery_level}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เซ็นเซอร์${sensor_id}${label}, ถูกติดตั้งใน ${reg_no}, ตรวจพบระดับแบตเตอรี่ ${sensor_battery_level} ${batteryLevel}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_SMS:
+  body: 'เซ็นเซอร์ ${label} ตรวจพบระดับแบตเตอรี่ ${sensor_battery_level} ${batteryLevel}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_MOBILE:
+  subject:  'เซ็นเซอร์ระดับแบตเตอรี่ - ${reg_no}'
+  body: 'เซ็นเซอร์ ${label} ตรวจพบระดับแบตเตอรี่ ${sensor_battery_level} ${batteryLevel}.'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_WEB:
+  subject: 'การแจ้งเตือน - เซ็นเซอร์ระดับแบตเตอรี่'
+  body: 'เซ็นเซอร์ ${label} ตรวจพบระดับแบตเตอรี่ ${sensor_battery_level} ${batteryLevel}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_EMAIL:
+  subject: 'การแจ้งเตือน - สถานะเซ็นเซอร์'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เซ็นเซอร์ ${sensor_id}${label} ตอนนี้ได้ ${sensor_status}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เซ็นเซอร์${sensor_id}${label}, ถูกติดตั้งใน ${reg_no}, เปลี่ยนสถานะเป็น ${sensor_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_SMS:
+  body: 'เซ็นเซอร์ ${label} เปลี่ยนสถานะเป็น ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_MOBILE:
+  subject: 'สถานะเซ็นเซอร์ - ${reg_no}'
+  body: 'เซ็นเซอร์ ${label} เปลี่ยนสถานะเป็น ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_WEB:
+  subject: 'การแจ้งเตือน - สถานะเซ็นเซอร์'
+  body: 'เซ็นเซอร์ ${label} เปลี่ยนสถานะเป็น ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุเร็วๆนี้'
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'เอกสารหมดอายุเร็วๆนี้'
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุเร็วๆนี้'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารหมดอายุเร็วๆนี้ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เอกสาร "${title}" ${data_by_type} จะหมดอายุเมื่อ ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุ'
+  body: 'เอกสารหมดอายุ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'เอกสารหมดอายุ: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'เอกสารหมดอายุ'
+  body: 'เอกสารหมดอายุ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารหมดอายุ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${exp_date} - เอกสารหมดอายุ "${title}" หมดอายุ ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารถูกลบ'
+  body: 'เอกสารถูกลบ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_SMS:
+  body: 'เอกสารถูกลบ: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'เอกสารถูกลบ'
+  body: 'เอกสารถูกลบ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารถูกลบ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารถูกลบ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้ลบเอกสาร "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'การแจ้งเตือน - เพิ่มเอกสาร'
+  body: 'เพิ่มเอกสาร: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'เพิ่มเอกสาร: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'เพิ่มเอกสาร'
+  body: 'เพิ่มเอกสาร: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เพิ่มเอกสาร'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เพิ่มเอกสาร ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้เพิ่มระเบียนใหม่ลงในเอกสาร "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุเร็วๆนี้'
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'เอกสารหมดอายุเร็วๆนี้'
+  body: 'เอกสารหมดอายุเร็วๆนี้: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุเร็วๆนี้'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารหมดอายุเร็วๆนี้ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - เอกสาร "${title}" ${data_by_type} จะหมดอายุเมื่อ ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุ'
+  body: 'เอกสารหมดอายุ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'เอกสารหมดอายุ: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'เอกสารหมดอายุ'
+  body: 'เอกสารหมดอายุ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารหมดอายุ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารหมดอายุ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${exp_date} - เอกสารหมดอายุ "${title}" หมดอายุ ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - เอกสารถูกลบ'
+  body: 'เอกสารถูกลบ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_SMS:
+  body: 'เอกสารถูกลบ: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'เอกสารถูกลบ'
+  body: 'เอกสารถูกลบ: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เอกสารถูกลบ'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เอกสารถูกลบ ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้ลบเอกสาร "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'การแจ้งเตือน - เพิ่มเอกสาร'
+  body: 'เพิ่มเอกสาร: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'เพิ่มเอกสาร: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'เพิ่มเอกสาร'
+  body: 'เพิ่มเอกสาร: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - เพิ่มเอกสาร'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>เพิ่มเอกสาร ${data_by_type}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้เพิ่มระเบียนใหม่ลงในเอกสาร "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_EMAIL:
+  subject: 'การแจ้งเตือน - สถานะ I/O แบบดิจิทัล - ${sensor_status}'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ดิจิตอล I/O ${sensor_io_type} ใน ${regno_or_imei} เปลี่ยนสถานะเป็น ${sensor_status}.</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ดิจิตอล I/O ${sensor_io_type} ใน ${regno_or_imei}, เปลี่ยนสถานะเป็น ${sensor_status}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_SMS:
+  body: 'ดิจิตอล I/O ${sensor_io_type} ใน ${regno_or_imei} เปลี่ยนสถานะเป็น ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_MOBILE:
+  subject: 'สถานะ I/O แบบดิจิทัล - ${sensor_status}'
+  body: 'ดิจิตอล I/O ${sensor_io_type} ใน ${regno_or_imei} เปลี่ยนสถานะเป็น ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_WEB:
+  subject: 'การแจ้งเตือน - สถานะ I/O แบบดิจิทัล - ${sensor_status}'
+  body: 'ดิจิตอล I/O ${sensor_io_type} ใน ${regno_or_imei} เปลี่ยนสถานะเป็น ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - สินทรัพย์ถูกสร้าง'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>สินทรัพย์ถูกสร้าง: ${asset_name}</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้สร้างสินทรัพย์ ${asset_name} [ทีม: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_SMS:
+  body: 'สินทรัพย์ถูกสร้าง: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_MOBILE:
+  subject: 'สินทรัพย์ถูกสร้าง: ${asset_name}'
+  body: '${event_time} - ${triggered_by} ได้สร้างสินทรัพย์ ${asset_name} [ทีม: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_WEB:
+  subject: 'การแจ้งเตือน - สินทรัพย์ถูกสร้าง: ${asset_name}'
+  body: '${event_time} - ${triggered_by} ได้สร้างสินทรัพย์ ${asset_name} [ทีม: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - สินทรัพย์ถูกลบ: ${asset_name}'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>สินทรัพย์ถูกลบ: ${asset_name}</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ${triggered_by} ได้ลบสินทรัพย์ ${asset_name} [ทีม: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_SMS:
+  body: 'สินทรัพย์ถูกลบ: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_MOBILE:
+  subject: 'สินทรัพย์ถูกลบ: ${asset_name}'
+  body: '${event_time} - ${triggered_by} ได้ลบสินทรัพย์ ${asset_name} [ทีม: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_WEB:
+  subject: 'การแจ้งเตือน - สินทรัพย์ถูกลบ: ${asset_name}'
+  body: '${event_time} - ${triggered_by} ได้ลบสินทรัพย์ ${asset_name} [ทีม: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - ไม่พบสินทรัพย์: ${asset_name}'
+  body: '<h3>การแจ้งเตือนใหม่จาก ${from_company} ระบบ</h3>
+  <p>ไม่พบสินทรัพย์: ${asset_name}</p>
+  <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+  <p>${event_time} - ไม่พบสินทรัพย์: ${asset_name}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_SMS:
+  body: 'สินทรัพย์ถูกลบ: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_MOBILE:
+  subject: 'ไม่พบสินทรัพย์: ${asset_name}'
+  body: '${event_time} - ไม่พบสินทรัพย์: ${asset_name}.'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_WEB:
+  subject: 'การแจ้งเตือน - การแจ้งเตือน - ไม่พบสินทรัพย์: ${asset_name}'
+  body: '${event_time} -  ไม่พบสินทรัพย์: ${asset_name}.'
+
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_EMAIL:
+  subject: 'การแจ้งเตือน - แรงดันแบตเตอรี่ภายใน'
+  body: '<h3>การแจ้งเตือนใหม่จากระบบ ${from_company}:</h3>
+   <p>เปอร์เซ็นต์แรงดันไฟแบตเตอรี่ภายในเครื่องติดตามคือ ${battery_percentage}% ในรถ ${vehicle}</p>
+   <br/><p><b>ข้อมูลโดยละเอียด:</b></p>
+   <p>${event_time} - เปอร์เซ็นต์แรงดันไฟแบตเตอรี่ภายในรถ ${reg_no_with_model} พร้อมไดรเวอร์ ${driver} คือ ${battery_percentage}% ขีดจำกัดตั้งไว้ที่ ${deviceBatteryPercentage}</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_SMS:
+  body: 'เปอร์เซ็นต์แรงดันไฟแบตเตอรี่ภายในต่อเครื่องติดตามคือ ${battery_percentage}% บนรถ: ${vehicle} ${event_time} ${ความคิดเห็น}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_MOBILE:
+  subject: 'การแจ้งเตือนแรงดันแบตเตอรี่ภายใน'
+  body: 'เปอร์เซ็นต์แรงดันไฟแบตเตอรี่ภายในต่อเครื่องติดตามคือ ${battery_percentage}% บนรถ: ${vehicle} ${ความคิดเห็น}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_WEB:
+  subject: 'การแจ้งเตือน - แรงดันแบตเตอรี่ภายใน'
+  body: 'เปอร์เซ็นต์แรงดันไฟแบตเตอรี่ภายในต่อเครื่องติดตามคือ ${battery_percentage}% บนรถ: ${vehicle} ${ความคิดเห็น}'
+
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'การแจ้งเตือน - แถบข้อผิดพลาด'
+  body: '<h3>การแจ้งเตือนใหม่จากระบบ ${from_company}:</h3>
+  <p>เกิดข้อผิดพลาดระหว่างการทำงานล่าสุดกับ Stripe!</p>
+  <br/><p><b>รายละเอียดข้อมูล:</b></p>
+  <p>${event_time} - [ทีม: ${team}], โดยผู้ใช้: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_SMS:
+  body: 'เกิดข้อผิดพลาดระหว่างการทำงานล่าสุดกับ Stripe! [ทีม: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'การแจ้งเตือน - แถบข้อผิดพลาด'
+  body: 'เกิดข้อผิดพลาดระหว่างการทำงานล่าสุดกับ Stripe! [ทีม: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_WEB:
+  subject: 'การแจ้งเตือน - แถบข้อผิดพลาด'
+  body: 'เกิดข้อผิดพลาดระหว่างการทำงานล่าสุดกับ Stripe! [ทีม: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_EMAIL:
+  subject: 'การแจ้งเตือน - การชำระเงินแบบ Stripe ล้มเหลว'
+  body: '<h3>การแจ้งเตือนใหม่จากระบบ ${from_company}:</h3>
+  <p>การชำระเงินแบบ Stripe ล้มเหลว!</p>
+  <br/><p><b>รายละเอียดข้อมูล:</b></p>
+  <p>${event_time} - [ทีม: ${team}], โดยผู้ใช้: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_SMS:
+  body: 'การชำระเงินแบบ Stripe ล้มเหลว! [ทีม: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_MOBILE:
+  subject: 'การแจ้งเตือน - การชำระเงินแบบ Stripe ล้มเหลว'
+  body: 'การชำระเงินแบบ Stripe ล้มเหลว! [ทีม: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_WEB:
+  subject: 'การแจ้งเตือน - การชำระเงินแบบ Stripe ล้มเหลว'
+  body: 'การชำระเงินแบบ Stripe ล้มเหลว! [ทีม: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Stripe payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Stripe payment successful!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Stripe payment successful! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred during the last operation with Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_SMS:
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero invoice creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while creating an invoice: ${invoice} in Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero invoice created: ${invoice}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_SMS:
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero payment creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while Xero payment creation by invoice: ${invoice}!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero payment created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero payment created by invoice: ${invoice}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_SMS:
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_WEB:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - New invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New invoice created.</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - New invoice ${invoice_id} created.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_SMS:
+  body: 'New invoice ${invoice_id} created. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Alerts - Invoice payment failed'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice payment failed!</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} payment failed, reason - ${message}</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_SMS:
+  body: 'Invoice ${invoice_id} payment failed. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Alerts - Invoice payment failed'
+  body: 'Invoice ${invoice_id} payment failed. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_WEB:
+  subject: 'Alerts - Invoice payment failed'
+  body: 'Invoice ${invoice_id} payment failed. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Invoice payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice payment successful!</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} paid successfully.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_SMS:
+  body: 'Invoice ${invoice_id} overdue. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_WEB:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue - account partially blocked.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_SMS:
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_WEB:
+  subject: 'Alerts - Invoice overdue - account partially blocked'
+  body: 'Invoice overdue - account partially blocked: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue - account blocked.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_SMS:
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_WEB:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_EMAIL:
+  subject: 'Device contract expired'
+  body: '<p>Contract expired for ${count} devices: ${imei_array}.</p>'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_SMS:
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_MOBILE:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_WEB:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_WEB:
+  subject: 'Alerts - Jammer'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_SMS:
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_MOBILE:
+  subject: 'Jammer started - ${reg_no_or_device}'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_EMAIL:
+  subject: 'Alerts - Jammer'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Jammer started ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Jammer started on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_WEB:
+  subject: 'Alerts - Accident'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_SMS:
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_MOBILE:
+  subject: 'Accident happened - ${reg_no_or_device}'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_EMAIL:
+  subject: 'Alerts - Accident'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Accident happened ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Accident happened on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_WEB:
+  subject: 'Alerts - Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_SMS:
+  body: 'Device replaced:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_MOBILE:
+  subject: 'Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_EMAIL:
+  subject: 'Alerts - Device replaced'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device ${device_imei} was replaced.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have replaced device ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+set_as_limit: 'ตั้งเป็นเพดานจำกัด' #example: temperature > 10 set as a limit
+outside_range: 'ซึ่งอยู่นอกระยะ' #example: temperature, which is outside of the specified range (10, 20)
+device: 'อุปกรณ์'
+Device: 'อุปกรณ์'
+vehicle: 'ยานพาหนะ'
+Vehicle: 'ยานพาหนะ'
+with_driver: 'มีผู้ขับขี่'
+without_driver: 'ไม่มีผู้ขับขี่'
+vehicle_page: 'หน้ายานพาหนะ'
+driver_page: 'หน้าผู้ขับขี่'
+client_page: 'หน้าไคลเอ็นต์'
+form_page: 'หน้าแบบฟอร์ม'
+document_page: 'หน้าเอกสาร'
+asset: 'สินทรัพย์'
+driver: 'ผู้ขับขี่'
+note_device_not_installed: 'หมายเหตุ: อุปกรณ์นี้ไม่ได้ติดตั้งในยานพาหนะใด ๆ'
+reminder_page: 'หน้าตัวเตือนการบริการ'
+repair_page: 'หน้าการซ่อมแซมบริการ'
+on: 'เปิด'
+off: 'ปิด'
+installed_in: ' ติดตั้งใน'
+from_driver: 'จากผู้ขับขี่'
+inside_areas: 'ภายในพื้นที่'
+outside_areas: 'พื้นที่ภายนอก'

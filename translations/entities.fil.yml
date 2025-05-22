@@ -1,0 +1,701 @@
+user:
+  fullName: Buong Pangalan.
+  email: E-mail
+  role: Tungkulin
+  lastLoggedAt: Huling Login.
+  status: Katayuan
+  userGroups: Mga grupo ng gumagamit
+client:
+  name: Pangalan ng Kompanya
+  status: Katayuan
+  plan: Plano
+  keyContact: Pangunahing contact.
+  manager: Manager
+  usersCount: Kabuuang mga gumagamit
+  activeUsersCount: Mga bilang aktibong gumagamit
+  devicesCount: Kabuuang mga aparato
+  activeDevicesCount: Mga bilang aktibong device
+  vehiclesCount: Kabuuang mga sasakyan
+  activeVehiclesCount: Mga bilang aktibong mga sasakyan
+  createdAt: Ginawa sa
+vehicle:
+  id: ID.
+  model: Modelo
+  type: Type.
+  defaultLabel: Pamagat ng sasakyan
+  year: Taon ng isyu
+  regDate: Petsa ng rehistro
+  vin: Vin.
+  regNo: Numero ng rehistro.
+  status: Katayuan
+  driver: Driver
+  driverName: Pangalan ng driver
+  depot: Depot
+  groups: Mga grupo
+  fuelType: Uri ng panggatong
+  fuelTankCapacity: Kapasidad ng tangke ng gasolina
+  averageDailyMileage: Average na pang-araw-araw na tinatakbo
+  mileage: Layo.
+  engineHours: Oras ng makina
+device:
+  id: ID
+  model: Modelo
+  sn: Sn.
+  port: Port.
+  hw: Hw.
+  sw: Sw.
+  imsi: Imsi
+  devEui: Deveui.
+  protocol: Protocol.
+  client: Kliyente
+  vendor: Vendor
+  status: Katayuan
+  imei: Imei.
+  phone: Numero ng telepono
+  installDate: Petsa ng pag-install
+  vehicle: Sasakyan
+  lastActiveTime: Huling aktibong oras
+  createdAt: Nilikha ang petsa
+  updatedAt: Nai-update sa
+  updatedBy: Nai-update ni.
+  createdBy: Ginawa ni
+eventlog:
+  headers:
+    general:
+      id: Id
+      formattedDate: Petsa ng format
+      importance: Kahalagahan
+      eventTeam: Koponan ng kaganapan.
+      eventType: Uri ng kaganapan
+      triggeredDetails: Na-trigger ng detalye(halimbawa)
+      eventSource: Pinagmulan ng kaganapan
+      eventSourceType: Uri ng pinagmulan ng kaganapan
+      notificationGenerated: Nabuo ang notification?
+      notificationsList: Mga lista ng abiso
+      limit: Limitasyon
+      oldValue: Lumang halaga
+      newValue: Bagong halaga
+    userCreated:
+      triggeredDetails: Ng user
+      eventSource: Pinagmulan ng kaganapan
+    userBlocked:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan
+    userDeleted:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan
+    userPwdResset:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan
+    userNameChanged:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan
+    loginAsUser:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan
+    clientCreated:
+      triggeredDetails: Na-trigger ng detalye
+    deviceInfo:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan
+    documentRecordInfo:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan.
+      expiredDate: Petsa ng pagkawalang bisa
+      vehicleRegNo: Numero ng rehistro ng sasakyan
+      title: Pamagat
+    documentInfo:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan
+      expiredDate: Petsa ng pagkawalang bisa
+      vehicleRegNo: Numero ng rehistro ng sasakyan
+    vehicleInfo:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan.
+    trackerInfo:
+      triggeredDetails: Na-trigger ng detalye
+      eventSource: Pinagmulan ng kaganapan.
+      shortDetails: Mga detalye
+      areas: Lugar
+      maxSpeed: Pinakamabilis
+      duration: Tagal
+      distance: Distansya
+      deviceVoltage: Boltahe ng device
+      address: Address.
+      temperature: Temperatura
+      humidity: Kahalumigmigan
+      batteryLevel: Level ng baterya
+      light: Ilaw
+      status: Katayuan
+      sensorIOTypeId: sensorIOTypeId
+    assetInfo:
+      createdBy: Ginawa ni
+      deletedBy: Tinanggal ni.
+      eventSource: Pinagmulan ng kaganapan
+    digitalForm:
+      formNotCompleted:
+        eventSource: Pinagmulan ng kaganapan
+      eventSource: Pinagmulan ng kaganapan
+      user: User
+      triggeredDetails: Na-trigger ng detalye
+      form: Form .
+      vehicleRegNo: Numero ng rehistro ng sasakyan
+    sensor:
+      temperature: Temperatura
+      humidity: Kahalumigmigan
+      light: Liwanag
+      batteryLevel: Level ng baterya
+      triggeredDetails: Sa pamamagitan ng sensor
+    data:
+      additionalParams:
+        timeDuration: Haba ng oras
+        overSpeed: Sobrang bilis
+        deviceVoltage: Boltahe ng device
+    stripe:
+      triggeredDetails: Sa pamamagitan ng gumagamit
+    xero:
+      triggeredDetails: Sa pamamagitan ng gumagamit
+
+fuelcard:
+  id: Id
+  model: Modelo
+  regNo: Numero ng rehistro.
+  defaultLabel: Sadyang tatak
+  driver: Driver
+  groupsList: Mga grupo
+  depotName: Pangalan ng Depot
+  fuelType: Uri ng panggatong
+  fuelCardNumber: Numero ng Fuel Card.
+  refueled: Naggasolina, L
+  total: Kabuuan (AUD)
+  fuelPrice: Presyo ng gasolina
+  petrolStation: Gasolinahan
+  refueledFuelType: Uri ng panggatong
+  startDate: Petsa ng panumula
+  transactionDate: Petsa ng transaksyon
+  reg_no: Numero ng rehistro
+  depot: Depot
+  groups: Mga grupo
+  mileage: Layo.
+  transactionTime: Transaction Time
+  cardAccountNumber: Card Account
+  vehicle: Vehicle Number
+  odometer: Odometer
+  cardAccountNo: Card account No
+  siteId: Site ID
+  productCode: Product Code
+  pumpPrice: Pump Price
+  stationAddress: Lokasyon ng site
+  vehicleAddress: Lokasyon ng Sasakyan
+  ifcsOdometer: IFCS Odometer
+  serviceStation: Service Station
+
+reminder:
+  id: Id
+  vehicleRegNo: Numero ng rehistro ng sasakyan
+  regNo: Numero ng rehistro
+  vehicleDefaultLabel: Sadyang pangalan ng Sasakyan
+  defaultLabel: Sadyang pangalan
+  regno: Numero ng rehistro
+  vehicleName: Pangalan ng Sasakyan
+  vehicleModel: Modelo ng sasakyan
+  driver: Driver
+  vehicleGroups: Grupo ng sasakyan
+  vehicleDepot: Depot ng sasakyan
+  category: Uri
+  categoryName: Kategorya
+  categoryId: Uri ng ID
+  title: Pamagat
+  status: Katayuan
+  remainingDays: Natitirang araw
+  remainingMileage: Natitirang distansya
+  remainingHours: Natitirang oras
+  date: Petsa
+  mileage: Layo
+  hours: Mga oras
+  controlDate: Petsa ng Pag-expire
+  controlMileage: Control Mileage
+  controlHours: Control Hours
+  note: Mga Tala
+  notes: Mga Tala
+  updatedAt: Binago sa
+  lastModified: Huling binago
+  lastModifiedDate: Petsa ng huling binago
+  lastModifiedTime: Oras ng binago
+  createdAt: Nilikha sa
+  createdAtDate: Petsa ng likhain sa
+  createdAtTime: Oras ng likhain sa
+remindercategory:
+  name: Pangalan
+  status: Katayuan
+route:
+  defaultlabel: Sadyang pangalan
+  defaultLabel:
+  regno: Numero ng rehistro
+  model: Modelo
+  started_at: Nagsimula sa
+  finished_at: Natapos sa.
+  started_at_date: 'Nagsimula sa, petsa'
+  finished_at_date: Natapos sa, petsa
+  started_at_time: 'Nagsimula, oras'
+  finished_at_time: Oras ng pagtatapos
+  driver_name: Driver
+  depot_name: Pangalan ng depot
+  groups: Grupo
+  address_from: Address mula sa
+  address_to: Para kay
+  distance: Distansya (km)
+  start_odometer: Simulan ang odometer.
+  finish_odometer: Tapusin ang domiter.
+  driving_time: 'Oras ng pagmamaneho (HH: MM: SS)'
+  idling_time: 'Oras na walang gawa (HH: MM: SS)'
+  avg_speed: Average na bilis
+  max_speed: Pinakamabilis
+  start_areas_name: Pangalan ng lugar na pagmumulan.
+  finish_areas_name: Pangalan ng lugar kung saan matatapos.
+  address: Address.
+  areas_name: Pangalan ng lugar
+  parking_time: 'Parking Time (HH: MM: SS)'
+  eco_drive_events: Eco drive event.
+  eco_drive_score: Eco Drive Score.
+  stops_count: Bilang ng hinto
+  speeding_events_count: Pagpapabilis ng mga kaganapan
+  work_distance: Distansya ng trabaho (km)
+  work_duration: 'Tagal ng trabaho (HH: MM: SS)'
+  private_distance: Pribadong distansya (km)
+  private_duration: 'Pribadong tagal o layo (HH: MM: SS)'
+  total_distance: Kabuuang distansya (km)
+  total_duration: 'Kabuoang tagal (HH: MM: SS)'
+  scope: Sakop
+  comment: Komento
+  used_vehicles: Mga ginamit na sasakyan
+  work_percentage: Porsyento ng trabaho
+  private_percentage: Pribadong porsyento
+  unclassified_percentage: Unclassified na porsyento
+  unclassified_duration: Unclassified duration (HH:MM:SS)
+  unclassified_distance: Unclassified distance (km)
+  start_areas_group_name: Simulan ang pangkat ng lugar
+  finish_areas_group_name: Tapusin ang pangkat ng lugar
+  areas_group_name: Pangkat ng lugar
+area:
+  geofenceId: Geofence ID.
+  geofence: Pangalan ng Geofence.
+  totalTime: 'Kabuuang Oras (HH: MM: SS)'
+  numberOfVisits: Bilang ng mga pagbisita
+  averageTime: 'Average na oras (HH: MM: SS)'
+  model: Modelo
+  regNo: Numero ng rehistro
+  defaultLabel: Sasakyan
+  depot: Depot
+  arrivedAt: Dumating sa
+  arrivedAtDate:  Petsa ng pagdating sa
+  arrivedAtTime: Oras ng pagdating sa
+  departedAt: Umalis sa.
+  departedAtDate: Petsa ng pag-alis sa
+  departedAtTime: Orasng pag-alis sa
+  groups: Mga grupo
+  odometer: Odometer
+  driver: Driver
+  idlingTime: 'Oras na walang gawa (HH: MM: SS)'
+  parkingTime: 'Parking Time (HH: MM: SS)'
+speeding:
+  id:  id
+  defaultLabel: Sadyang tatak
+  regNo: Numero ng rehistro
+  model: Modelo
+  driver: Driver
+  groups: Mga grupo
+  depot: Depot
+  startedAt: Nagsimula sa
+  startedAtDate: Petsa ng pagsisimula sa
+  startedAtTime: Orasng pagmumula
+  finishedAt: Tapos na sa.
+  finishedAtDate: Petsa ng natapos
+  finishedAtTime: Oras ng natapos
+  distance: Distansya (km)
+  avgSpeed: Average na bilis
+  maxSpeed: pinakamabilis
+  postedLimit: Limitasyon
+vehicle_summary:
+  id: ID
+  model: Modelo
+  regNo: Numero ng rehistro
+  reg_no: Sasakyan regno
+  regno: Sasakyan regno
+  defaultLabel: sadyang tatak
+  defaultlabel: sadyang tatak
+  depot: Depot
+  groups: Mga grupo
+  privateDistance: Pribadong distansya (km)
+  private_distance: Pribadong distansya (km)
+  workDistance: Distansya ng trabaho (km)
+  work_distance: Distansya ng trabaho (km)
+  distance: Distansya (km)
+  startOdometer: Start Odometer
+  start_odometer: Start Odometer
+  endOdometer: End ng Odomiter.
+  end_odometer: End ng Odomiter.
+  maxSpeed: pinakamabilis
+  max_speed: pinakamabilis
+  stops: Pagtigil
+  parkingTime: 'Parking Time (HH:MM:SS)'
+  parking_time: 'Parking Time (HH:MM:SS)'
+  drivingTime: 'Oras ng pagmamaneho (HH:MM:SS)'
+  driving_time: 'Oras ng pagmamaneho (HH:MM:SS)'
+  idlingTime: 'Oras na walang gawa(HH:MM:SS)'
+  ecoDriveScores: Eco Drive Score.
+  eco_drive_scores: Eco Drive Score.
+  ecoSpeedingEvents: Eco speed ng pangyayari.
+  eco_speeding_events: Eco speed ng pangyayari.
+  speedingEvents: Pagpapabilis ng mga kaganapan
+  speeding_events: Pagpapabilis ng mga kaganapan
+  min_engine_on_time: Magsisimula ang mga oras ng makina
+  minEngineOnTime: Magsisimula ang mga oras ng makina
+  max_engine_on_time: Natapos ang mga oras ng makina
+  maxEngineOnTime: Natapos ang mga oras ng makina
+  engine_on_time: Kabuuang oras ng makina
+  engineOnTime: Kabuuang oras ng makina
+  date: Petsa
+vehicle_io:
+  id: ID n
+  vehicleId: ID ng sasakyan
+  deviceId: ID ng aparato
+  model: Modelo
+  regno: Numero ng rehistro
+  defaultlabel: Sadyang tatak
+  depotName: Pangalan ng depot
+  depotId: Depot ID.
+  groups: Mga grupo
+  driverName: Pangalan ng driver
+  inputType: Uri ng input
+  inputLabel: Input label.
+  inputValueOn: Halaga ng input sa.
+  tsOn: Binuksan
+  positionOn: Posisyon sa
+  inputValueOff: Input value off.
+  tsOff: Naka-off
+  positionOff: Naka-off ang position.
+  startAreasName: Pangalan ng panggagalinga ng lugar.
+  finishAreasName: Pangalan ng lugar kung saan matatapos.
+  duration: 'Tagal (HH: MM: SS)'
+  distance: Distansya (km)
+  fuelConsumed: Naubos na gasolina
+  durationTotal: 'Total na tagal (HH: MM: SS)'
+  distanceTotal: Kabuuang distansya (km)
+servicerecord:
+  defaultlabel: Sadyang tatak
+  defaultLabel: Pangalan ng Sasakyan
+  regno: Numero ng rehistro
+  model: Modelo
+  depot_name: Pangalan ng depot
+  groups: Grupo
+  sr_last_date: Huling petsa ng serbisyo
+  sr_last_date_date: Huling petsa ng serbisyo
+  sr_last_date_time: Huling oras at petsa ng serbisyo
+  sr_count: Mga bilang serbisyo
+  sr_cost: Kabuuang halaga ng serbisyo
+  sr_amount: Halaga ng serbisyo
+  sr_amount_total: Halaga
+  sr_note: Mga Tala
+  sr_date: Petsa ng serbisyo
+  sr_date_date: Petsa ng serbisyo
+  sr_date_time: oras at petsa ng serbisyo
+  r_category: Uri
+  date: Petsa
+  repairTitle: Pamagat ng pagkumpuni
+  repair_title: Pamagat
+  repairCategory: Kategorya ng kumpuni
+  user: User
+  cost: Gastos
+  note: Tandaan
+  title: Pamagat
+  created_by_name: Pangalan ng gumawa
+document:
+  regNo: Numero ng rehistro
+  title: Pamagat
+  status: Katayuan
+  remainingDays: Natitirang araw
+  issueDate: Petsa ng isyu
+  expDate: Petsa ng pagkawalang bisa
+  driver: Driver
+  fullName: Pangalan ng driver
+drivingbehavior:
+  harshAcceleration: Malupit na arangkada
+  harshBraking: Malupit na pagpepreno
+  harshCornering: Malupit na kurbada
+  harshAccelerationCount: Bilang ng malupit na arangkada.
+  harshBrakingCount: Bilang ng malupit na pagpepreno
+  harshCorneringCount: Bilang ng malupit na kurbada.
+  harshAccelerationScore: Puntos ng malupit na arangkada.
+  harshBrakingScore: Puntos ng malupit na pagpipreno.
+  harshCorneringScore: Puntos ng malupit na pagkurbada.
+  totalDistance: Kabuuang distansya (km)
+  idlingCount: Bilang ng walang gawa.
+  excessiveIdling: Labis na kawalang-ginagawa
+  ecoSpeedEventCount: Pagbibilang ng Ecospeed Event.
+  ecoSpeedTotalDistance: Ecospeed kabuuang distansya (km)
+  speeding: Pagpapabilis
+  ecoSpeed: Ecospeed.
+  idlingTotalTime: 'Total na oras ng walang gawa (HH: MM: SS)'
+  drivingTotalTime: ' Kabuuang oras pagmamaneho (HH: MM: SS)'
+  totalAvgSpeed: Kabuuang avg ng bilis
+  totalScore: Kabuuang puntos
+  driver: Driver
+  drivers: Driver
+  vehicle: Sasakyan
+  vehicles: Mga sasakyan
+  depot: Depot
+  groups: Mga grupo
+digitalformanswer:
+  date: Petsa
+  duration: Tagal
+  formTitle: Pamagat ng form
+  id: Id
+  isPass: ISPass
+  regNo: Rehistro ng sasakyan
+  user: Gumagamit.
+  frequency: Dalas
+devicesensor:
+  id: Id
+  sensorId: Sensor id
+  sensorBLEId: Sensor BLE id
+  label: Sensor Label.
+  lastPosition: Huling posisyon
+  vehicleId: ID ng sasakyan
+  deviceId: ID ng aparato
+  defaultlabel: Sadyang tatak
+  regno: Numero ng rehistro
+  model: Modelo
+  depotName: Pangalan ng depot
+  groups: Grupo
+  position: Posisyon
+  type: Uri ng Sensor.
+  createdAt: Nilikha sa
+  updatedAt: Nai-update sa
+  updatedBy: Nai-update ni.
+  createdBy: Ginawa ni
+trackerhistorysensor:
+  id: Id
+  deviceSensorId: Sensor id
+  deviceSensorLabel: Tatak ng sensor.
+  BLESensorId: Sensor BLE  ID
+  deviceSensorBleId: Sensor BLE ID
+  occurredAt: Naganap sa
+  occurredAtDate: Naganap noong
+  occurredAtTime: Oras ng kaganapan
+  temperature: Temperatura (c)
+  humidity: Halumigmig(%)
+  value: Halaga
+  lastPosition: Huling posisyon
+  batteryVoltage: Boltahe ng battery
+  batteryPercentage: Porsyento ng baterya
+  vehicleId: ID ng sasakyan
+  deviceId: ID ng aparato
+  ambientLightValue: Ambient light value.
+  ambientLightStatus: Ambient Light Status (I / O)
+  deviceSensorType: Uri ng Sensor.
+  deviceSensorTypeLabel: Uri ng tatak ng sensor.
+  defaultlabel: Sadyang tatak
+  regno: Numero ng rehistro.
+  model: Modelo
+  depotName: Pangalan ng epot
+  groups: Grupo
+  position: Posisyon
+  coordinates: Coordinate
+sensor:
+  id: Id
+  sensorId: Sensor ID.
+  label: Tatak.
+  lastPosition: Huling posisyon
+  vehicleId: ID ng sasakyan
+  deviceId: ID ng aparato
+  defaultlabel: Sadyang tatak
+  regno: Numero ng rehistro
+  model: Modelo
+  depotName: Pangalan ng epot
+  groups: Grupo
+  position: Posisyon
+  type: Type.
+  createdAt: Nilikha sa
+  updatedAt: Nai-update sa
+  updatedBy: Nai-update ni.
+  createdBy: Ginawa ni
+  lastDataValue: Huling halaga ng data
+  lastDataReceived: Huling natanggap na data
+  client: Kliyente
+reseller:
+  companyName: pangalan ng Kumpanya
+  keyContact: Pangunahing contact.
+  legalName: Legal na pangalan
+  legalAddress: Legal na address
+  billingAddress: Address ng pagsingil
+  taxNr: Taxnr.
+  manager: Manager
+  currency: Pera
+  timezone: Timezone.
+  logo: Logo
+  domain: Domain
+  units: Mga yunit
+  phone: Telepono
+  email: Email
+  smsName: Pangalan sa SMS
+  emailName: Pangalan sa Email
+  team: Team.
+  status: Katayuan
+  createdAt: Nilikha sa.
+  updatedAt: Nai-update sa.
+  usersCount: Kabuuang mga gumagamit
+  activeUsersCount: Aktibong bilang ng mga gumagamit
+  devicesCount: Bilang ng mga aparato
+  activeDevicesCount: Bilang ng aparatong aktibo
+
+event:
+  VEHICLE_CREATED: Ginawa ang sasakyan
+  VEHICLE_DELETED: Inalis ang sasakyan
+  VEHICLE_UNAVAILABLE: Di-available ang sasakyan
+  VEHICLE_OFFLINE: Offline ang sasakyan
+  VEHICLE_ONLINE: Online ang sasakyan
+  VEHICLE_CHANGED_REGNO: Pinalitan ang numero ng rehistro ng sasakyan
+  VEHICLE_CHANGED_MODEL: Pinalitan ang modelo ng sasakyan
+  VEHICLE_REASSIGNED: Inilipat ang sasakyan
+  SERVICE_REMINDER_SOON: Malapit na serbisyo ng paalala
+  SERVICE_REMINDER_EXPIRED: Serbisyo ng paalala ay expired na
+  SERVICE_REMINDER_DONE: Serbisyo ng paalala ay tapos na
+  SERVICE_REMINDER_DELETED: Inalis ang serbisyo ng paalala
+  DOCUMENT_EXPIRE_SOON: Magi-expire na ang dokumento
+  DOCUMENT_EXPIRED: Expired na ang dokumento
+  DOCUMENT_DELETED: Inalis ang dokumento
+  USER_CREATED: Gumawa ng gagamit
+  USER_CREATED_SYSTEM: Sistema ng ginawa na gagamit
+  USER_BLOCKED: Na-block ang gagamit
+  USER_DELETED: Na-delete ang gumagamit
+  USER_PWD_RESET: Na-reset ang password ng user
+  USER_CHANGED_NAME: Pinalitan ang pangalan ng user
+  USER_CHANGED_SURNAME: Pinalitan ang apelyido ng user
+  ADMIN_USER_CREATED: Gumawa ng admin user
+  ADMIN_USER_BLOCKED: Na-block ang admin user
+  ADMIN_USER_DELETED: Na-delete ang admin user
+  ADMIN_USER_PWD_RESET: Na- reset ang password ng admin user
+  ADMIN_USER_CHANGED_NAME: Nagpalit ng pangalan ang admin user
+  CLIENT_CREATED: Gumawa ng kliyente
+  CLIENT_DEMO_EXPIRED: Expired na ang client demo
+  CLIENT_BLOCKED: Na-blocke ang kliyente
+  DEVICE_UNKNOWN_DETECTED: Na-detect ang di-kilalang device
+  DEVICE_IN_STOCK: Meron na device
+  DEVICE_OFFLINE: offline na device
+  DEVICE_UNAVAILABLE: unavailable na device
+  DEVICE_DELETED:  Na-deleted device
+  LOGIN_AS_CLIENT: Mag-login bilang kliyente
+  LOGIN_AS_USER: Mag login bilang user
+  VEHICLE_GEOFENCE_ENTER: Hangganan ng sasakyan, pumasok
+  VEHICLE_GEOFENCE_LEAVE: Hangganan ng sasakyan, umalis
+  VEHICLE_OVERSPEEDING_INSIDE_GEOFENCE: Sobrang bilis na sasakyan sa loob ng hangganan
+  VEHICLE_OVERSPEEDING: Sobrang bilis ng sasakyan
+  VEHICLE_LONG_STANDING: Matagal na nakatigil ang sasakyan
+  VEHICLE_LONG_DRIVING: Matagal na tumatakbo ang sasakyan
+  VEHICLE_MOVING: Gumagalaw ang sasakyan
+  VEHICLE_EXCESSING_IDLING: Nakatigil ang sasakyan
+  VEHICLE_TOWING_EVENT: Paghila ng sasakyan
+  VEHICLE_DRIVING_WITHOUT_DRIVER: Tumatakbo na walang driver ang sasakyan
+  DRIVER_ROUTE_UNDEFINED: Di-alam ang ruta ng driver
+  SERVICE_RECORD_ADDED: Nagdagdag ng lista ng serbisyo
+  SERVICE_REPAIR_ADDED: Nagdagdag ng lista ng kumpuni
+  DOCUMENT_RECORD_ADDED: Nagdagdag ng listahan ng tala
+  TRACKER_VOLTAGE: Tracker Voltage
+  PANIC_BUTTON: Panic button
+  ODOMETER_CORRECTED: Iniayos ang odometer
+  DIGITAL_FORM_WITH_FAIL: Failed inspection
+  DIGITAL_FORM_IS_NOT_COMPLETED: Di-komplete ang digital form
+  SENSOR_TEMPERATURE: Temperatura ng sensor
+  SENSOR_HUMIDITY: Halumigmig ng sensor
+  SENSOR_LIGHT: Sensor ng ilaw
+  SENSOR_BATTERY_LEVEL: Sensor ng battery level
+  SENSOR_STATUS: Status ng ensor
+  DRIVER_DOCUMENT_EXPIRE_SOON: Magi-expire na ang dokumento ng driver
+  DRIVER_DOCUMENT_EXPIRED: Expired na ang dokumento ng driver
+  DRIVER_DOCUMENT_DELETED: Na-delete ang dokumento ng driver
+  DRIVER_DOCUMENT_RECORD_ADDED: Nagdagdag ng rekord ng dokumento ng driver
+  SENSOR_IO_STATUS: Katayuan ng sensor
+  ASSET_DOCUMENT_EXPIRE_SOON: Magi-expire na dokumento ng asset
+  ASSET_DOCUMENT_EXPIRED: Expired na ang dokumento ng asset
+  ASSET_DOCUMENT_DELETED: Na-delete ang dokumento ng asset
+  ASSET_DOCUMENT_RECORD_ADDED: Nagdagdag ng rekord ng dokumento ng asset
+  ASSET_CREATED: Gumawa ng asset
+  ASSET_DELETED: Na-delete ang asset
+  ASSET_MISSED: Na-miss ang asset
+  TRACKER_BATTERY_PERCENTAGE: Tracker_Baterya_Porsyento
+  TRACKER_JAMMER_STARTED_ALARM: Nagsimula na ang Jammer
+  TRACKER_ACCIDENT_HAPPENED_ALARM: Aksidente ang nangyari
+
+alertSubType:
+  Vehicle Activities: Gawain ng makina
+  Vehicle Documents: Dokumento ng makina
+  Asset Documents: Dokumento ng Asset
+  Asset Activities: Gawain ng asset
+  Digital Forms: Digital Forms
+  Driver activities: Gawain ng driver
+  Sensor Data:  Data sensor
+  Driver Documents: Driver Documents
+  Vehicle status: Vehicle status
+  Areas: Lugar
+  Service reminders: Paalala ng serbisyo
+  Vehicle data: Data ng sasakyan
+  User accounts: Accounts ng gumagamit
+
+billing:
+  client_name: Kliyente
+  active_vehicle_trackers: Mga aktibong tagasubaybay ng sasakyan
+  deactivated_vehicle_trackers: Mga naka-deactivate na tracker ng sasakyan
+  active_personal_trackers: Mga aktibong personal na tagasubaybay
+  deactivated_personal_trackers: Mga naka-deactivate na personal tracker
+  active_asset_trackers: Mga aktibong asset tracker
+  deactivated_asset_trackers: Mga na-deactivate na asset tracker
+  active_vehicles: Mga aktibong sasakyan
+  virtual_vehicles: Mga virtual na sasakyan
+  archived_vehicles: Mga naka-archive na sasakyan
+  deleted_vehicles: Mga tinanggal na sasakyan
+  active_sensors: Mga aktibong sensor
+  archived_sensors: Mga naka-archive na sensor
+  deleted_sensors: Mga tinanggal na sensor
+
+  active_vehicle_trackers_total: Kabuuan
+  deactivated_vehicle_trackers_total: Kabuuan
+  active_personal_trackers_total: Kabuuan
+  deactivated_personal_trackers_total: Kabuuan
+  active_asset_trackers_total: Kabuuan
+  deactivated_asset_trackers_total: Kabuuan
+  active_vehicles_total: Kabuuan
+  virtual_vehicles_total: Kabuuan
+  archived_vehicles_total: Kabuuan
+  deleted_vehicles_total: Kabuuan
+  active_sensors_total: Kabuuan
+  archived_sensors_total: Kabuuan
+  deleted_sensors_total: Kabuuan
+  prepayment: Paunang bayad %month% %year%
+
+  active_vehicle_trackers_price: Unit
+  deactivated_vehicle_trackers_price: Unit
+  active_personal_trackers_price: Unit
+  deactivated_personal_trackers_price: Unit
+  active_asset_trackers_price: Unit
+  deactivated_asset_trackers_price: Unit
+  active_vehicles_price: Unit
+  virtual_vehicles_price: Unit
+  archived_vehicles_price: Unit
+  deleted_vehicles_price: Unit
+  active_sensors_price: Unit
+  archived_sensors_price: Unit
+  deleted_sensors_price: Unit
+
+trackerhistory:
+  ts: Oras ng petsa
+  createdAt: Nilikha
+  gps: gps
+  speed: bilis
+  angle: Direksyon
+  io: IO
+  batteryVoltage: Boltahe ng Baterya
+  batteryVoltagePercentage: Porsyento ng Boltahe ng Baterya
+  temperatureLevel: Antas ng Temperatura
+  odometer: Odometer
+  externalVoltage: Panlabas na Boltahe

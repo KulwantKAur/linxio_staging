@@ -1,0 +1,91 @@
+pipeline{
+
+    agent { node { label "${AGENT_TEST}" } }
+    options {
+        // add timestamps to the console log
+        timestamps()
+    }
+    stages {
+        stage('Add environment') {
+            steps {
+                script {
+                    env.DEPLOY_COMMIT_HASH = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
+                }
+            }
+        }
+        stage('Prepare environment') {
+            steps {
+                echo '> Prepare environment for build ...'
+
+                telegramSend(message: "${MSG_START_BUILD}", chatId: "${CHAT_ID}")
+
+                sh 'cp .env.test .env'
+                sh 'mkdir -m775 esdata'
+                sh 'cp docker-compose.test.yml docker-compose.yml'
+                sh 'cp -r ${ARTIFACTS_DIR} app/config'
+            }
+        }
+        stage('Docker Up') {
+            steps {
+                echo '> Building the docker containers ...'
+                sh 'sudo sysctl -w vm.max_map_count=262144'
+                sh 'make -sC ${PROJECT_CI} build'
+            }
+        }
+        stage('Composer Install') {
+            steps {
+                echo '> Building the application within the container ...'
+                sh 'sleep 190'
+//                 sh 'make -sC ${PROJECT_CI} composer'
+            }
+        }
+        stage('Post build') {
+            steps {
+                echo '> Building the application (clear cache / migrations / load fixture / populate elasticSearch) ...'
+                sh 'make -sC ${PROJECT_CI} post_build_test'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo '> Running the application tests ...'
+                sh 'make -sC ${PROJECT_CI} test'
+            }
+        }
+    }
+    post {
+        always {
+//                 emailext body: '${SCRIPT,template="managed:EmailTemplate"}',
+//                     attachLog: true,
+//                     compres  sLog: true,
+//                     attachmentsPattern: "$reportZipFile",
+//                     mimeType: 'text/html',
+//                     subject: "Pipeline Build ${BUILD_NUMBER}",
+//                     to: "${params.EMAIL_RECIPIENTS}"
+
+            echo '> Docker down...'
+            sh 'make -sC ${PROJECT_CI} down'
+        }
+        success{
+            telegramSend(message: "${MSG_SUCCESS_BUILD}", chatId: "${CHAT_ID}")
+
+            build job: "${BUILD_DEV_JOB}",
+            parameters: [
+                gitParameter(name: 'REVISION', value: "${env.DEPLOY_COMMIT_HASH}")
+            ]
+
+//             build job: "${BUILD_STAGE_JOB}",
+//             parameters: [
+//                 gitParameter(name: 'REVISION', value: "${env.DEPLOY_COMMIT_HASH}")
+//             ]
+    }
+    failure {
+        telegramSend(message: "${MSG_FAILURE_BUILD}", chatId: "${CHAT_ID}")
+    }
+    unstable {
+        telegramSend(message: "${MSG_UNSTABLE_BUILD}", chatId: "${CHAT_ID}")
+    }
+    cleanup{
+        deleteDir()
+    }
+    }
+}

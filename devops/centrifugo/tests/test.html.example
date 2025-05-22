@@ -1,0 +1,68 @@
+<html>
+<head>
+  <title>Centrifugo quick start</title>
+</head>
+<body>
+<div id="counter">Centrifugo admin test</div>
+<p><a href="https://jwt.io">https://jwt.io</a></p>
+<p><a href="https://github.com/centrifugal/centrifuge-js">https://github.com/centrifugal/centrifuge-js</a></p>
+<label for="input-dialog">Dialog</label>
+<input type="text" id="input-dialog" />
+<label for="input-team">Team</label>
+<input type="text" id="input-team" />
+<p>Message from 2</p>
+<div id="received"></div>
+<div id="received-private"></div>
+<p>Team 1</p>
+<div id="received-team"></div>
+<script src="https://cdn.jsdelivr.net/gh/centrifugal/centrifuge-js@2.8.3/dist/centrifuge.min.js"></script>
+<script type="text/javascript">
+  const container = document.getElementById('counter')
+  const centrifuge = new Centrifuge("ws://localhost:8000/connection/websocket");
+  centrifuge.setToken("<TOKEN>");
+
+  centrifuge.on('connect', function(ctx) {
+    console.log("connected", ctx);
+  });
+
+  centrifuge.on('disconnect', function(ctx) {
+    console.log("disconnected", ctx);
+  });
+
+  let received = document.getElementById("received");
+  let receivedPrivate = document.getElementById("received-private");
+  let receivedTeam = document.getElementById("received-team");
+
+  let sub = centrifuge.subscribe("dialog-channel", function(ctx) {
+    console.log("data", ctx);
+    received.innerText += ctx.data + "\n";
+  });
+  let privateSub = centrifuge.subscribe("private-channel", function(ctx) {
+    console.log("data", ctx);
+    receivedPrivate.innerText += ctx.data + "\n";
+  });
+  let teamSub = centrifuge.subscribe("team-channel", function(ctx) {
+    console.log("data", ctx);
+    receivedTeam.innerText += ctx.data + "\n";
+  });
+
+  let inputDialog = document.getElementById("input-dialog");
+  inputDialog.addEventListener('keyup', function(e) {
+    if (e.keyCode == 13) {
+      sub.publish(this.value);
+      inputDialog.value = '';
+    }
+  });
+
+  let teamDialog = document.getElementById("input-team");
+  teamDialog.addEventListener('keyup', function(e) {
+    if (e.keyCode == 13) {
+      teamSub.publish(this.value);
+      teamDialog.value = '';
+    }
+  });
+
+  centrifuge.connect();
+</script>
+</body>
+</html>

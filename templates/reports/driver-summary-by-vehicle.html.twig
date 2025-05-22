@@ -1,0 +1,63 @@
+{% extends "reports/default.html.twig" %}
+{% block content %}
+    {% if data['drivers']|length > 0 %}
+        {% for item in data['drivers'] %}
+            {% if item['data']|length > 0 %}
+                <div>
+                    {% if item['driver'] is defined %}
+                        <h3>{{ item['driver']['driver_name'] }}</h3>
+                    {% endif %}
+                </div>
+                <table>
+                    {% for row in item['data'] %}
+                        <tr>
+                            {% for key, value in row %}
+                                {% if key not in ['route.work_duration_total', 'route.private_duration_total',
+                                    'route.total_distance_total', 'route.total_duration_total',
+                                    'route.max_speed_total', 'route.stops_count_total', 'route.parking_time_total',
+                                    'route.speeding_events_count_total', 'route.eco_drive_events_total',
+                                    'route.eco_drive_score_total'] %}
+                                    <td class="{{ key | cssClass }}">{{ value }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    <tr class="totalRow">
+                        {% for key, value in item['data'][1] %}
+                            {% if key not in ['route.work_duration_total', 'route.private_duration_total',
+                                'route.total_distance_total', 'route.total_duration_total',
+                                'route.max_speed_total', 'route.stops_count_total', 'route.parking_time_total',
+                                'route.speeding_events_count_total', 'route.eco_drive_events_total',
+                                'route.eco_drive_score_total'] %}
+                                {% if key == 'route.work_duration' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.work_duration_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.private_duration' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.private_duration_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.total_distance' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.total_distance_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.total_duration' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.total_duration_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.max_speed' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.max_speed_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.stops_count' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.stops_count_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.parking_time' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.parking_time_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.speeding_events_count' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.speeding_events_count_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.eco_drive_events' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.eco_drive_events_total'] ?? 0 }}</td>
+                                {% elseif key == 'route.eco_drive_score' %}
+                                    <td class="{{ key | cssClass }}">{{ item['data'][1]['route.eco_drive_score_total'] ?? 0 }}</td>
+                                {% else %}
+                                    <td class="{{ key | cssClass }}"></td>
+                                {% endif %}
+                            {% endif %}
+
+                        {% endfor %}
+                    </tr>
+                </table>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

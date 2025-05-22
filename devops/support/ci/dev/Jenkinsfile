@@ -1,0 +1,58 @@
+pipeline{
+
+    agent { node { label "${AGENT_DEV}" } }
+    options {
+        // add timestamps to the console log
+        timestamps()
+        checkoutToSubdirectory '../../../../../www/html/linxio_api'
+    }
+    stages {
+        stage('Prepare stage') {
+                steps {
+                    echo '> Building the docker containers ...'
+                    telegramSend(message: "${MSG_START_BUILD}", chatId: "${CHAT_ID}")
+                }
+        }
+        stage('Docker Up') {
+            steps {
+                dir("${PROJECT_DIR}") {
+                    echo '> Building the docker containers ...'
+                    sh 'make -sC ${PROJECT_CI} stop_containers build && sleep 60'
+                }
+            }
+        }
+        stage('Post build') {
+            steps {
+                dir("${PROJECT_DIR}") {
+                    echo '> Building the application (clear cache / migrations / load fixture / populate elasticSearch) ...'
+                    sh 'make -sC ${PROJECT_CI} post_build_dev'
+                }
+            }
+        }
+    }
+    post {
+//         always {
+                // send email
+                // emailext body: '${SCRIPT,template="managed:EmailTemplate"}',
+                //     attachLog: true,
+                //     compressLog: true,
+                //     attachmentsPattern: "$reportZipFile",
+                //     mimeType: 'text/html',
+                //     subject: "Pipeline Build ${BUILD_NUMBER}",
+                //     to: "${params.EMAIL_RECIPIENTS}"
+
+//         }
+        success{
+            telegramSend(message: "${MSG_SUCCESS_BUILD}", chatId: "${CHAT_ID}")
+        }
+        failure {
+            telegramSend(message: "${MSG_FAILURE_BUILD}", chatId: "${CHAT_ID}")
+        }
+        unstable {
+            telegramSend(message: "${MSG_UNSTABLE_BUILD}", chatId: "${CHAT_ID}")
+        }
+        cleanup{
+            cleanWs notFailBuild: true
+        }
+    }
+}

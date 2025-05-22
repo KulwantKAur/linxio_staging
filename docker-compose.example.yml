@@ -1,0 +1,202 @@
+version: "3"
+
+services:
+
+    php:
+        build: '${APP_ROOT_DIR}/devops/php-fpm'
+        restart: always
+        depends_on:
+            - database
+            - elasticsearch
+        env_file: .env
+        environment:
+            - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+        volumes:
+            - '${APP_ROOT_DIR}:/srv'
+        networks:
+          - default
+          # - linxio-trackerslocal_default
+
+    api:
+        build: '${APP_ROOT_DIR}/devops/nginx'
+        restart: always
+        depends_on:
+            - php
+        ports:
+            - 127.0.0.1:${API_PORT}:80
+            - 127.0.0.1:${API_SSL_PORT}:443
+        expose:
+            - "80"
+        volumes:
+            - '${APP_ROOT_DIR}/web:/srv/web'
+            - '${APP_ROOT_DIR}/certs:/certs'
+        logging:
+          driver: "json-file"
+          options:
+            max-size: "10m"
+            max-file: "3"
+        networks:
+          - default
+          # - linxio-trackerslocal_default
+
+    database:
+        build:
+            context: '${APP_ROOT_DIR}/.infra/database'
+            args:
+                DB_NAME: ${SYMFONY__DATABASE__NAME}
+        restart: always
+        env_file: .env
+        environment:
+            - PGPASSWORD=example
+        ports:
+            - 127.0.0.1:${DB_PORT}:5432
+        volumes:
+            - 'postgresql_data:/var/lib/postgresql/data'
+        command: postgres -c config_file=/etc/postgresql/postgresql.conf
+        networks:
+          - default
+          # - linxio-trackerslocal_default
+
+    elasticsearch:
+        image: elasticsearch:7.14.2
+        restart: always
+        command: elasticsearch
+        ports:
+            - 9200:9200
+        volumes:
+            - '${APP_ROOT_DIR}/var/esdata:/usr/share/elasticsearch/data'
+        environment:
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - "discovery.type=single-node"
+
+    postfix:
+        image: juanluisbaptiste/postfix:latest
+        expose:
+            - "25"
+        env_file: .env
+        restart: always
+
+    redis:
+      image: redis:alpine
+      restart: always
+      hostname: ${REDIS_HOST}
+      expose:
+        - ${REDIS_PORT}
+
+    redis-cluster:
+      image: grokzen/redis-cluster:6.2.1
+      ports:
+        - "7001:7001"
+        - "7002:7002"
+
+    rabbit:
+      image: rabbitmq:3-management
+      restart: always
+      ports:
+        - ${RABBITMQ_MPANEL_PORT}:15672
+        - ${RABBITMQ_SERVER_PORT}:5672
+      environment:
+        - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+        - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+
+#    rabbit-test:
+#      image: rabbitmq:3-management
+#      restart: always
+#      ports:
+#        - ${RABBITMQ_MPANEL_PORT_TEST}:15672
+#        - ${RABBITMQ_SERVER_PORT_TEST}:5672
+#      environment:
+#        - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+#        - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+#      logging:
+#        driver: "json-file"
+#        options:
+#          max-size: "10m"
+#          max-file: "3"
+
+#    portainer:
+#      image: portainer/portainer-ce
+#      restart: always
+#      volumes:
+#        - /var/portainer_data:/usr/share/portainer/data
+#        - /var/run/docker.sock:/var/run/docker.sock
+#      ports:
+#        - 9010:9000
+
+    supervisor:
+      build: '${APP_ROOT_DIR}/devops/supervisor'
+      depends_on:
+        - database
+        - elasticsearch
+      env_file: .env
+      environment:
+        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+      ports:
+        - 9002:9002
+      volumes:
+        - '.:/srv'
+      restart: always
+      logging:
+        driver: "json-file"
+        options:
+          max-size: "10m"
+          max-file: "3"
+
+#    traccar:
+#      image: traccar/traccar:5.10
+#      restart: always
+#      ports:
+#        - ${TRACCAR_WEB_PORT}:8082
+#        - ${TRACCAR_GT06_PORT}:5023
+#        - ${TRACCAR_TELTONIKA_PORT}:5027
+#        - ${TRACCAR_TOPFLYTECH_PORT}:5047
+#        - ${TRACCAR_ULBOTECH_PORT}:5072
+#        - ${TRACCAR_MEITRACK_PORT}:5020
+#        - ${TRACCAR_QUECLINK_PORT}:5004
+#        - ${TRACCAR_DIGITAL_MATTER_PORT}:5137
+#        - ${TRACCAR_DIGITAL_MATTER_HTTP_PORT}:5139
+#        - ${TRACCAR_EELINK_PORT}:5064
+#      volumes:
+#        - ${APP_ROOT_DIR}/var/logs/traccar:/opt/traccar/logs:rw
+#        - ${APP_ROOT_DIR}/devops/traccar/traccar.xml:/opt/traccar/conf/traccar.xml:ro
+#
+#    traccar-tracker-client:
+#      build: '${APP_ROOT_DIR}/.infra/traccar/client'
+#      depends_on:
+#        - traccar
+#      expose:
+#        - "3000"
+#      environment:
+#        - TCP_SERVER_HOST=${TRACCAR_HOST}
+#        - TCP_SERVER_PORT=${TRACCAR_WEB_PORT}
+#      volumes:
+#        - '${APP_ROOT_DIR}/traccar/client/:/usr/src/app/'
+#        - '${APP_ROOT_DIR}/devops/wait-for.sh:/usr/local/bin/wait-for.sh'
+
+    centrifugo:
+      image: centrifugo/centrifugo:v3
+      command: centrifugo -c config.json
+      ports:
+        - ${CENTRIFUGO_PORT}:8000
+      environment:
+        - CENTRIFUGO_ADMIN_PASSWORD=${CENTRIFUGO_ADMIN_PASSWORD}
+        - CENTRIFUGO_ADMIN_SECRET=${CENTRIFUGO_ADMIN_SECRET}
+        - CENTRIFUGO_TOKEN_RSA_PUBLIC_KEY=${JWT_PUBLIC_KEY}
+        - CENTRIFUGO_API_KEY=${CENTRIFUGO_API_KEY}
+        - CENTRIFUGO_ENGINE=${CENTRIFUGO_ENGINE}
+        - CENTRIFUGO_REDIS_ADDRESS=${CENTRIFUGO_REDIS_ADDRESS}
+        - CENTRIFUGO_ALLOWED_ORIGINS=${CENTRIFUGO_ALLOWED_ORIGINS}
+      volumes:
+        - "./devops/centrifugo:/centrifugo"
+      ulimits:
+        nofile:
+          soft: 65536
+          hard: 65536
+
+volumes:
+  postgresql_data:
+    driver: local
+
+networks:
+  linxio-trackerslocal_default:
+    external: true

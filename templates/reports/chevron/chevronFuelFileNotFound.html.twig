@@ -1,0 +1,17 @@
+{% extends "reports/default.html.twig" %}
+
+{% block subject %}
+    {{ subject }}
+{% endblock %}
+
+{% block body %}
+    <div class="detailed-information">
+        <p class="detailed-information_title">{{ 'detailed_information' | trans }}</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>'Files on sftp not found: ' . {{ remotePath }}</p>
+{% endblock %}
+
+

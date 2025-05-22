@@ -1,0 +1,1504 @@
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_EMAIL:
+  subject: 'Alerts - New user created'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>User ${user_name} <b>${user_email}</b> was created.</p><br/><p><b>Detailed information:</b></p><p>${event_time} - user ${user_name} <b>${user_email}</b> (team - ${team}) was created by ${triggered_by}.</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_SMS:
+  body: 'User created: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_MOBILE:
+  subject: 'New user created'
+  body: 'User created: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_WEB:
+  subject: 'Alerts - New user created'
+  body: 'User created: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_EMAIL:
+  subject: 'Alerts - User reset password'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>Password reset triggered for user ${user_name} <b>${user_email}</b></p><br/><p><b>Detailed information:</b></p><p>${event_time} - password reset was triggered by ${triggered_by} for user ${user_name} <b>${user_email}</b> (team - ${team}).</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_SMS:
+  body: 'Password reset: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_MOBILE:
+  subject: 'User reset password'
+  body: 'Password reset: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_WEB:
+  subject: 'Alerts - User reset password'
+  body: 'Password reset: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CREATED_SYSTEM_EMAIL:
+  subject: 'Alerts - New user created (system)'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>User ${user_name} <b>${user_email}</b> was created.</p><br/><p><b>Detailed information:</b></p><p>${event_time} - user ${user_name} <b>${user_email}</b> (team - ${team}) was created by ${triggered_by}.</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - User blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>User ${user_name} <b>${user_email}</b> was blocked.</p><br/><p><b>Detailed information:</b></p><p>${event_time} - ${triggered_by} have blocked user ${user_name} <b>${user_email}</b> [team: ${team}]</p><p>Blocking message: ${data_message}</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_SMS:
+  body: 'User blocked: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_MOBILE:
+  subject: 'User blocked'
+  body: 'User blocked: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_WEB:
+  subject: 'Alerts - User blocked'
+  body: 'User blocked: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_EMAIL:
+  subject: 'Alerts - User deleted'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>User ${user_name} <b>${user_email}</b> was deleted.</p><br/><p><b>Detailed information:</b></p><p>${event_time} - ${triggered_by} have deleted user ${user_name} <b>${user_email}</b> [team: ${team}]</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_SMS:
+  body: 'User deleted: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_MOBILE:
+  subject: 'User deleted'
+  body: 'User deleted: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_WEB:
+  subject: 'Alerts - User deleted'
+  body: 'User deleted: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_MOBILE:
+  subject: 'User changed name'
+  body: 'User changed name: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_WEB:
+  subject: 'Alerts - User changed name'
+  body: 'User changed name: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_SMS:
+  body: 'User changed name: ${user_name} (${user_email}). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_EMAIL:
+  subject: 'Alerts - User changed name'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>Name changed for user <b>${user_name} (${user_email})</b></p><br/><p><b>Detailed information:</b></p><p>${event_time} - ${triggered_by} have renamed user from "${old_value}" to "${user_name}".</p><p>User page: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_MOBILE:
+  subject: 'User changed surname'
+  body: 'User changed surname: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_WEB:
+  subject: 'Alerts - User changed surname'
+  body: 'User changed surname: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_SMS:
+  body: 'User changed surname: ${user_name} (${user_email). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_EMAIL:
+  subject: 'Alerts - User changed surname'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>User changed surname: <b>${user_name} (${user_email)</b></p><br/><p><b>Detailed information:</b></p><p>${event_time} - user ${user_name} was renamed by ${triggered_by}.</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_EMAIL:
+  subject: 'Alerts - New client created'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>Client <b>${client_name}</b> was created.</p><br/><p><b>Detailed information:</b></p><p>${event_time} - client ${client_name} was created by ${triggered_by}.</p><p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_SMS:
+  body: 'Client created: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_MOBILE:
+  subject: 'New client created'
+  body: 'Client created: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_WEB:
+  subject: 'Alerts - New client created'
+  body: 'Client created: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Client blocked'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>Client <b>${client_name}</b> was blocked.</p><br/><p><b>Detailed information:</b></p><p>${event_time} - client ${client_name} from ${team} was blocked by ${triggered_by}.</p><p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_SMS:
+  body: 'Client blocked: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_MOBILE:
+  subject: 'Client blocked'
+  body: 'Client blocked: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_WEB:
+  subject: Client blocked'
+  body: 'Client blocked: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_EMAIL:
+  subject: 'Alerts - Client demo expired'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Demo period expired for the client <b>${client_name}</b>.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - client ${client_name} demo period expired.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_SMS:
+  body: 'Client demo expired: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_MOBILE:
+  subject: 'Client demo expired'
+  body: 'Client demo expired: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_WEB:
+  subject: 'Alerts - Client demo expired'
+  body: 'Client demo expired: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_EMAIL:
+  subject: 'Alerts - Vehicle created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New vehicle created - ${reg_no_with_model}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have created vehicle vehicle ${reg_no_with_model} [team: ${team}]</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_SMS:
+  body: 'Vehicle created: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_MOBILE:
+  subject: 'Vehicle created'
+  body: 'Vehicle created: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_WEB:
+  subject: 'Alerts - Vehicle created'
+  body: 'Vehicle created: ${reg_no}. ${comment}'
+
+
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_EMAIL:
+  subject: 'Alerts - Vehicle deleted'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no_with_model} was deleted.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have deleted vehicle ${reg_no_with_model}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_SMS:
+  body: 'Vehicle deleted: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_MOBILE:
+  subject: 'Vehicle deleted'
+  body: 'Vehicle deleted: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_WEB:
+  subject: 'Alerts - Vehicle deleted'
+  body: 'Vehicle deleted: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_EMAIL:
+  subject: 'Alerts - Vehicle regNo was changed'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>RegNo changed for vehicle ${reg_no_with_model}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have changed vehicle RegNo from "${old_value}" to "${reg_no}".</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_SMS:
+  body: 'Vehicle regNo was changed: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_MOBILE:
+  subject: 'Vehicle regNo was changed'
+  body: 'Vehicle regNo was changed: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_WEB:
+  subject: 'Alerts - Vehicle regNo was changed'
+  body: 'Vehicle regNo was changed: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_EMAIL:
+  subject: 'Alerts - Vehicle model was changed'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle model changed for ${reg_no}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have changed vehicle model from "${old_value}" to "${model}".</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_SMS:
+  body: 'Vehicle model was changed: ${model}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_MOBILE:
+  subject: 'Vehicle model was changed'
+  body: 'Vehicle model was changed: ${model}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_WEB:
+  subject: 'Alerts - Vehicle model was changed'
+  body: 'Vehicle model was changed: ${model}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_EMAIL:
+  subject: 'Alerts - Vehicle changed status: Unavailable'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no_with_model} status changed to "${status}".</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} changed status for vehicle ${reg_no_with_model} with driver ${driver} to "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_WEB:
+  subject: 'Alerts - Vehicle changed status: Unavailable'
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_SMS:
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_MOBILE:
+  subject: 'Vehicle changed status: Unavailable'
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_EMAIL:
+  subject: 'Alerts - Vehicle changed status: Offline'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no_with_model} status changed to "${status}".</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} changed status to "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_WEB:
+  subject: 'Alerts - Vehicle changed status: Offline'
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_SMS:
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_MOBILE:
+  subject: 'Vehicle changed status: Offline'
+  body: 'Vehicle ${reg_no} has changed status: ${status} ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_WEB:
+  subject: 'Alerts - Vehicle reassigned'
+  body: 'Vehicle ${reg_no} has been re-assigned to driver ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_MOBILE:
+  subject: 'Vehicle reassigned'
+  body: 'Vehicle ${reg_no} has been re-assigned to driver ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_SMS:
+  body: 'Vehicle ${reg_no} has been re-assigned to driver ${driver}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_EMAIL:
+  subject: 'Alerts - Vehicle reassigned'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} re-assigned to driver ${driver}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no} re-assigned ${old_value} to "${driver}".</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_WEB:
+  subject: 'Alerts - Overspeeding'
+  body: 'Vehicle ${reg_no} is driving more than ${avg_speed}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_SMS:
+  body: 'Vehicle ${reg_no} is driving more than ${avg_speed}km/h. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_MOBILE:
+  subject: 'Overspeeding'
+  body: 'Vehicle ${reg_no} is driving more than ${avg_speed}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_EMAIL:
+  subject: 'Alerts - Overspeeding'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} driving >${avg_speed}km/h.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} driving more than ${avg_speed}km/h, speed limit is set to ${overSpeed}km/h</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_WEB:
+  subject: 'Alerts - Overspeeding inside area'
+  body: 'Vehicle ${reg_no} is driving more than ${avg_speed}km/h to area: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_SMS:
+  body: 'Vehicle ${reg_no} is driving more than ${avg_speed}km/h to area: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_MOBILE:
+  subject: 'Overspeeding inside area'
+  body: 'Vehicle ${reg_no} is driving more than ${avg_speed}km/h to area: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_EMAIL:
+  subject: 'Alerts - Overspeeding inside area'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} driving >${avg_speed}km/h in the area "${area}"</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} driving more than ${avg_speed}km/h in the area "${area}", speed limit is set to ${overSpeed}km/h</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_WEB:
+  subject: 'Alerts - Vehicle area alerts'
+  body: 'Vehicle ${reg_no} entered to area: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_SMS:
+  body: 'Vehicle ${reg_no} entered to area: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_MOBILE:
+  subject: 'Vehicle area alerts'
+  body: 'Vehicle ${reg_no} entered to area: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_EMAIL:
+  subject: 'Alerts - Vehicle area alerts'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} entered to area: ${area}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} entered the area "${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_WEB:
+  subject: 'Alerts - Vehicle area alerts'
+  body: 'Vehicle ${reg_no} is departed from area: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_SMS:
+  body: 'Vehicle ${reg_no} is departed from area: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_MOBILE:
+  subject: 'Vehicle area alerts'
+  body: 'Vehicle ${reg_no} is departed from area: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_EMAIL:
+  subject: 'Alerts - Vehicle area alerts'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} is departed from area: ${area}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} departed from the area "${area}"</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_WEB:
+  subject: 'Alerts - Vehicle driving'
+  body: 'Vehicle is driving without driver: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_SMS:
+  body: 'Vehicle is driving without driver: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_MOBILE:
+  subject: 'Vehicle driving'
+  body: 'Vehicle is driving without driver: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_EMAIL:
+  subject: 'Alerts - Vehicle driving'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} is driving without driver.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} is driving without driver.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_WEB:
+  subject: 'Alerts - Vehicle towing event'
+  body: 'Vehicle has its engine off, but is actually moving: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_SMS:
+  body: 'Vehicle has its engine off, but is actually moving: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_MOBILE:
+  subject: 'Vehicle towing event'
+  body: 'Vehicle has its engine off, but is actually moving: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_EMAIL:
+  subject: 'Alerts - Vehicle towing event'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle has its engine off, but is actually moving: ${reg_no}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_WEB:
+  subject: 'Alerts - Vehicle long standing'
+  body: 'Vehicle is stopped for more than ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_SMS:
+  body: 'Vehicle is stopped for more than ${duration}: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_MOBILE:
+  subject: 'Vehicle long standing'
+  body: 'Vehicle is stopped for more than ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_EMAIL:
+  subject: 'Alerts - Vehicle long standing'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} is stopped >${duration}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} is stopped >${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_WEB:
+  subject: 'Alerts - Vehicle long driving'
+  body: 'Vehicle is driving for more than ${duration} continuously and has driven for more than ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_SMS:
+  body: 'Vehicle is driving for more than ${duration} continuously: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_MOBILE:
+  subject: 'Vehicle long driving'
+  body: 'Vehicle is driving for more than ${duration} continuously and has driven for more than ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_EMAIL:
+  subject: 'Alerts - Vehicle long driving'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} is driving continuously >${duration}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} is driving continuously >${duration}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_WEB:
+  subject: 'Alerts - Vehicle moving'
+  body: 'Vehicle starts to move: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_SMS:
+  body: 'Vehicle starts to move: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_MOBILE:
+  subject: 'Vehicle moving'
+  body: 'Vehicle starts to move: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_EMAIL:
+  subject: 'Alerts - Vehicle moving'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} with driver ${driver} starts moving.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} starts moving</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_WEB:
+  subject: 'Alerts - Vehicle excessive idling'
+  body: '${reg_no_or_device} is idling more than ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_SMS:
+  body: '${reg_no_or_device} is idling more than ${duration}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_MOBILE:
+  subject: 'Vehicle excessive idling'
+  body: '${reg_no_or_device} is idling more than ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_EMAIL:
+  subject: 'Alerts - Vehicle excessive idling'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>${reg_no_or_device} is idling more than ${duration}.</p>
+  <p>${event_time} - ${reg_no_with_model_or_device} ${driver} is idling more than ${duration}</p>
+  <p style="color: red;">${note}</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_WEB:
+  subject: 'Alerts - Vehicle changed status: Online'
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_SMS:
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_MOBILE:
+  subject: 'Vehicle changed status: Online'
+  body: 'Vehicle ${reg_no} has changed status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_EMAIL:
+  subject: 'Alerts - Vehicle changed status: Online'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no_with_model} status changed to "${status}".</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} changed status to "${status}"</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Alerts - Document expired'
+  body: 'Document expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Document expired: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Document expired'
+  body: 'Document expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Alerts - Document expired'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document expired ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${exp_date} - expired document - "${title}" ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Alerts - Document expire soon'
+  body: 'Document soon to expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Document soon to expire: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Document expire soon'
+  body: 'Document soon to expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Alerts - Document expire soon'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document soon to expire ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - document "${title}" ${data_by_type} will expire on ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_WEB:
+  subject: 'Alerts - Document deleted'
+  body: 'Document deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_SMS:
+  body: 'Document deleted: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Document deleted'
+  body: 'Document deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Alerts - Document deleted'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document deleted ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have deleted document "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Alerts - Document record added'
+  body: 'Document record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Document record added: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Document record added'
+  body: 'Document record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Alerts - Document record added'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document record added ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have added new record to the document "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_WEB:
+  subject: 'Alerts - Device in stock'
+  body: 'Device in stock: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_SMS:
+  body: 'Device in stock: ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_MOBILE:
+  subject: 'Device in stock'
+  body: 'Device in stock: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_EMAIL:
+  subject: 'Alerts - Device in stock'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device in stock: ${device_imei}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Device ${device_imei} changed status to "in stock"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_WEB:
+  subject: 'Alerts - Device changed status: Offline'
+  body: 'Device ${device_imei} has changed status: Offline. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_SMS:
+  body: 'Device ${device_imei} has changed status: Offline. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_MOBILE:
+  subject: 'Device changed status: Offline'
+  body: 'Device ${device_imei} has changed status: Offline. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_EMAIL:
+  subject: 'Alerts - Device changed status: Offline'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device ${device_imei} status changed to "Offline"</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Device ${device_imei} changed status to "Offline"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_WEB:
+  subject: 'Alerts - Device changed status: Unavailable'
+  body: 'Device ${device_imei} has changed status: Unavailable. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_SMS:
+  body: 'Device ${device_imei} has changed status: Unavailable. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_MOBILE:
+  subject: 'Device changed status: Unavailable'
+  body: 'Device ${device_imei} has changed status: Unavailable. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_EMAIL:
+  subject: 'Alerts - Device changed status: Unavailable'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device ${device_imei} status changed to "Unavailable"</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Device ${device_imei} changed status to "Unavailable"</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_WEB:
+  subject: 'Alerts - Device deleted'
+  body: 'Device deleted:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_SMS:
+  body: 'Device deleted:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_MOBILE:
+  subject: 'Device deleted'
+  body: 'Device deleted:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_EMAIL:
+  subject: 'Alerts - Device deleted'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device ${device_imei} was deleted.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have deleted device ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_WEB:
+  subject: 'Alerts - Device unknown detected'
+  body: 'Device unknown detected:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_SMS:
+  body: 'Device unknown detected:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_MOBILE:
+  subject: 'Device unknown detected'
+  body: 'Device unknown detected:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_EMAIL:
+  subject: 'Alerts - Device unknown detected'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device unknown detected:  ${device_imei}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>Date: ${event_time}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_WEB:
+  subject: 'Alerts - Service is due soon'
+  body: 'The service reminder titled "${title}" for (${entity}) is due soon. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_SMS:
+  body: 'The service reminder titled "${title}" for (${entity}) is due soon. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_MOBILE:
+  subject: 'Service is due soon'
+  body: 'The service reminder titled "${title}" for (${entity}) is due soon. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_EMAIL:
+  subject: 'Alerts - Service is due soon'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Service is due soon for (${entity}).</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - The service reminder titled "${title}" for (${entity}) is due ${expiration_parameter}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_WEB:
+  subject: 'Alerts - Service reminder expired'
+  body: 'Service reminder expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_SMS:
+  body: 'Service reminder expired: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_MOBILE:
+  subject: 'Service reminder expired'
+  body: 'Service reminder expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_EMAIL:
+  subject: 'Alerts - Service reminder expired'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Service reminder expired (${entity}).</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - service reminder "${title}" (${entity}) expired.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_WEB:
+  subject: 'Alerts - Service reminder done'
+  body: 'Service reminder done: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_SMS:
+  body: 'Service reminder done: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_MOBILE:
+  subject: 'Service reminder done'
+  body: 'Service reminder done: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_EMAIL:
+  subject: 'Alerts - Service reminder done'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Service reminder done (${entity}).</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have done service reminder "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_WEB:
+  subject: 'Alerts - Service reminder deleted'
+  body: 'Service reminder deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_SMS:
+  body: 'Service reminder deleted: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_MOBILE:
+  subject: 'Service reminder deleted'
+  body: 'Service reminder deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_EMAIL:
+  subject: 'Alerts - Service reminder deleted'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Service reminder deleted (${entity}).</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} deleted service reminder "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_WEB:
+  subject: 'Alerts - Service record added'
+  body: 'Service record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_SMS:
+  body: 'Service record added: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_MOBILE:
+  subject: 'Service record added'
+  body: 'Service record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_EMAIL:
+  subject: 'Alerts - Service record added'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Service record added (${entity}).</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have added new service record "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_WEB:
+  subject: 'Alerts - Service repair added'
+  body: 'Service repair added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_SMS:
+  body: 'Service repair added: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_MOBILE:
+  subject: 'Service repair added'
+  body: 'Service repair added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_EMAIL:
+  subject: 'Alerts - Service repair added'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Service repair added (${entity}).</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have added new service repair "${title}" (${entity}).</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_WEB:
+  subject: 'Alerts - Voltage'
+  body: 'Supply voltage to tracker is ${battery_voltage}V on the vehicle: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_SMS:
+  body: 'Supply voltage to tracker is ${battery_voltage}V on the vehicle: ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_MOBILE:
+  subject: 'Voltage'
+  body: 'Supply voltage to tracker is ${battery_voltage}V on the vehicle: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_EMAIL:
+  subject: 'Alerts - Voltage'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Tracker Supply voltage is ${battery_voltage}V in the vehicle ${vehicle}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Tracker supply voltage in the vehicle ${reg_no_with_model} with driver ${driver} is ${battery_voltage}V, voltage limit is set to ${deviceVoltage}</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_EMAIL:
+  subject: 'Alerts - ${from_company} SOS button - ${reg_no_or_device}'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>SOS button pressed on ${reg_no_or_device}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - SOS button pressed by driver: ${driver} on ${reg_no_with_model_or_device}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <p>${google_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_SMS:
+  body: 'SOS button pressed by driver: ${driver} on ${reg_no_or_device}. ${event_time} ${google_url} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_MOBILE:
+  subject: 'SOS button - ${reg_no_or_device}'
+  body: 'SOS button pressed by driver: ${driver} on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_WEB:
+  subject: 'Alerts - SOS button - ${reg_no_or_device}'
+  body: 'SOS button pressed by driver: ${driver} on ${reg_no_or_device}. ${comment}'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_WEB:
+  subject: 'Alerts - User activity'
+  body: 'Login as client: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_SMS:
+  body: 'Login as client: ${client_email} ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_MOBILE:
+  subject: 'User activity'
+  body: 'Login as client: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_EMAIL:
+  subject: 'Alerts - User activity'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Login as client: ${client_email} ${client_name}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_WEB:
+  subject: 'Alerts - User activity'
+  body: 'Login as user: ${user_email} ${user_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_EMAIL:
+  subject: 'Alerts - User activity'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Login as user: ${user_email} ${user_name}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>Date: ${event_time}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_SMS:
+  body: 'Login as user: ${user_email} ${user_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_MOBILE:
+  subject: 'User activity'
+  body: 'Login as user: ${user_email} ${user_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_EMAIL:
+  subject: 'Alerts - Odometer corrected'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Odometer set to ${new_value} for ${reg_no}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${user_name} corrected odometer for ${reg_no}; old value - ${old_value}, new value - ${new_value}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_SMS:
+  body: 'Odometer set to ${new_value} for ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_MOBILE:
+  subject: 'Odometer corrected'
+  body: 'Odometer set to ${new_value} for ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_WEB:
+  subject: 'Alerts - Odometer corrected'
+  body: 'Odometer set to ${new_value} for ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_EMAIL:
+  subject: 'Alerts - Form completed with a fail'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Form was completed with a fail by driver: ${driver} to vehicle: ${reg_no}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Form: ${form_title} was completed with a fail by driver: ${driver} to vehicle: ${reg_no}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_SMS:
+  body: 'Form was completed with a fail by driver: ${driver} to vehicle: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_MOBILE:
+  subject: 'Form completed with a fail'
+  body: 'Form was completed with a fail by driver: ${driver} to vehicle: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_WEB:
+  subject: 'Alerts - Form completed with a fail'
+  body: 'Form was completed with a fail by driver: ${driver} to vehicle: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_EMAIL:
+  subject: 'Alerts - Form is not completed'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Form is not completed by driver: ${driver} to vehicle: ${reg_no}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Form is not completed by driver: ${driver} to vehicle: ${reg_no}.</p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_SMS:
+  body: 'Form is not completed by driver: ${driver} to vehicle: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_MOBILE:
+  subject: 'Form is not completed'
+  body: 'Form is not completed by driver: ${driver} to vehicle: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_WEB:
+  subject: 'Alerts - Form is not completed'
+  body: 'Form is not completed by driver: ${driver} to vehicle: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_WEB:
+  subject: 'Alerts - Form is not completed'
+  body: 'You need to complete an inspection form for vehicle ${reg_no}.'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_MOBILE:
+  subject: 'Form is not completed'
+  body: 'You need to complete an inspection form for vehicle ${reg_no}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_EMAIL:
+  subject: 'Alerts - Sensor temperature'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Sensor ${sensor_id}${label} detected temp value ${temperature}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, installed in ${reg_no}, detected temperature value ${sensor_temperature}${temperature}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_SMS:
+  body: 'Sensor ${label} detected temp value ${sensor_temperature}${temperature}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_MOBILE:
+  subject: 'Sensor Temperature - ${reg_no}'
+  body: 'Sensor ${label} detected temp value ${sensor_temperature}${temperature}.'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_WEB:
+  subject: 'Alerts - Sensor Temperature'
+  body: 'Sensor ${label} detected temp value ${sensor_temperature}${temperature}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_EMAIL:
+  subject: 'Alerts - Sensor humidity'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Sensor ${sensor_id}${label} detected hum value ${sensor_humidity}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, installed in ${reg_no}, detected humidity value ${sensor_humidity}${humidity}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_SMS:
+  body: 'Sensor ${label} detected humidity value ${sensor_humidity}${humidity}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_MOBILE:
+  subject: 'Sensor Humidity - ${reg_no}'
+  body: 'Sensor ${label} detected num value ${sensor_humidity}${humidity}.'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_WEB:
+  subject: 'Alerts - Sensor Humidity'
+  body: 'Sensor ${label} detected hum value ${sensor_humidity}${humidity}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_EMAIL:
+  subject: 'Alerts - Sensor light'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Sensor ${sensor_id}${label} detected light status ${sensor_light_status}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, installed in ${reg_no}, detected light status changed to ${sensor_light_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_SMS:
+  body: 'Sensor ${label} detected light status changed to ${sensor_light_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_MOBILE:
+  subject: 'Sensor light - ${reg_no}'
+  body: 'Sensor ${label} detected light status changed to ${sensor_light_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_WEB:
+  subject: 'Alerts - Sensor light'
+  body: 'Sensor ${label} detected light status changed to ${sensor_light_status}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_EMAIL:
+  subject: 'Alerts - Sensor battery level'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Sensor ${sensor_id}${label} detected battery level ${sensor_battery_level}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, installed in ${reg_no}, detected battery level ${sensor_battery_level} ${batteryLevel}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_SMS:
+  body: 'Sensor ${label} detected battery level ${sensor_battery_level} ${batteryLevel}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_MOBILE:
+  subject: 'Sensor battery level - ${reg_no}'
+  body: 'Sensor ${label} detected battery level ${sensor_battery_level} ${batteryLevel}.'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_WEB:
+  subject: 'Alerts - Sensor battery level'
+  body: 'Sensor ${label} detected battery level ${sensor_battery_level} ${batteryLevel}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_EMAIL:
+  subject: 'Alerts - Sensor status'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Sensor ${sensor_id}${label} is now ${sensor_status}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - sensor ${sensor_id}${label}, installed in ${reg_no}, changed status to ${sensor_status}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_SMS:
+  body: 'Sensor ${label} changed status to ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_MOBILE:
+  subject: 'Sensor status - ${reg_no}'
+  body: 'Sensor ${label} changed status to ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_WEB:
+  subject: 'Alerts - Sensor status'
+  body: 'Sensor ${label} changed status to ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Alerts - Document expire soon'
+  body: 'Document soon to expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Document soon to expire: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Document expire soon'
+  body: 'Document soon to expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Alerts - Document expire soon'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document soon to expire ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - document "${title}" ${data_by_type} will expire on ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Alerts - Document expired'
+  body: 'Document expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Document expired: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Document expired'
+  body: 'Document expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Alerts - Document expired'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document expired ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${exp_date} - expired document - "${title}" ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_WEB:
+  subject: 'Alerts - Document deleted'
+  body: 'Document deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_SMS:
+  body: 'Document deleted: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Document deleted'
+  body: 'Document deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Alerts - Document deleted'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document deleted ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have deleted document "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Alerts - Document record added'
+  body: 'Document record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Document record added: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Document record added'
+  body: 'Document record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Alerts - Document record added'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document record added ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have added new record to the document "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Alerts - Document expire soon'
+  body: 'Document soon to expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Document soon to expire: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Document expire soon'
+  body: 'Document soon to expire: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Alerts - Document expire soon'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document soon to expire ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - document "${title}" ${data_by_type} will expire on ${expiration_date}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Alerts - Document expired'
+  body: 'Document expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Document expired: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Document expired'
+  body: 'Document expired: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Alerts - Document expired'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document expired ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${exp_date} - expired document - "${title}" ${data_by_type}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_WEB:
+  subject: 'Alerts - Document deleted'
+  body: 'Document deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_SMS:
+  body: 'Document deleted: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Document deleted'
+  body: 'Document deleted: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Alerts - Document deleted'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document deleted ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have deleted document "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Alerts - Document record added'
+  body: 'Document record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Document record added: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Document record added'
+  body: 'Document record added: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Alerts - Document record added'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Document record added ${data_by_type}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have added new record to the document "${title}" ${data_by_type}</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_EMAIL:
+  subject: 'Alerts - Digital I/O status - ${sensor_status}'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Digital I/O ${sensor_io_type} in ${regno_or_imei} changed status to ${sensor_status}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Digital I/O ${sensor_io_type} in ${regno_or_imei}, changed status to ${sensor_status}.</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_SMS:
+  body: 'Digital I/O ${sensor_io_type} in ${regno_or_imei} changed status to ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_MOBILE:
+  subject: 'Digital I/O status - ${sensor_status}'
+  body: 'Digital I/O ${sensor_io_type} in ${regno_or_imei} changed status to ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_WEB:
+  subject: 'Alerts - Digital I/O status - ${sensor_status}'
+  body: 'Digital I/O ${sensor_io_type} in ${regno_or_imei} changed status to ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_EMAIL:
+  subject: 'Alerts - Asset created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Asset created: ${asset_name}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have created asset ${asset_name} [team: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_SMS:
+  body: 'Asset created: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_MOBILE:
+  subject: 'Asset created: ${asset_name}'
+  body: '${event_time} - ${triggered_by} have created asset ${asset_name} [team: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_WEB:
+  subject: 'Alerts - Asset created: ${asset_name}'
+  body: '${event_time} - ${triggered_by} have created asset ${asset_name} [team: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_EMAIL:
+  subject: 'Alerts - Asset deleted: ${asset_name}'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Asset deleted: ${asset_name}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have deleted asset ${asset_name} [team: ${team}].</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_SMS:
+  body: 'Asset deleted: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_MOBILE:
+  subject: 'Asset deleted: ${asset_name}'
+  body: '${event_time} - ${triggered_by} have deleted asset ${asset_name} [team: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_WEB:
+  subject: 'Alerts - Asset deleted: ${asset_name}'
+  body: '${event_time} - ${triggered_by} have deleted asset ${asset_name} [team: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_EMAIL:
+  subject: 'Alerts - Asset missed: ${asset_name}'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Asset missed: ${asset_name}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - asset missed: ${asset_name}.</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_SMS:
+  body: 'Asset deleted: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_MOBILE:
+  subject: 'Asset missed: ${asset_name}'
+  body: '${event_time} - asset missed: ${asset_name}.'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_WEB:
+  subject: 'Alerts - Asset missed: ${asset_name}'
+  body: '${event_time} - asset missed: ${asset_name}.'
+
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_EMAIL:
+  subject: 'Alerts - Internal Battery Voltage'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Internal battery voltage percentage to tracker is ${battery_percentage}% in the vehicle ${vehicle}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Internal battery voltage percentage in the vehicle ${reg_no_with_model} with driver ${driver} is ${battery_percentage}%, limit is set to ${deviceBatteryPercentage}</p>
+  <p>${vehicle_url}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_SMS:
+  body: 'Internal battery voltage percentage to tracker is ${battery_percentage}% on the vehicle: ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_MOBILE:
+  subject: 'Internal Battery Voltage Alerts'
+  body: 'Internal battery voltage percentage to tracker is ${battery_percentage}% on the vehicle: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_WEB:
+  subject: 'Alerts - Internal Battery Voltage'
+  body: 'Internal battery voltage percentage to tracker is ${battery_percentage}% on the vehicle: ${vehicle}. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Stripe error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred during the last operation with Stripe!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_SMS:
+  body: 'An error occurred during the last operation with Stripe! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Stripe error'
+  body: 'An error occurred during the last operation with Stripe! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Alerts - Stripe error'
+  body: 'An error occurred during the last operation with Stripe! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Alerts - Stripe payment failed'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Stripe payment failed!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_SMS:
+  body: 'Stripe payment failed! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Alerts - Stripe payment failed'
+  body: 'Stripe payment failed! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_WEB:
+  subject: 'Alerts - Stripe payment failed'
+  body: 'Stripe payment failed! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Stripe payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Stripe payment successful!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Stripe payment successful! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Stripe payment successful'
+  body: 'Stripe payment successful! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred during the last operation with Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - [team: ${team}], by user: ${triggered_by}.</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_SMS:
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero error'
+  body: 'An error occurred during the last operation with Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero invoice creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while creating an invoice: ${invoice} in Xero!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}].</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero invoice creation error'
+  body: 'An error occurred while creating an invoice: ${invoice} in Xero! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero invoice created: ${invoice}</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}].</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_SMS:
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - Xero invoice created'
+  body: 'New Xero invoice created: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_EMAIL:
+  subject: 'Alerts - Xero payment creation error'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>An error occurred while Xero payment creation by invoice: ${invoice}!</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}].</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_SMS:
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_MOBILE:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_WEB:
+  subject: 'Alerts - Xero payment creation error'
+  body: 'An error occurred while Xero payment creation by invoice: ${invoice}! [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_EMAIL:
+  subject: 'Alerts - Xero payment created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New Xero payment created by invoice: ${invoice}.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - invoice: ${invoice}, [team: ${team}].</p>
+  <p>${error_details}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_SMS:
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_MOBILE:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_WEB:
+  subject: 'Alerts - Xero payment created'
+  body: 'New Xero payment created by invoice: ${invoice}, [team: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_EMAIL:
+  subject: 'Alerts - New invoice created'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>New invoice created.</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - New invoice ${invoice_id} created.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_SMS:
+  body: 'New invoice ${invoice_id} created. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_MOBILE:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_WEB:
+  subject: 'Alerts - New invoice created'
+  body: 'New invoice ${invoice_id} created. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Alerts - Invoice payment successful'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice payment successful!</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} paid successfully.</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Alerts - Invoice payment successful'
+  body: 'Invoice ${invoice_id} paid successfully. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Invoice overdue</p>
+  <p><b>Detailed information:</b></p>
+  <p>${event_time} - Invoice ${invoice_id} overdue</p>
+  <p>${invoice_link}</p>
+  <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_SMS:
+  body: 'Invoice ${invoice_id} overdue. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_WEB:
+  subject: 'Alerts - Invoice overdue'
+  body: 'Invoice ${invoice_id} overdue. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_EMAIL:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: '<p>Hi ${full_name},</p>
+  <p>I’m contacting you on behalf of ${from_company} with regard to the following invoice:</p>
+   <p>Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$</p>
+   <p>This invoice was due for payment on ${due_date}. It would be greatly appreciated 
+   if you could confirm receipt of this invoice and advise as to whether payment has been scheduled.</p>
+  <p>I have attached a copy of the invoice for your reference.</p>
+  <p>To login to ${from_company}, update your payment method and try the payment again, please click here ${invoice_link}</p>
+  <p>If you require any further information from our side, please let us know by emailing accounts@linxio.com</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_SMS:
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_MOBILE:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_WEB:
+  subject: 'Alerts - Invoice overdue - account blocked'
+  body: 'Invoice overdue - account blocked: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Action Required: Failed payment attempt for ${from_company}'
+  body: '<p>Hi ${full_name},</p>
+  <p>I’m contacting you on behalf of ${from_company} with regard to the following invoice:</p>
+  <p>Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$</p>
+  <p>This invoice was due for payment on ${due_date} and the current payment method was declined.</p>
+  <p>I have attached a copy of the invoice for your reference.</p>
+  <p>To login to ${from_company}, update your payment method and try the payment again, please click here ${invoice_link}</p>
+  <p>If you require any further information from our side, please let us know by emailing accounts@linxio.com</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_SMS:
+  body: 'Action Required: Failed payment attempt for ${from_company}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Action Required: Failed payment attempt for ${from_company}'
+  body: 'Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_WEB:
+  subject: 'Action Required: Failed payment attempt for ${from_company}'
+  body: 'Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_EMAIL:
+  subject: 'Action Required: ${from_company} account is partially blocked'
+  body: '<p>Hi ${full_name},</p>
+  ${custom_text}
+  <p>To login to ${from_company} and make payment, please click here ${invoice_link}</p>
+  <p>If you require any further information from our side, please let us know by emailing accounts@linxio.com</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_SMS:
+  body: 'Action Required: ${from_company} account is partially blocked'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_MOBILE:
+  subject: 'Action Required: ${from_company} account is partially blocked'
+  body: 'Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_WEB:
+  subject: 'Action Required: ${from_company} account is partially blocked'
+  body: 'Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$'
+
+INVOICE_OVERDUE_PARTIALLY_BLOCKED_NO_CONTRACT:
+  '<p>I’m contacting you on behalf of ${from_company} with regard to the following invoice:</p>
+     <p>Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$</p>
+     <p>This invoice was due for payment on ${due_date}. It would be greatly appreciated if you could confirm receipt 
+     of this invoice and advise as to whether payment has been scheduled.</p>
+     <p>I have attached a copy of the invoice for your reference.</p>'
+
+INVOICE_OVERDUE_PARTIALLY_BLOCKED_CONTRACT:
+  '<p>Further to our previous correspondence, I’m contacting you on behalf of ${from_company} with regard to the 
+  following outstanding invoices:</p>
+  ${invoices}
+  <p>Given the lack of response on your side after several attempts to contact you, we will shortly begin 
+  legal proceedings in order to receive the monies owed to ${from_company}.<p>
+  <p>Immediate payment will result in us closing this issue without need for legal action.</p>
+  <p>I have attached copies of the invoices for your reference.</p>'
+
+INVOICE_OVERDUE_BLOCKED_INVOICE: '<p>Invoice number ${invoice_id} which was due on the ${due_date} for ${total}$</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_EMAIL:
+  subject: 'Device contract expired'
+  body: '<p>Contract expired for ${count} devices: ${imei_array}.</p>'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_SMS:
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_MOBILE:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_WEB:
+  subject: 'Device contract expired'
+  body: 'Contract expired for ${count} devices.'
+
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_WEB:
+  subject: 'Alerts - Jammer'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_SMS:
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_MOBILE:
+  subject: 'Jammer started - ${reg_no_or_device}'
+  body: 'Jammer started on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_EMAIL:
+  subject: 'Alerts - Jammer'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Jammer started ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Jammer started on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_WEB:
+  subject: 'Alerts - Accident'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_SMS:
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_MOBILE:
+  subject: 'Accident happened - ${reg_no_or_device}'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_EMAIL:
+  subject: 'Alerts - Accident'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Accident happened ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Accident happened on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_WEB:
+  subject: 'Alerts - Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_SMS:
+  body: 'Device replaced:  ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_MOBILE:
+  subject: 'Device replaced'
+  body: 'Device replaced:  ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_REPLACED_USER_EMAIL:
+  subject: 'Alerts - Device replaced'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Device ${device_imei} was replaced.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - ${triggered_by} have replaced device ${device_imei}.</p>
+  <p>${data_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::EXCEEDING_SPEED_LIMIT_USER_WEB:
+  subject: 'Alerts - Exceeding speed limit'
+  body: 'Vehicle ${reg_no} is driving more than ${speed}km/h, speed limit is ${speed_limit}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::EXCEEDING_SPEED_LIMIT_USER_SMS:
+  body: 'Vehicle ${reg_no} is driving more than ${speed}km/h, speed limit is ${speed_limit}km/h. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::EXCEEDING_SPEED_LIMIT_USER_MOBILE:
+  subject: 'Exceeding speed limit'
+  body: 'Vehicle ${reg_no} is driving more than ${speed}km/h, speed limit is ${speed_limit}km/h. ${comment}'
+!php/const App\Entity\Notification\Template::EXCEEDING_SPEED_LIMIT_USER_EMAIL:
+  subject: 'Alerts - Exceeding speed limit'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+  <p>Vehicle ${reg_no} (${default_label}) driving > ${speed}km/h.</p>
+  <br/><p><b>Detailed information:</b></p>
+  <p>${event_time} - Vehicle ${reg_no_with_model} with driver ${driver} driving more than ${speed}km/h, speed limit is set to ${speed_limit}km/h</p>
+  <p><b>Location:</b></br>
+  ${address}</br>
+  <a href="http://maps.google.com/maps?z=18&q=${lat},${lng}">View on Google Maps</a>
+  </p>
+  <p>${vehicle_url}</p>
+  <p>${driver_url}</p>
+  <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::INTEGRATION_ENABLED_USER_EMAIL:
+  subject: 'Alerts - Client integration enabled'
+  body: '<h3>New notification from the ${from_company} system:</h3><p>Client integration enabled.</p><br/><p><b>Detailed information:</b></p><p>${event_time} - client ${client_name} integration (${integration_name}) from ${team} was enabled by ${triggered_by}.</p><p>${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INTEGRATION_ENABLED_USER_SMS:
+  body: 'Client ${client_name} integration (${integration_name}) enabled. ${comment}'
+!php/const App\Entity\Notification\Template::INTEGRATION_ENABLED_USER_MOBILE:
+  subject: 'Client integration enabled'
+  body: 'Client ${client_name} integration (${integration_name}) enabled. ${comment}'
+!php/const App\Entity\Notification\Template::INTEGRATION_ENABLED_USER_WEB:
+  subject: 'Client integration enabled'
+  body: 'Client ${client_name} integration (${integration_name}) enabled. ${comment}'
+
+!php/const App\Entity\Notification\Template::ACCESS_LEVEL_CHANGED_EMAIL:
+  subject: 'Access level changed'
+  body: '${event_time} - ${triggered_by} changed access level: ${user_name} ${user_email}<br><br>
+        <b>Previous Access Level:</b> ${old_role}<br><br> <b>New Access Level:</b> ${new_role} <br><br>'
+!php/const App\Entity\Notification\Template::ACCESS_LEVEL_CHANGED_SMS:
+  body: 'Access level changed for ${user_name} ${user_email}.'
+!php/const App\Entity\Notification\Template::ACCESS_LEVEL_CHANGED_MOBILE:
+  subject: 'Access level changed'
+  body: '${event_time} - ${triggered_by} changed access level: ${user_name} ${user_email}.'
+!php/const App\Entity\Notification\Template::ACCESS_LEVEL_CHANGED_WEB:
+  subject: 'Access level changed'
+  body: '${event_time} - ${triggered_by} changed access level: ${user_name} ${user_email}.'
+
+set_as_limit: set as a limit #example: temperature > 10 set as a limit
+outside_range: which is outside of the specified range #example: temperature, which is outside of the specified range (10, 20)
+device: 'device'
+Device: 'Device'
+vehicle: 'vehicle'
+Vehicle: 'Vehicle'
+with_driver: 'with driver'
+without_driver: 'without driver'
+vehicle_page: 'Vehicle page'
+invoice_page: 'Invoice page'
+driver_page: 'Driver page'
+client_page: 'Client page'
+form_page: 'Form page'
+document_page: 'Document page'
+asset: 'asset'
+driver: 'driver'
+note_device_not_installed: 'Note: this device is not installed into any vehicle.'
+reminder_page: 'Service reminder page'
+repair_page: 'Service repair page'
+on: 'on'
+off: 'off'
+installed_in: 'installed in'
+inside_areas: 'Inside areas'
+outside_areas: 'Outside areas'

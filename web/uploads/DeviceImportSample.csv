@@ -1,0 +1,5 @@
+Dev_Vendor,Dev_Model,Dev_IMEI,Dev_IMSI,Dev_Phone,Reseller_ID,Client_ID,Veh_Title,Veh_RegNo,Veh_Model,Veh_Make,Veh_Type,Veh_Year,Exp_Date,Contract_Start,Contract_ID,Ownership,Comment
+Ulbotech,T301,868323028783009,,37254347009,,,,,,,,,,,,client,If Client_ID is not specified - goes to Admin Team InStock
+Ulbotech,T301,868323028783008,,37254347008,,111,,,,,,,,,,linxio,If Client_ID is specified - goes to Client Team InStock
+Teltonika,FM36M1,86832302878200a,test imsi,37251111007,,111,1717,1717,Mercedes,Sprinter,Bus,2018,24/02/2025,24/02/2024,,,If RegNo exists - installs device
+Teltonika,FM36M1,868323028782006,test imsi,37251111006,,111,1711,1711,Mercedes,Sprinter,Bus,2018,,,,,If RegNo not exists - installs device into new vehicle

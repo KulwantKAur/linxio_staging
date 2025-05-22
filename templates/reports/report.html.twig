@@ -1,0 +1,14 @@
+{% extends "reports/default.html.twig" %}
+{% block content %}
+    {% if data|length > 0 %}
+        <table>
+            {% for item in data %}
+                <tr>
+                    {% for key, item in item %}
+                        <td class="{{ key | cssClass }}">{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

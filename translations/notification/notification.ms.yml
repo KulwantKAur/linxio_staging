@@ -1,0 +1,1440 @@
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_EMAIL:
+  subject: 'Makluman - Pengguna baharu dicipta'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Pengguna ${user_name} <b>${user_email}</b> telah dibuat.</p><br/> <p><b>Maklumat terperinci:</b></p><p>${event_time} - pengguna ${user_name} <b>${user_email}</b> (pasukan - ${team}) ialah dicipta oleh ${triggered_by}.</p><p>Halaman pengguna: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_SMS:
+  body: 'Pengguna dicipta: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_MOBILE:
+  subject: 'Pengguna baharu dicipta'
+  body: 'Pengguna dicipta: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_CREATED_USER_WEB:
+  subject: 'Makluman - Pengguna baharu dicipta'
+  body: 'Pengguna dicipta: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_EMAIL:
+  subject: 'Makluman - Tetapan semula kata laluan pengguna'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Tetapan semula kata laluan dicetuskan untuk pengguna ${user_name} <b>${user_email}</b></p><br/ ><p><b>Maklumat terperinci:</b></p><p>${event_time} - tetapan semula kata laluan telah dicetuskan oleh ${triggered_by} untuk pengguna ${user_name} <b>${user_email}</ b> (pasukan - ${team}).</p><p>Halaman pengguna: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_SMS:
+  body: 'Tetapan semula kata laluan: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_MOBILE:
+  subject: 'Kata laluan tetapan semula pengguna'
+  body: 'Tetapan semula kata laluan: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_PSW_RESET_USER_WEB:
+  subject: 'Makluman - Tetapan semula kata laluan pengguna'
+  body: 'Tetapan semula kata laluan: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CREATED_SYSTEM_EMAIL:
+  subject: 'Makluman - Pengguna baharu dicipta (sistem)'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Pengguna ${user_name} <b>${user_email}</b> telah dibuat.</p><br/> <p><b>Maklumat terperinci:</b></p><p>${event_time} - pengguna ${user_name} <b>${user_email}</b> (pasukan - ${team}) ialah dicipta oleh ${triggered_by}.</p><p>Halaman pengguna: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_EMAIL:
+  subject: 'Makluman - Pengguna disekat'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Pengguna ${user_name} <b>${user_email}</b> telah disekat.</p><br/> <p><b>Maklumat terperinci:</b></p><p>${event_time} - ${triggered_by} telah menyekat pengguna ${user_name} <b>${user_email}</b> [pasukan: ${team}]</p><p>Mesej menyekat: ${data_message}</p><p>Halaman pengguna: ${data_url}</p><br/><p>${comment}</ p>'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_SMS:
+  body: 'Pengguna disekat: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_MOBILE:
+  subject: 'Pengguna disekat'
+  body: 'Pengguna disekat: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_BLOCKED_USER_WEB:
+  subject: 'Makluman - Pengguna disekat'
+  body: 'Pengguna disekat: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_EMAIL:
+  subject: 'Makluman - Pengguna dipadamkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Pengguna ${user_name} <b>${user_email}</b> telah dipadamkan.</p><br/> <p><b>Maklumat terperinci:</b></p><p>${event_time} - ${triggered_by} telah memadamkan pengguna ${user_name} <b>${user_email}</b> [pasukan: ${team}]</p><p>Halaman pengguna: ${data_url}</p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_SMS:
+  body: 'Pengguna dipadamkan: ${user_email}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_MOBILE:
+  subject: 'Pengguna dipadamkan'
+  body: 'Pengguna dipadamkan: ${user_email}. ${comment}'
+!php/const App\Entity\Notification\Template::USER_DELETED_USER_WEB:
+  subject: 'Makluman - Pengguna dipadamkan'
+  body: 'Pengguna dipadamkan: ${user_email} (${user_name}). ${comment}'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_MOBILE:
+  subject: 'Pengguna menukar nama'
+  body: 'Pengguna menukar nama: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_WEB:
+  subject: 'Makluman - Pengguna menukar nama'
+  body: 'Pengguna menukar nama: ${user_name} (${user_email}). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_SMS:
+  body: 'Pengguna menukar nama: ${user_name} (${user_email}). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_NAME_USER_EMAIL:
+  subject: 'Makluman - Pengguna menukar nama'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Nama ditukar untuk pengguna <b>${user_name} (${user_email})</b></p><br /><p><b>Maklumat terperinci:</b></p><p>${event_time} - ${triggered_by} telah menamakan semula pengguna daripada "${old_value}" kepada "${user_name}".< /p><p>Halaman pengguna: ${data_url}</p><br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_MOBILE:
+  subject: 'Pengguna menukar nama keluarga'
+  body: 'Pengguna menukar nama keluarga: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_WEB:
+  subject: 'Makluman - Pengguna menukar nama keluarga'
+  body: 'Pengguna menukar nama keluarga: ${user_name} (${user_email). ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_SMS:
+  body: 'Pengguna menukar nama keluarga: ${user_name} (${user_email). ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::USER_CHANGED_SURNAME_USER_EMAIL:
+  subject: 'Makluman - Pengguna menukar nama keluarga'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Pengguna menukar nama keluarga: <b>${user_name} (${user_email)</b></p><br/ ><p><b>Maklumat terperinci:</b></p><p>${event_time} - pengguna ${user_name} telah dinamakan semula oleh ${triggered_by}.</p><br/><p> ${comment}</p>'
+
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_EMAIL:
+  subject: 'Makluman - Pelanggan baharu dibuat'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Pelanggan <b>${client_name}</b> telah dibuat.</p><br/><p>< b>Maklumat terperinci:</b></p><p>${event_time} - klien ${client_name} telah dicipta oleh ${triggered_by}.</p><p>${data_url}</p>< br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_SMS:
+  body: 'Pelanggan dibuat: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_MOBILE:
+  subject: 'Pelanggan baharu dicipta'
+  body: 'Pelanggan dibuat: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_CREATED_USER_WEB:
+  subject: 'Makluman - Pelanggan baharu dibuat'
+  body: 'Pelanggan dibuat: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_EMAIL:
+  subject: 'Makluman - Pelanggan disekat'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3><p>Pelanggan <b>${client_name}</b> telah disekat.</p><br/><p>< b>Maklumat terperinci:</b></p><p>${event_time} - pelanggan ${client_name} daripada ${team} telah disekat oleh ${triggered_by}.</p><p>${data_url} </p><br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_SMS:
+  body: 'Pelanggan disekat: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_MOBILE:
+  subject: 'Pelanggan disekat'
+  body: 'Pelanggan disekat: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_BLOCKED_USER_WEB:
+  subject: Pelanggan disekat'
+  body: 'Pelanggan disekat: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_EMAIL:
+  subject: 'Makluman - Demo pelanggan tamat tempoh'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Tempoh demo tamat tempoh untuk pelanggan <b>${client_name}</b>.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - tempoh demo ${client_name} pelanggan tamat tempoh.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_SMS:
+  body: 'Demo pelanggan tamat tempoh: ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_MOBILE:
+  subject: 'Demo pelanggan tamat tempoh'
+  body: 'Demo pelanggan tamat tempoh: ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::CLIENT_DEMO_EXPIRED_USER_WEB:
+  subject: 'Makluman - Demo pelanggan tamat tempoh'
+  body: 'Demo pelanggan tamat tempoh: ${client_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_EMAIL:
+  subject: 'Makluman - Kenderaan dicipta'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan baharu dicipta - ${reg_no_with_model}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah mencipta kenderaan kenderaan ${reg_no_with_model} [pasukan: ${team}]</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_SMS:
+  body: 'Kenderaan dicipta: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_MOBILE:
+  subject: 'Kenderaan dicipta'
+  body: 'Kenderaan dicipta: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CREATED_USER_WEB:
+  subject: 'Makluman - Kenderaan dicipta'
+  body: 'Kenderaan dicipta: ${reg_no}. ${comment}'
+
+
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_EMAIL:
+  subject: 'Makluman - Kenderaan dipadamkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no_with_model} telah dipadamkan.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah memadamkan kenderaan ${reg_no_with_model}.</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_SMS:
+  body: 'Kenderaan dipadamkan: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_MOBILE:
+  subject: 'Kenderaan dipadamkan'
+  body: 'Kenderaan dipadamkan: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DELETED_USER_WEB:
+  subject: 'Makluman - Kenderaan dipadamkan'
+  body: 'Kenderaan dipadamkan: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_EMAIL:
+  subject: 'Makluman - RegNo kenderaan telah ditukar'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>RegNo ditukar untuk kenderaan ${reg_no_with_model}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah menukar No Reg kenderaan daripada "${old_value}" kepada "${reg_no}".</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_SMS:
+  body: 'No regKenderaan telah ditukar: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_MOBILE:
+  subject: 'No regKenderaan telah ditukar'
+  body: 'No regKenderaan telah ditukar: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_REGNO_USER_WEB:
+  subject: 'Makluman - RegNo kenderaan telah ditukar'
+  body: 'No regKenderaan telah ditukar: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_EMAIL:
+  subject: 'Makluman - Model kenderaan telah ditukar'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Model kenderaan ditukar untuk ${reg_no}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah menukar model kenderaan daripada "${old_value}" kepada "${model}".</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_SMS:
+  body: 'Model kenderaan telah ditukar: ${model}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_MOBILE:
+  subject: 'Model kenderaan telah ditukar'
+  body: 'Model kenderaan telah ditukar: ${model}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_CHANGED_MODEL_USER_WEB:
+  subject: 'Makluman - Model kenderaan telah ditukar'
+  body: 'Model kenderaan telah ditukar: ${model}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_EMAIL:
+  subject: 'Makluman - Status kenderaan ditukar: Tidak tersedia'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Status ${reg_no_with_model} kenderaan ditukar kepada "${status}".</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} menukar status untuk kenderaan ${reg_no_with_model} dengan pemandu ${driver} kepada "${status}"</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_WEB:
+  subject: 'Makluman - Status kenderaan ditukar: Tidak tersedia'
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_SMS:
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_UNAVAILABLE_USER_MOBILE:
+  subject: 'Kenderaan ditukar status: Tidak tersedia'
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_EMAIL:
+  subject: 'Makluman - Status kenderaan ditukar: Luar Talian'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Status ${reg_no_with_model} kenderaan ditukar kepada "${status}".</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} menukar status kepada "${status}"</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_WEB:
+  subject: 'Makluman - Status kenderaan ditukar: Luar Talian'
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_SMS:
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OFFLINE_USER_MOBILE:
+  subject: 'Status kenderaan ditukar: Luar Talian'
+  body: 'Kenderaan ${reg_no} telah bertukar status: ${status} ${comment}'
+
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_WEB:
+  subject: 'Makluman - Kenderaan ditetapkan semula'
+  body: 'Kenderaan ${reg_no} telah ditetapkan semula kepada pemandu ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_MOBILE:
+  subject: 'Kenderaan ditetapkan semula'
+  body: 'Kenderaan ${reg_no} telah ditetapkan semula kepada pemandu ${driver}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_SMS:
+  body: 'Kenderaan ${reg_no} telah ditetapkan semula kepada pemandu ${driver}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_REASSIGNED_USER_EMAIL:
+  subject: 'Makluman - Kenderaan ditetapkan semula'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} diserahkan semula kepada pemandu ${driver}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no} menugaskan semula ${old_value} kepada "${driver}".</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_WEB:
+  subject: 'Makluman - Terlalu laju'
+  body: 'Kenderaan ${reg_no} memandu lebih daripada ${avg_speed}km/j. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_SMS:
+  body: 'Kenderaan ${reg_no} memandu lebih daripada ${avg_speed}km/j. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_MOBILE:
+  subject: 'terlalu laju'
+  body: 'Kenderaan ${reg_no} memandu lebih daripada ${avg_speed}km/j. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_USER_EMAIL:
+  subject: 'Makluman - Terlalu laju'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} memandu >${avg_speed}km/j.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} memandu melebihi ${avg_speed}km/j, had laju ditetapkan kepada ${overSpeed}km/j</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_WEB:
+  subject: 'Amaran - Terlalu laju di dalam kawasan'
+  body: 'Kenderaan ${reg_no} memandu lebih daripada ${avg_speed}km/j ke kawasan: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_SMS:
+  body: 'Kenderaan ${reg_no} memandu lebih daripada ${avg_speed}km/j ke kawasan: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_MOBILE:
+  subject: 'Kawasan dalam terlalu laju'
+  body: 'Kenderaan ${reg_no} memandu lebih daripada ${avg_speed}km/j ke kawasan: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_OVER_SPEEDING_INSIDE_GEOFENCE_USER_EMAIL:
+  subject: 'Amaran - Terlalu laju di dalam kawasan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} memandu >${avg_speed}km/j di kawasan "${area}"</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} memandu lebih daripada ${avg_speed}km/j di kawasan "${area}", had laju ditetapkan kepada ${overSpeed}km/ h</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_WEB:
+  subject: 'Makluman - Makluman kawasan kenderaan'
+  body: 'Kenderaan ${reg_no} masuk ke kawasan: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_SMS:
+  body: 'Kenderaan ${reg_no} masuk ke kawasan: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_MOBILE:
+  subject: 'Isyarat kawasan kenderaan'
+  body: 'Kenderaan ${reg_no} masuk ke kawasan: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_ENTER_USER_EMAIL:
+  subject: 'Makluman - Makluman kawasan kenderaan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} masuk ke kawasan: ${area}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} memasuki kawasan "${area}"</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_WEB:
+  subject: 'Makluman - Makluman kawasan kenderaan'
+  body: 'Kenderaan ${reg_no} bertolak dari kawasan: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_SMS:
+  body: 'Kenderaan ${reg_no} bertolak dari kawasan: ${area}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_MOBILE:
+  subject: 'Isyarat kawasan kenderaan'
+  body: 'Kenderaan ${reg_no} bertolak dari kawasan: ${area}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_GEOFENCE_LEAVE_USER_EMAIL:
+  subject: 'Makluman - Makluman kawasan kenderaan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} bertolak dari kawasan: ${area}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} berlepas dari kawasan "${area}"</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_WEB:
+  subject: 'Makluman - Pemanduan kenderaan'
+  body: 'Kenderaan sedang memandu tanpa pemandu: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_SMS:
+  body: 'Kenderaan sedang memandu tanpa pemandu: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_MOBILE:
+  subject: 'Memandu kenderaan'
+  body: 'Kenderaan sedang memandu tanpa pemandu: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_DRIVING_WITHOUT_DRIVER_USER_EMAIL:
+  subject: 'Makluman - Pemanduan kenderaan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} memandu tanpa pemandu.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} memandu tanpa pemandu.</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_WEB:
+  subject: 'Makluman - Acara menunda kenderaan'
+  body: 'Kenderaan dimatikan enjinnya, tetapi sebenarnya sedang bergerak: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_SMS:
+  body: 'Kenderaan dimatikan enjinnya, tetapi sebenarnya sedang bergerak: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_MOBILE:
+  subject: 'Acara menunda kenderaan'
+  body: 'Kenderaan dimatikan enjinnya, tetapi sebenarnya sedang bergerak: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_TOWING_EVENT_USER_EMAIL:
+  subject: 'Makluman - Acara menunda kenderaan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan dimatikan enjinnya, tetapi sebenarnya sedang bergerak: ${reg_no}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>Tarikh: ${event_time}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_WEB:
+  subject: 'Makluman - Kenderaan berdiri lama'
+  body: 'Kenderaan dihentikan lebih daripada ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_SMS:
+  body: 'Kenderaan dihentikan lebih daripada ${duration}: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_MOBILE:
+  subject: 'Kenderaan lama berdiri'
+  body: 'Kenderaan dihentikan lebih daripada ${duration}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_STANDING_USER_EMAIL:
+  subject: 'Makluman - Kenderaan berdiri lama'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} dihentikan >${duration}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} dihentikan >${duration}</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_WEB:
+  subject: 'Makluman - Kenderaan memandu jauh'
+  body: 'Kenderaan memandu lebih daripada ${duration} secara berterusan dan telah memandu lebih daripada ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_SMS:
+  body: 'Kenderaan memandu lebih daripada ${duration} secara berterusan: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_MOBILE:
+  subject: 'Kenderaan memandu jauh'
+  body: 'Kenderaan memandu lebih daripada ${duration} secara berterusan dan telah memandu lebih daripada ${distance}: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_LONG_DRIVING_USER_EMAIL:
+  subject: 'Makluman - Kenderaan memandu jauh'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} memandu secara berterusan >${duration}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} memandu secara berterusan >${duration}</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_WEB:
+  subject: 'Makluman - Kenderaan bergerak'
+  body: 'Kenderaan mula bergerak: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_SMS:
+  body: 'Kenderaan mula bergerak: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_MOBILE:
+  subject: 'Kenderaan bergerak'
+  body: 'Kenderaan mula bergerak: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_MOVING_USER_EMAIL:
+  subject: 'Makluman - Kenderaan bergerak'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Kenderaan ${reg_no} dengan pemandu ${driver} mula bergerak.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} mula bergerak</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_WEB:
+  subject: 'Makluman - Kenderaan melahu berlebihan'
+  body: '${reg_no_or_device} melahu lebih daripada ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_SMS:
+  body: '${reg_no_or_device} melahu lebih daripada ${duration}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_MOBILE:
+  subject: 'Kenderaan melahu berlebihan'
+  body: '${reg_no_or_device} melahu lebih daripada ${duration}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_EXCESSING_IDLING_USER_EMAIL:
+  subject: 'Makluman - Kenderaan melahu berlebihan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>${reg_no_or_device} melahu lebih daripada ${duration}.</p>
+   <p>${event_time} - ${reg_no_with_model_or_device} ${driver} melahu lebih daripada ${duration}</p>
+   <p style="color: red;">${note}</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_WEB:
+  subject: 'Makluman - Kenderaan ditukar status: Dalam talian'
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_SMS:
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_MOBILE:
+  subject: 'Kenderaan ditukar status: Dalam talian'
+  body: 'Kenderaan ${reg_no} telah menukar status: ${status}. ${comment}'
+!php/const App\Entity\Notification\Template::VEHICLE_ONLINE_USER_EMAIL:
+  subject: 'Makluman - Kenderaan ditukar status: Dalam talian'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Status ${reg_no_with_model} kenderaan ditukar kepada "${status}".</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Kenderaan ${reg_no_with_model} dengan pemandu ${driver} menukar status kepada "${status}"</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Makluman - Dokumen tamat tempoh'
+  body: 'Dokumen tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Dokumen tamat tempoh: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Dokumen tamat tempoh'
+  body: 'Dokumen tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Makluman - Dokumen tamat tempoh'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumen tamat tempoh ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${exp_date} - dokumen tamat tempoh - "${title}" ${data_by_type}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Makluman - Dokumen tamat tempoh tidak lama lagi'
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Dokumen tamat tempoh tidak lama lagi'
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Makluman - Dokumen tamat tempoh tidak lama lagi'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumenkan tidak lama lagi untuk tamat tempoh ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - dokumen "${title}" ${data_by_type} akan tamat tempoh pada ${expiration_date}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_WEB:
+  subject: 'Makluman - Dokumen dipadamkan'
+  body: 'Dokumen dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_SMS:
+  body: 'Dokumen dipadamkan: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Dokumen dipadamkan'
+  body: 'Dokumen dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Makluman - Dokumen dipadamkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumen dipadamkan ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah memadamkan dokumen "${title}" ${data_by_type}</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Makluman - Rekod dokumen ditambah'
+  body: 'Rekod dokumen ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Rekod dokumen ditambah: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Rekod dokumen ditambah'
+  body: 'Rekod dokumen ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Makluman - Rekod dokumen ditambah'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Rekod dokumen ditambah ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah menambah rekod baharu pada dokumen "${title}" ${data_by_type}</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_WEB:
+  subject: 'Makluman - Peranti dalam stok'
+  body: 'Peranti dalam stok: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_SMS:
+  body: 'Peranti dalam stok: ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_MOBILE:
+  subject: 'Peranti dalam stok'
+  body: 'Peranti dalam stok: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_IN_STOCK_USER_EMAIL:
+  subject: 'Makluman - Peranti dalam stok'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peranti dalam stok: ${device_imei}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Peranti ${device_imei} menukar status kepada "dalam stok"</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_WEB:
+  subject: 'Makluman - Peranti ditukar status: Luar Talian'
+  body: 'Peranti ${device_imei} telah bertukar status: Luar talian. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_SMS:
+  body: 'Peranti ${device_imei} telah bertukar status: Luar talian. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_MOBILE:
+  subject: 'Peranti ditukar status: Luar Talian'
+  body: 'Peranti ${device_imei} telah bertukar status: Luar talian. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_OFFLINE_USER_EMAIL:
+  subject: 'Makluman - Peranti ditukar status: Luar Talian'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Status ${device_imei} peranti ditukar kepada "Luar Talian"</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Peranti ${device_imei} menukar status kepada "Luar Talian"</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_WEB:
+  subject: 'Makluman - Peranti ditukar status: Tidak tersedia'
+  body: 'Peranti ${device_imei} telah bertukar status: Tidak tersedia. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_SMS:
+  body: 'Peranti ${device_imei} telah bertukar status: Tidak tersedia. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_MOBILE:
+  subject: 'Peranti ditukar status: Tidak tersedia'
+  body: 'Peranti ${device_imei} telah bertukar status: Tidak tersedia. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNAVAILABLE_USER_EMAIL:
+  subject: 'Makluman - Peranti ditukar status: Tidak tersedia'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Status ${device_imei} peranti ditukar kepada "Tidak Tersedia"</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Peranti ${device_imei} menukar status kepada "Tidak Tersedia"</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_WEB:
+  subject: 'Makluman - Peranti dipadamkan'
+  body: 'Peranti dipadamkan: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_SMS:
+  body: 'Peranti dipadamkan: ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_MOBILE:
+  subject: 'Peranti dipadamkan'
+  body: 'Peranti dipadamkan: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_DELETED_USER_EMAIL:
+  subject: 'Makluman - Peranti dipadamkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peranti ${device_imei} telah dipadamkan.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah memadamkan peranti ${device_imei}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_WEB:
+  subject: 'Makluman - Peranti tidak diketahui dikesan'
+  body: 'Peranti tidak diketahui dikesan: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_SMS:
+  body: 'Peranti tidak diketahui dikesan: ${device_imei}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_MOBILE:
+  subject: 'Peranti tidak diketahui dikesan'
+  body: 'Peranti tidak diketahui dikesan: ${device_imei}. ${comment}'
+!php/const App\Entity\Notification\Template::DEVICE_UNKNOWN_DETECTED_USER_EMAIL:
+  subject: 'Makluman - Peranti tidak diketahui dikesan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peranti tidak diketahui dikesan: ${device_imei}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>Tarikh: ${event_time}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_WEB:
+  subject: 'Makluman - Peringatan perkhidmatan tidak lama lagi'
+  body: 'Peringatan perkhidmatan tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_SMS:
+  body: 'Peringatan perkhidmatan tidak lama lagi: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_MOBILE:
+  subject: 'Peringatan perkhidmatan tidak lama lagi'
+  body: 'Peringatan perkhidmatan tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_SOON_USER_EMAIL:
+  subject: 'Makluman - Peringatan perkhidmatan tidak lama lagi'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peringatan perkhidmatan tidak lama lagi (${entity}).</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - peringatan perkhidmatan "${title}" (${entity}) akan tamat tempoh pada ${expiration_date}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_WEB:
+  subject: 'Makluman - Peringatan perkhidmatan tamat tempoh'
+  body: 'Peringatan perkhidmatan tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_SMS:
+  body: 'Peringatan perkhidmatan tamat tempoh: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_MOBILE:
+  subject: 'Peringatan perkhidmatan tamat tempoh'
+  body: 'Peringatan perkhidmatan tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_EXPIRED_USER_EMAIL:
+  subject: 'Makluman - Peringatan perkhidmatan tamat tempoh'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peringatan perkhidmatan tamat tempoh (${entity}).</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - peringatan perkhidmatan "${title}" (${entiti}) tamat tempoh.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_WEB:
+  subject: 'Makluman - Peringatan perkhidmatan selesai'
+  body: 'Peringatan perkhidmatan selesai: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_SMS:
+  body: 'Peringatan perkhidmatan selesai: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_MOBILE:
+  subject: 'Peringatan perkhidmatan selesai'
+  body: 'Peringatan perkhidmatan selesai: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DONE_USER_EMAIL:
+  subject: 'Makluman - Peringatan perkhidmatan selesai'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peringatan perkhidmatan selesai (${entity}).</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah melakukan peringatan perkhidmatan "${title}" (${entity}).</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_WEB:
+  subject: 'Makluman - Peringatan perkhidmatan dipadamkan'
+  body: 'Peringatan perkhidmatan dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_SMS:
+  body: 'Peringatan perkhidmatan dipadamkan: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_MOBILE:
+  subject: 'Peringatan perkhidmatan dipadamkan'
+  body: 'Peringatan perkhidmatan dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REMINDER_DELETED_USER_EMAIL:
+  subject: 'Makluman - Peringatan perkhidmatan dipadamkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peringatan perkhidmatan dipadamkan (${entiti}).</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} memadamkan peringatan perkhidmatan "${title}" (${entity}).</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_WEB:
+  subject: 'Makluman - Rekod perkhidmatan ditambah'
+  body: 'Rekod perkhidmatan ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_SMS:
+  body: 'Rekod perkhidmatan ditambah: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_MOBILE:
+  subject: 'Rekod perkhidmatan ditambah'
+  body: 'Rekod perkhidmatan ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_RECORD_ADDED_USER_EMAIL:
+  subject: 'Makluman - Rekod perkhidmatan ditambah'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Rekod perkhidmatan ditambah (${entity}).</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah menambah rekod perkhidmatan baharu "${title}" (${entity}).</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_WEB:
+  subject: 'Makluman - Pembaikan perkhidmatan ditambah'
+  body: 'Pembaikan perkhidmatan ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_SMS:
+  body: 'Pembaikan perkhidmatan ditambah: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_MOBILE:
+  subject: 'Pembaikan perkhidmatan ditambah'
+  body: 'Pembaikan perkhidmatan ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::SERVICE_REPAIR_ADDED_USER_EMAIL:
+  subject: 'Makluman - Pembaikan perkhidmatan ditambah'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Pembaikan perkhidmatan ditambah (${entiti}).</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah menambah pembaikan perkhidmatan baharu "${title}" (${entity}).</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_WEB:
+  subject: 'Isyarat - Voltan'
+  body: 'Bekalkan voltan kepada penjejak ialah ${battery_voltage}V pada kenderaan: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_SMS:
+  body: 'Bekalkan voltan kepada penjejak ialah ${battery_voltage}V pada kenderaan: ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_MOBILE:
+  subject: 'Voltan'
+  body: 'Bekalkan voltan kepada penjejak ialah ${battery_voltage}V pada kenderaan: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_VOLTAGE_USER_EMAIL:
+  subject: 'Isyarat - Voltan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Voltan Bekalan Penjejak ialah ${battery_voltage}V dalam kenderaan ${vehicle}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Voltan bekalan penjejak dalam kenderaan ${reg_no_with_model} dengan pemandu ${driver} ialah ${battery_voltage}V, had voltan ditetapkan kepada ${deviceVoltage}</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_EMAIL:
+  subject: 'Makluman - ${from_company} butang SOS - ${reg_no_or_device}'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Butang SOS ditekan pada ${reg_no_or_device}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Butang SOS ditekan oleh pemandu: ${driver} pada ${reg_no_with_model_or_device}.</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <p>${google_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_SMS:
+  body: 'Butang SOS ditekan oleh pemandu: ${driver} pada ${reg_no_or_device}. ${event_time} ${google_url} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_MOBILE:
+  subject: 'Butang SOS - ${reg_no_or_device}'
+  body: 'Butang SOS ditekan oleh pemandu: ${driver} pada ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PANIC_BUTTON_USER_WEB:
+  subject: 'Makluman - butang SOS - ${reg_no_or_device}'
+  body: 'Butang SOS ditekan oleh pemandu: ${driver} pada ${reg_no_or_device}. ${comment}'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_WEB:
+  subject: 'Makluman - Aktiviti pengguna'
+  body: 'Log masuk sebagai pelanggan: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_SMS:
+  body: 'Log masuk sebagai pelanggan: ${client_email} ${client_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_MOBILE:
+  subject: 'Aktiviti pengguna'
+  body: 'Log masuk sebagai pelanggan: ${client_email} ${client_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_CLIENT_USER_EMAIL:
+  subject: 'Makluman - Aktiviti pengguna'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Log masuk sebagai pelanggan: ${client_email} ${client_name}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>Tarikh: ${event_time}.</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_WEB:
+  subject: 'Makluman - Aktiviti pengguna'
+  body: 'Log masuk sebagai pengguna: ${user_email} ${user_name}. ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_EMAIL:
+  subject: 'Makluman - Aktiviti pengguna'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Log masuk sebagai pengguna: ${user_email} ${user_name}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>Tarikh: ${event_time}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_SMS:
+  body: 'Log masuk sebagai pengguna: ${user_email} ${user_name}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::LOGIN_AS_USER_USER_MOBILE:
+  subject: 'Aktiviti pengguna'
+  body: 'Log masuk sebagai pengguna: ${user_email} ${user_name}. ${comment}'
+
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_EMAIL:
+  subject: 'Makluman - Odometer diperbetulkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Odometer ditetapkan kepada ${new_value} untuk ${reg_no}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${user_name} odometer diperbetulkan untuk ${reg_no}; nilai lama - ${old_value}, nilai baharu - ${new_value}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_SMS:
+  body: 'Odometer ditetapkan kepada ${new_value} untuk ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_MOBILE:
+  subject: 'Odometer diperbetulkan'
+  body: 'Odometer ditetapkan kepada ${new_value} untuk ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::ODOMETER_CORRECTED_USER_WEB:
+  subject: 'Makluman - Odometer diperbetulkan'
+  body: 'Odometer ditetapkan kepada ${new_value} untuk ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_EMAIL:
+  subject: 'Makluman - Borang dilengkapkan dengan gagal'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Borang telah dilengkapkan dengan kegagalan pemandu: ${driver} to vehicle: ${reg_no}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Borang: ${form_title} telah dilengkapkan dengan kegagalan oleh pemandu: ${driver} ke kenderaan: ${reg_no}</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_SMS:
+  body: 'Borang telah dilengkapkan dengan kegagalan oleh pemandu: ${driver} to vehicle: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_MOBILE:
+  subject: 'Borang dilengkapkan dengan gagal'
+  body: 'Borang telah dilengkapkan dengan kegagalan oleh pemandu: ${driver} to vehicle: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_WITH_FAIL_USER_WEB:
+  subject: 'Makluman - Borang dilengkapkan dengan gagal'
+  body: 'Borang telah dilengkapkan dengan kegagalan oleh pemandu: ${driver} to vehicle: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_EMAIL:
+  subject: 'Makluman - Borang tidak lengkap'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Borang tidak diisi oleh pemandu: ${driver} ke kenderaan: ${reg_no}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Borang tidak dilengkapkan oleh pemandu: ${driver} to vehicle: ${reg_no}.</p>
+   <p>${vehicle_url}</p>
+   <p>${driver_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_SMS:
+  body: 'Borang tidak diisi oleh pemandu: ${driver} ke kenderaan: ${reg_no}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_MOBILE:
+  subject: 'Borang tidak lengkap'
+  body: 'Borang tidak diisi oleh pemandu: ${driver} ke kenderaan: ${reg_no}. ${comment}'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_USER_WEB:
+  subject: 'Makluman - Borang tidak lengkap'
+  body: 'Borang tidak diisi oleh pemandu: ${driver} ke kenderaan: ${reg_no}. ${comment}'
+
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_WEB:
+  subject: 'Makluman - Borang tidak lengkap'
+  body: 'Anda perlu melengkapkan borang pemeriksaan untuk kenderaan ${reg_no}.'
+!php/const App\Entity\Notification\Template::DIGITAL_FORM_IS_NOT_COMPLETED_SYSTEM_MOBILE:
+  subject: 'Borang tidak lengkap'
+  body: 'Anda perlu melengkapkan borang pemeriksaan untuk kenderaan ${reg_no}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_EMAIL:
+  subject: 'Makluman - Suhu penderia'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Sensor ${sensor_id}${label} mengesan nilai temp ${temperature}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - penderia ${sensor_id}${label}, dipasang dalam ${reg_no}, nilai suhu dikesan ${sensor_temperature}${temperature}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_SMS:
+  body: 'Sensor ${label} mengesan nilai suhu ${sensor_temperature}${temperature}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_MOBILE:
+  subject: 'Suhu Penderia - ${reg_no}'
+  body: 'Sensor ${label} mengesan nilai suhu ${sensor_temperature}${temperature}.'
+!php/const App\Entity\Notification\Template::SENSOR_TEMPERATURE_USER_WEB:
+  subject: 'Makluman - Suhu Sensor'
+  body: 'Sensor ${label} mengesan nilai suhu ${sensor_temperature}${temperature}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_EMAIL:
+  subject: 'Makluman - Kelembapan sensor'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Sensor ${sensor_id}${label} mengesan nilai hum ${sensor_humidity}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - sensor ${sensor_id}${label}, dipasang dalam ${reg_no}, mengesan nilai kelembapan ${sensor_humidity}${humidity}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_SMS:
+  body: 'Sensor ${label} mengesan nilai kelembapan ${sensor_humidity}${kelembapan}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_MOBILE:
+  subject: 'Kelembapan Sensor - ${reg_no}'
+  body: 'Sensor ${label} mengesan nilai num ${sensor_humidity}${humidity}.'
+!php/const App\Entity\Notification\Template::SENSOR_HUMIDITY_USER_WEB:
+  subject: 'Makluman - Kelembapan Sensor'
+  body: 'Sensor ${label} mengesan nilai hum ${sensor_humidity}${humidity}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_EMAIL:
+  subject: 'Isyarat - Cahaya penderia'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Sensor ${sensor_id}${label} mengesan status cahaya ${sensor_light_status}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - sensor ${sensor_id}${label}, dipasang dalam ${reg_no}, mengesan status cahaya ditukar kepada ${sensor_light_status}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_SMS:
+  body: 'Sensor ${label} mengesan status cahaya ditukar kepada ${sensor_light_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_MOBILE:
+  subject: 'Lampu sensor - ${reg_no}'
+  body: 'Sensor ${label} mengesan status cahaya ditukar kepada ${sensor_light_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_LIGHT_USER_WEB:
+  subject: 'Isyarat - Cahaya penderia'
+  body: 'Sensor ${label} mengesan status cahaya ditukar kepada ${sensor_light_status}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_EMAIL:
+  subject: 'Isyarat - Paras bateri penderia'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Sensor ${sensor_id}${label} mengesan tahap bateri ${sensor_battery_level}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - sensor ${sensor_id}${label}, dipasang dalam ${reg_no}, mengesan tahap bateri ${sensor_battery_level} ${batteryLevel}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_SMS:
+  body: 'Sensor ${label} mengesan tahap bateri ${sensor_battery_level} ${batteryLevel}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_MOBILE:
+  subject: 'Paras bateri sensor - ${reg_no}'
+  body: 'Sensor ${label} mengesan tahap bateri ${sensor_battery_level} ${batteryLevel}.'
+!php/const App\Entity\Notification\Template::SENSOR_BATTERY_LEVEL_USER_WEB:
+  subject: 'Isyarat - Paras bateri penderia'
+  body: 'Sensor ${label} mengesan tahap bateri ${sensor_battery_level} ${batteryLevel}.'
+
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_EMAIL:
+  subject: 'Makluman - Status penderia'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Sensor ${sensor_id}${label} kini ${sensor_status}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - sensor ${sensor_id}${label}, dipasang dalam ${reg_no}, menukar status kepada ${sensor_status}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_SMS:
+  body: 'Sensor ${label} menukar status kepada ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_MOBILE:
+  subject: 'Status sensor - ${reg_no}'
+  body: 'Sensor ${label} menukar status kepada ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_STATUS_USER_WEB:
+  subject: 'Makluman - Status penderia'
+  body: 'Sensor ${label} menukar status kepada ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Makluman - Dokumen tamat tempoh tidak lama lagi'
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Dokumen tamat tempoh tidak lama lagi'
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Makluman - Dokumen tamat tempoh tidak lama lagi'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumenkan tidak lama lagi untuk tamat tempoh ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - dokumen "${title}" ${data_by_type} akan tamat tempoh pada ${expiration_date}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Makluman - Dokumen tamat tempoh'
+  body: 'Dokumen tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Dokumen tamat tempoh: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Dokumen tamat tempoh'
+  body: 'Dokumen tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Makluman - Dokumen tamat tempoh'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumen tamat tempoh ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${exp_date} - dokumen tamat tempoh - "${title}" ${data_by_type}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_WEB:
+  subject: 'Makluman - Dokumen dipadamkan'
+  body: 'Dokumen dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_SMS:
+  body: 'Dokumen dipadamkan: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Dokumen dipadamkan'
+  body: 'Dokumen dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Makluman - Dokumen dipadamkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumen dipadamkan ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah memadamkan dokumen "${title}" ${data_by_type}</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Makluman - Rekod dokumen ditambah'
+  body: 'Rekod dokumen ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Rekod dokumen ditambah: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Rekod dokumen ditambah'
+  body: 'Rekod dokumen ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::DRIVER_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Makluman - Rekod dokumen ditambah'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Rekod dokumen ditambah ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah menambah rekod baharu pada dokumen "${title}" ${data_by_type}</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_WEB:
+  subject: 'Makluman - Dokumen tamat tempoh tidak lama lagi'
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_SMS:
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_MOBILE:
+  subject: 'Dokumen tamat tempoh tidak lama lagi'
+  body: 'Dokumen akan tamat tempoh tidak lama lagi: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRE_SOON_USER_EMAIL:
+  subject: 'Makluman - Dokumen tamat tempoh tidak lama lagi'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumenkan tidak lama lagi untuk tamat tempoh ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - dokumen "${title}" ${data_by_type} akan tamat tempoh pada ${expiration_date}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_WEB:
+  subject: 'Makluman - Dokumen tamat tempoh'
+  body: 'Dokumen tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_SMS:
+  body: 'Dokumen tamat tempoh: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_MOBILE:
+  subject: 'Dokumen tamat tempoh'
+  body: 'Dokumen tamat tempoh: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_EXPIRED_USER_EMAIL:
+  subject: 'Makluman - Dokumen tamat tempoh'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumen tamat tempoh ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${exp_date} - dokumen tamat tempoh - "${title}" ${data_by_type}.</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_WEB:
+  subject: 'Makluman - Dokumen dipadamkan'
+  body: 'Dokumen dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_SMS:
+  body: 'Dokumen dipadamkan: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_MOBILE:
+  subject: 'Dokumen dipadamkan'
+  body: 'Dokumen dipadamkan: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_DELETED_USER_EMAIL:
+  subject: 'Makluman - Dokumen dipadamkan'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Dokumen dipadamkan ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah memadamkan dokumen "${title}" ${data_by_type}</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_WEB:
+  subject: 'Makluman - Rekod dokumen ditambah'
+  body: 'Rekod dokumen ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_SMS:
+  body: 'Rekod dokumen ditambah: ${title}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_MOBILE:
+  subject: 'Rekod dokumen ditambah'
+  body: 'Rekod dokumen ditambah: ${title}. ${comment}'
+!php/const App\Entity\Notification\Template::ASSET_DOCUMENT_RECORD_ADDED_USER_EMAIL:
+  subject: 'Makluman - Rekod dokumen ditambah'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Rekod dokumen ditambah ${data_by_type}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah menambah rekod baharu pada dokumen "${title}" ${data_by_type}</p>
+   <p>${data_url}</p>
+   <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_EMAIL:
+  subject: 'Makluman - Status I/O Digital - ${sensor_status}'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>I/O Digital ${sensor_io_type} dalam ${regno_or_imei} menukar status kepada ${sensor_status}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - I/O Digital ${sensor_io_type} dalam ${regno_or_imei}, menukar status kepada ${sensor_status}.</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_SMS:
+  body: 'I/O Digital ${sensor_io_type} dalam ${regno_or_imei} menukar status kepada ${sensor_status}. ${event_time}'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_MOBILE:
+  subject: 'Status I/O Digital - ${sensor_status}'
+  body: 'I/O Digital ${sensor_io_type} dalam ${regno_or_imei} menukar status kepada ${sensor_status}.'
+!php/const App\Entity\Notification\Template::SENSOR_IO_STATUS_USER_WEB:
+  subject: 'Makluman - Status I/O Digital - ${sensor_status}'
+  body: 'I/O Digital ${sensor_io_type} dalam ${regno_or_imei} menukar status kepada ${sensor_status}.'
+
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_EMAIL:
+  subject: 'Makluman - Aset dicipta'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Aset dibuat: ${asset_name}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah mencipta aset ${asset_name} [pasukan: ${team}].</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_SMS:
+  body: 'Aset dicipta: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_MOBILE:
+  subject: 'Aset dicipta: ${asset_name}'
+  body: '${event_time} - ${triggered_by} telah mencipta aset ${asset_name} [pasukan: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_CREATED_USER_WEB:
+  subject: 'Alerts - Aset dicipta: ${asset_name}'
+  body: '${event_time} - ${triggered_by} telah mencipta aset ${asset_name} [pasukan: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_EMAIL:
+  subject: 'Makluman - Aset dipadamkan: ${asset_name}'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Aset dipadamkan: ${asset_name}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - ${triggered_by} telah memadamkan aset ${asset_name} [pasukan: ${team}].</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_SMS:
+  body: 'Aset dipadamkan: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_MOBILE:
+  subject: 'Aset dipadamkan: ${asset_name}'
+  body: '${event_time} - ${triggered_by} telah memadamkan aset ${asset_name} [pasukan: ${team}].'
+!php/const App\Entity\Notification\Template::ASSET_DELETED_USER_WEB:
+  subject: 'Makluman - Aset dipadamkan: ${asset_name}'
+  body: '${event_time} - ${triggered_by} telah memadamkan aset ${asset_name} [pasukan: ${team}].'
+
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_EMAIL:
+  subject: 'Makluman - Aset terlepas: ${asset_name}'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Aset terlepas: ${asset_name}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - aset terlepas: ${asset_name}.</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_SMS:
+  body: 'Aset dipadamkan: ${asset_name}. ${event_time}'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_MOBILE:
+  subject: 'Aset terlepas: ${asset_name}'
+  body: '${event_time} - aset terlepas: ${asset_name}.'
+!php/const App\Entity\Notification\Template::ASSET_MISSED_USER_WEB:
+  subject: 'Makluman - Aset terlepas: ${asset_name}'
+  body: '${event_time} - aset terlepas: ${asset_name}.'
+
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_EMAIL:
+  subject: 'Makluman - Voltan Bateri Dalaman'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Peratusan voltan bateri dalaman kepada penjejak ialah ${battery_percentage}% dalam kenderaan ${vehicle}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Peratusan voltan bateri dalaman dalam kenderaan ${reg_no_with_model} dengan pemandu ${driver} ialah ${battery_percentage}%, had ditetapkan kepada ${deviceBatteryPercentage}</p>
+   <p>${vehicle_url}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_SMS:
+  body: 'Peratusan voltan bateri dalaman kepada penjejak ialah ${battery_percentage}% pada kenderaan: ${vehicle}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_MOBILE:
+  subject: 'Isyarat Voltan Bateri Dalaman'
+  body: 'Peratusan voltan bateri dalaman kepada penjejak ialah ${battery_percentage}% pada kenderaan: ${vehicle}. ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_BATTERY_PERCENTAGE_USER_WEB:
+  subject: 'Makluman - Voltan Bateri Dalaman'
+  body: 'Peratusan voltan bateri dalaman kepada penjejak ialah ${battery_percentage}% pada kenderaan: ${vehicle}. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Makluman - Ralat jalur'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Ralat berlaku semasa operasi terakhir dengan Stripe!</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${error_details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_SMS:
+  body: 'Ralat berlaku semasa operasi terakhir dengan Stripe! [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Makluman - Ralat jalur'
+  body: 'Ralat berlaku semasa operasi terakhir dengan Stripe! [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Makluman - Ralat jalur'
+  body: 'Ralat berlaku semasa operasi terakhir dengan Stripe! [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Makluman - Pembayaran jalur gagal'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Pembayaran berjalur gagal!</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${error_details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_SMS:
+  body: 'Pembayaran berjalur gagal! [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Makluman - Pembayaran jalur gagal'
+  body: 'Pembayaran berjalur gagal! [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_FAILED_USER_WEB:
+  subject: 'Makluman - Pembayaran jalur gagal'
+  body: 'Pembayaran berjalur gagal! [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Makluman - Pembayaran jalur berjaya'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Pembayaran berjalur berjaya!</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Pembayaran berjalur berjaya! [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Makluman - Pembayaran jalur berjaya'
+  body: 'Pembayaran berjalur berjaya! [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::STRIPE_PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Makluman - Pembayaran jalur berjaya'
+  body: 'Pembayaran berjalur berjaya! [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_EMAIL:
+  subject: 'Makluman - Ralat Xero'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Ralat berlaku semasa operasi terakhir dengan Xero!</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${error_details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_SMS:
+  body: 'Ralat berlaku semasa operasi terakhir dengan Xero! [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_MOBILE:
+  subject: 'Makluman - Ralat Xero'
+  body: 'Ralat berlaku semasa operasi terakhir dengan Xero! [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INTEGRATION_ERROR_USER_WEB:
+  subject: 'Makluman - Ralat Xero'
+  body: 'Ralat berlaku semasa operasi terakhir dengan Xero! [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_EMAIL:
+  subject: 'Makluman - Ralat penciptaan invois Xero'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Ralat berlaku semasa membuat invois: ${invoice} dalam Xero!</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - invois: ${invoice}, [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${error_details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_SMS:
+  body: 'Ralat berlaku semasa membuat invois: ${invoice} dalam Xero! [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_MOBILE:
+  subject: 'Makluman - Ralat penciptaan invois Xero'
+  body: 'Ralat berlaku semasa membuat invois: ${invoice} dalam Xero! [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATION_ERROR_USER_WEB:
+  subject: 'Makluman - Ralat penciptaan invois Xero'
+  body: 'Ralat berlaku semasa membuat invois: ${invoice} dalam Xero! [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_EMAIL:
+  subject: 'Makluman - Invois Xero dibuat'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Invois Xero baharu dibuat: ${invoice}</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - invois: ${invoice}, [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${error_details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_SMS:
+  body: 'Invois Xero baharu dibuat: ${invoice}, [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_MOBILE:
+  subject: 'Makluman - Invois Xero dibuat'
+  body: 'Invois Xero baharu dibuat: ${invoice}, [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_INVOICE_CREATED_USER_WEB:
+  subject: 'Makluman - Invois Xero dibuat'
+  body: 'Invois Xero baharu dibuat: ${invoice}, [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_EMAIL:
+  subject: 'Makluman - Ralat pembuatan pembayaran Xero'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Ralat berlaku semasa membuat pembayaran Xero melalui invois: ${invoice}!</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - invois: ${invoice}, [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${error_details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_SMS:
+  body: 'Ralat berlaku semasa membuat pembayaran Xero melalui invois: ${invoice}! [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_MOBILE:
+  subject: 'Makluman - Ralat pembuatan pembayaran Xero'
+  body: 'Ralat berlaku semasa membuat pembayaran Xero melalui invois: ${invoice}! [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATION_ERROR_USER_WEB:
+  subject: 'Makluman - Ralat pembuatan pembayaran Xero'
+  body: 'Ralat berlaku semasa membuat pembayaran Xero melalui invois: ${invoice}! [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_EMAIL:
+  subject: 'Makluman - Pembayaran Xero dibuat'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Pembayaran Xero baharu dibuat melalui invois: ${invoice}.</p>
+   <br/><p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - invois: ${invoice}, [pasukan: ${team}], oleh pengguna: ${triggered_by}.</p>
+   <p>${error_details}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_SMS:
+  body: 'Pembayaran Xero baharu dibuat melalui invois: ${invoice}, [pasukan: ${team}]. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_MOBILE:
+  subject: 'Makluman - Pembayaran Xero dibuat'
+  body: 'Pembayaran Xero baharu dibuat melalui invois: ${invoice}, [pasukan: ${team}]. ${comment}'
+!php/const App\Entity\Notification\Template::XERO_PAYMENT_CREATED_USER_WEB:
+  subject: 'Makluman - Pembayaran Xero dibuat'
+  body: 'Pembayaran Xero baharu dibuat melalui invois: ${invoice}, [pasukan: ${team}]. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_EMAIL:
+  subject: 'Makluman - Invois baharu dibuat'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Invois baharu dibuat.</p>
+   <p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Invois baharu ${invoice_id} dibuat.</p>
+   <p>${invoice_link}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_SMS:
+  body: 'Invois baharu ${invoice_id} dibuat. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_MOBILE:
+  subject: 'Makluman - Invois baharu dibuat'
+  body: 'Invois baharu ${invoice_id} dibuat. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_CREATED_USER_WEB:
+  subject: 'Makluman - Invois baharu dibuat'
+  body: 'Invois baharu ${invoice_id} dibuat. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_EMAIL:
+  subject: 'Makluman - Pembayaran invois berjaya'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Pembayaran invois berjaya!</p>
+   <p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Invois ${invoice_id} berjaya dibayar.</p>
+   <p>${invoice_link}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_SMS:
+  body: 'Invois ${invoice_id} berjaya dibayar. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_MOBILE:
+  subject: 'Makluman - Pembayaran invois berjaya'
+  body: 'Invois ${invoice_id} berjaya dibayar. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::PAYMENT_SUCCESSFUL_USER_WEB:
+  subject: 'Makluman - Pembayaran invois berjaya'
+  body: 'Invois ${invoice_id} berjaya dibayar. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_EMAIL:
+  subject: 'Makluman - Invois tertunggak'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+   <p>Invois tertunggak</p>
+   <p><b>Maklumat terperinci:</b></p>
+   <p>${event_time} - Invois ${invoice_id} tertunggak</p>
+   <p>${invoice_link}</p>
+   <br/><p>${comment}</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_SMS:
+  body: 'Invois ${invoice_id} tertunggak. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_MOBILE:
+  subject: 'Makluman - Invois tertunggak'
+  body: 'Invois ${invoice_id} tertunggak. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_USER_WEB:
+  subject: 'Makluman - Invois tertunggak'
+  body: 'Invois ${invoice_id} tertunggak. ${comment}'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_EMAIL:
+  subject: 'Makluman - Invois tertunggak - akaun disekat'
+  body: '<p>Hai ${full_name},</p>
+   <p>Saya menghubungi anda bagi pihak ${from_company} berkenaan dengan invois berikut:</p>
+    <p>Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$</p>
+    <p>Invois ini perlu dibayar pada ${due_date}. Ia amat dihargai
+    jika anda boleh mengesahkan penerimaan invois ini dan memberitahu sama ada pembayaran telah dijadualkan.</p>
+   <p>Saya telah melampirkan salinan invois untuk rujukan anda.</p>
+   <p>Untuk log masuk ke ${from_company}, kemas kini kaedah pembayaran anda dan cuba pembayaran sekali lagi, sila klik di sini ${invoice_link}</p>
+   <p>Jika anda memerlukan sebarang maklumat lanjut daripada pihak kami, sila maklumkan kepada kami dengan menghantar e-mel kepada accounts@linxio.com</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_SMS:
+  body: 'Invois tertunggak - akaun disekat: ${invoice_id}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_MOBILE:
+  subject: 'Makluman - Invois tertunggak - akaun disekat'
+  body: 'Invois tertunggak - akaun disekat: ${invoice_id}. ${comment}'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_BLOCKED_USER_WEB:
+  subject: 'Makluman - Invois tertunggak - akaun disekat'
+  body: 'Invois tertunggak - akaun disekat: ${invoice_id}. ${comment}'
+
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_EMAIL:
+  subject: 'Tindakan Diperlukan: Percubaan pembayaran gagal untuk ${from_company}'
+  body: '<p>Hai ${full_name},</p>
+   <p>Saya menghubungi anda bagi pihak ${from_company} berkenaan dengan invois berikut:</p>
+   <p>Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$</p>
+   <p>Invois ini perlu dibayar pada ${due_date} dan kaedah pembayaran semasa telah ditolak.</p>
+   <p>Saya telah melampirkan salinan invois untuk rujukan anda.</p>
+   <p>Untuk log masuk ke ${from_company}, kemas kini kaedah pembayaran anda dan cuba pembayaran sekali lagi, sila klik di sini ${invoice_link}</p>
+   <p>Jika anda memerlukan sebarang maklumat lanjut daripada pihak kami, sila maklumkan kepada kami dengan menghantar e-mel kepada accounts@linxio.com</p>'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_SMS:
+  body: 'Tindakan Diperlukan: Percubaan pembayaran gagal untuk ${from_company}'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_MOBILE:
+  subject: 'Tindakan Diperlukan: Percubaan pembayaran gagal untuk ${from_company}'
+  body: 'Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$'
+!php/const App\Entity\Notification\Template::PAYMENT_FAILED_USER_WEB:
+  subject: 'Tindakan Diperlukan: Percubaan pembayaran gagal untuk ${from_company}'
+  body: 'Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$'
+
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_EMAIL:
+  subject: 'Tindakan Diperlukan: akaun ${from_company} disekat sebahagian'
+  body: '<p>Hai ${full_name},</p>
+   ${custom_text}
+   <p>Untuk log masuk ke ${from_company} dan membuat pembayaran, sila klik di sini ${invoice_link}</p>
+   <p>Jika anda memerlukan sebarang maklumat lanjut daripada pihak kami, sila maklumkan kepada kami dengan menghantar e-mel kepada accounts@linxio.com</p>'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_SMS:
+  body: 'Tindakan Diperlukan: akaun ${from_company} disekat sebahagian'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_MOBILE:
+  subject: 'Tindakan Diperlukan: akaun ${from_company} disekat sebahagian'
+  body: 'Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$'
+!php/const App\Entity\Notification\Template::INVOICE_OVERDUE_PARTIALLY_BLOCKED_USER_WEB:
+  subject: 'Tindakan Diperlukan: akaun ${from_company} disekat sebahagian'
+  body: 'Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$'
+
+INVOIS_TERTUTUP_SEPARTINYA_DISEKAT_TIADA_KONTRAK:
+  '<p>Saya menghubungi anda bagi pihak ${from_company} berkenaan dengan invois berikut:</p>
+      <p>Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$</p>
+      <p>Invois ini perlu dibayar pada ${due_date}. Amat dihargai jika anda boleh mengesahkan penerimaan
+      invois ini dan maklumkan sama ada pembayaran telah dijadualkan.</p>
+      <p>Saya telah melampirkan salinan invois untuk rujukan anda.</p>'
+
+INVOIS_TERLEBIHAN_SEPARTI_SEPARUH_KONTRAK_SEKAT:
+  '<p>Selanjutnya kepada surat-menyurat kami sebelum ini, saya menghubungi anda bagi pihak ${from_company} berkenaan dengan
+   berikutan invois tertunggak:</p>
+   ${invoice}
+   <p>Memandangkan kekurangan respons di pihak anda selepas beberapa percubaan untuk menghubungi anda, kami akan bermula sebentar lagi
+   prosiding undang-undang untuk menerima wang yang terhutang kepada ${from_company}.<p>
+   <p>Pembayaran segera akan menyebabkan kami menutup isu ini tanpa memerlukan tindakan undang-undang.</p>
+   <p>Saya telah melampirkan salinan invois untuk rujukan anda.</p>'
+
+INVOICE_OVERDUE_BLOCKED_INVOICE: '<p>Nombor invois ${invoice_id} yang perlu dibayar pada ${due_date} untuk ${total}$</p>'
+
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_EMAIL:
+  subject: 'Kontrak peranti tamat tempoh'
+  body: '<p>Kontrak tamat tempoh untuk ${count} peranti: ${imei_array}.</p>'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_SMS:
+  body: 'Kontrak tamat tempoh untuk ${count} peranti.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_MOBILE:
+  subject: 'Kontrak peranti tamat tempoh'
+  body: 'Kontrak tamat tempoh untuk ${count} peranti.'
+!php/const App\Entity\Notification\Template::DEVICE_CONTRACT_EXPIRED_WEB:
+  subject: 'Kontrak peranti tamat tempoh'
+  body: 'Kontrak tamat tempoh untuk ${count} peranti.'
+
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_WEB:
+  subject: 'Makluman - Jammer'
+  body: 'Jammer bermula pada ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_SMS:
+  body: 'Jammer bermula pada ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_MOBILE:
+  subject: 'Jammer bermula - ${reg_no_or_device}'
+  body: 'Jammer bermula pada ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_JAMMER_STARTED_USER_EMAIL:
+  subject: 'Makluman - Jammer'
+  body: '<h3>Pemberitahuan baharu daripada sistem ${from_company}:</h3>
+           <p>Jammer memulakan ${reg_no_or_device} ${event_time} ${comment}.</p>
+           <br/><p><b>Maklumat terperinci:</b></p>
+           <p>${event_time} - Jammer bermula pada ${reg_no_or_device} dengan pemandu ${driver}.</p>
+           <p>${vehicle_url}</p>
+           <br/><p>${comment}</p>'
+
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_WEB:
+  subject: 'Alerts - Accident'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_SMS:
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_MOBILE:
+  subject: 'Accident happened - ${reg_no_or_device}'
+  body: 'Accident happened on ${reg_no_or_device}. ${event_time} ${comment}'
+!php/const App\Entity\Notification\Template::TRACKER_ACCIDENT_HAPPENED_USER_EMAIL:
+  subject: 'Alerts - Accident'
+  body: '<h3>New notification from the ${from_company} system:</h3>
+          <p>Accident happened ${reg_no_or_device} ${event_time} ${comment}.</p>
+          <br/><p><b>Detailed information:</b></p>
+          <p>${event_time} - Accident happened on ${reg_no_or_device} with driver ${driver}.</p>
+          <p>${vehicle_url}</p>
+          <br/><p>${comment}</p>'
+
+set_as_limit: ditetapkan sebagai had #contoh: suhu > 10 ditetapkan sebagai had
+outside_range: yang berada di luar julat yang ditentukan #example: suhu, yang berada di luar julat yang ditentukan (10, 20)
+device: 'peranti'
+Device: 'Peranti'
+vehicle: 'kenderaan'
+Vehicle: 'Kenderaan'
+with_driver: 'dengan pemandu'
+without_driver: 'tanpa pemandu'
+vehicle_page: 'Halaman kenderaan'
+invoice_page: 'Halaman invois'
+driver_page: 'Halaman pemandu'
+client_page: 'halaman pelanggan'
+form_page: 'Halaman borang'
+document_page: 'Halaman dokumen'
+asset: 'aset'
+driver: 'pemandu'
+note_device_not_installed: 'Nota: peranti ini tidak dipasang ke dalam mana-mana kenderaan.'
+reminder_page: 'Halaman peringatan perkhidmatan'
+repair_page: 'Halaman pembaikan perkhidmatan'
+on: 'pada'
+off: 'mati'
+installed_in: 'dipasang dalam'
+inside_areas: 'Kawasan dalam'
+outside_areas: 'Kawasan luar'
